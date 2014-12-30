@@ -17,4 +17,6 @@
 
 @property (strong, nonatomic) LookForViewController *rootVC;
 @property (nonatomic, strong) BMKMapManager *mapManager;
+@property (strong, nonatomic) UIImageView *splashView;
+
 @end

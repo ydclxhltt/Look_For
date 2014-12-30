@@ -22,15 +22,11 @@
     return self;
 }
 
-- (void)loadView {
-    [super loadView];
-    self.mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_SIZE.width, MAIN_SCREEN_SIZE.height)];
-    [self.view addSubview:self.mapView];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_SIZE.width, MAIN_SCREEN_SIZE.height)];
+    [self.view addSubview:self.mapView];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -59,9 +55,9 @@
 #pragma mark - BMKMapViewDelegate
 
 - (void)mapViewDidFinishLoading:(BMKMapView *)mapView {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"BMKMapView控件初始化完成" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
-    [alert show];
-    alert = nil;
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"BMKMapView控件初始化完成" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
+//    [alert show];
+//    alert = nil;
 }
 
 - (void)mapView:(BMKMapView *)mapView onClickedMapBlank:(CLLocationCoordinate2D)coordinate {

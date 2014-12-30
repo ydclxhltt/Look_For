@@ -48,6 +48,10 @@
 		6BBE08FD1A527C2100FC15C6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBE08F91A527C2100FC15C6 /* OpenGLES.framework */; };
 		6BBE08FE1A527C2100FC15C6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBE08FA1A527C2100FC15C6 /* Security.framework */; };
 		6BBE08FF1A527C2100FC15C6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBE08FB1A527C2100FC15C6 /* SystemConfiguration.framework */; };
+		6BBE09091A52C81100FC15C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBE09051A52C81100FC15C6 /* Default-568h@2x.png */; };
+		6BBE090A1A52C81100FC15C6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBE09061A52C81100FC15C6 /* Default.png */; };
+		6BBE090B1A52C81100FC15C6 /* icare_iphone_lightline.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBE09071A52C81100FC15C6 /* icare_iphone_lightline.png */; };
+		6BBE090C1A52C81100FC15C6 /* icare_iphone_lightpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBE09081A52C81100FC15C6 /* icare_iphone_lightpoint.png */; };
 		6BCB57A31A512AEA00060B31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB57A21A512AEA00060B31 /* Foundation.framework */; };
 		6BCB57A51A512AEA00060B31 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB57A41A512AEA00060B31 /* CoreGraphics.framework */; };
 		6BCB57A71A512AEA00060B31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB57A61A512AEA00060B31 /* UIKit.framework */; };
@@ -209,6 +213,10 @@
 		6BBE08F91A527C2100FC15C6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		6BBE08FA1A527C2100FC15C6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6BBE08FB1A527C2100FC15C6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6BBE09051A52C81100FC15C6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		6BBE09061A52C81100FC15C6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		6BBE09071A52C81100FC15C6 /* icare_iphone_lightline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icare_iphone_lightline.png; sourceTree = "<group>"; };
+		6BBE09081A52C81100FC15C6 /* icare_iphone_lightpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icare_iphone_lightpoint.png; sourceTree = "<group>"; };
 		6BCB579F1A512AEA00060B31 /* LookFor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LookFor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BCB57A21A512AEA00060B31 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6BCB57A41A512AEA00060B31 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -490,6 +498,17 @@
 			path = LookForViewController;
 			sourceTree = "<group>";
 		};
+		6BBE09041A52C71400FC15C6 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				6BBE09051A52C81100FC15C6 /* Default-568h@2x.png */,
+				6BBE09061A52C81100FC15C6 /* Default.png */,
+				6BBE09071A52C81100FC15C6 /* icare_iphone_lightline.png */,
+				6BBE09081A52C81100FC15C6 /* icare_iphone_lightpoint.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		6BCB57961A512AE900060B31 = {
 			isa = PBXGroup;
 			children = (
@@ -548,6 +567,7 @@
 		6BCB57A91A512AEA00060B31 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6BBE09041A52C71400FC15C6 /* images */,
 				6BCB57AA1A512AEA00060B31 /* LookFor-Info.plist */,
 				6BCB57AB1A512AEA00060B31 /* InfoPlist.strings */,
 				6BCB57AE1A512AEA00060B31 /* main.m */,
@@ -652,8 +672,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BBE08F71A527B6400FC15C6 /* mapapi.bundle in Resources */,
+				6BBE09091A52C81100FC15C6 /* Default-568h@2x.png in Resources */,
+				6BBE090B1A52C81100FC15C6 /* icare_iphone_lightline.png in Resources */,
 				6BCB57BB1A512AEA00060B31 /* Images.xcassets in Resources */,
 				6BCB57AD1A512AEA00060B31 /* InfoPlist.strings in Resources */,
+				6BBE090C1A52C81100FC15C6 /* icare_iphone_lightpoint.png in Resources */,
+				6BBE090A1A52C81100FC15C6 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
