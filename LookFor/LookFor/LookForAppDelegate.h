@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BMapKit.h"
 
 @class LookForViewController;
 
-@interface LookForAppDelegate : UIResponder <UIApplicationDelegate>
+@interface LookForAppDelegate : UIResponder <UIApplicationDelegate,BMKGeneralDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) LookForViewController *rootVC;
-
+@property (nonatomic, strong) BMKMapManager *mapManager;
 @end
