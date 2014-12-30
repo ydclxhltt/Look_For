@@ -13,6 +13,18 @@
 #define DBPath [[(NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES)) lastObject]stringByAppendingPathComponent:dataBaseName]
 #define dataBaseName @"LookFordb.sqlite"
 
+
+#define UISCREEN            [[UIScreen mainScreen] bounds]
+#define SCREEN_HEIGHT       (UISCREEN.size.height)
+#define SCREEN_3_5_INCH     (SCREEN_HEIGHT < 568)       // 3.5寸Retina
+#define SCREEN_4_INCH       (SCREEN_HEIGHT == 568)      // 4寸Retina
+#define SCREEN_4_7_INCH     (SCREEN_HEIGHT == 667)      // 4.7寸Retina
+#define SCREEN_5_5_INCH     (SCREEN_HEIGHT >= 736)      // 5.5寸Retina
+
+#define MAIN_SCREEN_SIZE                        [[UIScreen mainScreen]bounds].size
+
+
+
 #define API_HOST                  @"http://118.26.72.210:8481/"
 
 #pragma mark -Notification

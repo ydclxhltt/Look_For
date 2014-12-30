@@ -389,13 +389,6 @@
 			path = FMDB;
 			sourceTree = "<group>";
 		};
-		6BBE08AE1A5255BE00FC15C6 /* LookForViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LookForViewController;
-			sourceTree = "<group>";
-		};
 		6BBE08B31A527A9100FC15C6 /* LookForView */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,6 +483,13 @@
 			path = inc;
 			sourceTree = "<group>";
 		};
+		6BBE09001A528BC400FC15C6 /* LookForViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LookForViewController;
+			sourceTree = "<group>";
+		};
 		6BCB57961A512AE900060B31 = {
 			isa = PBXGroup;
 			children = (
@@ -534,7 +534,7 @@
 			children = (
 				6BBE082B1A524EA800FC15C6 /* LookForLib */,
 				6BBE08B31A527A9100FC15C6 /* LookForView */,
-				6BBE08AE1A5255BE00FC15C6 /* LookForViewController */,
+				6BBE09001A528BC400FC15C6 /* LookForViewController */,
 				6BCB57B11A512AEA00060B31 /* LookForAppDelegate.h */,
 				6BCB57B21A512AEA00060B31 /* LookForAppDelegate.mm */,
 				6BCB57B71A512AEA00060B31 /* LookForViewController.h */,
