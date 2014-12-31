@@ -15,7 +15,7 @@
 {
 
     self.mapManager = [[BMKMapManager alloc]init];
-    BOOL ret = [_mapManager start:@"please enter your key" generalDelegate:self];
+    BOOL ret = [_mapManager start:@"yVYTBThsX0n1xDWjtMqnQz9e" generalDelegate:self];
     
     if (!ret) {
         NSLog(@"manager start failed!");
