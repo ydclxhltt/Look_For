@@ -7,7 +7,7 @@
 //
 
 #import "LookForAppDelegate.h"
-#import "LookForViewController.h"
+#import "LocationServiceViewController.h"
 
 @implementation LookForAppDelegate
 
@@ -26,7 +26,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    self.rootVC = [[LookForViewController alloc] init];
+    self.rootVC = [[LocationServiceViewController alloc] init];
     self.window.rootViewController = self.rootVC;
     
     CGFloat animateHeight = 310;

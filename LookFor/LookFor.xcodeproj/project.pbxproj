@@ -69,6 +69,7 @@
 		6BBE09401A539CF800FC15C6 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE09301A539CF800FC15C6 /* UIImage+MultiFormat.m */; };
 		6BBE09411A539CF800FC15C6 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE09321A539CF800FC15C6 /* UIImage+WebP.m */; };
 		6BBE09421A539CF800FC15C6 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE09341A539CF800FC15C6 /* UIImageView+WebCache.m */; };
+		6BBE09471A53D4FC00FC15C6 /* LocationServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE09461A53D4FC00FC15C6 /* LocationServiceViewController.m */; };
 		6BCB57A31A512AEA00060B31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB57A21A512AEA00060B31 /* Foundation.framework */; };
 		6BCB57A51A512AEA00060B31 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB57A41A512AEA00060B31 /* CoreGraphics.framework */; };
 		6BCB57A71A512AEA00060B31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB57A61A512AEA00060B31 /* UIKit.framework */; };
@@ -269,6 +270,8 @@
 		6BBE09321A539CF800FC15C6 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		6BBE09331A539CF800FC15C6 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		6BBE09341A539CF800FC15C6 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		6BBE09451A53D4FC00FC15C6 /* LocationServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationServiceViewController.h; sourceTree = "<group>"; };
+		6BBE09461A53D4FC00FC15C6 /* LocationServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationServiceViewController.m; sourceTree = "<group>"; };
 		6BCB579F1A512AEA00060B31 /* LookFor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LookFor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BCB57A21A512AEA00060B31 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6BCB57A41A512AEA00060B31 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -551,6 +554,7 @@
 		6BBE09001A528BC400FC15C6 /* LookForViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6BBE09441A53D4FC00FC15C6 /* LBSViewController */,
 				6BBE09131A539C4B00FC15C6 /* BaseViewController */,
 			);
 			path = LookForViewController;
@@ -610,6 +614,15 @@
 				6BBE09341A539CF800FC15C6 /* UIImageView+WebCache.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		6BBE09441A53D4FC00FC15C6 /* LBSViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6BBE09451A53D4FC00FC15C6 /* LocationServiceViewController.h */,
+				6BBE09461A53D4FC00FC15C6 /* LocationServiceViewController.m */,
+			);
+			path = LBSViewController;
 			sourceTree = "<group>";
 		};
 		6BCB57961A512AE900060B31 = {
@@ -799,6 +812,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BBE09471A53D4FC00FC15C6 /* LocationServiceViewController.m in Sources */,
 				6BBE09391A539CF800FC15C6 /* SDWebImageDecoder.m in Sources */,
 				6BBE093C1A539CF800FC15C6 /* SDWebImageManager.m in Sources */,
 				6BBE09111A539C1500FC15C6 /* CommonTool.m in Sources */,

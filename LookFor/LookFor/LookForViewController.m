@@ -26,6 +26,7 @@
 {
     [super viewDidLoad];
     self.mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_SIZE.width, MAIN_SCREEN_SIZE.height)];
+    [_mapView setZoomLevel:11];
 
     [self.view addSubview:self.mapView];
 }
