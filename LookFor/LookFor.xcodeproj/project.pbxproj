@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B64CEDD1A5AADE200C2B98A /* AAShareBubbles.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B64CEDA1A5AADE200C2B98A /* AAShareBubbles.m */; };
+		6B64CEDE1A5AADE200C2B98A /* LookForAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B64CEDC1A5AADE200C2B98A /* LookForAnnotationView.m */; };
+		6B64CEFE1A5BD7E700C2B98A /* LookForRightSlideButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B64CEFD1A5BD7E700C2B98A /* LookForRightSlideButtonView.m */; };
 		6BBE087E1A524EA800FC15C6 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE082E1A524EA800FC15C6 /* DBManager.m */; };
 		6BBE087F1A524EA800FC15C6 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE08311A524EA800FC15C6 /* NSString+MD5Addition.m */; };
 		6BBE08801A524EA800FC15C6 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE08331A524EA800FC15C6 /* UIDevice+IdentifierAddition.m */; };
@@ -96,6 +99,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B64CED91A5AADE200C2B98A /* AAShareBubbles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAShareBubbles.h; sourceTree = "<group>"; };
+		6B64CEDA1A5AADE200C2B98A /* AAShareBubbles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAShareBubbles.m; sourceTree = "<group>"; };
+		6B64CEDB1A5AADE200C2B98A /* LookForAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForAnnotationView.h; sourceTree = "<group>"; };
+		6B64CEDC1A5AADE200C2B98A /* LookForAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForAnnotationView.m; sourceTree = "<group>"; };
+		6B64CEFC1A5BD7E700C2B98A /* LookForRightSlideButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRightSlideButtonView.h; sourceTree = "<group>"; };
+		6B64CEFD1A5BD7E700C2B98A /* LookForRightSlideButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForRightSlideButtonView.m; sourceTree = "<group>"; };
 		6BBE082D1A524EA800FC15C6 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		6BBE082E1A524EA800FC15C6 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		6BBE08301A524EA800FC15C6 /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
@@ -326,6 +335,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B64CED81A5AADE200C2B98A /* AnnotationView */ = {
+			isa = PBXGroup;
+			children = (
+				6B64CED91A5AADE200C2B98A /* AAShareBubbles.h */,
+				6B64CEDA1A5AADE200C2B98A /* AAShareBubbles.m */,
+				6B64CEDB1A5AADE200C2B98A /* LookForAnnotationView.h */,
+				6B64CEDC1A5AADE200C2B98A /* LookForAnnotationView.m */,
+			);
+			path = AnnotationView;
+			sourceTree = "<group>";
+		};
 		6BBE082B1A524EA800FC15C6 /* LookForLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +475,9 @@
 		6BBE08B31A527A9100FC15C6 /* LookForView */ = {
 			isa = PBXGroup;
 			children = (
+				6B64CEFC1A5BD7E700C2B98A /* LookForRightSlideButtonView.h */,
+				6B64CEFD1A5BD7E700C2B98A /* LookForRightSlideButtonView.m */,
+				6B64CED81A5AADE200C2B98A /* AnnotationView */,
 				6BBE090D1A539C1500FC15C6 /* CommonTool.h */,
 				6BBE090E1A539C1500FC15C6 /* CommonTool.m */,
 				6BBE090F1A539C1500FC15C6 /* CreateViewTool.h */,
@@ -816,6 +839,7 @@
 				6BBE09391A539CF800FC15C6 /* SDWebImageDecoder.m in Sources */,
 				6BBE093C1A539CF800FC15C6 /* SDWebImageManager.m in Sources */,
 				6BBE09111A539C1500FC15C6 /* CommonTool.m in Sources */,
+				6B64CEFE1A5BD7E700C2B98A /* LookForRightSlideButtonView.m in Sources */,
 				6BBE08961A524EA800FC15C6 /* AFSecurityPolicy.m in Sources */,
 				6BBE089C1A524EA800FC15C6 /* UIImageView+AFNetworking.m in Sources */,
 				6BBE089D1A524EA800FC15C6 /* FMDatabase.m in Sources */,
@@ -859,7 +883,9 @@
 				6BBE08841A524EA800FC15C6 /* LookForResponse.m in Sources */,
 				6BBE08981A524EA800FC15C6 /* AFURLRequestSerialization.m in Sources */,
 				6BBE08881A524EA800FC15C6 /* LookForIMP.m in Sources */,
+				6B64CEDD1A5AADE200C2B98A /* AAShareBubbles.m in Sources */,
 				6BBE08941A524EA800FC15C6 /* AFHTTPSessionManager.m in Sources */,
+				6B64CEDE1A5AADE200C2B98A /* LookForAnnotationView.m in Sources */,
 				6BBE093E1A539CF800FC15C6 /* UIButton+WebCache.m in Sources */,
 				6BBE093A1A539CF800FC15C6 /* SDWebImageDownloader.m in Sources */,
 				6BBE089F1A524EA800FC15C6 /* FMDatabasePool.m in Sources */,

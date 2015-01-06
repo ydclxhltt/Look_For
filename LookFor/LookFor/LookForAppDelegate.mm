@@ -62,7 +62,7 @@
     [_splashView addSubview:lightpoint];
     
     [_splashView addSubview:lightline];
-    [UIView animateWithDuration:1
+    [UIView animateWithDuration:0.0
                           delay:0.0
                         options:UIViewAnimationOptionAllowAnimatedContent
                      animations:^{
