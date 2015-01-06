@@ -7,7 +7,9 @@
 //
 
 #import "BasicViewController.h"
+#import "BMapKit.h"
 
 @interface LookForRouteSearchViewController : BasicViewController
 
+- (id)initWithStart:(CLLocationCoordinate2D)start withEnd:(CLLocationCoordinate2D)end;
 @end
