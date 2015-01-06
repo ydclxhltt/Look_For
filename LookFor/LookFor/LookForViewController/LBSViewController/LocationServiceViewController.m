@@ -8,8 +8,12 @@
 
 
 #import "LocationServiceViewController.h"
+#import "LookForRightSlideButtonView.h"
 
-@interface LocationServiceViewController ()<BMKLocationServiceDelegate,BMKMapViewDelegate,BMKGeoCodeSearchDelegate>
+@interface LocationServiceViewController ()<BMKLocationServiceDelegate,
+BMKMapViewDelegate,
+BMKGeoCodeSearchDelegate,
+LookForRightSlideButtonViewDelegate>
 {
     BMKLocationService *locationService;
     BMKMapView *mapView;
@@ -22,11 +26,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     [self addMapViewWithFrame:CGRectMake(0, 0, MAIN_SCREEN_SIZE.width, MAIN_SCREEN_SIZE.height) mapType:BMKMapTypeStandard mapZoomLevel:14.0 showUserLocation:YES];
+    
     //添加返回item
     [self addBackItem];
     //test
     [self test];
+    
+    NSMutableArray *imageArray = [[NSMutableArray alloc] init];
+    [imageArray addObject:@"poi_1.png"];
+    [imageArray addObject:@"poi_1.png"];
+    [imageArray addObject:@"poi_1.png"];
+    [imageArray addObject:@"poi_1.png"];
+    [imageArray addObject:@"poi_1.png"];
+    
+    NSMutableArray *titleArrar = [[NSMutableArray alloc] init];
+    [titleArrar addObject:@"111"];
+    [titleArrar addObject:@"222"];
+    [titleArrar addObject:@"333"];
+    [titleArrar addObject:@"444"];
+    [titleArrar addObject:@"555"];
+    
+    LookForRightSlideButtonView *v = [[LookForRightSlideButtonView alloc]initViewWithFrame:CGRectMake(0, self.view.frame.size.height - 100, 50, 50) withInView:self.view withStartImage:@"poi_1.png" withImageArray:imageArray withTitleArray:titleArrar];
+    v.delegate = self;
     // Do any additional setup after loading the view.
 }
 
@@ -57,7 +78,7 @@
 {
    
     [self setLocation];
-   
+   [self addMapViewWithFrame:CGRectMake(0, 0, MAIN_SCREEN_SIZE.width, MAIN_SCREEN_SIZE.height) mapType:BMKMapTypeStandard mapZoomLevel:14.0 showUserLocation:YES];
     [self startLocation];
 }
 
@@ -240,6 +261,11 @@
     {
         geocodesearch = nil;
     }
+}
+
+#pragma mark -LookForRightSlideButtonViewDelegate
+- (void)selectButton:(LookForRightSlideButtonView *)shareBubbles buttonTag:(NSInteger)tag {
+    NSLog(@"11111-==%ld",(long)tag);
 }
 
 /*
