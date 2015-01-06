@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "BMapKit.h"
 
-@class LocationServiceViewController;
 
 @interface LookForAppDelegate : UIResponder <UIApplicationDelegate,BMKGeneralDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) LocationServiceViewController *rootVC;
 @property (nonatomic, strong) BMKMapManager *mapManager;
 @property (strong, nonatomic) UIImageView *splashView;
+@property (nonatomic, retain) UINavigationController *rootNavigation;
+
 
 @end

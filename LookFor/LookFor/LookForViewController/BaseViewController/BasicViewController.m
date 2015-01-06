@@ -32,7 +32,7 @@
     self.navigationController.navigationBar.translucent = YES;
 //    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
 //    self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    
+  //  self.edgesForExtendedLayout = UIRectEdgeNone;
     /*
      *  效果等同IOS7 automaticallyAdjustsScrollViewInsets
      *

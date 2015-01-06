@@ -26,7 +26,7 @@ LookForRightSlideButtonViewDelegate>
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.title = @"lookfor";
     //添加返回item
     [self addBackItem];
     //test
@@ -53,12 +53,14 @@ LookForRightSlideButtonViewDelegate>
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:YES];
+    [mapView viewWillAppear];
     [self setAboutLocationDelegate:self];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [mapView viewWillDisappear];
+
     [self setAboutLocationDelegate:nil];
 }
 

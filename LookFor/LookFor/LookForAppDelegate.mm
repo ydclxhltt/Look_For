@@ -26,8 +26,10 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    self.rootVC = [[LocationServiceViewController alloc] init];
-    self.window.rootViewController = self.rootVC;
+    LocationServiceViewController *rootVC = [[LocationServiceViewController alloc] init];
+    
+    self.rootNavigation = [[UINavigationController alloc] initWithRootViewController:rootVC];
+    self.window.rootViewController = self.rootNavigation;
     
     CGFloat animateHeight = 310;
 

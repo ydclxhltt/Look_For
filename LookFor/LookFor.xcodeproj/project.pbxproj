@@ -11,6 +11,7 @@
 		6B64CEDE1A5AADE200C2B98A /* LookForAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B64CEDC1A5AADE200C2B98A /* LookForAnnotationView.m */; };
 		6B64CEFE1A5BD7E700C2B98A /* LookForRightSlideButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B64CEFD1A5BD7E700C2B98A /* LookForRightSlideButtonView.m */; };
 		6B64CF031A5BEAB100C2B98A /* poi_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B64CF021A5BEAB100C2B98A /* poi_1.png */; };
+		6B64CF091A5C354200C2B98A /* LookForRouteSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B64CF081A5C354200C2B98A /* LookForRouteSearchViewController.m */; };
 		6BBE087E1A524EA800FC15C6 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE082E1A524EA800FC15C6 /* DBManager.m */; };
 		6BBE087F1A524EA800FC15C6 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE08311A524EA800FC15C6 /* NSString+MD5Addition.m */; };
 		6BBE08801A524EA800FC15C6 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE08331A524EA800FC15C6 /* UIDevice+IdentifierAddition.m */; };
@@ -107,6 +108,8 @@
 		6B64CEFC1A5BD7E700C2B98A /* LookForRightSlideButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRightSlideButtonView.h; sourceTree = "<group>"; };
 		6B64CEFD1A5BD7E700C2B98A /* LookForRightSlideButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForRightSlideButtonView.m; sourceTree = "<group>"; };
 		6B64CF021A5BEAB100C2B98A /* poi_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1.png; sourceTree = "<group>"; };
+		6B64CF071A5C354200C2B98A /* LookForRouteSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRouteSearchViewController.h; sourceTree = "<group>"; };
+		6B64CF081A5C354200C2B98A /* LookForRouteSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForRouteSearchViewController.m; sourceTree = "<group>"; };
 		6BBE082D1A524EA800FC15C6 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		6BBE082E1A524EA800FC15C6 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		6BBE08301A524EA800FC15C6 /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
@@ -647,6 +650,8 @@
 			children = (
 				6BBE09451A53D4FC00FC15C6 /* LocationServiceViewController.h */,
 				6BBE09461A53D4FC00FC15C6 /* LocationServiceViewController.m */,
+				6B64CF071A5C354200C2B98A /* LookForRouteSearchViewController.h */,
+				6B64CF081A5C354200C2B98A /* LookForRouteSearchViewController.m */,
 			);
 			path = LBSViewController;
 			sourceTree = "<group>";
@@ -884,6 +889,7 @@
 				6BBE093D1A539CF800FC15C6 /* SDWebImagePrefetcher.m in Sources */,
 				6BBE087E1A524EA800FC15C6 /* DBManager.m in Sources */,
 				6BBE09361A539CF800FC15C6 /* NSData+ImageContentType.m in Sources */,
+				6B64CF091A5C354200C2B98A /* LookForRouteSearchViewController.m in Sources */,
 				6BBE08841A524EA800FC15C6 /* LookForResponse.m in Sources */,
 				6BBE08981A524EA800FC15C6 /* AFURLRequestSerialization.m in Sources */,
 				6BBE08881A524EA800FC15C6 /* LookForIMP.m in Sources */,
