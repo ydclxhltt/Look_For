@@ -32,5 +32,9 @@
 //系统版本
 #define DEVICE_SYSTEM_VERSION  [[[UIDevice currentDevice] systemVersion] floatValue]
 
+//地图bundle
+#define MYBUNDLE_NAME @ "mapapi.bundle"
+#define MYBUNDLE_PATH [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: MYBUNDLE_NAME]
+#define MYBUNDLE [NSBundle bundleWithPath: MYBUNDLE_PATH]
 
 #endif

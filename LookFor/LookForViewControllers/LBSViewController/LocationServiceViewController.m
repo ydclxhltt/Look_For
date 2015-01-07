@@ -9,6 +9,7 @@
 
 #import "LocationServiceViewController.h"
 #import "LookForRightSlideButtonView.h"
+#import "LookForRouteSearchViewController.h"
 
 @interface LocationServiceViewController ()<BMKLocationServiceDelegate,
 BMKMapViewDelegate,
@@ -55,11 +56,14 @@ LookForRightSlideButtonViewDelegate>
 {
     [super viewWillAppear:YES];
     [self setAboutLocationDelegate:self];
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [self setAboutLocationDelegate:nil];
+    
 }
 
 #pragma mark 设置定位/地图代理
@@ -142,7 +146,15 @@ LookForRightSlideButtonViewDelegate>
 #pragma mark -LookForRightSlideButtonViewDelegate
 - (void)selectButton:(LookForRightSlideButtonView *)shareBubbles buttonTag:(NSInteger)tag
 {
-    NSLog(@"11111-==%ld",(long)tag);
+    // NSLog(@"11111-==%ld",(long)tag);
+    CLLocationCoordinate2D star1;
+    star1.latitude = 40.056885;
+    star1.longitude = 116.308150;
+    CLLocationCoordinate2D end1;
+    end1.latitude = 39.912094;
+    end1.longitude = 116.403936;
+    LookForRouteSearchViewController *route = [[LookForRouteSearchViewController alloc] initWithStart:star1 withEnd:end1 withToAddress:@"天安门"];
+    [self.navigationController pushViewController:route animated:YES];
 }
 
 

@@ -25,6 +25,9 @@
 		6BCB57C41A512AEA00060B31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB57A61A512AEA00060B31 /* UIKit.framework */; };
 		6BCB57CC1A512AEA00060B31 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BCB57CA1A512AEA00060B31 /* InfoPlist.strings */; };
 		6BCB57CE1A512AEA00060B31 /* LookForTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCB57CD1A512AEA00060B31 /* LookForTests.m */; };
+		6BD25CC91A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6BD25CC81A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm */; };
+		6BD25CCC1A5D1CA600EFB508 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD25CCB1A5D1CA600EFB508 /* UIImage+Rotate.m */; };
+		6BD25CD71A5D865100EFB508 /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD25CD61A5D865100EFB508 /* RTLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CE33CA081A5C452B0042006D /* LookForAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33C9491A5C452B0042006D /* LookForAppDelegate.m */; };
 		CE33CA091A5C452B0042006D /* AAShareBubbles.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33C94E1A5C452B0042006D /* AAShareBubbles.m */; };
 		CE33CA0A1A5C452B0042006D /* LookForAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33C9501A5C452B0042006D /* LookForAnnotationView.m */; };
@@ -123,6 +126,12 @@
 		6BCB57C91A512AEA00060B31 /* LookForTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LookForTests-Info.plist"; sourceTree = "<group>"; };
 		6BCB57CB1A512AEA00060B31 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6BCB57CD1A512AEA00060B31 /* LookForTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookForTests.m; sourceTree = "<group>"; };
+		6BD25CC71A5D0E1D00EFB508 /* LookForRouteSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRouteSearchViewController.h; sourceTree = "<group>"; };
+		6BD25CC81A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LookForRouteSearchViewController.mm; sourceTree = "<group>"; };
+		6BD25CCA1A5D1CA600EFB508 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		6BD25CCB1A5D1CA600EFB508 /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
+		6BD25CD51A5D865100EFB508 /* RTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLabel.h; sourceTree = "<group>"; };
+		6BD25CD61A5D865100EFB508 /* RTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLabel.m; sourceTree = "<group>"; };
 		CE33C9481A5C452B0042006D /* LookForAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForAppDelegate.h; sourceTree = "<group>"; };
 		CE33C9491A5C452B0042006D /* LookForAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForAppDelegate.m; sourceTree = "<group>"; };
 		CE33C94D1A5C452B0042006D /* AAShareBubbles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAShareBubbles.h; sourceTree = "<group>"; };
@@ -441,6 +450,8 @@
 		CE33C94B1A5C452B0042006D /* LookForCustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				6BD25CD51A5D865100EFB508 /* RTLabel.h */,
+				6BD25CD61A5D865100EFB508 /* RTLabel.m */,
 				CE33C94C1A5C452B0042006D /* AnnotationView */,
 				CE33C9511A5C452B0042006D /* LookForRightSlideButtonView */,
 			);
@@ -450,6 +461,8 @@
 		CE33C94C1A5C452B0042006D /* AnnotationView */ = {
 			isa = PBXGroup;
 			children = (
+				6BD25CCA1A5D1CA600EFB508 /* UIImage+Rotate.h */,
+				6BD25CCB1A5D1CA600EFB508 /* UIImage+Rotate.m */,
 				CE33C94D1A5C452B0042006D /* AAShareBubbles.h */,
 				CE33C94E1A5C452B0042006D /* AAShareBubbles.m */,
 				CE33C94F1A5C452B0042006D /* LookForAnnotationView.h */,
@@ -620,6 +633,8 @@
 		CE33CA031A5C452B0042006D /* LBSViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6BD25CC71A5D0E1D00EFB508 /* LookForRouteSearchViewController.h */,
+				6BD25CC81A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm */,
 				CE33CA041A5C452B0042006D /* LocationServiceViewController.h */,
 				CE33CA051A5C452B0042006D /* LocationServiceViewController.m */,
 			);
@@ -876,8 +891,10 @@
 				CE33CA351A5C452B0042006D /* SDWebImageManager.m in Sources */,
 				CE33CA3D1A5C452B0042006D /* LocationServiceViewController.m in Sources */,
 				CE33CA2E1A5C452B0042006D /* MKAnnotationView+WebCache.m in Sources */,
+				6BD25CC91A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm in Sources */,
 				CE33CB0D1A5C57640042006D /* AFURLSessionManager.m in Sources */,
 				CE33CA2F1A5C452B0042006D /* NSData+ImageContentType.m in Sources */,
+				6BD25CD71A5D865100EFB508 /* RTLabel.m in Sources */,
 				CE33CB0F1A5C57640042006D /* UIImageView+AFNetworking.m in Sources */,
 				CE33CB061A5C57640042006D /* AFHTTPRequestOperationManager.m in Sources */,
 				CE33CAFC1A5C57640042006D /* LooKForDataConvert.m in Sources */,
@@ -895,6 +912,7 @@
 				CE33CAF91A5C57640042006D /* UIDevice+IdentifierAddition.m in Sources */,
 				CE33CB091A5C57640042006D /* AFSecurityPolicy.m in Sources */,
 				CE33CA3C1A5C452B0042006D /* BasicViewController.m in Sources */,
+				6BD25CCC1A5D1CA600EFB508 /* UIImage+Rotate.m in Sources */,
 				CE33CA3E1A5C452B0042006D /* LookForViewController.m in Sources */,
 				CE33CAFF1A5C57640042006D /* LookForUtil.m in Sources */,
 				CE33CA321A5C452B0042006D /* SDWebImageDecoder.m in Sources */,
@@ -995,7 +1013,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1027,7 +1045,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
