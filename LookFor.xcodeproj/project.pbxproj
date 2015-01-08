@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6B64CF031A5BEAB100C2B98A /* poi_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B64CF021A5BEAB100C2B98A /* poi_1.png */; };
+		6BB0EF8B1A5EDC2400DE78D2 /* LookForSafeTravelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB0EF8A1A5EDC2400DE78D2 /* LookForSafeTravelViewController.m */; };
+		6BB0EF8D1A5EE0DB00DE78D2 /* poi_1_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */; };
 		6BBE08AB1A5251CE00FC15C6 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBE08A71A5251CE00FC15C6 /* libsqlite3.0.dylib */; };
 		6BBE08AC1A5251CE00FC15C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBE08A81A5251CE00FC15C6 /* QuartzCore.framework */; };
 		6BBE09091A52C81100FC15C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBE09051A52C81100FC15C6 /* Default-568h@2x.png */; };
@@ -52,7 +54,6 @@
 		CE33CA3B1A5C452B0042006D /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33C9FE1A5C452B0042006D /* UIImageView+WebCache.m */; };
 		CE33CA3C1A5C452B0042006D /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CA021A5C452B0042006D /* BasicViewController.m */; };
 		CE33CA3D1A5C452B0042006D /* LocationServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CA051A5C452B0042006D /* LocationServiceViewController.m */; };
-		CE33CA3E1A5C452B0042006D /* LookForViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CA071A5C452B0042006D /* LookForViewController.m */; };
 		CE33CA411A5C47220042006D /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33CA401A5C47220042006D /* libstdc++.6.dylib */; };
 		CE33CAAE1A5C56E90042006D /* LookFor_Application.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAAD1A5C56E90042006D /* LookFor_Application.m */; };
 		CE33CAF71A5C57640042006D /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAB21A5C57640042006D /* DBManager.m */; };
@@ -99,6 +100,9 @@
 
 /* Begin PBXFileReference section */
 		6B64CF021A5BEAB100C2B98A /* poi_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1.png; sourceTree = "<group>"; };
+		6BB0EF891A5EDC2400DE78D2 /* LookForSafeTravelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForSafeTravelViewController.h; sourceTree = "<group>"; };
+		6BB0EF8A1A5EDC2400DE78D2 /* LookForSafeTravelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForSafeTravelViewController.m; sourceTree = "<group>"; };
+		6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1_up.png; sourceTree = "<group>"; };
 		6BBE08A51A5251CE00FC15C6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		6BBE08A61A5251CE00FC15C6 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		6BBE08A71A5251CE00FC15C6 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -240,8 +244,6 @@
 		CE33CA021A5C452B0042006D /* BasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
 		CE33CA041A5C452B0042006D /* LocationServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationServiceViewController.h; sourceTree = "<group>"; };
 		CE33CA051A5C452B0042006D /* LocationServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationServiceViewController.m; sourceTree = "<group>"; };
-		CE33CA061A5C452B0042006D /* LookForViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForViewController.h; sourceTree = "<group>"; };
-		CE33CA071A5C452B0042006D /* LookForViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForViewController.m; sourceTree = "<group>"; };
 		CE33CA401A5C47220042006D /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		CE33CA431A5C48C40042006D /* CommonHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
 		CE33CA441A5C48C40042006D /* DeviceHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceHeader.h; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 		6BBE09041A52C71400FC15C6 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */,
 				6B64CF021A5BEAB100C2B98A /* poi_1.png */,
 				6BBE09051A52C81100FC15C6 /* Default-568h@2x.png */,
 				6BBE09061A52C81100FC15C6 /* Default.png */,
@@ -615,8 +618,8 @@
 			children = (
 				CE33CA001A5C452B0042006D /* BaseViewController */,
 				CE33CA031A5C452B0042006D /* LBSViewController */,
-				CE33CA061A5C452B0042006D /* LookForViewController.h */,
-				CE33CA071A5C452B0042006D /* LookForViewController.m */,
+				6BB0EF891A5EDC2400DE78D2 /* LookForSafeTravelViewController.h */,
+				6BB0EF8A1A5EDC2400DE78D2 /* LookForSafeTravelViewController.m */,
 			);
 			path = LookForViewControllers;
 			sourceTree = "<group>";
@@ -861,6 +864,7 @@
 				6BCB57BB1A512AEA00060B31 /* Images.xcassets in Resources */,
 				6B64CF031A5BEAB100C2B98A /* poi_1.png in Resources */,
 				6BCB57AD1A512AEA00060B31 /* InfoPlist.strings in Resources */,
+				6BB0EF8D1A5EE0DB00DE78D2 /* poi_1_up.png in Resources */,
 				CE33CA2B1A5C452B0042006D /* mapapi.bundle in Resources */,
 				6BBE090C1A52C81100FC15C6 /* icare_iphone_lightpoint.png in Resources */,
 				6BBE090A1A52C81100FC15C6 /* Default.png in Resources */,
@@ -890,6 +894,7 @@
 				CE33CA2C1A5C452B0042006D /* CommonTool.m in Sources */,
 				CE33CA351A5C452B0042006D /* SDWebImageManager.m in Sources */,
 				CE33CA3D1A5C452B0042006D /* LocationServiceViewController.m in Sources */,
+				6BB0EF8B1A5EDC2400DE78D2 /* LookForSafeTravelViewController.m in Sources */,
 				CE33CA2E1A5C452B0042006D /* MKAnnotationView+WebCache.m in Sources */,
 				6BD25CC91A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm in Sources */,
 				CE33CB0D1A5C57640042006D /* AFURLSessionManager.m in Sources */,
@@ -913,7 +918,6 @@
 				CE33CB091A5C57640042006D /* AFSecurityPolicy.m in Sources */,
 				CE33CA3C1A5C452B0042006D /* BasicViewController.m in Sources */,
 				6BD25CCC1A5D1CA600EFB508 /* UIImage+Rotate.m in Sources */,
-				CE33CA3E1A5C452B0042006D /* LookForViewController.m in Sources */,
 				CE33CAFF1A5C57640042006D /* LookForUtil.m in Sources */,
 				CE33CA321A5C452B0042006D /* SDWebImageDecoder.m in Sources */,
 				CE33CA3B1A5C452B0042006D /* UIImageView+WebCache.m in Sources */,

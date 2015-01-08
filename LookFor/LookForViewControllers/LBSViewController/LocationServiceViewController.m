@@ -10,6 +10,8 @@
 #import "LocationServiceViewController.h"
 #import "LookForRightSlideButtonView.h"
 #import "LookForRouteSearchViewController.h"
+#import "LookForSafeTravelViewController.h"
+
 
 @interface LocationServiceViewController ()<BMKLocationServiceDelegate,
 BMKMapViewDelegate,
@@ -146,15 +148,30 @@ LookForRightSlideButtonViewDelegate>
 #pragma mark -LookForRightSlideButtonViewDelegate
 - (void)selectButton:(LookForRightSlideButtonView *)shareBubbles buttonTag:(NSInteger)tag
 {
-    // NSLog(@"11111-==%ld",(long)tag);
-    CLLocationCoordinate2D star1;
-    star1.latitude = 40.056885;
-    star1.longitude = 116.308150;
-    CLLocationCoordinate2D end1;
-    end1.latitude = 39.912094;
-    end1.longitude = 116.403936;
-    LookForRouteSearchViewController *route = [[LookForRouteSearchViewController alloc] initWithStart:star1 withEnd:end1 withToAddress:@"天安门"];
-    [self.navigationController pushViewController:route animated:YES];
+    switch (tag) {
+        case 0: {
+            CLLocationCoordinate2D star1;
+            star1.latitude = 40.056885;
+            star1.longitude = 116.308150;
+            CLLocationCoordinate2D end1;
+            end1.latitude = 39.912094;
+            end1.longitude = 116.403936;
+            LookForRouteSearchViewController *route = [[LookForRouteSearchViewController alloc] initWithStart:star1 withEnd:end1 withToAddress:@"天安门"];
+            [self.navigationController pushViewController:route animated:YES];
+
+            break;
+        }
+        case 1: {
+            LookForSafeTravelViewController *st = [[LookForSafeTravelViewController alloc] init];
+            
+            [self.navigationController pushViewController:st animated:YES];
+            
+            break;
+        }
+            
+        default:
+            break;
+    }
 }
 
 
