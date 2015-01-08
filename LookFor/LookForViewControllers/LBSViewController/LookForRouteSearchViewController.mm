@@ -286,45 +286,43 @@ typedef enum {
     
     bgView.layer.shadowPath = shadowPath.CGPath;
     [self.footerView addSubview:bgView];
+    [self.view addSubview:self.footerView];
     
-    self.mileageLabel = [[RTLabel alloc] initWithFrame:CGRectMake(LeftSpace, (FooterHeight - LabelH) / 2, MAIN_SCREEN_SIZE.width - 2*LeftSpace, LabelH)];
+    self.mileageLabel = [[RTLabel alloc] initWithFrame: CGRectMake(10,10,200,40)]; //CGRectMake(LeftSpace, (FooterHeight - LabelH) / 2, MAIN_SCREEN_SIZE.width - 2*LeftSpace, LabelH)];
     [self.mileageLabel setTextAlignment:RTTextAlignmentLeft];
-   // self.mileageLabel.font = [UIFont systemFontOfSize:13];
+    self.mileageLabel.font = [UIFont systemFontOfSize:13];
     [self.mileageLabel setParagraphReplacement:@""];
-
-    self.mileageLabel.backgroundColor = [UIColor redColor];
+//
+   self.mileageLabel.backgroundColor = [UIColor clearColor];
     [self.footerView addSubview:self.mileageLabel];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - BackWH, 10, BackWH, BackWH);
+    button.frame = CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - BackWH, 0, BackWH, BackWH);
     [button setImage:[UIImage imageNamed:@"poi_1.png"] forState:UIControlStateNormal];
     [button addTarget:self
                action:@selector(handleCloseFooterView:)
      forControlEvents:UIControlEventTouchUpInside];
     
     [self.footerView addSubview:button];
-    [self.view addSubview:self.footerView];
 }
 
 - (void)setFooterText:(NSInteger)mile withMin:(BMKTime*)time withType:(RouteType)type{
     NSString *message = nil;
     if (type == Walk_type) {
-        message = @"<font face='HelveticaNeue-CondensedBold' size=20 kern=35>KERN</font>";//[NSString stringWithFormat:@"<font size=13>步行<font color=red>%ld</font>米   约%@</font>",mile,[self getTime:time]];
+        message = [NSString stringWithFormat:@"<p><font size=13>步行<font color=red>%ld</font>米   约%@</font></p>",mile,[self getTime:time]];
     } else if (type == Drive_type) {
-        message = [NSString stringWithFormat:@"<font>步行</font><font color=red>%ld</font><font>米</font>   <font>约</font><font color=red>%@</font>",mile,[self getTime:time]];
+        message = [NSString stringWithFormat:@"<p><font>步行</font><font color=red>%ld</font><font>米</font>   <font>约</font><font color=red>%@</font></p>",mile,[self getTime:time]];
 
     } else {
-        message = [NSString stringWithFormat:@"<font>步行</font><font color=red>%ld</font><font>米</font>   <font>约</font><font color=red>%@</font>",mile,[self getTime:time]];
+        message = [NSString stringWithFormat:@"<p><font>步行</font><font color=red>%ld</font><font>米</font>   <font>约</font><font color=red>%@</font></p>",mile,[self getTime:time]];
     }
-   // self.mileageLabel.text = message;
-   // [self.mileageLabel setText:message];
+    self.mileageLabel.text = message;
 }
 
 - (NSString *)getTime:(BMKTime *)time {
-    
-    //    @property (nonatomic) int hours;
-    ///时间段，单位（分）
-   // @property (nonatomic) int minutes;
+    if (time == nil) {
+        return nil;
+    }
     NSString *timeMessage = nil;
     if (time.hours > 0) {
         timeMessage = [NSString stringWithFormat:@"<font color=red>%d</font>小时 <font color=red>%d</font>分钟",time.hours,time.minutes];
