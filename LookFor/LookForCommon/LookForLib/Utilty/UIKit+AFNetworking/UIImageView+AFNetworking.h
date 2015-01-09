@@ -108,31 +108,9 @@
                        failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure;
 
 /**
- Custom loading image local cache
- */
-- (void)setImageWithURLRequestLocalCache:(NSURLRequest *)urlRequest
-                        placeholderImage:(UIImage *)placeholderImage
-                                 success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image))success
-                                 failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure;
-
-/**
  Cancels any executing image operation for the receiver, if one exists.
  */
 - (void)cancelImageRequestOperation;
-
-/**
- Return Image from Cache path
- 
- @param imageName The image name like 20140709123529.jpg.
- */
-- (UIImage *)getCacheImage:(NSString *)imageName;
-/**
- Same image to Cache path
- 
- @param image The UIImage .
- @param imageName The image name like 20140709123529.jpg.
- */
-- (BOOL) saveCacheImage:(UIImage *)image imageName:(NSString *)imageName;
 
 @end
 
@@ -141,7 +119,7 @@
 /**
  The `AFImageCache` protocol is adopted by an object used to cache images loaded by the AFNetworking category on `UIImageView`.
  */
-@protocol AFImageCache
+@protocol AFImageCache <NSObject>
 
 /**
  Returns a cached image for the specififed request, if available.

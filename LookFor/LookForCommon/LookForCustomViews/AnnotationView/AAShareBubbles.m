@@ -218,7 +218,7 @@
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:12];
     label.textColor = [UIColor whiteColor];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     label.text = title;
     [button addSubview:label];
     [circle addSubview:button];

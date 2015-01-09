@@ -32,7 +32,7 @@ typedef enum
 	NSMutableArray *_textComponents;
 	CGSize _optimumSize;
 	CGFloat _lineSpacing;
-	int currentSelectedButtonComponentIndex;
+	NSInteger currentSelectedButtonComponentIndex;
 	NSDictionary *linkAttributes;
     NSDictionary *selectedLinkAttributes;
 	id<RTLabelDelegate> delegate;
