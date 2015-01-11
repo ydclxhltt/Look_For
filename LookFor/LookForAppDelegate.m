@@ -8,6 +8,7 @@
 
 #import "LookForAppDelegate.h"
 #import "LocationServiceViewController.h"
+#import "LookForGuideHelpViewController.h"
 
 @interface LookForAppDelegate()<BMKGeneralDelegate>
 {
@@ -40,10 +41,17 @@
     self.tokenString = @"";
     
     //添加主视图
-    [self addMainView];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![[defaults objectForKey:@"FirstLogion"] boolValue]) {
+        [defaults setObject:[NSNumber numberWithBool:YES] forKey:@"FirstLogion"];
+        LookForGuideHelpViewController *help = [[LookForGuideHelpViewController alloc] init];
+        self.window.rootViewController =  help;
+    } else {
+        [self addMainView];
+    }
     
     //添加启动页
-    [self addSplashView];
+   // [self addSplashView];
     
     return YES;
 }

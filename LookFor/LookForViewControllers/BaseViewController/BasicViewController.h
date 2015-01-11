@@ -22,6 +22,7 @@ typedef enum : NSUInteger
 
 #import <UIKit/UIKit.h>
 #import "CreateViewTool.h"
+#import "LookForAppDelegate.h"
 //#import "AppDelegate.h"
 //#import "XSH_Application.h"
 //#import "RequestTool.h"

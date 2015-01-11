@@ -15,4 +15,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (void)addMainView;
+
 @end
+
+#define APP_DELEGATE ((LookForAppDelegate *)[UIApplication sharedApplication].delegate)
