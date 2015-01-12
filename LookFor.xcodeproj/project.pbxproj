@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B64CF031A5BEAB100C2B98A /* poi_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B64CF021A5BEAB100C2B98A /* poi_1.png */; };
-		6BA76B8A1A62ADF300C3AEE6 /* LookForPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA76B891A62ADF300C3AEE6 /* LookForPageControl.m */; };
+		6BA177551A641E63005E83E4 /* LookForRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA177541A641E63005E83E4 /* LookForRegisterViewController.m */; };
 		6BA76B8E1A62AE6900C3AEE6 /* LookForGuideHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA76B8D1A62AE6900C3AEE6 /* LookForGuideHelpViewController.m */; };
 		6BA76B9D1A62AFD100C3AEE6 /* dot_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA76B8F1A62AFD100C3AEE6 /* dot_normal.png */; };
 		6BA76B9E1A62AFD100C3AEE6 /* dot_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA76B901A62AFD100C3AEE6 /* dot_normal@2x.png */; };
@@ -26,6 +26,9 @@
 		6BA76BAA1A62AFD100C3AEE6 /* start320_05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BA76B9C1A62AFD100C3AEE6 /* start320_05.jpg */; };
 		6BB0EF8B1A5EDC2400DE78D2 /* LookForSafeTravelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB0EF8A1A5EDC2400DE78D2 /* LookForSafeTravelViewController.m */; };
 		6BB0EF8D1A5EE0DB00DE78D2 /* poi_1_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */; };
+		6BB662991A639C99003350E7 /* LookForPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB662981A639C99003350E7 /* LookForPageControl.m */; };
+		6BB6629C1A639CB5003350E7 /* LookForLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB6629B1A639CB5003350E7 /* LookForLoginView.m */; };
+		6BB6629F1A63B19C003350E7 /* LookForLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB6629E1A63B19C003350E7 /* LookForLoginViewController.m */; };
 		6BBE08AB1A5251CE00FC15C6 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBE08A71A5251CE00FC15C6 /* libsqlite3.0.dylib */; };
 		6BBE08AC1A5251CE00FC15C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBE08A81A5251CE00FC15C6 /* QuartzCore.framework */; };
 		6BBE09091A52C81100FC15C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBE09051A52C81100FC15C6 /* Default-568h@2x.png */; };
@@ -125,8 +128,8 @@
 
 /* Begin PBXFileReference section */
 		6B64CF021A5BEAB100C2B98A /* poi_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1.png; sourceTree = "<group>"; };
-		6BA76B881A62ADF300C3AEE6 /* LookForPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForPageControl.h; sourceTree = "<group>"; };
-		6BA76B891A62ADF300C3AEE6 /* LookForPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForPageControl.m; sourceTree = "<group>"; };
+		6BA177531A641E63005E83E4 /* LookForRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRegisterViewController.h; sourceTree = "<group>"; };
+		6BA177541A641E63005E83E4 /* LookForRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForRegisterViewController.m; sourceTree = "<group>"; };
 		6BA76B8C1A62AE6900C3AEE6 /* LookForGuideHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForGuideHelpViewController.h; sourceTree = "<group>"; };
 		6BA76B8D1A62AE6900C3AEE6 /* LookForGuideHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForGuideHelpViewController.m; sourceTree = "<group>"; };
 		6BA76B8F1A62AFD100C3AEE6 /* dot_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dot_normal.png; sourceTree = "<group>"; };
@@ -146,6 +149,12 @@
 		6BB0EF891A5EDC2400DE78D2 /* LookForSafeTravelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForSafeTravelViewController.h; sourceTree = "<group>"; };
 		6BB0EF8A1A5EDC2400DE78D2 /* LookForSafeTravelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForSafeTravelViewController.m; sourceTree = "<group>"; };
 		6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1_up.png; sourceTree = "<group>"; };
+		6BB662971A639C99003350E7 /* LookForPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForPageControl.h; sourceTree = "<group>"; };
+		6BB662981A639C99003350E7 /* LookForPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForPageControl.m; sourceTree = "<group>"; };
+		6BB6629A1A639CB5003350E7 /* LookForLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForLoginView.h; sourceTree = "<group>"; };
+		6BB6629B1A639CB5003350E7 /* LookForLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForLoginView.m; sourceTree = "<group>"; };
+		6BB6629D1A63B19C003350E7 /* LookForLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForLoginViewController.h; sourceTree = "<group>"; };
+		6BB6629E1A63B19C003350E7 /* LookForLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForLoginViewController.m; sourceTree = "<group>"; };
 		6BBE08A51A5251CE00FC15C6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		6BBE08A61A5251CE00FC15C6 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		6BBE08A71A5251CE00FC15C6 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -411,8 +420,23 @@
 			children = (
 				6BA76B8C1A62AE6900C3AEE6 /* LookForGuideHelpViewController.h */,
 				6BA76B8D1A62AE6900C3AEE6 /* LookForGuideHelpViewController.m */,
+				6BB6629D1A63B19C003350E7 /* LookForLoginViewController.h */,
+				6BB6629E1A63B19C003350E7 /* LookForLoginViewController.m */,
+				6BA177531A641E63005E83E4 /* LookForRegisterViewController.h */,
+				6BA177541A641E63005E83E4 /* LookForRegisterViewController.m */,
 			);
 			path = UserViewController;
+			sourceTree = "<group>";
+		};
+		6BB662961A639C99003350E7 /* UserView */ = {
+			isa = PBXGroup;
+			children = (
+				6BB662971A639C99003350E7 /* LookForPageControl.h */,
+				6BB662981A639C99003350E7 /* LookForPageControl.m */,
+				6BB6629A1A639CB5003350E7 /* LookForLoginView.h */,
+				6BB6629B1A639CB5003350E7 /* LookForLoginView.m */,
+			);
+			path = UserView;
 			sourceTree = "<group>";
 		};
 		6BBE09041A52C71400FC15C6 /* images */ = {
@@ -571,8 +595,7 @@
 		CE33C94B1A5C452B0042006D /* LookForCustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				6BA76B881A62ADF300C3AEE6 /* LookForPageControl.h */,
-				6BA76B891A62ADF300C3AEE6 /* LookForPageControl.m */,
+				6BB662961A639C99003350E7 /* UserView */,
 				6BEDC7381A5FD33100B0C595 /* TableViewCell */,
 				6BD25CD51A5D865100EFB508 /* RTLabel.h */,
 				6BD25CD61A5D865100EFB508 /* RTLabel.m */,
@@ -1042,11 +1065,14 @@
 				6BD25CD71A5D865100EFB508 /* RTLabel.m in Sources */,
 				CE33CB061A5C57640042006D /* AFHTTPRequestOperationManager.m in Sources */,
 				CE33CAFC1A5C57640042006D /* LooKForDataConvert.m in Sources */,
+				6BB662991A639C99003350E7 /* LookForPageControl.m in Sources */,
 				CE33CB0E1A5C57640042006D /* NSString+MD5.m in Sources */,
 				CE33CA341A5C452B0042006D /* SDWebImageDownloaderOperation.m in Sources */,
 				CE33CB081A5C57640042006D /* AFNetworkReachabilityManager.m in Sources */,
 				CE33CA3A1A5C452B0042006D /* UIImage+WebP.m in Sources */,
 				CE33CB051A5C57640042006D /* AFHTTPRequestOperation.m in Sources */,
+				6BB6629C1A639CB5003350E7 /* LookForLoginView.m in Sources */,
+				6BA177551A641E63005E83E4 /* LookForRegisterViewController.m in Sources */,
 				CE33CB141A5C57640042006D /* FMResultSet.m in Sources */,
 				CE33CA331A5C452B0042006D /* SDWebImageDownloader.m in Sources */,
 				CE33CAFA1A5C57640042006D /* LookForConfig.m in Sources */,
@@ -1067,6 +1093,7 @@
 				6BCB57AF1A512AEA00060B31 /* main.m in Sources */,
 				CE33CA361A5C452B0042006D /* SDWebImagePrefetcher.m in Sources */,
 				CE33CAFD1A5C57640042006D /* LookForResponse.m in Sources */,
+				6BB6629F1A63B19C003350E7 /* LookForLoginViewController.m in Sources */,
 				6BEDC7521A5FD35F00B0C595 /* UIImageView+AFNetworking.m in Sources */,
 				CE33CA0B1A5C452B0042006D /* LookForRightSlideButtonView.m in Sources */,
 				CE33CA381A5C452B0042006D /* UIImage+GIF.m in Sources */,
@@ -1081,7 +1108,6 @@
 				CE33CB041A5C57640042006D /* LookForServiceSchedular.m in Sources */,
 				CE33CB011A5C57640042006D /* LookForIMP.m in Sources */,
 				6BEDC7551A5FD35F00B0C595 /* UIWebView+AFNetworking.m in Sources */,
-				6BA76B8A1A62ADF300C3AEE6 /* LookForPageControl.m in Sources */,
 				CE33CB111A5C57640042006D /* FMDatabaseAdditions.m in Sources */,
 				CE33CB0B1A5C57640042006D /* AFURLRequestSerialization.m in Sources */,
 				CE33CB121A5C57640042006D /* FMDatabasePool.m in Sources */,
