@@ -9,6 +9,8 @@
 #import "LookForAppDelegate.h"
 #import "LocationServiceViewController.h"
 #import "LookForGuideHelpViewController.h"
+#import "LookForLoginViewController.h"
+
 
 @interface LookForAppDelegate()<BMKGeneralDelegate>
 {
@@ -47,7 +49,11 @@
         LookForGuideHelpViewController *help = [[LookForGuideHelpViewController alloc] init];
         self.window.rootViewController =  help;
     } else {
-        [self addMainView];
+        LookForLoginViewController *vc = [[LookForLoginViewController alloc] init];
+        rootNavVC = [[UINavigationController alloc] initWithRootViewController:vc];
+        self.window.rootViewController = rootNavVC;
+
+        //[self addMainView];
     }
     
     //添加启动页

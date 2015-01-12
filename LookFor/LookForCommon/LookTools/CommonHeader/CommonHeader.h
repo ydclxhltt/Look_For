@@ -43,7 +43,7 @@
 //tabbar背景颜色
 #define  TABBAR_BG_COLOR            RGB(12.0,97.0,152.0)
 
-
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 
 
 
