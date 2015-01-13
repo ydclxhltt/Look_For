@@ -11,7 +11,8 @@
 #import "LookForRightSlideButtonView.h"
 #import "LookForRouteSearchViewController.h"
 #import "LookForSafeTravelViewController.h"
-
+#import "LookForSelectFriendViewController.h"
+#import "LookForCallTogetherViewController.h"
 
 @interface LocationServiceViewController ()<BMKLocationServiceDelegate,
 BMKMapViewDelegate,
@@ -168,6 +169,17 @@ LookForRightSlideButtonViewDelegate>
             
             break;
         }
+        case 2:{
+            LookForSelectFriendViewController *sf = [[LookForSelectFriendViewController alloc] init];
+            [self.navigationController pushViewController:sf animated:YES];
+            break;
+        }
+        case 3:{
+            LookForCallTogetherViewController *ct = [[LookForCallTogetherViewController alloc] init];
+            [self.navigationController pushViewController:ct animated:YES];
+            break;
+        }
+            
             
         default:
             break;

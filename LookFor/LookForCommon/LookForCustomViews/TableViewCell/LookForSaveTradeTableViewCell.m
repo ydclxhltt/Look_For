@@ -13,11 +13,17 @@
 #define MoreImageWH     15
 #define LeftSpace       15
 
+#define RightImageWH    30
+
 @interface LookForSaveTradeTableViewCell ()
 
 @property (nonatomic, strong) UIImageView   *headImageView;
 @property (nonatomic, strong) UILabel       *detailLabel;
 @property (nonatomic, strong) UIImageView   *moreImage;
+
+//针对右侧显示内容和图片
+@property (nonatomic, strong) UILabel *rightLabel;
+@property (nonatomic, strong) UIImageView *rightImageView;
 @end
 
 @implementation LookForSaveTradeTableViewCell
@@ -33,15 +39,31 @@
                                                                         (self.frame.size.height - LabelH) / 2,
                                                                         (MAIN_SCREEN_SIZE.width - (self.headImageView.frame.origin.x + HeadImageWH + LeftSpace / 2) - LeftSpace - MoreImageWH),
                                                                         LabelH)];
-        self.detailLabel.font = [UIFont systemFontOfSize:13];
+        self.detailLabel.font = [UIFont systemFontOfSize:12];
         self.detailLabel.textColor = [UIColor blackColor];
         self.detailLabel.textAlignment = NSTextAlignmentLeft;
         self.detailLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:self.detailLabel];
         
+        self.rightLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        self.rightLabel.font = [UIFont systemFontOfSize:12];
+        self.rightLabel.textColor = [UIColor blackColor];
+        self.rightLabel.textAlignment = NSTextAlignmentRight;
+        self.rightLabel.backgroundColor = [UIColor clearColor];
+        self.rightLabel.hidden = YES;
+        [self addSubview:self.rightLabel];
+        
+        self.rightImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        self.rightImageView.hidden = YES;
+        [self addSubview:self.rightImageView];
+        
         self.moreImage = [[UIImageView alloc] initWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - MoreImageWH,  (self.frame.size.height - MoreImageWH) / 2, MoreImageWH, MoreImageWH)];
         self.moreImage.image = [UIImage imageNamed:@"poi_1.png"];
         [self addSubview:self.moreImage];
+        
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];
+        line.backgroundColor = SeparatorLineColor;
+        [self addSubview:line];
     }
     return self;
 }
@@ -60,6 +82,25 @@
     }
 }
 
+- (void)setRightText:(NSString *)text withColor:(UIColor *)color{
+    CGSize size = [LookForUtil stringSizeWithFont:[UIFont systemFontOfSize:12] withSize:CGSizeMake(999, 9999) withString:text];
+    self.rightLabel.hidden = NO;
+    self.rightLabel.text = text;
+    self.rightLabel.textColor = color;
+    self.rightLabel.frame = CGRectMake(self.moreImage.frame.origin.x - size.width - 5, (self.frame.size.height - LabelH) / 2, size.width, LabelH);
+    self.rightImageView.frame = CGRectMake(self.rightLabel.frame.origin.x - RightImageWH, (self.frame.size.height - RightImageWH) / 2, RightImageWH, RightImageWH);
+}
+
+- (void)setRightImage:(UIImage *)image {
+    if (image == nil) {
+        self.rightImageView.hidden = YES;
+        return;
+    }
+    self.rightImageView.hidden = NO;
+    
+    self.rightImageView.frame = CGRectMake(self.rightLabel.frame.origin.x - RightImageWH, (self.frame.size.height - RightImageWH) / 2, RightImageWH, RightImageWH);
+    self.rightImageView.image = image;
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

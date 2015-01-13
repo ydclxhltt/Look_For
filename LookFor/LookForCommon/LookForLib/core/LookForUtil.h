@@ -28,4 +28,6 @@
 + (NSString*)LookForGetDeviceId;
 + (BOOL)isRelogin;
 + (void)LookForAlertViewIsOk:(NSString*)text;
++ (CGSize)stringSizeWithFont:(UIFont*)font withSize:(CGSize)size withString:(NSString *)string;
+
 @end

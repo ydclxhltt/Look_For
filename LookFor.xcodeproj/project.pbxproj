@@ -46,6 +46,10 @@
 		6BCB57C41A512AEA00060B31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB57A61A512AEA00060B31 /* UIKit.framework */; };
 		6BCB57CC1A512AEA00060B31 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BCB57CA1A512AEA00060B31 /* InfoPlist.strings */; };
 		6BCB57CE1A512AEA00060B31 /* LookForTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCB57CD1A512AEA00060B31 /* LookForTests.m */; };
+		6BD11FE81A64BE8300C860F1 /* LookForSelectFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD11FE71A64BE8300C860F1 /* LookForSelectFriendTableViewCell.m */; };
+		6BD11FEB1A64C85800C860F1 /* LookForSelectFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD11FEA1A64C85800C860F1 /* LookForSelectFriendViewController.m */; };
+		6BD11FEF1A64ED1D00C860F1 /* LookForCallTogetherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD11FEE1A64ED1D00C860F1 /* LookForCallTogetherViewController.m */; };
+		6BD11FF21A64ED3800C860F1 /* LookForCallTogetherNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD11FF11A64ED3800C860F1 /* LookForCallTogetherNameViewController.m */; };
 		6BD25CC91A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6BD25CC81A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm */; };
 		6BD25CCC1A5D1CA600EFB508 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD25CCB1A5D1CA600EFB508 /* UIImage+Rotate.m */; };
 		6BD25CD71A5D865100EFB508 /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD25CD61A5D865100EFB508 /* RTLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -182,6 +186,14 @@
 		6BCB57C91A512AEA00060B31 /* LookForTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LookForTests-Info.plist"; sourceTree = "<group>"; };
 		6BCB57CB1A512AEA00060B31 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6BCB57CD1A512AEA00060B31 /* LookForTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookForTests.m; sourceTree = "<group>"; };
+		6BD11FE61A64BE8300C860F1 /* LookForSelectFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForSelectFriendTableViewCell.h; sourceTree = "<group>"; };
+		6BD11FE71A64BE8300C860F1 /* LookForSelectFriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForSelectFriendTableViewCell.m; sourceTree = "<group>"; };
+		6BD11FE91A64C85800C860F1 /* LookForSelectFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForSelectFriendViewController.h; sourceTree = "<group>"; };
+		6BD11FEA1A64C85800C860F1 /* LookForSelectFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForSelectFriendViewController.m; sourceTree = "<group>"; };
+		6BD11FED1A64ED1D00C860F1 /* LookForCallTogetherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForCallTogetherViewController.h; sourceTree = "<group>"; };
+		6BD11FEE1A64ED1D00C860F1 /* LookForCallTogetherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForCallTogetherViewController.m; sourceTree = "<group>"; };
+		6BD11FF01A64ED3800C860F1 /* LookForCallTogetherNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForCallTogetherNameViewController.h; sourceTree = "<group>"; };
+		6BD11FF11A64ED3800C860F1 /* LookForCallTogetherNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForCallTogetherNameViewController.m; sourceTree = "<group>"; };
 		6BD25CC71A5D0E1D00EFB508 /* LookForRouteSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRouteSearchViewController.h; sourceTree = "<group>"; };
 		6BD25CC81A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LookForRouteSearchViewController.mm; sourceTree = "<group>"; };
 		6BD25CCA1A5D1CA600EFB508 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
@@ -549,6 +561,35 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6BD11FE41A64BD2800C860F1 /* FriendViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6BD11FE91A64C85800C860F1 /* LookForSelectFriendViewController.h */,
+				6BD11FEA1A64C85800C860F1 /* LookForSelectFriendViewController.m */,
+			);
+			path = FriendViewController;
+			sourceTree = "<group>";
+		};
+		6BD11FE51A64BD5A00C860F1 /* FriendView */ = {
+			isa = PBXGroup;
+			children = (
+				6BD11FE61A64BE8300C860F1 /* LookForSelectFriendTableViewCell.h */,
+				6BD11FE71A64BE8300C860F1 /* LookForSelectFriendTableViewCell.m */,
+			);
+			path = FriendView;
+			sourceTree = "<group>";
+		};
+		6BD11FEC1A64ECEA00C860F1 /* CallTogether */ = {
+			isa = PBXGroup;
+			children = (
+				6BD11FED1A64ED1D00C860F1 /* LookForCallTogetherViewController.h */,
+				6BD11FEE1A64ED1D00C860F1 /* LookForCallTogetherViewController.m */,
+				6BD11FF01A64ED3800C860F1 /* LookForCallTogetherNameViewController.h */,
+				6BD11FF11A64ED3800C860F1 /* LookForCallTogetherNameViewController.m */,
+			);
+			path = CallTogether;
+			sourceTree = "<group>";
+		};
 		6BEDC7381A5FD33100B0C595 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -595,6 +636,7 @@
 		CE33C94B1A5C452B0042006D /* LookForCustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				6BD11FE51A64BD5A00C860F1 /* FriendView */,
 				6BB662961A639C99003350E7 /* UserView */,
 				6BEDC7381A5FD33100B0C595 /* TableViewCell */,
 				6BD25CD51A5D865100EFB508 /* RTLabel.h */,
@@ -760,6 +802,8 @@
 		CE33C9FF1A5C452B0042006D /* LookForViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6BD11FEC1A64ECEA00C860F1 /* CallTogether */,
+				6BD11FE41A64BD2800C860F1 /* FriendViewController */,
 				6BA76B8B1A62AE6900C3AEE6 /* UserViewController */,
 				CE33CA001A5C452B0042006D /* BaseViewController */,
 				CE33CA031A5C452B0042006D /* LBSViewController */,
@@ -1059,6 +1103,7 @@
 				CE33CA2E1A5C452B0042006D /* MKAnnotationView+WebCache.m in Sources */,
 				6BD25CC91A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm in Sources */,
 				CE33CB0D1A5C57640042006D /* AFURLSessionManager.m in Sources */,
+				6BD11FEF1A64ED1D00C860F1 /* LookForCallTogetherViewController.m in Sources */,
 				CE33CA2F1A5C452B0042006D /* NSData+ImageContentType.m in Sources */,
 				6BEDC74F1A5FD35F00B0C595 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				6BEDC7501A5FD35F00B0C595 /* UIAlertView+AFNetworking.m in Sources */,
@@ -1082,6 +1127,7 @@
 				CE33CAF91A5C57640042006D /* UIDevice+IdentifierAddition.m in Sources */,
 				CE33CB091A5C57640042006D /* AFSecurityPolicy.m in Sources */,
 				CE33CA3C1A5C452B0042006D /* BasicViewController.m in Sources */,
+				6BD11FE81A64BE8300C860F1 /* LookForSelectFriendTableViewCell.m in Sources */,
 				6BD25CCC1A5D1CA600EFB508 /* UIImage+Rotate.m in Sources */,
 				CE33CAFF1A5C57640042006D /* LookForUtil.m in Sources */,
 				6BEDC75E1A5FE0E000B0C595 /* AFDownloadRequestOperation.m in Sources */,
@@ -1116,6 +1162,8 @@
 				CE33CB001A5C57640042006D /* LookForContentModel.m in Sources */,
 				6BEDC7541A5FD35F00B0C595 /* UIRefreshControl+AFNetworking.m in Sources */,
 				6BEDC73B1A5FD33100B0C595 /* LookForSaveTradeTableViewCell.m in Sources */,
+				6BD11FF21A64ED3800C860F1 /* LookForCallTogetherNameViewController.m in Sources */,
+				6BD11FEB1A64C85800C860F1 /* LookForSelectFriendViewController.m in Sources */,
 				CE33CB131A5C57640042006D /* FMDatabaseQueue.m in Sources */,
 				6BEDC7531A5FD35F00B0C595 /* UIProgressView+AFNetworking.m in Sources */,
 			);

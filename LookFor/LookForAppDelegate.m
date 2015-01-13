@@ -49,11 +49,11 @@
         LookForGuideHelpViewController *help = [[LookForGuideHelpViewController alloc] init];
         self.window.rootViewController =  help;
     } else {
-        LookForLoginViewController *vc = [[LookForLoginViewController alloc] init];
-        rootNavVC = [[UINavigationController alloc] initWithRootViewController:vc];
-        self.window.rootViewController = rootNavVC;
+//        LookForLoginViewController *vc = [[LookForLoginViewController alloc] init];
+//        rootNavVC = [[UINavigationController alloc] initWithRootViewController:vc];
+//        self.window.rootViewController = rootNavVC;
 
-        //[self addMainView];
+        [self addMainView];
     }
     
     //添加启动页

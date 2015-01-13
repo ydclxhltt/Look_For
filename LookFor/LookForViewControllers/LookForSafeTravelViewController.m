@@ -146,7 +146,8 @@ UITableViewDelegate>
     self.messageTableView.dataSource = self;
     self.messageTableView.delegate = self;
     self.messageTableView.backgroundColor = [UIColor whiteColor];
-    self.messageTableView.separatorColor = [UIColor grayColor];// UIColorFromRGB(0xcccccc);
+    self.messageTableView.separatorColor = [UIColor clearColor];// UIColorFromRGB(0xcccccc);
+    self.messageTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.messageTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.messageTableView.showsVerticalScrollIndicator = YES;
     [self.messageView addSubview:self.messageTableView];
@@ -346,7 +347,7 @@ UITableViewDelegate>
             cell.detailText = self.toAddressStr;
             [cell setHeadImageHighlighted:YES];
         } else {
-          cell.detailText = @"到达的目的地";
+            cell.detailText = @"到达的目的地";
             [cell setHeadImageHighlighted:NO];
         }
     } else {

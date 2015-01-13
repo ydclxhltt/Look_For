@@ -126,6 +126,12 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:text delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
 }
+
++ (CGSize)stringSizeWithFont:(UIFont*)font withSize:(CGSize)size withString:(NSString *)string {
+    return [string sizeWithFont:font constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
+}
+
+
 /*
 + (NSString*)LookForGetDeviceId
 {
