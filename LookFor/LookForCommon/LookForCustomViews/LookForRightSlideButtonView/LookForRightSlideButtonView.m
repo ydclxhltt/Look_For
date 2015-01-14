@@ -105,20 +105,15 @@
 
 - (void)handleStartClick:(UIButton *)sender
 {
-    if (!self.isAnimating && !self.buttonsShow)
-    {
-        [self showButton];
-        self.buttonsShow = YES;
-    }
-    else if (!self.isAnimating && self.buttonsShow)
-    {
-        [self hiddenButton];
-        self.buttonsShow = NO;
-    }
+    if (!self.isAnimating)
+        self.buttonsShow = (!self.buttonsShow) ? YES : NO;
     else
-    {
         return;
-    }
+    
+    if (self.buttonsShow)
+        [self showButton];
+    else
+        [self hiddenButton];
     
     float angle = (self.buttonsShow) ? M_PI/4 : 0.0;
     
@@ -128,10 +123,7 @@
     }
     completion:^(BOOL finish)
     {
-        if (self.buttonsShow)
-            [self showButton];
-        else
-            [self hiddenButton];
+        
     }];
 }
 
