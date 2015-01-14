@@ -121,7 +121,7 @@
 		CE33CAFD1A5C57640042006D /* LookForResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CABF1A5C57640042006D /* LookForResponse.m */; };
 		CE33CAFE1A5C57640042006D /* LookForResponseCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAC11A5C57640042006D /* LookForResponseCenter.m */; };
 		CE33CAFF1A5C57640042006D /* LookForUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAC31A5C57640042006D /* LookForUtil.m */; };
-		CE33CB001A5C57640042006D /* LookForContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAC61A5C57640042006D /* LookForContentModel.m */; };
+		CE33CB001A5C57640042006D /* LookForObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAC61A5C57640042006D /* LookForObjectModel.m */; };
 		CE33CB011A5C57640042006D /* LookForIMP.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAC91A5C57640042006D /* LookForIMP.m */; };
 		CE33CB021A5C57640042006D /* LookForBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CACD1A5C57640042006D /* LookForBaseService.m */; };
 		CE33CB031A5C57640042006D /* LookForLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CACF1A5C57640042006D /* LookForLoginService.m */; };
@@ -402,8 +402,8 @@
 		CE33CAC11A5C57640042006D /* LookForResponseCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForResponseCenter.m; sourceTree = "<group>"; };
 		CE33CAC21A5C57640042006D /* LookForUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForUtil.h; sourceTree = "<group>"; };
 		CE33CAC31A5C57640042006D /* LookForUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForUtil.m; sourceTree = "<group>"; };
-		CE33CAC51A5C57640042006D /* LookForContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForContentModel.h; sourceTree = "<group>"; };
-		CE33CAC61A5C57640042006D /* LookForContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForContentModel.m; sourceTree = "<group>"; };
+		CE33CAC51A5C57640042006D /* LookForObjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForObjectModel.h; sourceTree = "<group>"; };
+		CE33CAC61A5C57640042006D /* LookForObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForObjectModel.m; sourceTree = "<group>"; };
 		CE33CAC71A5C57640042006D /* LookForCoreDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForCoreDefs.h; sourceTree = "<group>"; };
 		CE33CAC81A5C57640042006D /* LookForIMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForIMP.h; sourceTree = "<group>"; };
 		CE33CAC91A5C57640042006D /* LookForIMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForIMP.m; sourceTree = "<group>"; };
@@ -982,8 +982,8 @@
 			isa = PBXGroup;
 			children = (
 				779D255A1A66728B00852F5C /* objects */,
-				CE33CAC51A5C57640042006D /* LookForContentModel.h */,
-				CE33CAC61A5C57640042006D /* LookForContentModel.m */,
+				CE33CAC51A5C57640042006D /* LookForObjectModel.h */,
+				CE33CAC61A5C57640042006D /* LookForObjectModel.m */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -1273,7 +1273,7 @@
 				CE33CB121A5C57640042006D /* FMDatabasePool.m in Sources */,
 				CE33CAF71A5C57640042006D /* DBManager.m in Sources */,
 				CE33CB0C1A5C57640042006D /* AFURLResponseSerialization.m in Sources */,
-				CE33CB001A5C57640042006D /* LookForContentModel.m in Sources */,
+				CE33CB001A5C57640042006D /* LookForObjectModel.m in Sources */,
 				6BEDC7541A5FD35F00B0C595 /* UIRefreshControl+AFNetworking.m in Sources */,
 				6BEDC73B1A5FD33100B0C595 /* LookForSaveTradeTableViewCell.m in Sources */,
 				6BD11FF21A64ED3800C860F1 /* LookForCallTogetherNameViewController.m in Sources */,
