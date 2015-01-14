@@ -13,11 +13,13 @@
 @synthesize bodyDictionary;
 @synthesize bodyString;
 
-- (instancetype)init {
+- (instancetype)init
+{
     self = [super init];
     
-    if (self) {
-        bodyDictionary = [[NSMutableDictionary alloc] init];
+    if (self)
+    {
+
     }
     return self;
 }

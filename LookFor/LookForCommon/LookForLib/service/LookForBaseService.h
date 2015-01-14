@@ -16,6 +16,7 @@
 #import "AFNetworkReachabilityManager.h"
 #import "LookForConfig.h"
 #import "LookForContentService.h"
+#import "RequestUrlDefs.h"
 
 #define LoginAction             @"loginAction"
 #define GetCatalogAction        @"getCatalogAction"
@@ -31,7 +32,7 @@
 @property (nonatomic, strong) NSMutableDictionary *bodyDictionary;
 @property (nonatomic, strong) NSString *bodyString;
 
-- (void)setBodyDictionaryData:(NSMutableDictionary *)bodyDictionaryData;
+- (void)setBodyDictionaryData:(NSDictionary *)bodyDictionaryData;
 
 //override the requestSuccess function
 - (void)requestSuccess:(NSDictionary *)responseDictionary;

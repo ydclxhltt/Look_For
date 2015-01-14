@@ -169,7 +169,7 @@ static DBManager *shareDBManager = nil;
      [NSNumber numberWithLongLong:user.sex],
      [NSNumber numberWithLongLong:user.level]];
     
-    [self checkErr:db];
+     [self checkErr:db];
 }
 
 - (QJUser *)selectUser:(FMDatabase*)db withUserId:(NSInteger)userId {

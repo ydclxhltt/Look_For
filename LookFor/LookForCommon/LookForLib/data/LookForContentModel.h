@@ -10,6 +10,7 @@
 
 @interface LookForContentModel : NSObject
 
+- (id)initWithDictionary:(NSDictionary*) dicionary;
 
 @end
 
@@ -29,6 +30,15 @@
 + (QJUser *)shareInstance;
 
 @end
+
+@interface LookFor_ResponseMessage : LookForContentModel
+
+@property (nonatomic, strong) NSString *rc;
+@property (nonatomic, strong) NSString *rm;
+
+@end
+
+
 
 #pragma mark -catalog
 //目录

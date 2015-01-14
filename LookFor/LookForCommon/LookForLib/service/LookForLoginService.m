@@ -51,7 +51,7 @@
         
         [LooKForDataConvert UserConvert:[responseDictionary valueForKey:USERINFOKEY]];
         
-        [[NSUserDefaults standardUserDefaults] setValue:[QJUser shareInstance].loginName forKey:LOGINNAMEKEY];
+        //[[NSUserDefaults standardUserDefaults] setValue:[LookFor_FriendInfo shareInstance].loginName forKey:LOGINNAMEKEY];
         [[NSUserDefaults standardUserDefaults] synchronize];
         [[NSNotificationCenter defaultCenter] postNotificationName:KNotificationLogin object:nil userInfo:resultDic];
         
