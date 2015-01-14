@@ -31,20 +31,17 @@ LookForRightSlideButtonViewDelegate>
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.title = @"LookFor";
     //添加返回item
-    [self addBackItem];
+    [self addPersonalItem];
+    //添加联系人item
+    [self addFriendItem];
+    //初始化UI
+    [self initView];
     //获取当前位置
     [self getLocation];
     //获取好友列表
     [LookForRequestTool getFriendListRequestWithUserID:@"001"];
-    
-    NSArray *imageArray = @[@"menu_travel",@"menu_friends",@"menu_group",@"menu_location"];
-    UIImage *image = [UIImage imageNamed:@"menu_down.png"];
-    float space_y = 100.0 * scale;
-    float space_x = 10.0 * scale;
-    LookForRightSlideButtonView *slideButtonView = [[LookForRightSlideButtonView alloc] initViewWithFrame:CGRectMake(space_x, SCREEN_HEIGHT - space_y, image.size.width/2 * scale, image.size.height/2 * scale) withInView:self.view withStartImage:@"menu" withImageArray:imageArray withTitleArray:nil delegate:self];
-    NSLog(@"slideButtonView===%@",slideButtonView);
     // Do any additional setup after loading the view.
 }
 
@@ -73,11 +70,32 @@ LookForRightSlideButtonViewDelegate>
         geocodesearch.delegate = delegate;
 }
 
+
+#pragma mark 初始化UI
+- (void)initView
+{
+    [self addSideView];
+}
+
+- (void)addSideView
+{
+    NSArray *imageArray = @[@"menu_travel",@"menu_friends",@"menu_group",@"menu_location"];
+    UIImage *image = [UIImage imageNamed:@"menu_down.png"];
+    float space_y = 100.0 * scale;
+    float space_x = 10.0 * scale;
+    LookForRightSlideButtonView *slideButtonView = [[LookForRightSlideButtonView alloc] initViewWithFrame:CGRectMake(space_x, SCREEN_HEIGHT - space_y, image.size.width/2 * scale, image.size.height/2 * scale) withInView:self.view withStartImage:@"menu" withImageArray:imageArray withTitleArray:nil delegate:self];
+    NSLog(@"slideButtonView===%@",slideButtonView);
+}
+
+- (void)addMapView
+{
+    [self addMapViewWithFrame:CGRectMake(0, 0, MAIN_SCREEN_SIZE.width, MAIN_SCREEN_SIZE.height) mapType:BMKMapTypeStandard mapZoomLevel:16.0 showUserLocation:YES];
+}
+
 #pragma mark 获取当前位置
 - (void)getLocation
 {
    [self setLocation];
-   [self addMapViewWithFrame:CGRectMake(0, 0, MAIN_SCREEN_SIZE.width, MAIN_SCREEN_SIZE.height) mapType:BMKMapTypeStandard mapZoomLevel:16.0 showUserLocation:YES];
    [self startLocation];
 }
 
