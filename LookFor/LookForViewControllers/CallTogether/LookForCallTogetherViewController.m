@@ -11,7 +11,7 @@
 #import "LookForSelectFriendViewController.h"
 #import "LookForSaveTradeTableViewCell.h"
 
-#define TableViewH      132
+#define TableViewH      132 + NAV_HEIGHT
 #define LeftSpace       15
 
 @interface LookForCallTogetherViewController ()<UITableViewDelegate, UITableViewDataSource,
@@ -31,7 +31,7 @@ LookForCallTogetherNameViewControllerDelegate>
 
 - (void)loadView {
     [super loadView];
-    [self initView];
+    
 }
 
 - (void)viewDidLoad {
@@ -44,6 +44,9 @@ LookForCallTogetherNameViewControllerDelegate>
     [self setNavBarItemWithImageName:@"poi_1"
                          navItemType:rightItem
                         selectorName:@"handleCamera"];
+    self.navigationController.navigationBar.translucent = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self initView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,7 +56,7 @@ LookForCallTogetherNameViewControllerDelegate>
 #pragma mark -custom
 - (void)initView {
    
-    self.callTogeterTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,80,MAIN_SCREEN_SIZE.width,TableViewH)
+    self.callTogeterTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,MAIN_SCREEN_SIZE.width,TableViewH)
                                                          style:UITableViewStylePlain];
     
     self.callTogeterTableView.dataSource = self;
@@ -61,7 +64,7 @@ LookForCallTogetherNameViewControllerDelegate>
     self.callTogeterTableView.backgroundColor = [UIColor clearColor];
     self.callTogeterTableView.separatorColor = [UIColor clearColor];
     self.callTogeterTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.callTogeterTableView.contentOffset = CGPointMake(0, 80);
+    //self.callTogeterTableView.contentOffset = CGPointMake(0, 80);
     self.callTogeterTableView.showsHorizontalScrollIndicator = NO;
     self.callTogeterTableView.showsVerticalScrollIndicator = NO;
     self.callTogeterTableView.scrollEnabled = NO;
