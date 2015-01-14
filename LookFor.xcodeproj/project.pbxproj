@@ -1407,8 +1407,11 @@
 					"$(PROJECT_DIR)/LookFor/LookForView/UIKitUtilty/BaiduMap",
 					"$(PROJECT_DIR)/LookFor/LookForCommon/LookTools/BaiduMap",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0ed788b3-f19f-4327-a329-8b721883ff8d";
+				SDKROOT = iphoneos8.1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1431,6 +1434,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0ed788b3-f19f-4327-a329-8b721883ff8d";
+				SDKROOT = iphoneos8.1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
