@@ -7,10 +7,10 @@
 //  Copyright (c) 2014年 why. All rights reserved.
 //
 
-#import "LookForContentModel.h"
+#import "LookForObjectModel.h"
 #import <objc/runtime.h>
 
-@implementation LookForContentModel
+@implementation LookForObjectModel
 
 - (id)initWithDictionary:(NSDictionary*) dicionary
 {

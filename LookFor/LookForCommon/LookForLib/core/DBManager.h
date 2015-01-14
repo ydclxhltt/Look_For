@@ -4,7 +4,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FMDatabase.h"
-#import "LookForContentModel.h"
+#import "LookForObjectModel.h"
 
 @interface DBManager : NSObject
 

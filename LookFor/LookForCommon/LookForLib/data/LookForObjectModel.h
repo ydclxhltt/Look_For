@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LookForContentModel : NSObject
+@interface LookForObjectModel : NSObject
 
 - (id)initWithDictionary:(NSDictionary*) dicionary;
 
 @end
 
 
-@interface QJUser : LookForContentModel
+@interface QJUser : LookForObjectModel
 
 @property (nonatomic, strong) NSString *loginName;          //登录名称
 @property (nonatomic, strong) NSString *passWord;           //密码
@@ -31,7 +31,7 @@
 
 @end
 
-@interface LookFor_ResponseMessage : LookForContentModel
+@interface LookFor_ResponseMessage : LookForObjectModel
 
 @property (nonatomic, strong) NSString *rc;
 @property (nonatomic, strong) NSString *rm;
@@ -42,7 +42,7 @@
 
 #pragma mark -catalog
 //目录
-@interface QJCatalog : LookForContentModel
+@interface QJCatalog : LookForObjectModel
 
 @property (nonatomic, strong) NSString *parentId;           //父目录id
 @property (nonatomic, strong) NSString *catalogId;          //目录id
@@ -56,14 +56,14 @@
 @end
 
 
-@interface QJCatalogModel : LookForContentModel
+@interface QJCatalogModel : LookForObjectModel
 
 @property (nonatomic, strong) NSString *parentId;
 @property (nonatomic, strong) NSMutableArray *catalogList;
 
 @end
 
-@interface QJCatalogModelManager : LookForContentModel
+@interface QJCatalogModelManager : LookForObjectModel
 
 @property (nonatomic, strong) NSMutableArray *catalogModelList;
 

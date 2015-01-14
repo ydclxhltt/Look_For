@@ -11,7 +11,7 @@
 #import "LookForResponseCenter.h"
 #import "LookForCoreDefs.h"
 #import "LookForDataConvert.h"
-#import "LookForContentModel.h"
+#import "LookForObjectModel.h"
 #import "DBManager.h"
 #import "AFNetworkReachabilityManager.h"
 #import "LookForConfig.h"

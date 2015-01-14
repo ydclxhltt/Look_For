@@ -6,16 +6,16 @@
 //  Copyright (c) 2015年 chenmingguo. All rights reserved.
 //
 
-#import "LookForContentModel.h"
+#import "LookForObjectModel.h"
 
-@interface LookFor_FriendList : LookForContentModel
+@interface LookFor_FriendList : LookForObjectModel
 
 @property (nonatomic, strong) LookFor_ResponseMessage *responseMessage;
 @property (nonatomic, strong) NSMutableArray *friendList;
 
 @end
 
-@interface LookFor_Friend : LookForContentModel
+@interface LookFor_Friend : LookForObjectModel
 
 @property (nonatomic, strong) NSString *friendID;
 @property (nonatomic, strong) NSString *mobilNumber;

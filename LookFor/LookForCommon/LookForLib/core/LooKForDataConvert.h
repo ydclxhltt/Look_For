@@ -7,7 +7,7 @@
 //data convert class
 
 #import <Foundation/Foundation.h>
-#import "LookForContentModel.h"
+#import "LookForObjectModel.h"
 
 @interface LooKForDataConvert : NSObject
 
