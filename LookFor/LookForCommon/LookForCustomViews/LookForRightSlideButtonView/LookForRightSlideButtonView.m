@@ -103,16 +103,36 @@
     }
 }
 
-- (void)handleStartClick:(id)sender {
-    if (!self.isAnimating && !self.buttonsShow) {
+- (void)handleStartClick:(UIButton *)sender
+{
+    if (!self.isAnimating && !self.buttonsShow)
+    {
         [self showButton];
         self.buttonsShow = YES;
-    } else if (!self.isAnimating && self.buttonsShow) {
+    }
+    else if (!self.isAnimating && self.buttonsShow)
+    {
         [self hiddenButton];
         self.buttonsShow = NO;
-    } else {
+    }
+    else
+    {
         return;
     }
+    
+    float angle = (self.buttonsShow) ? M_PI/4 : 0.0;
+    
+    [UIView animateWithDuration:.3 animations:^
+    {
+        sender.transform = CGAffineTransformMakeRotation(angle);
+    }
+    completion:^(BOOL finish)
+    {
+        if (self.buttonsShow)
+            [self showButton];
+        else
+            [self hiddenButton];
+    }];
 }
 
 
