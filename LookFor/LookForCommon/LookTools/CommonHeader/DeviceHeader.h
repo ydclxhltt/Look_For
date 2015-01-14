@@ -23,6 +23,9 @@
 //屏幕高度
 #define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
 
+//适配缩放比例
+#define CURRENT_SCALE SCREEN_WIDTH/320.0
+
 //设备型号
 #define DEVICE_MODEL [[UIDevice currentDevice] model]
 
