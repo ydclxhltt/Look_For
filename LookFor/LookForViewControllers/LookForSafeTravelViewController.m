@@ -54,14 +54,13 @@ UITableViewDelegate>
 
 - (void)loadView {
     [super loadView];
-    self.view.backgroundColor = RGB(242, 242, 244);
+    self.view.backgroundColor = BASIC_VIEW_BG_COLOR;
     [self initView];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+
     self.title = @"安心出行";
     [self setNavBarItemWithTitle:@"取消"
                      navItemType:LeftItem
