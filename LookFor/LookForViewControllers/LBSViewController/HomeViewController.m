@@ -7,14 +7,15 @@
 //
 
 
-#import "LocationServiceViewController.h"
+#import "HomeViewController.h"
 #import "LookForRightSlideButtonView.h"
 #import "LookForRouteSearchViewController.h"
 #import "LookForSafeTravelViewController.h"
 #import "LookForSelectFriendViewController.h"
 #import "LookForCallTogetherViewController.h"
 
-@interface LocationServiceViewController ()<BMKLocationServiceDelegate,
+
+@interface HomeViewController ()<BMKLocationServiceDelegate,
 BMKMapViewDelegate,
 BMKGeoCodeSearchDelegate,
 LookForRightSlideButtonViewDelegate>
@@ -25,7 +26,7 @@ LookForRightSlideButtonViewDelegate>
 }
 @end
 
-@implementation LocationServiceViewController
+@implementation HomeViewController
 
 - (void)viewDidLoad
 {
@@ -33,25 +34,17 @@ LookForRightSlideButtonViewDelegate>
     
     //添加返回item
     [self addBackItem];
-    //test
-    [self test];
+    //获取当前位置
+    [self getLocation];
+    //获取好友列表
+    [LookForRequestTool getFriendListRequestWithUserID:@"001"];
     
-    NSMutableArray *imageArray = [[NSMutableArray alloc] init];
-    [imageArray addObject:@"poi_1.png"];
-    [imageArray addObject:@"poi_1.png"];
-    [imageArray addObject:@"poi_1.png"];
-    [imageArray addObject:@"poi_1.png"];
-    [imageArray addObject:@"poi_1.png"];
-    
-    NSMutableArray *titleArrar = [[NSMutableArray alloc] init];
-    [titleArrar addObject:@"111"];
-    [titleArrar addObject:@"222"];
-    [titleArrar addObject:@"333"];
-    [titleArrar addObject:@"444"];
-    [titleArrar addObject:@"555"];
-    
-    LookForRightSlideButtonView *v = [[LookForRightSlideButtonView alloc]initViewWithFrame:CGRectMake(0, self.view.frame.size.height - 100, 50, 50) withInView:self.view withStartImage:@"poi_1.png" withImageArray:imageArray withTitleArray:titleArrar];
-    v.delegate = self;
+    NSArray *imageArray = @[@"menu_travel",@"menu_friends",@"menu_group",@"menu_location"];
+    UIImage *image = [UIImage imageNamed:@"menu_down.png"];
+    float space_y = 100.0 * scale;
+    float space_x = 10.0 * scale;
+    LookForRightSlideButtonView *slideButtonView = [[LookForRightSlideButtonView alloc] initViewWithFrame:CGRectMake(space_x, SCREEN_HEIGHT - space_y, image.size.width/2 * scale, image.size.height/2 * scale) withInView:self.view withStartImage:@"menu" withImageArray:imageArray withTitleArray:nil delegate:self];
+    NSLog(@"slideButtonView===%@",slideButtonView);
     // Do any additional setup after loading the view.
 }
 
@@ -80,8 +73,8 @@ LookForRightSlideButtonViewDelegate>
         geocodesearch.delegate = delegate;
 }
 
-#pragma mark 测试
-- (void)test
+#pragma mark 获取当前位置
+- (void)getLocation
 {
    [self setLocation];
    [self addMapViewWithFrame:CGRectMake(0, 0, MAIN_SCREEN_SIZE.width, MAIN_SCREEN_SIZE.height) mapType:BMKMapTypeStandard mapZoomLevel:16.0 showUserLocation:YES];

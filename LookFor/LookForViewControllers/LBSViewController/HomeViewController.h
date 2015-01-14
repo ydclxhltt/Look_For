@@ -9,7 +9,7 @@
 #import "BasicViewController.h"
 #import "BMapKit.h"
 
-@interface LocationServiceViewController : BasicViewController
+@interface HomeViewController : BasicViewController
 
 /*
  *  初始化BMKLocationService对象
