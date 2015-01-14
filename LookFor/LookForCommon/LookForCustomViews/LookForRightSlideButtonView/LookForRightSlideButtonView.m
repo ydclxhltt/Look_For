@@ -8,20 +8,19 @@
 
 #import "LookForRightSlideButtonView.h"
 
-#define ButtonWH            35
-#define CircleImageWH       16
 #define DefaultSpace        3
-#define TitleLabelHeith     12
 #define ButtonSpace         5
 
 @interface LookForRightSlideButtonView ()
-
+{
+    float buttonWidth;
+}
 @property (nonatomic, strong) UIView    *parentView;                //父view
 @property (nonatomic, strong) NSArray   *imageArray;                //button图片
 @property (nonatomic, strong) NSArray   *titleArray;                //button标题
 @property (nonatomic, strong) NSString  *startImage;                //
 @property (nonatomic, strong) NSMutableArray *buttonArray;          //button数组
-@property (nonatomic, strong) NSMutableArray *buttonX;              //每个button的x位置
+@property (nonatomic, strong) NSMutableArray *buttonXArray;         //每个button的x位置
 @property (nonatomic, assign) BOOL      isAnimating;                //动画是否在进行中
 
 @property (nonatomic, assign) CGRect    startFrame;                 //起始frame
@@ -31,11 +30,11 @@
 
 
 @implementation LookForRightSlideButtonView
-@synthesize delegate;
 
-- (id)initViewWithFrame:(CGRect)frame withInView:(UIView*)inView withStartImage:(NSString *)startImage withImageArray:(NSArray *)imageArray withTitleArray:(NSArray *)titleArray {
-    self = [super init];
-    
+- (id)initViewWithFrame:(CGRect)frame withInView:(UIView*)inView withStartImage:(NSString *)startImage withImageArray:(NSArray *)imageArray withTitleArray:(NSArray *)titleArray delegate:(id)myDelegate
+{
+    self = [super initWithFrame:frame];
+
     if (self) {
         self.frame = frame;
         self.startFrame = frame;
@@ -46,7 +45,8 @@
         self.buttonsShow = NO;
         self.isAnimating = NO;
         self.buttonArray = [[NSMutableArray alloc] init];
-        self.buttonX = [[NSMutableArray alloc] init];
+        self.buttonXArray = [[NSMutableArray alloc] init];
+        self.delegate = myDelegate;
         [self initView];
     }
     return self;
@@ -57,35 +57,42 @@
     [self.parentView bringSubviewToFront:self];
     self.clipsToBounds = YES;
     self.backgroundColor = [UIColor clearColor];
+    
+    //创建menuButton
+    UIImage *startImage_Up = [UIImage imageNamed:[self.startImage stringByAppendingString:@"_up.png"]];
+    UIImage *startImage_Down = [UIImage imageNamed:[self.startImage stringByAppendingString:@"_down.png"]];
+    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuButton.frame = self.bounds;
+    [menuButton setBackgroundImage:startImage_Up forState:UIControlStateNormal];
+    [menuButton setBackgroundImage:startImage_Down forState:UIControlStateHighlighted];
+    [menuButton addTarget:self action:@selector(handleStartClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:menuButton];
+    
     //创建弹出的按钮
-    for (NSInteger index = 0; index < [self.titleArray count]; index++) {
-        if (index < [self.imageArray count]) {
-            UIView *button = [self shareButtonWithIcon:[self.imageArray objectAtIndex:index] withTitle:[self.titleArray objectAtIndex:index] withTag:index];
-            [self.buttonArray addObject:button];
-            
-        }
+    for (NSInteger index = 0; index < [self.imageArray count]; index++)
+    {
+        NSString *titleStr = @"";
+        //if (index < [self.titleArray count])
+        //    titleStr = [self.titleArray objectAtIndex:index];
+        UIView *button = [self shareButtonWithIcon:[self.imageArray objectAtIndex:index] withTitle:titleStr withTag:index];
+        [self addSubview:button];
+        [self.buttonArray addObject:button];
     }
     
     if(self.buttonArray.count == 0) return;
-    
     
     for (int i = 0; i < self.buttonArray.count; ++i)
     {
         UIView *bubble = [self.buttonArray objectAtIndex:i];
         
-        float x = self.startFrame.size.width + i*ButtonWH + (i + 1)*ButtonSpace;
+        float x = self.startFrame.size.width + i*buttonWidth + (i + 1)*ButtonSpace;
         
-        [self.buttonX addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:x], @"x", nil]];
+        [self.buttonXArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:x], @"x", nil]];
         bubble.center = self.center;
         bubble.tag = i;
     }
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = self.bounds;
-   
-    [button setImage:[UIImage imageNamed:self.startImage] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(handleStartClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:button];
+
 }
 
 #pragma mark -handle
@@ -114,12 +121,12 @@
     if (!self.isAnimating) {
         
         self.isAnimating = YES;
-        self.frame = CGRectMake(self.startFrame.origin.x, self.startFrame.origin.y, self.startFrame.size.width + self.buttonArray.count * ButtonWH + (self.buttonArray.count + 1)*ButtonSpace, self.startFrame.size.height);
+        self.frame = CGRectMake(self.startFrame.origin.x, self.startFrame.origin.y, self.startFrame.size.width + self.buttonArray.count * buttonWidth + (self.buttonArray.count + 1)*ButtonSpace, self.startFrame.size.height);
         int inetratorI = 0;
-        for (NSDictionary *coordinate in self.buttonX)
+        for (NSDictionary *coordinate in self.buttonXArray)
         {
             UIButton *bubble = [self.buttonArray objectAtIndex:inetratorI];
-            bubble.center = CGPointMake(self.startFrame.size.width / 2,self.startFrame.size.height / 2);
+            bubble.center = CGPointMake(self.startFrame.size.width/2,self.startFrame.size.height/2);
             float delayTime = inetratorI * 0.1;
             [self performSelector:@selector(showBubbleWithAnimation:) withObject:[NSDictionary dictionaryWithObjectsAndKeys:bubble, @"button", coordinate, @"coordinate", nil] afterDelay:delayTime];
             ++inetratorI;
@@ -178,42 +185,25 @@
 
 
 //创建button
--(UIView *)shareButtonWithIcon:(NSString *)iconName withTitle:(NSString *)title withTag:(NSInteger)tag
+-(UIButton *)shareButtonWithIcon:(NSString *)iconName withTitle:(NSString *)title withTag:(NSInteger)tag
 {
     // Circle background
-    UIView *circle = [[UIView alloc] initWithFrame:CGRectMake(0, self.startFrame.size.height / 2, ButtonWH,ButtonWH)];
-    circle.backgroundColor = [UIColor whiteColor];
-    circle.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-    circle.layer.cornerRadius = ButtonWH / 2 ;
-    circle.layer.masksToBounds = YES;
-    [self addSubview:circle];
-    
-    
+    UIImage *image_Up = [UIImage imageNamed:[iconName stringByAppendingString:@"_up.png"]];
+    UIImage *image_Down = [UIImage imageNamed:[iconName stringByAppendingString:@"_down.png"]];
+    float width = image_Up.size.width/2 * CURRENT_SCALE;
+    float height = image_Up.size.height/2 * CURRENT_SCALE;
+    buttonWidth = width;
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 0, ButtonWH,  ButtonWH);
+    button.frame = CGRectMake((self.bounds.size.width - width)/2, (self.bounds.size.height - height)/2, width,height);
+    [button setBackgroundImage:image_Up forState:UIControlStateNormal];
+    [button setBackgroundImage:image_Down forState:UIControlStateHighlighted];
+    [CommonTool clipView:button withCornerRadius:button.frame.size.width/2];
     button.backgroundColor = [UIColor clearColor];
     button.tag = tag;
     [button addTarget:self action:@selector(handleClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    // Circle icon
-    UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CircleImageWH, CircleImageWH)];
-    icon.backgroundColor = [UIColor clearColor];
-    CGRect f = icon.frame;
-    f.origin.x = (circle.frame.size.width - f.size.width) / 2;
-    f.origin.y = DefaultSpace;
-    icon.frame = f;
-    icon.image = [UIImage imageNamed:iconName];
-    [button addSubview:icon];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, icon.frame.origin.y + icon.frame.size.height , circle.frame.size.width, TitleLabelHeith)];
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont systemFontOfSize:12];
-    label.textColor = [UIColor blackColor];
-    label.textAlignment = UITextAlignmentCenter;
-    label.text = title;
-    [button addSubview:label];
-    [circle addSubview:button];
-    return circle;
+
+    return button;
 }
 
 

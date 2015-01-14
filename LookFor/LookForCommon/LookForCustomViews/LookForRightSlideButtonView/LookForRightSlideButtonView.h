@@ -31,6 +31,7 @@
  * @param   startImage      起始图片
  * @param   imageArray      图片
  * @param   titleArray      标题
+ * @param   myDelegate      代理类
  */
-- (id)initViewWithFrame:(CGRect)frame withInView:(UIView*)inView withStartImage:(NSString *)startImage withImageArray:(NSArray *)imageArray withTitleArray:(NSArray *)titleArray;
+- (id)initViewWithFrame:(CGRect)frame withInView:(UIView*)inView withStartImage:(NSString *)startImage withImageArray:(NSArray *)imageArray withTitleArray:(NSArray *)titleArray delegate:(id)myDelegate;
 @end
