@@ -7,7 +7,7 @@
 //
 
 #import "LookForAppDelegate.h"
-#import "LocationServiceViewController.h"
+#import "HomeViewController.h"
 #import "LookForGuideHelpViewController.h"
 #import "LookForLoginViewController.h"
 
@@ -66,7 +66,7 @@
 #pragma mark 添加主视图
 - (void)addMainView
 {
-    LocationServiceViewController *rootViewController = [[LocationServiceViewController alloc] init];
+    HomeViewController *rootViewController = [[HomeViewController alloc] init];
     rootNavVC = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     self.window.rootViewController = rootNavVC;
 }

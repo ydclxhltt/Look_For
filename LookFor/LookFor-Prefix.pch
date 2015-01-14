@@ -20,4 +20,4 @@
     #import "CreateViewTool.h"
 #endif
 
-#define NSLog(...) {}
+//#define NSLog(...) {}
