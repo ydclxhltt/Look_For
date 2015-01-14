@@ -112,7 +112,7 @@
 //添加个人按钮
 - (void)addPersonalItem
 {
-    [self setNavBarItemWithImageName:@"personal" navItemType:LeftItem selectorName:@"personalButtonPressed:"];
+    [self setNavBarItemWithImageName:@"left" navItemType:LeftItem selectorName:@"personalButtonPressed:"];
 }
 
 - (void)personalButtonPressed:(UIButton *)sender
@@ -120,6 +120,18 @@
     
 }
 
+
+#pragma mark 添加好友Item
+//添加好友按钮
+- (void)addFriendItem
+{
+    [self setNavBarItemWithImageName:@"friends" navItemType:rightItem selectorName:@"friendsButtonPressed:"];
+}
+
+- (void)friendsButtonPressed:(UIButton *)button
+{
+    
+}
 
 
 #pragma mark 添加表

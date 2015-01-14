@@ -21,6 +21,7 @@ typedef enum : NSUInteger
 
 
 #import <UIKit/UIKit.h>
+
 #import "CreateViewTool.h"
 #import "LookForAppDelegate.h"
 #import "LookForRequestTool.h"
@@ -58,6 +59,15 @@ typedef enum : NSUInteger
  */
 - (void)addBackItem;
 
+/*
+ *  设置导航条Item 个人按钮
+ */
+- (void)addPersonalItem;
+
+/*
+ *  设置导航条Item 好友按钮
+ */
+- (void)addFriendItem;
 
 /*
  *  添加表视图，如：tableView
