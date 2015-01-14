@@ -35,10 +35,10 @@
 #define RGB(R,G,B)                  [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1.0]
 
 //界面背景颜色
-#define  BASIC_VIEW_BG_COLOR        RGB(249.0,249.0,249.0)
+#define  BASIC_VIEW_BG_COLOR        RGB(242.0,242.0,244.0)
 
 //主色调
-#define  APP_MAIN_COLOR             RGB(49.0,199.0,197.0)
+#define  APP_MAIN_COLOR             RGB(34.0,204.0,204.0)
 
 //tabbar背景颜色
 #define  TABBAR_BG_COLOR            RGB(12.0,97.0,152.0)
