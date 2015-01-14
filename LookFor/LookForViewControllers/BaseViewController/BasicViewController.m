@@ -20,6 +20,7 @@
 {
     [super viewDidLoad];
     startHeight = 0.0;
+    scale = CURRENT_SCALE;
     //设置页面背景
     self.view.backgroundColor =  BASIC_VIEW_BG_COLOR;
     

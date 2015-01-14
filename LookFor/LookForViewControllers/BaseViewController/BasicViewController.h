@@ -23,15 +23,14 @@ typedef enum : NSUInteger
 #import <UIKit/UIKit.h>
 #import "CreateViewTool.h"
 #import "LookForAppDelegate.h"
-//#import "AppDelegate.h"
-//#import "XSH_Application.h"
-//#import "RequestTool.h"
-//#import "SVProgressHUD.h"
+#import "LookForRequestTool.h"
 
 @interface BasicViewController : UIViewController
 {
     //y起始坐标
     float startHeight;
+    //缩放比例
+    float scale;
 }
 @property(nonatomic, strong) NSMutableArray *dataArray;
 @property(nonatomic, strong) UITableView *table;
