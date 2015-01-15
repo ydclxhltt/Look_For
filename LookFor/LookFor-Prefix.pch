@@ -14,7 +14,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import "LookForCoreDefs.h"
-    #import "LookForContentModel.h"
+    #import "LookForObjectModel.h"
     #import "LookForUtil.h"
     #import "commonHeader.h"
     #import "CreateViewTool.h"
