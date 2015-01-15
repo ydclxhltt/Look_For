@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DeviceTool.h"
 
 @interface CommonTool : NSObject
 

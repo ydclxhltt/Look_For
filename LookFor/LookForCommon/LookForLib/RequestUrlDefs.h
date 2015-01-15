@@ -20,7 +20,10 @@
 
 //获取好友列表
 #define FRIEND_LIST_URL         @"http://www.xshcar.com/chen/friendList.html"
-//@"http://192.168.2.160/wonhot/chenl/spi/4.0/friendList.xml"
+//@"http://192.168.2.160/wonhot/chenl/spi/4.0/friendList.html"
 //MAKE_URL_STRING(@"")
+
+//获取好友详情
+#define FRIEND_DETAIL_URL       @"http://www.xshcar.com/chen/friendDetail.html"
 
 #endif
