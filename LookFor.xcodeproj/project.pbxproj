@@ -83,6 +83,10 @@
 		7703A9091A66009D00C930B1 /* recovery_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 7703A8F51A66009D00C930B1 /* recovery_up.png */; };
 		7703A90C1A66015300C930B1 /* menu_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 7703A90A1A66015300C930B1 /* menu_down.png */; };
 		7703A90D1A66015300C930B1 /* menu_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 7703A90B1A66015300C930B1 /* menu_up.png */; };
+		771CB1211A67A9390087FCD4 /* DeviceTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 771CB1201A67A9390087FCD4 /* DeviceTool.m */; };
+		771CB1221A67A9560087FCD4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBE08FB1A527C2100FC15C6 /* SystemConfiguration.framework */; };
+		771CB1241A67A95C0087FCD4 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771CB1231A67A95C0087FCD4 /* CoreTelephony.framework */; };
+		771CB1291A67D2530087FCD4 /* IOKit in Frameworks */ = {isa = PBXBuildFile; fileRef = 771CB1261A67D2530087FCD4 /* IOKit */; };
 		779D25561A66573900852F5C /* LookForFriendListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 779D25551A66573900852F5C /* LookForFriendListService.m */; };
 		779D25591A665B7C00852F5C /* LookForRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 779D25581A665B7C00852F5C /* LookForRequestTool.m */; };
 		779D255D1A6672C100852F5C /* LookFor_FriendList.m in Sources */ = {isa = PBXBuildFile; fileRef = 779D255C1A6672C100852F5C /* LookFor_FriendList.m */; };
@@ -113,8 +117,6 @@
 		CE33CA411A5C47220042006D /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33CA401A5C47220042006D /* libstdc++.6.dylib */; };
 		CE33CAAE1A5C56E90042006D /* LookFor_Application.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAAD1A5C56E90042006D /* LookFor_Application.m */; };
 		CE33CAF71A5C57640042006D /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAB21A5C57640042006D /* DBManager.m */; };
-		CE33CAF81A5C57640042006D /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAB51A5C57640042006D /* NSString+MD5Addition.m */; };
-		CE33CAF91A5C57640042006D /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAB71A5C57640042006D /* UIDevice+IdentifierAddition.m */; };
 		CE33CAFA1A5C57640042006D /* LookForConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAB91A5C57640042006D /* LookForConfig.m */; };
 		CE33CAFB1A5C57640042006D /* LookForContentService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CABB1A5C57640042006D /* LookForContentService.m */; };
 		CE33CAFC1A5C57640042006D /* LooKForDataConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CABD1A5C57640042006D /* LooKForDataConvert.m */; };
@@ -264,6 +266,12 @@
 		7703A8F51A66009D00C930B1 /* recovery_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recovery_up.png; sourceTree = "<group>"; };
 		7703A90A1A66015300C930B1 /* menu_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_down.png; sourceTree = "<group>"; };
 		7703A90B1A66015300C930B1 /* menu_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_up.png; sourceTree = "<group>"; };
+		771CB11F1A67A9390087FCD4 /* DeviceTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceTool.h; sourceTree = "<group>"; };
+		771CB1201A67A9390087FCD4 /* DeviceTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceTool.m; sourceTree = "<group>"; };
+		771CB1231A67A95C0087FCD4 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		771CB1261A67D2530087FCD4 /* IOKit */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = IOKit; sourceTree = "<group>"; };
+		771CB1271A67D2530087FCD4 /* IOPowerSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOPowerSources.h; sourceTree = "<group>"; };
+		771CB1281A67D2530087FCD4 /* IOPSKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOPSKeys.h; sourceTree = "<group>"; };
 		779D25541A66573900852F5C /* LookForFriendListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForFriendListService.h; sourceTree = "<group>"; };
 		779D25551A66573900852F5C /* LookForFriendListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForFriendListService.m; sourceTree = "<group>"; };
 		779D25571A665B7C00852F5C /* LookForRequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRequestTool.h; sourceTree = "<group>"; };
@@ -386,10 +394,6 @@
 		CE33CAAD1A5C56E90042006D /* LookFor_Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookFor_Application.m; sourceTree = "<group>"; };
 		CE33CAB11A5C57640042006D /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		CE33CAB21A5C57640042006D /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
-		CE33CAB41A5C57640042006D /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
-		CE33CAB51A5C57640042006D /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
-		CE33CAB61A5C57640042006D /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
-		CE33CAB71A5C57640042006D /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		CE33CAB81A5C57640042006D /* LookForConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForConfig.h; sourceTree = "<group>"; };
 		CE33CAB91A5C57640042006D /* LookForConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForConfig.m; sourceTree = "<group>"; };
 		CE33CABA1A5C57640042006D /* LookForContentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForContentService.h; sourceTree = "<group>"; };
@@ -453,7 +457,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771CB1241A67A95C0087FCD4 /* CoreTelephony.framework in Frameworks */,
+				771CB1221A67A9560087FCD4 /* SystemConfiguration.framework in Frameworks */,
 				CE33CA411A5C47220042006D /* libstdc++.6.dylib in Frameworks */,
+				771CB1291A67D2530087FCD4 /* IOKit in Frameworks */,
 				6BBE08AC1A5251CE00FC15C6 /* QuartzCore.framework in Frameworks */,
 				6BBE08AB1A5251CE00FC15C6 /* libsqlite3.0.dylib in Frameworks */,
 				6BCB57A51A512AEA00060B31 /* CoreGraphics.framework in Frameworks */,
@@ -550,6 +557,7 @@
 		6BCB57A11A512AEA00060B31 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				771CB1231A67A95C0087FCD4 /* CoreTelephony.framework */,
 				CE33CA401A5C47220042006D /* libstdc++.6.dylib */,
 				6BBE08F81A527C2100FC15C6 /* MessageUI.framework */,
 				6BBE08F91A527C2100FC15C6 /* OpenGLES.framework */,
@@ -700,6 +708,16 @@
 			path = home_images;
 			sourceTree = "<group>";
 		};
+		771CB1251A67D2530087FCD4 /* IO */ = {
+			isa = PBXGroup;
+			children = (
+				771CB1261A67D2530087FCD4 /* IOKit */,
+				771CB1271A67D2530087FCD4 /* IOPowerSources.h */,
+				771CB1281A67D2530087FCD4 /* IOPSKeys.h */,
+			);
+			path = IO;
+			sourceTree = "<group>";
+		};
 		779D255A1A66728B00852F5C /* objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -761,12 +779,15 @@
 				CE33CA421A5C48530042006D /* CommonHeaders */,
 				CE33C9E11A5C452B0042006D /* SDWebImage */,
 				CE33C99C1A5C452B0042006D /* BaiduMap */,
+				771CB1251A67D2530087FCD4 /* IO */,
 				CE33C9DD1A5C452B0042006D /* CommonTool.h */,
 				CE33C9DE1A5C452B0042006D /* CommonTool.m */,
 				CE33C9DF1A5C452B0042006D /* CreateViewTool.h */,
 				CE33C9E01A5C452B0042006D /* CreateViewTool.m */,
 				CE33CAAC1A5C56E90042006D /* LookFor_Application.h */,
 				CE33CAAD1A5C56E90042006D /* LookFor_Application.m */,
+				771CB11F1A67A9390087FCD4 /* DeviceTool.h */,
+				771CB1201A67A9390087FCD4 /* DeviceTool.m */,
 			);
 			path = LookTools;
 			sourceTree = "<group>";
@@ -950,7 +971,6 @@
 			children = (
 				CE33CAB11A5C57640042006D /* DBManager.h */,
 				CE33CAB21A5C57640042006D /* DBManager.m */,
-				CE33CAB31A5C57640042006D /* libcore */,
 				CE33CAB81A5C57640042006D /* LookForConfig.h */,
 				CE33CAB91A5C57640042006D /* LookForConfig.m */,
 				CE33CABA1A5C57640042006D /* LookForContentService.h */,
@@ -965,17 +985,6 @@
 				CE33CAC31A5C57640042006D /* LookForUtil.m */,
 			);
 			path = core;
-			sourceTree = "<group>";
-		};
-		CE33CAB31A5C57640042006D /* libcore */ = {
-			isa = PBXGroup;
-			children = (
-				CE33CAB41A5C57640042006D /* NSString+MD5Addition.h */,
-				CE33CAB51A5C57640042006D /* NSString+MD5Addition.m */,
-				CE33CAB61A5C57640042006D /* UIDevice+IdentifierAddition.h */,
-				CE33CAB71A5C57640042006D /* UIDevice+IdentifierAddition.m */,
-			);
-			path = libcore;
 			sourceTree = "<group>";
 		};
 		CE33CAC41A5C57640042006D /* data */ = {
@@ -1228,6 +1237,7 @@
 				CE33CA341A5C452B0042006D /* SDWebImageDownloaderOperation.m in Sources */,
 				CE33CB081A5C57640042006D /* AFNetworkReachabilityManager.m in Sources */,
 				CE33CA3A1A5C452B0042006D /* UIImage+WebP.m in Sources */,
+				771CB1211A67A9390087FCD4 /* DeviceTool.m in Sources */,
 				CE33CB051A5C57640042006D /* AFHTTPRequestOperation.m in Sources */,
 				6BB6629C1A639CB5003350E7 /* LookForLoginView.m in Sources */,
 				6BA177551A641E63005E83E4 /* LookForRegisterViewController.m in Sources */,
@@ -1237,7 +1247,6 @@
 				CE33CB101A5C57640042006D /* FMDatabase.m in Sources */,
 				CE33CAAE1A5C56E90042006D /* LookFor_Application.m in Sources */,
 				CE33CA391A5C452B0042006D /* UIImage+MultiFormat.m in Sources */,
-				CE33CAF91A5C57640042006D /* UIDevice+IdentifierAddition.m in Sources */,
 				CE33CB091A5C57640042006D /* AFSecurityPolicy.m in Sources */,
 				CE33CA3C1A5C452B0042006D /* BasicViewController.m in Sources */,
 				6BD11FE81A64BE8300C860F1 /* LookForSelectFriendTableViewCell.m in Sources */,
@@ -1261,7 +1270,6 @@
 				CE33CA081A5C452B0042006D /* LookForAppDelegate.m in Sources */,
 				6BEDC74E1A5FD35F00B0C595 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				CE33CB071A5C57640042006D /* AFHTTPSessionManager.m in Sources */,
-				CE33CAF81A5C57640042006D /* NSString+MD5Addition.m in Sources */,
 				CE33CA091A5C452B0042006D /* AAShareBubbles.m in Sources */,
 				CE33CA311A5C452B0042006D /* SDWebImageCompat.m in Sources */,
 				CE33CA301A5C452B0042006D /* SDImageCache.m in Sources */,
@@ -1406,6 +1414,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LookFor/LookForView/UIKitUtilty/BaiduMap",
 					"$(PROJECT_DIR)/LookFor/LookForCommon/LookTools/BaiduMap",
+					"$(PROJECT_DIR)/LookFor/LookForCommon/LookTools/IO",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -1431,6 +1440,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LookFor/LookForView/UIKitUtilty/BaiduMap",
 					"$(PROJECT_DIR)/LookFor/LookForCommon/LookTools/BaiduMap",
+					"$(PROJECT_DIR)/LookFor/LookForCommon/LookTools/IO",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
