@@ -33,7 +33,13 @@
     
     
     //注册远程通知
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeBadge)];
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }
+    else
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeBadge)];
     
     //注册百度地图
     mapManager = [[BMKMapManager alloc] init];
@@ -58,6 +64,12 @@
     
     //添加启动页
    // [self addSplashView];
+    
+    [DeviceTool getSSIDInfo];
+    [DeviceTool getCarrierInfo];
+    [DeviceTool getSignalStrength];
+    [DeviceTool getBatteryLevel];
+    [DeviceTool getAccurateBatteryLevel];
     
     return YES;
 }
