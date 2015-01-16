@@ -13,6 +13,7 @@
 #import "LookForSafeTravelViewController.h"
 #import "LookForSelectFriendViewController.h"
 #import "LookForCallTogetherViewController.h"
+#import "LookForAnnotationView.h"
 
 
 @interface HomeViewController ()<BMKLocationServiceDelegate,
@@ -21,7 +22,7 @@ BMKGeoCodeSearchDelegate,
 LookForRightSlideButtonViewDelegate>
 {
     BMKLocationService *locationService;
-    BMKMapView *mapView;
+    BMKMapView *_mapView;
     BMKGeoCodeSearch *geocodesearch;
 }
 @end
@@ -42,6 +43,10 @@ LookForRightSlideButtonViewDelegate>
     [self getLocation];
     //获取好友列表
     [LookForRequestTool getFriendListRequestWithUserID:@"001"];
+    //获取好友详情列表
+    [LookForRequestTool getFriendListRequestWithUserID:@"001" allFriendID:@"002,"];
+    //添加通知
+    [self addNotifications];
     // Do any additional setup after loading the view.
 }
 
@@ -64,8 +69,8 @@ LookForRightSlideButtonViewDelegate>
 {
     if (locationService)
         locationService.delegate = delegate;
-    if (mapView)
-        mapView.delegate = delegate;
+    if (_mapView)
+        _mapView.delegate = delegate;
     if (geocodesearch)
         geocodesearch.delegate = delegate;
 }
@@ -74,6 +79,7 @@ LookForRightSlideButtonViewDelegate>
 #pragma mark 初始化UI
 - (void)initView
 {
+    [self addMapView];
     [self addSideView];
 }
 
@@ -91,6 +97,51 @@ LookForRightSlideButtonViewDelegate>
 {
     [self addMapViewWithFrame:CGRectMake(0, 0, MAIN_SCREEN_SIZE.width, MAIN_SCREEN_SIZE.height) mapType:BMKMapTypeStandard mapZoomLevel:16.0 showUserLocation:YES];
 }
+
+
+
+#pragma mark 添加通知
+- (void)addNotifications
+{
+    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(getFriendListSucess:) name:FRIEND_LIST_SUCESS object:nil];
+    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(getFriendListFailure) name:FRIEND_LIST_FAILURE object:nil];
+}
+
+
+#pragma mark 获取好友列表成功
+- (void)getFriendListSucess:(NSNotification *)notification
+{
+    LookFor_FriendList *friendListObj = (LookFor_FriendList *)[notification object];
+    NSLog(@"friendList===%@",friendListObj);
+    [self addFriendAnnotations:friendListObj.friendList];
+}
+
+#pragma mark 获取好友列表失败
+- (void)getFriendListFailure
+{
+    
+}
+
+#pragma mark 添加好友头像
+- (void)addFriendAnnotations:(NSArray *)array
+{
+    for (LookFor_Friend *friendObj in array)
+    {
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(friendObj.latitude, friendObj.longitude);
+        NSDictionary *baidudic = BMKConvertBaiduCoorFrom(coordinate, BMK_COORDTYPE_GPS);
+        coordinate =  BMKCoorDictionaryDecode(baidudic);
+        [self addAnnotationWithLocation:coordinate];
+    }
+}
+
+- (void)addAnnotationWithLocation:(CLLocationCoordinate2D)coordinate
+{
+    BMKPointAnnotation *point = [[BMKPointAnnotation alloc]init];
+    //point.title = (i == 0) ? @"起始点":@"终点";
+    [point setCoordinate:coordinate];
+    [_mapView addAnnotation:point];
+}
+
 
 #pragma mark 获取当前位置
 - (void)getLocation
@@ -127,12 +178,12 @@ LookForRightSlideButtonViewDelegate>
 
 - (void)addMapViewWithFrame:(CGRect)frame mapType:(BMKMapType)type  mapZoomLevel:(float)level   showUserLocation:(BOOL)isShow
 {
-    mapView = [[BMKMapView alloc] initWithFrame:frame];
-    mapView.delegate = self;
-    mapView.mapType = type;
-    mapView.zoomLevel = level;
-    mapView.showsUserLocation = isShow;
-    [self.view addSubview:mapView];
+    _mapView = [[BMKMapView alloc] initWithFrame:frame];
+    _mapView.delegate = self;
+    _mapView.mapType = type;
+    _mapView.zoomLevel = level;
+    _mapView.showsUserLocation = isShow;
+    [self.view addSubview:_mapView];
 }
 
 #pragma mark 编译地址
@@ -198,8 +249,6 @@ LookForRightSlideButtonViewDelegate>
 }
 
 
-
-
 #pragma mark locationManageDelegate
 /**
  *在将要启动定位时，会调用此函数
@@ -233,8 +282,8 @@ LookForRightSlideButtonViewDelegate>
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
     NSLog(@"userLocation====%@",[userLocation.location description]);
-    [mapView updateLocationData:userLocation];
-    [mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+    [_mapView updateLocationData:userLocation];
+    [_mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
     [self getReverseGeocodeWithLocation:userLocation.location.coordinate];
     [self stopLocation];
 }
@@ -258,8 +307,19 @@ LookForRightSlideButtonViewDelegate>
  */
 - (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
 {
-    BMKAnnotationView *annotationView;
-    return annotationView;
+    if ([annotation isKindOfClass:[BMKPointAnnotation class]])
+    {
+        UIImage *norImage = [UIImage imageNamed:@"icon_user.png"];
+        UIImage *selImage = [UIImage imageNamed:@"icon_user_selected.png"];
+        LookForAnnotationView *newAnnotationView = [[LookForAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myAnnotation" defaultImage:norImage selectedImage:selImage];
+        [newAnnotationView setAnnotationDataWithImageUrl:@"" placeholderImage:@"1.jpg" nikeName:@"骚津"];
+        //newAnnotationView.image = [UIImage imageNamed:@"icon_user.png"];
+        //newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
+        //newAnnotationView.annotationImageView.image = ;
+        newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
+        return newAnnotationView;
+    }
+    return nil;
 }
 
 /**
@@ -309,9 +369,9 @@ LookForRightSlideButtonViewDelegate>
 
 - (void)dealloc
 {
-    if (mapView)
+    if (_mapView)
     {
-        mapView = nil;
+        _mapView = nil;
     }
     if (locationService)
     {
@@ -322,6 +382,7 @@ LookForRightSlideButtonViewDelegate>
     {
         geocodesearch = nil;
     }
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*

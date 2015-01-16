@@ -44,8 +44,6 @@ LookForCallTogetherNameViewControllerDelegate>
     [self setNavBarItemWithImageName:@"poi_1"
                          navItemType:rightItem
                         selectorName:@"handleCamera"];
-    self.navigationController.navigationBar.translucent = NO;
-    self.automaticallyAdjustsScrollViewInsets = NO;
     [self initView];
 }
 
