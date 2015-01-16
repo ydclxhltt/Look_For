@@ -97,9 +97,12 @@
 		771CB13B1A67DDCE0087FCD4 /* see_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 771CB1321A67DDCE0087FCD4 /* see_down.png */; };
 		771CB13C1A67DDCE0087FCD4 /* see_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 771CB1331A67DDCE0087FCD4 /* see_up.png */; };
 		771CB13E1A67DE020087FCD4 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 771CB13D1A67DE020087FCD4 /* logo.png */; };
+		7762213B1A68A24200FD9ADE /* LookFor_FriendDetailList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7762213A1A68A24200FD9ADE /* LookFor_FriendDetailList.m */; };
+		7762213E1A68A7AF00FD9ADE /* LookFor_FriendDetailListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7762213D1A68A7AF00FD9ADE /* LookFor_FriendDetailListService.m */; };
 		779D25561A66573900852F5C /* LookForFriendListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 779D25551A66573900852F5C /* LookForFriendListService.m */; };
 		779D25591A665B7C00852F5C /* LookForRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 779D25581A665B7C00852F5C /* LookForRequestTool.m */; };
 		779D255D1A6672C100852F5C /* LookFor_FriendList.m in Sources */ = {isa = PBXBuildFile; fileRef = 779D255C1A6672C100852F5C /* LookFor_FriendList.m */; };
+		77F7F24E1A69337300C3C9BB /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77F7F24D1A69337300C3C9BB /* 1.jpg */; };
 		CE33CA081A5C452B0042006D /* LookForAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33C9491A5C452B0042006D /* LookForAppDelegate.m */; };
 		CE33CA091A5C452B0042006D /* AAShareBubbles.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33C94E1A5C452B0042006D /* AAShareBubbles.m */; };
 		CE33CA0A1A5C452B0042006D /* LookForAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33C9501A5C452B0042006D /* LookForAnnotationView.m */; };
@@ -134,7 +137,6 @@
 		CE33CAFE1A5C57640042006D /* LookForResponseCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAC11A5C57640042006D /* LookForResponseCenter.m */; };
 		CE33CAFF1A5C57640042006D /* LookForUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAC31A5C57640042006D /* LookForUtil.m */; };
 		CE33CB001A5C57640042006D /* LookForObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAC61A5C57640042006D /* LookForObjectModel.m */; };
-		CE33CB011A5C57640042006D /* LookForIMP.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAC91A5C57640042006D /* LookForIMP.m */; };
 		CE33CB021A5C57640042006D /* LookForBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CACD1A5C57640042006D /* LookForBaseService.m */; };
 		CE33CB031A5C57640042006D /* LookForLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CACF1A5C57640042006D /* LookForLoginService.m */; };
 		CE33CB041A5C57640042006D /* LookForServiceSchedular.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAD11A5C57640042006D /* LookForServiceSchedular.m */; };
@@ -292,12 +294,17 @@
 		771CB1321A67DDCE0087FCD4 /* see_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = see_down.png; sourceTree = "<group>"; };
 		771CB1331A67DDCE0087FCD4 /* see_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = see_up.png; sourceTree = "<group>"; };
 		771CB13D1A67DE020087FCD4 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		776221391A68A24200FD9ADE /* LookFor_FriendDetailList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookFor_FriendDetailList.h; sourceTree = "<group>"; };
+		7762213A1A68A24200FD9ADE /* LookFor_FriendDetailList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookFor_FriendDetailList.m; sourceTree = "<group>"; };
+		7762213C1A68A7AF00FD9ADE /* LookFor_FriendDetailListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookFor_FriendDetailListService.h; sourceTree = "<group>"; };
+		7762213D1A68A7AF00FD9ADE /* LookFor_FriendDetailListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookFor_FriendDetailListService.m; sourceTree = "<group>"; };
 		779D25541A66573900852F5C /* LookForFriendListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForFriendListService.h; sourceTree = "<group>"; };
 		779D25551A66573900852F5C /* LookForFriendListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForFriendListService.m; sourceTree = "<group>"; };
 		779D25571A665B7C00852F5C /* LookForRequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRequestTool.h; sourceTree = "<group>"; };
 		779D25581A665B7C00852F5C /* LookForRequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForRequestTool.m; sourceTree = "<group>"; };
 		779D255B1A6672C100852F5C /* LookFor_FriendList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookFor_FriendList.h; sourceTree = "<group>"; };
 		779D255C1A6672C100852F5C /* LookFor_FriendList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookFor_FriendList.m; sourceTree = "<group>"; };
+		77F7F24D1A69337300C3C9BB /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		CE33C9481A5C452B0042006D /* LookForAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForAppDelegate.h; sourceTree = "<group>"; };
 		CE33C9491A5C452B0042006D /* LookForAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForAppDelegate.m; sourceTree = "<group>"; };
 		CE33C94D1A5C452B0042006D /* AAShareBubbles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAShareBubbles.h; sourceTree = "<group>"; };
@@ -429,8 +436,6 @@
 		CE33CAC51A5C57640042006D /* LookForObjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForObjectModel.h; sourceTree = "<group>"; };
 		CE33CAC61A5C57640042006D /* LookForObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForObjectModel.m; sourceTree = "<group>"; };
 		CE33CAC71A5C57640042006D /* LookForCoreDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForCoreDefs.h; sourceTree = "<group>"; };
-		CE33CAC81A5C57640042006D /* LookForIMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForIMP.h; sourceTree = "<group>"; };
-		CE33CAC91A5C57640042006D /* LookForIMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForIMP.m; sourceTree = "<group>"; };
 		CE33CACA1A5C57640042006D /* RequestUrlDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestUrlDefs.h; sourceTree = "<group>"; };
 		CE33CACC1A5C57640042006D /* LookForBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForBaseService.h; sourceTree = "<group>"; };
 		CE33CACD1A5C57640042006D /* LookForBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForBaseService.m; sourceTree = "<group>"; };
@@ -530,6 +535,7 @@
 		6BBE09041A52C71400FC15C6 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				77F7F24D1A69337300C3C9BB /* 1.jpg */,
 				771CB12A1A67DDCE0087FCD4 /* common_images */,
 				7703A8E11A66009D00C930B1 /* home_images */,
 				6BA76B8F1A62AFD100C3AEE6 /* dot_normal.png */,
@@ -761,6 +767,8 @@
 			children = (
 				779D255B1A6672C100852F5C /* LookFor_FriendList.h */,
 				779D255C1A6672C100852F5C /* LookFor_FriendList.m */,
+				776221391A68A24200FD9ADE /* LookFor_FriendDetailList.h */,
+				7762213A1A68A24200FD9ADE /* LookFor_FriendDetailList.m */,
 			);
 			path = objects;
 			sourceTree = "<group>";
@@ -995,8 +1003,6 @@
 				CE33CAB01A5C57640042006D /* core */,
 				CE33CAC41A5C57640042006D /* data */,
 				CE33CAC71A5C57640042006D /* LookForCoreDefs.h */,
-				CE33CAC81A5C57640042006D /* LookForIMP.h */,
-				CE33CAC91A5C57640042006D /* LookForIMP.m */,
 				CE33CACA1A5C57640042006D /* RequestUrlDefs.h */,
 				CE33CACB1A5C57640042006D /* service */,
 				CE33CAD21A5C57640042006D /* Utilty */,
@@ -1046,6 +1052,8 @@
 				CE33CAD11A5C57640042006D /* LookForServiceSchedular.m */,
 				779D25541A66573900852F5C /* LookForFriendListService.h */,
 				779D25551A66573900852F5C /* LookForFriendListService.m */,
+				7762213C1A68A7AF00FD9ADE /* LookFor_FriendDetailListService.h */,
+				7762213D1A68A7AF00FD9ADE /* LookFor_FriendDetailListService.m */,
 				779D25571A665B7C00852F5C /* LookForRequestTool.h */,
 				779D25581A665B7C00852F5C /* LookForRequestTool.m */,
 			);
@@ -1156,7 +1164,7 @@
 			attributes = {
 				CLASSPREFIX = LookFor;
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = chenmingguo;
+				ORGANIZATIONNAME = LookFor;
 				TargetAttributes = {
 					6BCB57BF1A512AEA00060B31 = {
 						TestTargetID = 6BCB579E1A512AEA00060B31;
@@ -1202,6 +1210,7 @@
 				7703A90C1A66015300C930B1 /* menu_down.png in Resources */,
 				7703A9081A66009D00C930B1 /* recovery_down.png in Resources */,
 				771CB13C1A67DDCE0087FCD4 /* see_up.png in Resources */,
+				77F7F24E1A69337300C3C9BB /* 1.jpg in Resources */,
 				6BA76BA81A62AFD100C3AEE6 /* start320_03.jpg in Resources */,
 				6BA76BA41A62AFD100C3AEE6 /* start_04.jpg in Resources */,
 				6BA76BA11A62AFD100C3AEE6 /* start_01.jpg in Resources */,
@@ -1259,6 +1268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE33CB031A5C57640042006D /* LookForLoginService.m in Sources */,
+				7762213B1A68A24200FD9ADE /* LookFor_FriendDetailList.m in Sources */,
 				CE33CA0A1A5C452B0042006D /* LookForAnnotationView.m in Sources */,
 				6BEDC7511A5FD35F00B0C595 /* UIButton+AFNetworking.m in Sources */,
 				CE33CA2D1A5C452B0042006D /* CreateViewTool.m in Sources */,
@@ -1270,6 +1280,7 @@
 				6BB0EF8B1A5EDC2400DE78D2 /* LookForSafeTravelViewController.m in Sources */,
 				779D255D1A6672C100852F5C /* LookFor_FriendList.m in Sources */,
 				CE33CA2E1A5C452B0042006D /* MKAnnotationView+WebCache.m in Sources */,
+				7762213E1A68A7AF00FD9ADE /* LookFor_FriendDetailListService.m in Sources */,
 				6BD25CC91A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm in Sources */,
 				CE33CB0D1A5C57640042006D /* AFURLSessionManager.m in Sources */,
 				6BD11FEF1A64ED1D00C860F1 /* LookForCallTogetherViewController.m in Sources */,
@@ -1322,7 +1333,6 @@
 				CE33CA311A5C452B0042006D /* SDWebImageCompat.m in Sources */,
 				CE33CA301A5C452B0042006D /* SDImageCache.m in Sources */,
 				CE33CB041A5C57640042006D /* LookForServiceSchedular.m in Sources */,
-				CE33CB011A5C57640042006D /* LookForIMP.m in Sources */,
 				6BEDC7551A5FD35F00B0C595 /* UIWebView+AFNetworking.m in Sources */,
 				CE33CB111A5C57640042006D /* FMDatabaseAdditions.m in Sources */,
 				CE33CB0B1A5C57640042006D /* AFURLRequestSerialization.m in Sources */,
