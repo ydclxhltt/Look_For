@@ -17,17 +17,18 @@
 
 @interface LookForAnnotationView : BMKPinAnnotationView <AAShareBubblesDelegate>
 
-//图片
-@property (nonatomic, strong) UIImageView *annotationImageView;
-@property (nonatomic, strong) UILabel *titleLabel;  //标题
-@property (nonatomic, strong) AAShareBubbles *shareBubbles;
-
 @property (nonatomic, assign) BOOL  isSelect;   //是否被选中，默认NO
 @property (nonatomic, assign) id<LookForAnnotationViewDelegate>delegate;
+
+//初始化
+- (id)initWithAnnotation:(id<BMKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier defaultImage:(UIImage *)image selectedImage:(UIImage *)selectedImage;
 
 //初始化界面
 - (void)initView;
 
 //隐藏周边按钮
 - (void)hiddenShareBubbles;
+
+//设置数据
+- (void)setAnnotationDataWithImageUrl:(NSString *)imageUrl placeholderImage:(NSString *)placeImage  nikeName:(NSString *)name;
 @end

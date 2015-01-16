@@ -64,9 +64,11 @@
         self.bubbles = [[NSMutableArray alloc] init];
         
         //创建弹出的按钮
-        for (NSInteger index = 0; index < [self.titleArray count]; index++) {
-            if (index < [self.imageArray count]) {
-                UIView *button = [self shareButtonWithIcon:[self.imageArray objectAtIndex:index] withTitle:[self.titleArray objectAtIndex:index] withTag:index];
+        for (NSInteger index = 0; index < [self.imageArray count]; index++) {
+            //if (index < [self.imageArray count])
+            {
+                UIButton *button = [self shareButtonWithIcon:[self.imageArray objectAtIndex:index] withTitle:@"" withTag:index];
+                [self addSubview:button];
                 [self.bubbles addObject:button];
             }
         }
@@ -74,7 +76,7 @@
         if(self.bubbles.count == 0) return;
         
         //计算按钮位置
-        float bubbleDistanceFromPivot = self.radius - self.bubbleRadius;
+        float bubbleDistanceFromPivot = self.radius;
         
         float bubblesBetweenAngel = 180 / (self.bubbles.count - 1);
         //其实角度，从180度开始
@@ -119,6 +121,7 @@
             [self performSelector:@selector(hideBubbleWithAnimation:) withObject:bubble afterDelay:delayTime];
             ++inetratorI;
         }
+
     }
     
     
@@ -127,8 +130,12 @@
 #pragma mark -
 #pragma mark Helper functions
 
--(void)shareViewBackgroundTapped:(UITapGestureRecognizer *)tapGesture {
-    [self hide];
+-(void)shareViewBackgroundTapped:(UITapGestureRecognizer *)tapGesture
+{
+    if ([self.delegate respondsToSelector:@selector(hiddenShareBubbles:)])
+    {
+        [self.delegate hiddenShareBubbles:self];
+    }
 }
 
 -(void)showBubbleWithAnimation:(NSDictionary *)info
@@ -169,60 +176,36 @@
             bubble.transform = CGAffineTransformMakeScale(0.001, 0.001);
             bubble.alpha = 0;
         } completion:^(BOOL finished) {
-            if(bubble.tag == self.bubbles.count - 1) {
+           
+            NSLog(@"bubble.tag===%d",bubble.tag);
+            if(bubble.tag == self.bubbles.count - 1)
+            {
                 self.isAnimating = NO;
                 self.hidden = YES;
-                
-                if ([self.delegate respondsToSelector:@selector(hiddenShareBubbles:)]) {
-                    [self.delegate hiddenShareBubbles:self];
-                }
                 [self removeFromSuperview];
             }
-            [bubble removeFromSuperview];
+             [bubble removeFromSuperview];
         }];
     }];
 }
 
 //创建button
--(UIView *)shareButtonWithIcon:(NSString *)iconName withTitle:(NSString *)title withTag:(NSInteger)tag
+-(UIButton *)shareButtonWithIcon:(NSString *)iconName withTitle:(NSString *)title withTag:(NSInteger)tag
 {
     // Circle background
-    UIView *circle = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2 * self.bubbleRadius, 2 * self.bubbleRadius)];
-    circle.backgroundColor = [UIColor clearColor];
-    circle.layer.cornerRadius = self.bubbleRadius;
-    circle.layer.masksToBounds = YES;
-    [self addSubview:circle];
-    
-    UIView *bgView = [[UIView alloc] initWithFrame:circle.frame];
-    bgView.backgroundColor = [UIColor blackColor];
-    bgView.alpha = 0.6;
-    [circle addSubview:bgView];
-
+    UIImage *image_Up = [UIImage imageNamed:[iconName stringByAppendingString:@"_up.png"]];
+    UIImage *image_Down = [UIImage imageNamed:[iconName stringByAppendingString:@"_down.png"]];
+    float width = image_Up.size.width/2 * CURRENT_SCALE;
+    float height = image_Up.size.height/2 * CURRENT_SCALE;
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 0, 2 * self.bubbleRadius, 2 * self.bubbleRadius);
+    button.frame = CGRectMake((self.bounds.size.width - width)/2, (self.bounds.size.height - height)/2, width,height);
+    [button setBackgroundImage:image_Up forState:UIControlStateNormal];
+    [button setBackgroundImage:image_Down forState:UIControlStateHighlighted];
+    [CommonTool clipView:button withCornerRadius:button.frame.size.width/2];
     button.backgroundColor = [UIColor clearColor];
     button.tag = tag;
-    [button addTarget:self action:@selector(handleClick:) forControlEvents:UIControlEventTouchUpInside];
-
-    // Circle icon
-    UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CircleImageWH, CircleImageWH)];
-    icon.backgroundColor = [UIColor clearColor];
-    CGRect f = icon.frame;
-    f.origin.x = (circle.frame.size.width - f.size.width) / 2;
-    f.origin.y = DefaultSpace;
-    icon.frame = f;
-    icon.image = [UIImage imageNamed:iconName];
-    [button addSubview:icon];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, icon.frame.origin.y + icon.frame.size.height , circle.frame.size.width, TitleLabelHeith)];
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont systemFontOfSize:12];
-    label.textColor = [UIColor whiteColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.text = title;
-    [button addSubview:label];
-    [circle addSubview:button];
-    return circle;
+    [button addTarget:self action:@selector(handleClick:) forControlEvents:UIControlEventTouchUpInside];;
+    return button;
 }
 
 -(UIColor *)colorFromRGB:(int)rgb {
