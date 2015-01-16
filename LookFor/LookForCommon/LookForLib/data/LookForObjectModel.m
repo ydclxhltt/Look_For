@@ -139,8 +139,7 @@ static QJUser *_shareInstance = nil;
 
 - (id)initWithDictionary:(NSDictionary*) dicionary
 {
-    self = [super initWithDictionary:[[dicionary objectForKey:@"response"] objectForKey:@"header"]];
-    
+    self = [super initWithDictionary:dicionary[@"response"][@"header"]];
     return self;
 }
 

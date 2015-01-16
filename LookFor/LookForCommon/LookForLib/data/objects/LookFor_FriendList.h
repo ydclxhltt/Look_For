@@ -3,7 +3,7 @@
 //  LookFor
 //
 //  Created by clei on 15/1/14.
-//  Copyright (c) 2015年 chenmingguo. All rights reserved.
+//  Copyright (c) 2015年 clei. All rights reserved.
 //
 
 #import "LookForObjectModel.h"

@@ -28,9 +28,7 @@
     {
         self.responseMessage = [[LookFor_ResponseMessage alloc] initWithDictionary:dicionary];
         
-        NSDictionary *bodyDic = [[dicionary objectForKey:@"response"] objectForKey:@"body"];
-        NSArray *friendListArray = [bodyDic objectForKey:@"friendList"];
-
+        NSArray *friendListArray = dicionary[@"response"][@"body"][@"friendList"];
         NSMutableArray *array = [NSMutableArray array];
         for (NSDictionary *friendDic in friendListArray)
         {

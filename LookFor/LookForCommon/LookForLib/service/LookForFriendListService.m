@@ -7,7 +7,7 @@
 //
 
 #import "LookForFriendListService.h"
-#import "LookFor_FriendList.h"
+
 
 @implementation LookForFriendListService
 
@@ -26,15 +26,18 @@
 
 - (void)requestSuccess:(NSDictionary *)responseDictionary
 {
-    NSLog(@"responseDictionary===%@",responseDictionary);
     LookFor_FriendList *friendListObj = [[LookFor_FriendList alloc] initWithDictionary:responseDictionary];
-    NSLog(@"friendListObject===%@",((LookFor_Friend *)friendListObj.friendList[1]).nickName);
+    if (friendListObj)
+        [[NSNotificationCenter defaultCenter] postNotificationName:FRIEND_LIST_SUCESS object:friendListObj];
+    else
+        [[NSNotificationCenter defaultCenter] postNotificationName:FRIEND_LIST_FAILURE object:nil];
 }
 
 
 - (void)requestFail
 {
     //Network connection fail
+    [[NSNotificationCenter defaultCenter] postNotificationName:FRIEND_LIST_FAILURE object:nil];
 }
 
 @end

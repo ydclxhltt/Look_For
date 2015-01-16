@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LookForServiceSchedular.h"
+#import "LookForFriendListService.h"
+#import "LookFor_FriendDetailListService.h"
 
 @interface LookForRequestTool : NSObject
 
@@ -16,5 +19,14 @@
  * @pram userID 用户ID
  */
 + (void)getFriendListRequestWithUserID:(NSString *)userID;
+
+/*
+ * 获取好友详情列表请求
+ *
+ * @pram userID     用户ID
+ * @pram friendID   所有好友ID
+ */
++ (void)getFriendListRequestWithUserID:(NSString *)userID allFriendID:(NSString *)friendID;
+
 
 @end

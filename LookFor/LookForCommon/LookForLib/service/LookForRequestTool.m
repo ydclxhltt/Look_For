@@ -7,11 +7,10 @@
 //
 
 #import "LookForRequestTool.h"
-#import "LookForServiceSchedular.h"
-#import "LookForFriendListService.h"
+
 @implementation LookForRequestTool
 
-
+#pragma mark 发送请求
 + (void)request:(LookForBaseService *)baseService
 {
     LookForServiceSchedular *requestHandle = [LookForServiceSchedular shareInstance];
@@ -23,6 +22,13 @@
 {
     LookForFriendListService *friendListService = [[LookForFriendListService alloc] initWithUserID:userID];
     [LookForRequestTool request:friendListService];
+}
+
+#pragma mark 获取好友详情列表
++ (void)getFriendListRequestWithUserID:(NSString *)userID allFriendID:(NSString *)friendID
+{
+    LookFor_FriendDetailListService *friendDetailListService = [[LookFor_FriendDetailListService alloc]initWithUserID:userID allFriendID:friendID];
+    [LookForRequestTool request:friendDetailListService];
 }
 
 @end

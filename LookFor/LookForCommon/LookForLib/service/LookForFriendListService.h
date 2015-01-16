@@ -7,9 +7,18 @@
 //
 
 #import "LookForBaseService.h"
+#import "LookFor_FriendList.h"
+
+#define FRIEND_LIST_SUCESS   @"FRIEND_LIST_SUCESS"
+#define FRIEND_LIST_FAILURE  @"FRIEND_LIST_FAILURE"
 
 @interface LookForFriendListService : LookForBaseService
 
+/*
+ *  初始化获取好友列表的service
+ *
+ *  @pram userID    用户ID
+ */
 - (instancetype)initWithUserID:(NSString *)userID;
 
 @end
