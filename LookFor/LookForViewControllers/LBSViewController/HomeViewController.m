@@ -12,9 +12,8 @@
 #import "LookForRouteSearchViewController.h"
 #import "LookForSafeTravelViewController.h"
 #import "LookForSelectFriendViewController.h"
-#import "LookForCallTogetherViewController.h"
 #import "LookForAnnotationView.h"
-
+#import "LookForAssemblyViewController.h"
 
 @interface HomeViewController ()<BMKLocationServiceDelegate,
 BMKMapViewDelegate,
@@ -237,7 +236,7 @@ LookForRightSlideButtonViewDelegate>
             break;
         }
         case 3:{
-            LookForCallTogetherViewController *ct = [[LookForCallTogetherViewController alloc] init];
+            LookForAssemblyViewController *ct = [[LookForAssemblyViewController alloc] init];
             [self.navigationController pushViewController:ct animated:YES];
             break;
         }

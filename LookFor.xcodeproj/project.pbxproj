@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6B64CF031A5BEAB100C2B98A /* poi_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B64CF021A5BEAB100C2B98A /* poi_1.png */; };
 		6BA177551A641E63005E83E4 /* LookForRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA177541A641E63005E83E4 /* LookForRegisterViewController.m */; };
+		6BA21D8A1A6BC43700091C60 /* LookForAssemblyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA21D891A6BC43700091C60 /* LookForAssemblyViewController.m */; };
+		6BA21D8D1A6BC46900091C60 /* LookForAssemblyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA21D8C1A6BC46900091C60 /* LookForAssemblyTableViewCell.m */; };
+		6BA21D901A6BD4FD00091C60 /* DeviceTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA21D8F1A6BD4FD00091C60 /* DeviceTool.m */; };
 		6BA76B8E1A62AE6900C3AEE6 /* LookForGuideHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA76B8D1A62AE6900C3AEE6 /* LookForGuideHelpViewController.m */; };
 		6BA76B9D1A62AFD100C3AEE6 /* dot_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA76B8F1A62AFD100C3AEE6 /* dot_normal.png */; };
 		6BA76B9E1A62AFD100C3AEE6 /* dot_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA76B901A62AFD100C3AEE6 /* dot_normal@2x.png */; };
@@ -83,7 +86,6 @@
 		7703A9091A66009D00C930B1 /* recovery_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 7703A8F51A66009D00C930B1 /* recovery_up.png */; };
 		7703A90C1A66015300C930B1 /* menu_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 7703A90A1A66015300C930B1 /* menu_down.png */; };
 		7703A90D1A66015300C930B1 /* menu_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 7703A90B1A66015300C930B1 /* menu_up.png */; };
-		771CB1211A67A9390087FCD4 /* DeviceTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 771CB1201A67A9390087FCD4 /* DeviceTool.m */; };
 		771CB1221A67A9560087FCD4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBE08FB1A527C2100FC15C6 /* SystemConfiguration.framework */; };
 		771CB1241A67A95C0087FCD4 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771CB1231A67A95C0087FCD4 /* CoreTelephony.framework */; };
 		771CB1291A67D2530087FCD4 /* IOKit in Frameworks */ = {isa = PBXBuildFile; fileRef = 771CB1261A67D2530087FCD4 /* IOKit */; };
@@ -171,6 +173,12 @@
 		6B64CF021A5BEAB100C2B98A /* poi_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1.png; sourceTree = "<group>"; };
 		6BA177531A641E63005E83E4 /* LookForRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRegisterViewController.h; sourceTree = "<group>"; };
 		6BA177541A641E63005E83E4 /* LookForRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForRegisterViewController.m; sourceTree = "<group>"; };
+		6BA21D881A6BC43700091C60 /* LookForAssemblyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForAssemblyViewController.h; sourceTree = "<group>"; };
+		6BA21D891A6BC43700091C60 /* LookForAssemblyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForAssemblyViewController.m; sourceTree = "<group>"; };
+		6BA21D8B1A6BC46900091C60 /* LookForAssemblyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForAssemblyTableViewCell.h; sourceTree = "<group>"; };
+		6BA21D8C1A6BC46900091C60 /* LookForAssemblyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForAssemblyTableViewCell.m; sourceTree = "<group>"; };
+		6BA21D8E1A6BD4FD00091C60 /* DeviceTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceTool.h; sourceTree = "<group>"; };
+		6BA21D8F1A6BD4FD00091C60 /* DeviceTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceTool.m; sourceTree = "<group>"; };
 		6BA76B8C1A62AE6900C3AEE6 /* LookForGuideHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForGuideHelpViewController.h; sourceTree = "<group>"; };
 		6BA76B8D1A62AE6900C3AEE6 /* LookForGuideHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForGuideHelpViewController.m; sourceTree = "<group>"; };
 		6BA76B8F1A62AFD100C3AEE6 /* dot_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dot_normal.png; sourceTree = "<group>"; };
@@ -278,8 +286,6 @@
 		7703A8F51A66009D00C930B1 /* recovery_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recovery_up.png; sourceTree = "<group>"; };
 		7703A90A1A66015300C930B1 /* menu_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_down.png; sourceTree = "<group>"; };
 		7703A90B1A66015300C930B1 /* menu_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_up.png; sourceTree = "<group>"; };
-		771CB11F1A67A9390087FCD4 /* DeviceTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceTool.h; sourceTree = "<group>"; };
-		771CB1201A67A9390087FCD4 /* DeviceTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceTool.m; sourceTree = "<group>"; };
 		771CB1231A67A95C0087FCD4 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		771CB1261A67D2530087FCD4 /* IOKit */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = IOKit; sourceTree = "<group>"; };
 		771CB1271A67D2530087FCD4 /* IOPowerSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOPowerSources.h; sourceTree = "<group>"; };
@@ -669,6 +675,8 @@
 			children = (
 				6BD11FED1A64ED1D00C860F1 /* LookForCallTogetherViewController.h */,
 				6BD11FEE1A64ED1D00C860F1 /* LookForCallTogetherViewController.m */,
+				6BA21D881A6BC43700091C60 /* LookForAssemblyViewController.h */,
+				6BA21D891A6BC43700091C60 /* LookForAssemblyViewController.m */,
 				6BD11FF01A64ED3800C860F1 /* LookForCallTogetherNameViewController.h */,
 				6BD11FF11A64ED3800C860F1 /* LookForCallTogetherNameViewController.m */,
 			);
@@ -680,6 +688,8 @@
 			children = (
 				6BEDC7391A5FD33100B0C595 /* LookForSaveTradeTableViewCell.h */,
 				6BEDC73A1A5FD33100B0C595 /* LookForSaveTradeTableViewCell.m */,
+				6BA21D8B1A6BC46900091C60 /* LookForAssemblyTableViewCell.h */,
+				6BA21D8C1A6BC46900091C60 /* LookForAssemblyTableViewCell.m */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -822,6 +832,8 @@
 		CE33C99B1A5C452B0042006D /* LookTools */ = {
 			isa = PBXGroup;
 			children = (
+				6BA21D8E1A6BD4FD00091C60 /* DeviceTool.h */,
+				6BA21D8F1A6BD4FD00091C60 /* DeviceTool.m */,
 				CE33CA421A5C48530042006D /* CommonHeaders */,
 				CE33C9E11A5C452B0042006D /* SDWebImage */,
 				CE33C99C1A5C452B0042006D /* BaiduMap */,
@@ -832,8 +844,6 @@
 				CE33C9E01A5C452B0042006D /* CreateViewTool.m */,
 				CE33CAAC1A5C56E90042006D /* LookFor_Application.h */,
 				CE33CAAD1A5C56E90042006D /* LookFor_Application.m */,
-				771CB11F1A67A9390087FCD4 /* DeviceTool.h */,
-				771CB1201A67A9390087FCD4 /* DeviceTool.m */,
 			);
 			path = LookTools;
 			sourceTree = "<group>";
@@ -1272,6 +1282,7 @@
 				CE33CA0A1A5C452B0042006D /* LookForAnnotationView.m in Sources */,
 				6BEDC7511A5FD35F00B0C595 /* UIButton+AFNetworking.m in Sources */,
 				CE33CA2D1A5C452B0042006D /* CreateViewTool.m in Sources */,
+				6BA21D8A1A6BC43700091C60 /* LookForAssemblyViewController.m in Sources */,
 				CE33CAFB1A5C57640042006D /* LookForContentService.m in Sources */,
 				CE33CB0A1A5C57640042006D /* AFURLConnectionOperation.m in Sources */,
 				CE33CA2C1A5C452B0042006D /* CommonTool.m in Sources */,
@@ -1296,8 +1307,8 @@
 				CE33CA341A5C452B0042006D /* SDWebImageDownloaderOperation.m in Sources */,
 				CE33CB081A5C57640042006D /* AFNetworkReachabilityManager.m in Sources */,
 				CE33CA3A1A5C452B0042006D /* UIImage+WebP.m in Sources */,
-				771CB1211A67A9390087FCD4 /* DeviceTool.m in Sources */,
 				CE33CB051A5C57640042006D /* AFHTTPRequestOperation.m in Sources */,
+				6BA21D8D1A6BC46900091C60 /* LookForAssemblyTableViewCell.m in Sources */,
 				6BB6629C1A639CB5003350E7 /* LookForLoginView.m in Sources */,
 				6BA177551A641E63005E83E4 /* LookForRegisterViewController.m in Sources */,
 				CE33CB141A5C57640042006D /* FMResultSet.m in Sources */,
@@ -1320,6 +1331,7 @@
 				6BA76B8E1A62AE6900C3AEE6 /* LookForGuideHelpViewController.m in Sources */,
 				6BCB57AF1A512AEA00060B31 /* main.m in Sources */,
 				CE33CA361A5C452B0042006D /* SDWebImagePrefetcher.m in Sources */,
+				6BA21D901A6BD4FD00091C60 /* DeviceTool.m in Sources */,
 				CE33CAFD1A5C57640042006D /* LookForResponse.m in Sources */,
 				6BB6629F1A63B19C003350E7 /* LookForLoginViewController.m in Sources */,
 				6BEDC7521A5FD35F00B0C595 /* UIImageView+AFNetworking.m in Sources */,
@@ -1460,6 +1472,7 @@
 		6BCB57D21A512AEA00060B31 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "libstdc++";
@@ -1479,6 +1492,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0ed788b3-f19f-4327-a329-8b721883ff8d";
 				SDKROOT = iphoneos8.1;
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1486,6 +1500,7 @@
 		6BCB57D31A512AEA00060B31 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "libstdc++";
@@ -1504,6 +1519,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0ed788b3-f19f-4327-a329-8b721883ff8d";
 				SDKROOT = iphoneos8.1;
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
