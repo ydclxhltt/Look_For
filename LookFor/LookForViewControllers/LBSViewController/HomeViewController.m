@@ -441,11 +441,11 @@ LookForAnnotationViewDelegate>
         NSString *userName = friendInfo.commentName;
         userName = (!userName || [@"" isEqualToString:userName]) ? friendInfo.nickName : userName;
         [newAnnotationView setAnnotationDataWithImageUrl:friendInfo.portrait placeholderImage:@"1.jpg" nikeName:userName];
-        [newAnnotationView showFriendItem];
         //newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
         NSString *seeString = (friendInfo.permission == 1) ? @"hide" : @"see";
         NSArray *array = @[seeString,@"quanta",@"gothere"];
         newAnnotationView.bubbleArray = [NSMutableArray arrayWithArray:array];
+        [newAnnotationView showFriendItem];
         return newAnnotationView;
     }
     return nil;
