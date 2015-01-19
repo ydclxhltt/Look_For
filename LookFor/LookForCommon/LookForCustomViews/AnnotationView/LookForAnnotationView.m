@@ -51,10 +51,12 @@
         self.bounds = CGRectMake(0, 0, selfWidth * scale, selfHeight * scale);
         self.clipsToBounds = NO;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetState) name:@"OneAnnonationSelected" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showFriendItem) name:@"ShowFriendInfoView" object:nil];
         [self initView];
     }
     return self;
 }
+
 
 //设置是否为选中
 - (void)setIsSelect:(BOOL)isSelect
@@ -171,6 +173,17 @@
     if (selectedIndex != self.tag)
     {
         [self setIsSelect:NO];
+    }
+}
+
+
+#pragma mark 首页点击好友列表
+- (void)showFriendItem
+{
+    int selectedIndex = [LookFor_Application shareInstance].selectedAnnonationIndex;
+    if (self.tag == selectedIndex)
+    {
+        [self handleSelect:nil];
     }
 }
 

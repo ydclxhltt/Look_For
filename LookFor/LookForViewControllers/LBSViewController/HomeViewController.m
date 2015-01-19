@@ -160,12 +160,26 @@ LookForAnnotationViewDelegate>
         [friendItemView setImageWithURL:[NSURL URLWithString:friendInfo.portrait] placeholderImage:image];
         friendItemView.tag = i;
         [scrollView addSubview:friendItemView];
+        
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+        [friendItemView addGestureRecognizer:tapGesture];
+        
         NSString *userName = friendInfo.commentName;
         userName = (!userName || [@"" isEqualToString:userName]) ? friendInfo.nickName : userName;
         UILabel * nameLabel = [CreateViewTool createLabelWithFrame:CGRectMake(friendItemView.frame.origin.x, scrollView.frame.size.height - FRIEND_VIEW_LABEL_WIDTH - 3.0, friendItemView.frame.size.width, FRIEND_VIEW_LABEL_WIDTH) textString:userName textColor:[UIColor blackColor] textFont:FONT(12.0)];
         nameLabel.textAlignment = NSTextAlignmentCenter;
         [scrollView addSubview:nameLabel];
     }
+}
+
+- (void)handleTap:(UITapGestureRecognizer *)tapGesture
+{
+    int index = tapGesture.view.tag;
+    NSLog(@"====%d",index);
+    [LookFor_Application shareInstance].selectedAnnonationIndex = index;
+    [self isShowFriendView:NO];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowFriendInfoView" object:nil];
+    
 }
 
 - (void)friendsButtonPressed:(UIButton *)button
@@ -229,6 +243,7 @@ LookForAnnotationViewDelegate>
 #pragma mark 添加好友头像
 - (void)addFriendAnnotations:(NSArray *)array
 {
+    [_mapView removeAnnotations:_mapView.annotations];
     for (LookFor_Friend *friendObj in array)
     {
         int index = [array indexOfObject:friendObj];
@@ -424,7 +439,8 @@ LookForAnnotationViewDelegate>
         NSString *userName = friendInfo.commentName;
         userName = (!userName || [@"" isEqualToString:userName]) ? friendInfo.nickName : userName;
         [newAnnotationView setAnnotationDataWithImageUrl:friendInfo.portrait placeholderImage:@"1.jpg" nikeName:userName];
-        newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
+        [newAnnotationView showFriendItem];
+        //newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
         return newAnnotationView;
     }
     return nil;

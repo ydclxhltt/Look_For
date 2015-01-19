@@ -33,4 +33,7 @@
 
 //设置数据
 - (void)setAnnotationDataWithImageUrl:(NSString *)imageUrl placeholderImage:(NSString *)placeImage  nikeName:(NSString *)name;
+
+//默认选中
+- (void)showFriendItem;
 @end
