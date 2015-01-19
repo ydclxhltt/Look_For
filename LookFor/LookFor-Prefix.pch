@@ -18,6 +18,7 @@
     #import "LookForUtil.h"
     #import "commonHeader.h"
     #import "CreateViewTool.h"
+    #import "LookFor_Application.h"
 #endif
 
-//#define NSLog(...) {}
+#define NSLog(...) {}
