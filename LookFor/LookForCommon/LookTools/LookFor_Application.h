@@ -14,4 +14,11 @@
 
 @interface LookFor_Application : NSObject
 
+//记录选中的地图视图
+@property (nonatomic, assign) int selectedAnnonationIndex;
+
+/*
+ *  构建单例
+ */
++ (instancetype)shareInstance;
 @end

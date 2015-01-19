@@ -10,9 +10,34 @@
 #import "CommonTool.h"  
 #import "UIImageView+WebCache.h"
 
-//#import "UIImageView+LK.h"
-
 @interface CreateViewTool : NSObject
+
+/*
+ *  设置view图层相关属性
+ *
+ *  @pram view   view视图
+ *  @pram color  图层颜色
+ *  @pram width  图层边缘宽度
+ */
++ (void)setViewLayer:(UIView *)view withLayerColor:(UIColor *)color bordWidth:(float)width;
+
+/*
+ *  设置特层圆角属性
+ *
+ *  @pram view   view视图
+ *  @pram radius 圆角大小
+ */
++ (void)clipView:(UIView *)view withCornerRadius:(float)radius;
+
+/*
+ *  设置阴影
+ *
+ *  @pram view          view视图
+ *  @pram shadowColor   阴影颜色
+ *  @pram offset        阴影区域
+ *  @pram opacity       阴影模糊度
+ */
++ (void)setViewShadow:(UIView *)view withShadowColor:(UIColor *)shadowColor shadowOffset:(CGSize)offset shadowOpacity:(float)opacity;
 
 /*
  *  创建Label

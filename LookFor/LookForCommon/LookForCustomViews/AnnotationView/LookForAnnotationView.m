@@ -19,7 +19,6 @@
 @interface LookForAnnotationView ()
 {
     float scale;
-    UIButton *menuButton;
 }
 @property (nonatomic, strong) AAShareBubbles *shareBubbles;
 @property (nonatomic, strong) UIImageView *iconImageView;
@@ -50,18 +49,19 @@
         }
         self.selecteImage = selectedImage;
         self.bounds = CGRectMake(0, 0, selfWidth * scale, selfHeight * scale);
+        self.clipsToBounds = NO;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetState) name:@"OneAnnonationSelected" object:nil];
         [self initView];
     }
     return self;
 }
 
 //设置是否为选中
-//- (void)setIsSelect:(BOOL)isSelect
-//{
-//    _isSelect = isSelect;
-//    menuButton.selected = isSelect;
-//    [self resetView];
-//}
+- (void)setIsSelect:(BOOL)isSelect
+{
+    _isSelect = isSelect;
+    [self resetView];
+}
 
 //初始化UI
 - (void)initView
@@ -72,7 +72,7 @@
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, titleLabel_y, self.frame.size.width, TitleLabelHeith * scale)];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.backgroundColor = [APP_MAIN_COLOR colorWithAlphaComponent:.6];
-    [CommonTool clipView: self.titleLabel withCornerRadius:2.0];
+    [CreateViewTool clipView: self.titleLabel withCornerRadius:2.0];
     self.titleLabel.textColor = [UIColor whiteColor];
     self.titleLabel.font = FONT(10.0);
     [self addSubview:self.titleLabel];
@@ -81,15 +81,14 @@
     float iconImageView_XY = ICON_IMAGEVIEW_SPACE * scale;
     float iconImageViewWidth = self.frame.size.width - iconImageView_XY * 2;
     self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(iconImageView_XY,iconImageView_XY, iconImageViewWidth, iconImageViewWidth)];
-    [CommonTool clipView:self.iconImageView withCornerRadius:iconImageViewWidth/2];
+    [CreateViewTool clipView:self.iconImageView withCornerRadius:iconImageViewWidth/2];
     self.iconImageView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.iconImageView];
     
     //点击按钮
-    menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButton.backgroundColor = [UIColor clearColor];
     menuButton.frame = self.bounds;
-    menuButton.selected = self.selected;
     [self addSubview:menuButton];
     [menuButton addTarget:self action:@selector(handleSelect:) forControlEvents:UIControlEventTouchDown];
 }
@@ -113,13 +112,12 @@
 
 - (void)handleSelect:(UIButton *)sender
 {
-    if ([self.delegate respondsToSelector:@selector(selectAnnotation:)])
+    self.isSelect = !self.isSelect;
+    if ([self.delegate respondsToSelector:@selector(selectAnnotation:)] && self.isSelect)
     {
         [self.delegate selectAnnotation:self];
     }
-    sender.selected = !sender.selected;
-    self.isSelect = sender.selected;
-    [self resetView];
+    NSLog(@"self.isSelect===%d",self.isSelect);
 }
 
 
@@ -132,20 +130,26 @@
     }
     UIImage *image = (self.isSelect) ? self.selecteImage : self.normalImage;
     float viewScale = 1.0;
+    /* 放大坐标会移动，暂时屏蔽放大，地图比例尺跟着变不知可否解决此问题*/
     //viewScale = (self.isSelect) ? self.selecteImage.size.width/self.normalImage.size.width : viewScale;
-    viewScale = (self.isSelect) ? 1.2 : viewScale;
+    //viewScale = (self.isSelect) ? 1.1 : viewScale;
     [UIView animateWithDuration:.3 animations:^
     {
         self.image = image;
-        self.transform = CGAffineTransformMakeScale(viewScale, viewScale);
         self.titleLabel.hidden = self.isSelect;
+        self.transform = CGAffineTransformMakeScale(viewScale, viewScale);
     } completion:^(BOOL finish){}];
     
-    [self addBubblesView];
     if (self.isSelect)
+    {
+        [self addBubblesView];
         [self.shareBubbles show];
+    }
     else
+    {
         [self.shareBubbles hide];
+        self.shareBubbles = nil;
+    }
 }
 
 
@@ -156,6 +160,18 @@
     placeImage = (placeImage) ? placeImage : @"";
     [self.iconImageView setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:placeImage]];
     self.titleLabel.text = name;
+}
+
+
+#pragma mark 刷新选中状态
+- (void)resetState
+{
+    int selectedIndex = [LookFor_Application shareInstance].selectedAnnonationIndex;
+    NSLog(@"self.tag===%d",self.tag);
+    if (selectedIndex != self.tag)
+    {
+        [self setIsSelect:NO];
+    }
 }
 
 
@@ -187,8 +203,14 @@
 
 - (void)hiddenShareBubbles:(AAShareBubbles *)shareBubble
 {
-    [self handleSelect:menuButton];
-    self.shareBubbles = nil;
+    [self handleSelect:nil];
 }
+
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 @end

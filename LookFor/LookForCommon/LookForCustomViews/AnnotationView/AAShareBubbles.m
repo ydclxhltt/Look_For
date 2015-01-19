@@ -32,7 +32,8 @@
 #pragma mark -
 #pragma mark Actions
 
-- (void)handleClick:(id)sender {
+- (void)handleClick:(id)sender
+{
     [self hide];
     if([self.delegate respondsToSelector:@selector(shareBubbles:buttonTag:)]) {
         UIButton *button = (UIButton *)sender;
@@ -78,9 +79,13 @@
         //计算按钮位置
         float bubbleDistanceFromPivot = self.radius;
         
-        float bubblesBetweenAngel = 180 / (self.bubbles.count - 1);
+        
         //其实角度，从180度开始
         float startAngel = 180;
+        float bubblesBetweenAngel = (360 - startAngel) / (self.bubbles.count - 1);
+        //少于4个功能按钮的特殊处理
+        startAngel = (self.bubbles.count < 4) ? 220 : startAngel;
+        bubblesBetweenAngel = (self.bubbles.count < 4) ? 50 : bubblesBetweenAngel;
         
         NSMutableArray *coordinates = [NSMutableArray array];
         
@@ -132,7 +137,7 @@
 
 -(void)shareViewBackgroundTapped:(UITapGestureRecognizer *)tapGesture
 {
-    if ([self.delegate respondsToSelector:@selector(hiddenShareBubbles:)])
+    if ([self.delegate respondsToSelector:@selector(hiddenShareBubbles:)] && !self.isAnimating)
     {
         [self.delegate hiddenShareBubbles:self];
     }
@@ -201,7 +206,7 @@
     button.frame = CGRectMake((self.bounds.size.width - width)/2, (self.bounds.size.height - height)/2, width,height);
     [button setBackgroundImage:image_Up forState:UIControlStateNormal];
     [button setBackgroundImage:image_Down forState:UIControlStateHighlighted];
-    [CommonTool clipView:button withCornerRadius:button.frame.size.width/2];
+    [CreateViewTool clipView:button withCornerRadius:button.frame.size.width/2];
     button.backgroundColor = [UIColor clearColor];
     button.tag = tag;
     [button addTarget:self action:@selector(handleClick:) forControlEvents:UIControlEventTouchUpInside];;

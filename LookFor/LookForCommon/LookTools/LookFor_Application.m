@@ -19,7 +19,7 @@ static LookFor_Application *_shareInstace = nil;
     
     if (self)
     {
-
+        
     }
     return self;
 }

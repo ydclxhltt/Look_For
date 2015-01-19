@@ -11,6 +11,37 @@
 
 @implementation CreateViewTool
 
+#pragma mark 图层相关
+//设置图层相关
++ (void)setViewLayer:(UIView *)view withLayerColor:(UIColor *)color bordWidth:(float)width
+{
+    if (!view)
+        return;
+    if (color)
+        view.layer.borderColor = [color CGColor];
+    view.layer.borderWidth = width;
+}
+
+//圆角实现
++ (void)clipView:(UIView *)view withCornerRadius:(float)radius
+{
+    if (!view)
+        return;
+    view.layer.cornerRadius = radius;
+    view.layer.masksToBounds = YES;
+}
+
+//设置阴影
++ (void)setViewShadow:(UIView *)view withShadowColor:(UIColor *)shadowColor shadowOffset:(CGSize)offset shadowOpacity:(float)opacity
+{
+    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:view.bounds];
+    view.layer.masksToBounds = NO;
+    view.layer.shadowColor = shadowColor.CGColor;
+    view.layer.shadowOffset = offset;
+    view.layer.shadowOpacity = opacity;
+    view.layer.shadowPath = shadowPath.CGPath;
+}
+
 #pragma mark UILabel
 
 //创建Label
@@ -60,14 +91,15 @@
 + (UIImageView *)createRoundImageViewWithFrame:(CGRect)frame placeholderImage:(UIImage *)image  borderColor:(UIColor*)color  imageUrl:(NSString *)urlString
 {
     UIImageView *imageView = [self createImageViewWithFrame:frame placeholderImage:image];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
     if (!color)
     {
         imageView.layer.borderWidth = 0.0;
         color = [UIColor clearColor];
+        [CreateViewTool setViewLayer:imageView withLayerColor:color bordWidth:1.0];
     }
-    imageView.layer.borderColor = [color CGColor];
-    imageView.layer.cornerRadius = CGRectGetWidth(frame)/2;
-    imageView.layer.masksToBounds = YES;
+    
+    [CreateViewTool clipView:imageView withCornerRadius:frame.size.width/2];
     [imageView setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:image];
     return imageView;
 }
@@ -123,7 +155,7 @@
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = frame;
-    if (imageName && [@"" isEqualToString:imageName])
+    if (imageName && ![@"" isEqualToString:imageName])
     {
         UIImage *image_up = [UIImage imageNamed:[imageName stringByAppendingString:@"_up.png"]];
         UIImage *image_down = [UIImage imageNamed:[imageName stringByAppendingString:@"_down.png"]];
@@ -172,6 +204,8 @@
     }
     return  button;
 }
+
+
 
 
 

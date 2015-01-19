@@ -209,12 +209,10 @@
     button.frame = CGRectMake((self.bounds.size.width - width)/2, (self.bounds.size.height - height)/2, width,height);
     [button setBackgroundImage:image_Up forState:UIControlStateNormal];
     [button setBackgroundImage:image_Down forState:UIControlStateHighlighted];
-    [CommonTool clipView:button withCornerRadius:button.frame.size.width/2];
+    [CreateViewTool clipView:button withCornerRadius:button.frame.size.width/2];
     button.backgroundColor = [UIColor clearColor];
     button.tag = tag;
     [button addTarget:self action:@selector(handleClick:) forControlEvents:UIControlEventTouchUpInside];
-    
-
     return button;
 }
 

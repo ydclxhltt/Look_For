@@ -26,6 +26,7 @@
 
 - (void)requestSuccess:(NSDictionary *)responseDictionary
 {
+    NSLog(@"responseDictionary===%@",responseDictionary);
     LookFor_FriendList *friendListObj = [[LookFor_FriendList alloc] initWithDictionary:responseDictionary];
     if (friendListObj)
         [[NSNotificationCenter defaultCenter] postNotificationName:FRIEND_LIST_SUCESS object:friendListObj];
