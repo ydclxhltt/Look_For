@@ -188,7 +188,8 @@ LookForAnnotationViewDelegate>
     isShowFriendView = !isShowFriendView;
     if (isShowFriendView)
     {
-        [self addFriendsView];
+        if (!friendsView)
+            [self addFriendsView];
         //获取好友列表
         [LookForRequestTool getFriendListRequestWithUserID:@"001"];
     }
@@ -442,6 +443,9 @@ LookForAnnotationViewDelegate>
         [newAnnotationView setAnnotationDataWithImageUrl:friendInfo.portrait placeholderImage:@"1.jpg" nikeName:userName];
         [newAnnotationView showFriendItem];
         //newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
+        NSString *seeString = (friendInfo.permission == 1) ? @"hide" : @"see";
+        NSArray *array = @[seeString,@"quanta",@"gothere"];
+        newAnnotationView.bubbleArray = [NSMutableArray arrayWithArray:array];
         return newAnnotationView;
     }
     return nil;
@@ -477,6 +481,50 @@ LookForAnnotationViewDelegate>
     
 }
 
+
+/**
+ *地图区域即将改变时会调用此接口
+ *@param mapview 地图View
+ *@param animated 是否动画
+ */
+//- (void)mapView:(BMKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
+//{
+//    isShowFriendView = NO;
+//    [self isShowFriendView:NO];
+//}
+
+/**
+ *点中底图空白处会回调此接口
+ *@param mapview 地图View
+ *@param coordinate 空白处坐标点的经纬度
+ */
+- (void)mapView:(BMKMapView *)mapView onClickedMapBlank:(CLLocationCoordinate2D)coordinate
+{
+    isShowFriendView = NO;
+    [self isShowFriendView:NO];
+}
+
+/**
+ *双击地图时会回调此接口
+ *@param mapview 地图View
+ *@param coordinate 返回双击处坐标点的经纬度
+ */
+- (void)mapview:(BMKMapView *)mapView onDoubleClick:(CLLocationCoordinate2D)coordinate
+{
+    isShowFriendView = NO;
+    [self isShowFriendView:NO];
+}
+
+/**
+ *长按地图时会回调此接口
+ *@param mapview 地图View
+ *@param coordinate 返回长按事件坐标点的经纬度
+ */
+- (void)mapview:(BMKMapView *)mapView onLongClick:(CLLocationCoordinate2D)coordinate
+{
+    isShowFriendView = NO;
+    [self isShowFriendView:NO];
+}
 
 #pragma mark 坐标转换地址Delegate
 -(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error

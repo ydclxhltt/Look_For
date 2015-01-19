@@ -98,15 +98,11 @@
 
 - (void)addBubblesView
 {
-    if (!self.shareBubbles)
+    if (!self.shareBubbles && self.bubbleArray && [self.bubbleArray count] > 0)
     {
-        NSMutableArray *imageArray = [[NSMutableArray alloc] init];
-        [imageArray addObject:@"see"];
-        [imageArray addObject:@"quanta"];
-        [imageArray addObject:@"gothere"];
-        UIImage *image = [UIImage imageNamed:@"see_up.png"];
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_up.png",self.bubbleArray[0]]];
         float radius = self.frame.size.width/2 + BOUBLE_SPACE * scale + image.size.width/2/2 * scale;
-        self.shareBubbles = [[AAShareBubbles alloc] initWithPoint:self.iconImageView.center radius:radius inView:self withImageArray:imageArray withTitleArray:nil];
+        self.shareBubbles = [[AAShareBubbles alloc] initWithPoint:self.iconImageView.center radius:radius inView:self withImageArray:self.bubbleArray withTitleArray:nil];
         self.shareBubbles.delegate = self;
         self.shareBubbles.bubbleRadius = 15;
     }
@@ -132,7 +128,7 @@
     }
     UIImage *image = (self.isSelect) ? self.selecteImage : self.normalImage;
     float viewScale = 1.0;
-    /* 放大坐标会移动，暂时屏蔽放大，地图比例尺跟着变不知可否解决此问题*/
+    /* 放大坐标会移动，暂时屏蔽放大*/
     //viewScale = (self.isSelect) ? self.selecteImage.size.width/self.normalImage.size.width : viewScale;
     //viewScale = (self.isSelect) ? 1.1 : viewScale;
     [UIView animateWithDuration:.3 animations:^
@@ -220,6 +216,7 @@
 
 - (void)hiddenShareBubbles:(AAShareBubbles *)shareBubble
 {
+    [LookFor_Application shareInstance].selectedAnnonationIndex = -1;
     [self handleSelect:nil];
 }
 
