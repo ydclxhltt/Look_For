@@ -6,6 +6,11 @@
 //  Copyright (c) 2014年 chenlei. All rights reserved.
 //
 
+#define FRIENDS_VIEW_HEIGHT     100.0
+#define FRIENDS_VIEW_SPACE_XY   15.0
+#define FRIEND_VIEW_ITEM_WIDTH  55.0
+#define FRIEND_VIEW_LABEL_WIDTH 20.0
+
 
 #import "HomeViewController.h"
 #import "LookForRightSlideButtonView.h"
@@ -18,12 +23,16 @@
 @interface HomeViewController ()<BMKLocationServiceDelegate,
 BMKMapViewDelegate,
 BMKGeoCodeSearchDelegate,
-LookForRightSlideButtonViewDelegate>
+LookForRightSlideButtonViewDelegate,
+LookForAnnotationViewDelegate>
 {
     BMKLocationService *locationService;
     BMKMapView *_mapView;
     BMKGeoCodeSearch *geocodesearch;
+    UIImageView *friendsView;
+    BOOL isShowFriendView;
 }
+@property(nonatomic, strong) LookFor_FriendList *friendListObj;
 @end
 
 @implementation HomeViewController
@@ -32,6 +41,8 @@ LookForRightSlideButtonViewDelegate>
 {
     [super viewDidLoad];
     self.title = @"LookFor";
+    //初始化数据
+    isShowFriendView = NO;
     //添加返回item
     [self addPersonalItem];
     //添加联系人item
@@ -80,6 +91,7 @@ LookForRightSlideButtonViewDelegate>
 {
     [self addMapView];
     [self addSideView];
+    
 }
 
 - (void)addSideView
@@ -90,6 +102,12 @@ LookForRightSlideButtonViewDelegate>
     float space_x = 10.0 * scale;
     LookForRightSlideButtonView *slideButtonView = [[LookForRightSlideButtonView alloc] initViewWithFrame:CGRectMake(space_x, SCREEN_HEIGHT - space_y, image.size.width/2 * scale, image.size.height/2 * scale) withInView:self.view withStartImage:@"menu" withImageArray:imageArray withTitleArray:nil delegate:self];
     NSLog(@"slideButtonView===%@",slideButtonView);
+    
+    float space_add_y = 10.0 * scale;
+    
+    UIButton *locationButton = [CreateViewTool createButtonWithFrame:CGRectMake(space_x, slideButtonView.frame.origin.y - space_add_y - image.size.height/2, image.size.width/2, image.size.height/2) buttonImage:@"recovery" selectorName:@"startLocation" tagDelegate:self];
+    [self.view addSubview:locationButton];
+    
 }
 
 - (void)addMapView
@@ -97,6 +115,93 @@ LookForRightSlideButtonViewDelegate>
     [self addMapViewWithFrame:CGRectMake(0, 0, MAIN_SCREEN_SIZE.width, MAIN_SCREEN_SIZE.height) mapType:BMKMapTypeStandard mapZoomLevel:16.0 showUserLocation:YES];
 }
 
+- (void)addFriendsView
+{
+    if (!friendsView)
+    {
+        friendsView = [CreateViewTool createImageViewWithFrame:CGRectMake(0, - (NAV_HEIGHT + FRIENDS_VIEW_HEIGHT) , SCREEN_WIDTH, NAV_HEIGHT + FRIENDS_VIEW_HEIGHT) placeholderImage:nil];
+        friendsView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.8];
+        [CreateViewTool setViewShadow:friendsView withShadowColor:[[UIColor blackColor] colorWithAlphaComponent:.5] shadowOffset:CGSizeMake(0, 15.0) shadowOpacity:.5];
+        [self.view addSubview:friendsView];
+    }
+    else
+    {
+        if (self.friendListObj.friendList && [self.friendListObj.friendList count] > 0)
+        {
+            [self addFriendItemView];
+        }
+        else if ([self.friendListObj.friendList count] == 0)
+        {
+            //无好友
+        }
+    }
+}
+
+- (void)addFriendItemView
+{
+    int count = [self.friendListObj.friendList count];
+    for (UIView *view in friendsView.subviews)
+    {
+        if ([view isKindOfClass:[UIScrollView class]])
+        {
+            [view removeFromSuperview];
+        }
+    }
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, FRIENDS_VIEW_HEIGHT)];
+    scrollView.backgroundColor = [UIColor clearColor];
+    scrollView.pagingEnabled = YES;
+    scrollView.contentSize = CGSizeMake(FRIENDS_VIEW_SPACE_XY * (count + 1) + FRIEND_VIEW_ITEM_WIDTH * count,scrollView.frame.size.height);
+    [friendsView addSubview:scrollView];
+    for (int i = 0; i < count; i ++)
+    {
+        LookFor_Friend *friendInfo = self.friendListObj.friendList[i];
+        UIImage *image = [UIImage imageNamed:@"1.jpg"];
+        UIImageView *friendItemView = [CreateViewTool createRoundImageViewWithFrame:CGRectMake(FRIENDS_VIEW_SPACE_XY + i * (FRIENDS_VIEW_SPACE_XY + FRIEND_VIEW_ITEM_WIDTH), FRIENDS_VIEW_SPACE_XY, FRIEND_VIEW_ITEM_WIDTH, FRIEND_VIEW_ITEM_WIDTH) placeholderImage:image borderColor:nil imageUrl:friendInfo.portrait];
+        [friendItemView setImageWithURL:[NSURL URLWithString:friendInfo.portrait] placeholderImage:image];
+        friendItemView.tag = i;
+        [scrollView addSubview:friendItemView];
+        NSString *userName = friendInfo.commentName;
+        userName = (!userName || [@"" isEqualToString:userName]) ? friendInfo.nickName : userName;
+        UILabel * nameLabel = [CreateViewTool createLabelWithFrame:CGRectMake(friendItemView.frame.origin.x, scrollView.frame.size.height - FRIEND_VIEW_LABEL_WIDTH - 3.0, friendItemView.frame.size.width, FRIEND_VIEW_LABEL_WIDTH) textString:userName textColor:[UIColor blackColor] textFont:FONT(12.0)];
+        nameLabel.textAlignment = NSTextAlignmentCenter;
+        [scrollView addSubview:nameLabel];
+    }
+}
+
+- (void)friendsButtonPressed:(UIButton *)button
+{
+    isShowFriendView = !isShowFriendView;
+    if (isShowFriendView)
+    {
+        [self addFriendsView];
+        //获取好友列表
+        [LookForRequestTool getFriendListRequestWithUserID:@"001"];
+    }
+    [self isShowFriendView:isShowFriendView];
+}
+
+#pragma mark item按钮事件
+
+- (void)personalButtonPressed:(UIButton *)sender
+{
+    
+}
+
+
+- (void)isShowFriendView:(BOOL)isShow
+{
+    float move_y = 0.0;
+    move_y = (isShow) ? friendsView.frame.size.height : - friendsView.frame.size.height;
+    
+    float alpha = 1.0;
+    alpha = (isShow) ? alpha : 0.0;
+    
+    [UIView animateWithDuration:.5 animations:^
+     {
+         friendsView.transform = CGAffineTransformMakeTranslation(0, move_y);
+         friendsView.alpha = alpha;
+     }];
+}
 
 
 #pragma mark 添加通知
@@ -110,9 +215,9 @@ LookForRightSlideButtonViewDelegate>
 #pragma mark 获取好友列表成功
 - (void)getFriendListSucess:(NSNotification *)notification
 {
-    LookFor_FriendList *friendListObj = (LookFor_FriendList *)[notification object];
-    NSLog(@"friendList===%@",friendListObj);
-    [self addFriendAnnotations:friendListObj.friendList];
+    self.friendListObj = (LookFor_FriendList *)[notification object];
+    [self addFriendAnnotations:self.friendListObj.friendList];
+    [self addFriendsView];
 }
 
 #pragma mark 获取好友列表失败
@@ -126,17 +231,18 @@ LookForRightSlideButtonViewDelegate>
 {
     for (LookFor_Friend *friendObj in array)
     {
+        int index = [array indexOfObject:friendObj];
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(friendObj.latitude, friendObj.longitude);
         NSDictionary *baidudic = BMKConvertBaiduCoorFrom(coordinate, BMK_COORDTYPE_GPS);
         coordinate =  BMKCoorDictionaryDecode(baidudic);
-        [self addAnnotationWithLocation:coordinate];
+        [self addAnnotationWithLocation:coordinate annotationTitle:[NSString stringWithFormat:@"%d",index]];
     }
 }
 
-- (void)addAnnotationWithLocation:(CLLocationCoordinate2D)coordinate
+- (void)addAnnotationWithLocation:(CLLocationCoordinate2D)coordinate  annotationTitle:(NSString *)title
 {
     BMKPointAnnotation *point = [[BMKPointAnnotation alloc]init];
-    //point.title = (i == 0) ? @"起始点":@"终点";
+    point.title = title;
     [point setCoordinate:coordinate];
     [_mapView addAnnotation:point];
 }
@@ -283,7 +389,7 @@ LookForRightSlideButtonViewDelegate>
     NSLog(@"userLocation====%@",[userLocation.location description]);
     [_mapView updateLocationData:userLocation];
     [_mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
-    [self getReverseGeocodeWithLocation:userLocation.location.coordinate];
+    //[self getReverseGeocodeWithLocation:userLocation.location.coordinate];
     [self stopLocation];
 }
 
@@ -311,10 +417,13 @@ LookForRightSlideButtonViewDelegate>
         UIImage *norImage = [UIImage imageNamed:@"icon_user.png"];
         UIImage *selImage = [UIImage imageNamed:@"icon_user_selected.png"];
         LookForAnnotationView *newAnnotationView = [[LookForAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myAnnotation" defaultImage:norImage selectedImage:selImage];
-        [newAnnotationView setAnnotationDataWithImageUrl:@"" placeholderImage:@"1.jpg" nikeName:@"骚津"];
-        //newAnnotationView.image = [UIImage imageNamed:@"icon_user.png"];
-        //newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
-        //newAnnotationView.annotationImageView.image = ;
+        newAnnotationView.delegate = self;
+        newAnnotationView.tag = [annotation.title intValue];
+        newAnnotationView.coordinate = annotation.coordinate;
+        LookFor_Friend *friendInfo = [self.friendListObj.friendList objectAtIndex:newAnnotationView.tag];
+        NSString *userName = friendInfo.commentName;
+        userName = (!userName || [@"" isEqualToString:userName]) ? friendInfo.nickName : userName;
+        [newAnnotationView setAnnotationDataWithImageUrl:friendInfo.portrait placeholderImage:@"1.jpg" nikeName:userName];
         newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
         return newAnnotationView;
     }
@@ -360,7 +469,18 @@ LookForRightSlideButtonViewDelegate>
 }
 
 
-- (void)didReceiveMemoryWarning {
+#pragma  mark LookForAnnotationViewDelegate
+
+- (void)selectAnnotation:(LookForAnnotationView *)annotationView
+{
+    [LookFor_Application shareInstance].selectedAnnonationIndex = annotationView.tag;
+    [_mapView setCenterCoordinate:annotationView.coordinate animated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OneAnnonationSelected" object:nil];
+}
+
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
