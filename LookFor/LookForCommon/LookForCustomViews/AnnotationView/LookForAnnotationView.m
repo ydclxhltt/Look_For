@@ -183,6 +183,10 @@
     int selectedIndex = [LookFor_Application shareInstance].selectedAnnonationIndex;
     if (self.tag == selectedIndex)
     {
+        if (self.isSelect)
+        {
+            return;
+        }
         [self handleSelect:nil];
     }
 }

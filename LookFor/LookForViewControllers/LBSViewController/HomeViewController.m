@@ -178,6 +178,7 @@ LookForAnnotationViewDelegate>
     NSLog(@"====%d",index);
     [LookFor_Application shareInstance].selectedAnnonationIndex = index;
     [self isShowFriendView:NO];
+     isShowFriendView = NO;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowFriendInfoView" object:nil];
     
 }
