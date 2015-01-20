@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFHTTPRequestOperationManager.h"
 #import "LookForBaseService.h"
 @interface LookForServiceSchedular : NSObject
 

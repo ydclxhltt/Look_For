@@ -24,26 +24,43 @@
     return self;
 }
 
-- (void)setBodyDictionaryData:(NSMutableDictionary *)bodyDictionaryData {
-//    
-//    NSError *error = nil;
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:bodyDictionaryData
-//                                                       options:NSJSONWritingPrettyPrinted
-//                                                         error:&error];
-//    NSString * jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-//    self.bodyString = [NSString stringWithFormat:@"<input hiddel id=\"JsonEncoded\"  value= \"%@\"/>",jsonString];
-//   [self.bodyDictionary setValue:self.bodyString forKey:@"req"];
+- (void)setBodyDictionaryData:(NSMutableDictionary *)bodyDictionaryData
+{
     self.bodyDictionary = bodyDictionaryData;
+}
+
+
+- (void)requestSuccess:(NSDictionary *)responseDictionary
+{
+    [self saveDate];
+}
+
+- (void)requestFail
+{
     
 }
 
 
-- (void)requestSuccess:(NSDictionary *)responseDictionary {
-
+- (void)saveDate
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setValue:[NSDate date] forKey:self.dateKey];
 }
 
-- (void)requestFail {
-
++ (BOOL)isCanRequestForKey:(NSString *)key
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSDate *lastDate = [userDefault objectForKey:key];
+    if (!lastDate)
+    {
+        return YES;
+    }
+    float currentTime = [[NSDate date] timeIntervalSinceDate:lastDate];
+    if (currentTime >= REQUEST_TIME_DELAY)
+    {
+        return YES;
+    }
+    return NO;
 }
 
 @end

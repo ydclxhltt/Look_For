@@ -20,12 +20,14 @@
         NSDictionary *bodyDic  = @{@"userId":userID};
         [self setBodyDictionaryData:bodyDic];
         self.urlString = FRIEND_LIST_URL;
+        self.dateKey = FRIEND_LIST_TIME;
     }
     return self;
 }
 
 - (void)requestSuccess:(NSDictionary *)responseDictionary
 {
+    [super requestSuccess:responseDictionary];
     NSLog(@"responseDictionary===%@",responseDictionary);
     LookFor_FriendList *friendListObj = [[LookFor_FriendList alloc] initWithDictionary:responseDictionary];
     if (friendListObj)
@@ -37,6 +39,7 @@
 
 - (void)requestFail
 {
+    [super requestFail];
     //Network connection fail
     [[NSNotificationCenter defaultCenter] postNotificationName:FRIEND_LIST_FAILURE object:nil];
 }

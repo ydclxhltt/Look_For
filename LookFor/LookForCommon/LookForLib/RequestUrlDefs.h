@@ -19,11 +19,13 @@
 #define LOGIN_URL               MAKE_URL_STRING(@"login.do")
 
 //获取好友列表
-#define FRIEND_LIST_URL         @"http://www.xshcar.com/chen/friendList.html"
+#define FRIEND_LIST_URL         @"http://192.168.2.160/wonhot/chenl/spi/4.0/friendList.xml"
+//@"http://www.xshcar.com/chen/friendList.html"
 //@"http://192.168.2.160/wonhot/chenl/spi/4.0/friendList.html"
 //MAKE_URL_STRING(@"")
 
 //获取好友详情
-#define FRIEND_DETAIL_URL       @"http://www.xshcar.com/chen/friendDetail.html"
+#define FRIEND_DETAIL_URL       @"http://192.168.2.160/wonhot/chenl/spi/4.0/friendDetail.xml"
+////@"http://192.168.2.160/wonhot/chenl/spi/4.0/friendList.html"
 
 #endif

@@ -26,15 +26,22 @@
 #define GETANSWERLISTACTION     @"getAnswerListAction"
 #define QUESTIONACTION          @"questionAction"
 
+#define REQUEST_TIME_DELAY      15.0
+
 @interface LookForBaseService : NSObject
 
 @property (nonatomic, strong) NSString *urlString;
 @property (nonatomic, strong) NSMutableDictionary *bodyDictionary;
 @property (nonatomic, strong) NSString *bodyString;
+@property (nonatomic, strong) NSString *dateKey;
 
 - (void)setBodyDictionaryData:(NSDictionary *)bodyDictionaryData;
-
 //override the requestSuccess function
 - (void)requestSuccess:(NSDictionary *)responseDictionary;
 - (void)requestFail;
+
+/*
+ *  判断是否发请求，15.0内不重复发
+ */
++ (BOOL)isCanRequestForKey:(NSString *)key;
 @end

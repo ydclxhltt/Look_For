@@ -7,7 +7,6 @@
 //add service management
 
 #import "LookForServiceSchedular.h"
-#import "AFHTTPRequestOperationManager.h"
 static LookForServiceSchedular *_shareInstance = nil;
 
 @interface LookForServiceSchedular ()
@@ -24,6 +23,7 @@ static LookForServiceSchedular *_shareInstance = nil;
     if (self) {
         _operationManager = [AFHTTPRequestOperationManager manager];
         _operationManager.requestSerializer = [AFJSONRequestSerializer serializer];
+        [_operationManager.requestSerializer setTimeoutInterval:REQUEST_TIME_DELAY];
         _operationManager.responseSerializer = [AFJSONResponseSerializer serializer];
         _operationManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     }
