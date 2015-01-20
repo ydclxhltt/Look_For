@@ -19,6 +19,7 @@
 #import "LookForSelectFriendViewController.h"
 #import "LookForAnnotationView.h"
 #import "LookForAssemblyViewController.h"
+#import "LookForFriendDetailView.h"
 
 @interface HomeViewController ()<BMKLocationServiceDelegate,
 BMKMapViewDelegate,
@@ -31,6 +32,7 @@ LookForAnnotationViewDelegate>
     BMKGeoCodeSearch *geocodesearch;
     UIImageView *friendsView;
     BOOL isShowFriendView;
+    LookForFriendDetailView *friendDetailView;
 }
 @property(nonatomic, strong) LookFor_FriendList *friendListObj;
 @end
@@ -53,8 +55,6 @@ LookForAnnotationViewDelegate>
     [self getLocation];
     //获取好友列表
     [LookForRequestTool getFriendListRequestWithUserID:@"001"];
-    //获取好友详情列表
-    [LookForRequestTool getFriendListRequestWithUserID:@"001" allFriendID:@"002,"];
     //添加通知
     [self addNotifications];
     // Do any additional setup after loading the view.
@@ -115,14 +115,29 @@ LookForAnnotationViewDelegate>
     [self addMapViewWithFrame:CGRectMake(0, 0, MAIN_SCREEN_SIZE.width, MAIN_SCREEN_SIZE.height) mapType:BMKMapTypeStandard mapZoomLevel:16.0 showUserLocation:YES];
 }
 
+#pragma mark 好友item按钮事件
+- (void)friendsButtonPressed:(UIButton *)button
+{
+    isShowFriendView = !isShowFriendView;
+    if (isShowFriendView)
+    {
+        [self addFriendsView];
+        //获取好友列表
+        [LookForRequestTool getFriendListRequestWithUserID:@"001"];
+    }
+    [self isShowFriendView:isShowFriendView];
+}
+
+
 - (void)addFriendsView
 {
     if (!friendsView)
     {
         friendsView = [CreateViewTool createImageViewWithFrame:CGRectMake(0, - (NAV_HEIGHT + FRIENDS_VIEW_HEIGHT) , SCREEN_WIDTH, NAV_HEIGHT + FRIENDS_VIEW_HEIGHT) placeholderImage:nil];
-        friendsView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.8];
-        [CreateViewTool setViewShadow:friendsView withShadowColor:[[UIColor blackColor] colorWithAlphaComponent:.5] shadowOffset:CGSizeMake(0, 15.0) shadowOpacity:.5];
+        friendsView.backgroundColor = LAYER_BG_COLOR;
+        [CreateViewTool setViewShadow:friendsView withShadowColor:LAYER_SHADOW_COLOR shadowOffset:CGSizeMake(0, SHADOW_HEIGHT) shadowOpacity:SHADOW_OPACITY];
         [self.view addSubview:friendsView];
+        [self addFriendItemView];
     }
     else
     {
@@ -149,6 +164,8 @@ LookForAnnotationViewDelegate>
     }
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, FRIENDS_VIEW_HEIGHT)];
     scrollView.backgroundColor = [UIColor clearColor];
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
     scrollView.pagingEnabled = YES;
     scrollView.contentSize = CGSizeMake(FRIENDS_VIEW_SPACE_XY * (count + 1) + FRIEND_VIEW_ITEM_WIDTH * count,scrollView.frame.size.height);
     [friendsView addSubview:scrollView];
@@ -178,25 +195,20 @@ LookForAnnotationViewDelegate>
     NSLog(@"====%d",index);
     [LookFor_Application shareInstance].selectedAnnonationIndex = index;
     [self isShowFriendView:NO];
-     isShowFriendView = NO;
+    isShowFriendView = NO;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowFriendInfoView" object:nil];
-    
 }
 
-- (void)friendsButtonPressed:(UIButton *)button
+- (void)showFriendDetailView
 {
-    isShowFriendView = !isShowFriendView;
-    if (isShowFriendView)
+    if (!friendDetailView)
     {
-        if (!friendsView)
-            [self addFriendsView];
-        //获取好友列表
-        [LookForRequestTool getFriendListRequestWithUserID:@"001"];
+        friendDetailView = [[LookForFriendDetailView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) addToView:APP_DELEGATE.window];
     }
-    [self isShowFriendView:isShowFriendView];
+    [friendDetailView show];
 }
 
-#pragma mark item按钮事件
+#pragma mark 个人item按钮事件
 
 - (void)personalButtonPressed:(UIButton *)sender
 {
@@ -445,7 +457,7 @@ LookForAnnotationViewDelegate>
         NSString *seeString = (friendInfo.permission == 1) ? @"hide" : @"see";
         NSArray *array = @[seeString,@"quanta",@"gothere"];
         newAnnotationView.bubbleArray = [NSMutableArray arrayWithArray:array];
-        [newAnnotationView showFriendItem];
+        [newAnnotationView setState];
         return newAnnotationView;
     }
     return nil;
@@ -482,50 +494,6 @@ LookForAnnotationViewDelegate>
 }
 
 
-/**
- *地图区域即将改变时会调用此接口
- *@param mapview 地图View
- *@param animated 是否动画
- */
-//- (void)mapView:(BMKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
-//{
-//    isShowFriendView = NO;
-//    [self isShowFriendView:NO];
-//}
-
-/**
- *点中底图空白处会回调此接口
- *@param mapview 地图View
- *@param coordinate 空白处坐标点的经纬度
- */
-- (void)mapView:(BMKMapView *)mapView onClickedMapBlank:(CLLocationCoordinate2D)coordinate
-{
-    isShowFriendView = NO;
-    [self isShowFriendView:NO];
-}
-
-/**
- *双击地图时会回调此接口
- *@param mapview 地图View
- *@param coordinate 返回双击处坐标点的经纬度
- */
-- (void)mapview:(BMKMapView *)mapView onDoubleClick:(CLLocationCoordinate2D)coordinate
-{
-    isShowFriendView = NO;
-    [self isShowFriendView:NO];
-}
-
-/**
- *长按地图时会回调此接口
- *@param mapview 地图View
- *@param coordinate 返回长按事件坐标点的经纬度
- */
-- (void)mapview:(BMKMapView *)mapView onLongClick:(CLLocationCoordinate2D)coordinate
-{
-    isShowFriendView = NO;
-    [self isShowFriendView:NO];
-}
-
 #pragma mark 坐标转换地址Delegate
 -(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
 {
@@ -541,6 +509,7 @@ LookForAnnotationViewDelegate>
     [LookFor_Application shareInstance].selectedAnnonationIndex = annotationView.tag;
     [_mapView setCenterCoordinate:annotationView.coordinate animated:YES];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OneAnnonationSelected" object:nil];
+    [self showFriendDetailView];
 }
 
 
