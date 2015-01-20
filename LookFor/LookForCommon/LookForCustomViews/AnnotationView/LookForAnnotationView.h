@@ -36,4 +36,7 @@
 
 //默认选中
 - (void)showFriendItem;
+
+//设置初始状态
+- (void)setState;
 @end

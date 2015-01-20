@@ -161,6 +161,22 @@
 }
 
 
+#pragma mark 初始化设置选择状态
+- (void)setState
+{
+    int selectedIndex = [LookFor_Application shareInstance].selectedAnnonationIndex;
+    NSLog(@"self.tag===%d",self.tag);
+    if (selectedIndex != self.tag)
+    {
+        [self setIsSelect:NO];
+    }
+    else
+    {
+        [self setIsSelect:YES];
+    }
+}
+
+
 #pragma mark 刷新选中状态
 - (void)resetState
 {
@@ -173,7 +189,7 @@
 }
 
 
-#pragma mark 首页点击好友列表
+#pragma mark 首页点击好友列表好友头像
 - (void)showFriendItem
 {
     int selectedIndex = [LookFor_Application shareInstance].selectedAnnonationIndex;
@@ -181,6 +197,10 @@
     {
         if (self.isSelect)
         {
+            if ([self.delegate respondsToSelector:@selector(selectAnnotation:)] && self.isSelect)
+            {
+                [self.delegate selectAnnotation:self];
+            }
             return;
         }
         [self handleSelect:nil];
