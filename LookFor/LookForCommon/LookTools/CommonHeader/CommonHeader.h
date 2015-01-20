@@ -23,6 +23,12 @@
 //tabbar高度
 #define TABBAR_HEIGHT               49.0
 
+//阴影高度
+#define SHADOW_HEIGHT               10.0
+
+//阴影模糊度
+#define SHADOW_OPACITY              .2
+
 //设置字体大小
 #define FONT(f)                     [UIFont systemFontOfSize:f]
 
@@ -43,7 +49,13 @@
 //tabbar背景颜色
 #define  TABBAR_BG_COLOR            RGB(12.0,97.0,152.0)
 
-#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+//弹出层背景颜色
+#define  LAYER_BG_COLOR             RBGA(255.0,255.0,255.0,.8)
+
+//弹出层阴影颜色
+#define  LAYER_SHADOW_COLOR         RBGA(0.0,0.0,0.0,.5)
+
+
 
 #define SeparatorLineColor [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1.0]
 
