@@ -26,7 +26,7 @@
  * @pram userID     用户ID
  * @pram friendID   所有好友ID
  */
-+ (void)getFriendListRequestWithUserID:(NSString *)userID allFriendID:(NSString *)friendID;
++ (void)getFriendDetailListRequestWithUserID:(NSString *)userID allFriendID:(NSString *)friendID;
 
 
 @end

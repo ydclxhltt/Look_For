@@ -23,7 +23,7 @@ static LookForServiceSchedular *_shareInstance = nil;
     if (self) {
         _operationManager = [AFHTTPRequestOperationManager manager];
         _operationManager.requestSerializer = [AFJSONRequestSerializer serializer];
-        [_operationManager.requestSerializer setTimeoutInterval:REQUEST_TIME_DELAY];
+        [_operationManager.requestSerializer setTimeoutInterval:REQUEST_TIMEOUT];
         _operationManager.responseSerializer = [AFJSONResponseSerializer serializer];
         _operationManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     }
@@ -48,32 +48,33 @@ static LookForServiceSchedular *_shareInstance = nil;
 - (void)postService:(LookForBaseService *)baseService
 {
     
-    [_operationManager GET:baseService.urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
-    {
-         if ([responseObject isKindOfClass:[NSDictionary class]])
-         {
-             NSDictionary *dic = (NSDictionary *)responseObject;
-             [baseService requestSuccess:dic];
-         }
-         else
-         {
-             //返回的为数组（暂定失败）
-             NSLog(@"operation====%@",operation.responseString);
-             [baseService requestFail];
-         }
-    }
-    failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     {
-         NSLog(@"error===%@",error);
-         [baseService requestFail];
-     }
-     ];
+    baseService.operation = [_operationManager GET:baseService.urlString
+                                         parameters:baseService.bodyDictionary
+                                            success:^(AFHTTPRequestOperation *operation, id responseObject)
+                             {
+                                 if ([responseObject isKindOfClass:[NSDictionary class]])
+                                 {
+                                     NSDictionary *dic = (NSDictionary *)responseObject;
+                                     [baseService requestSuccess:dic];
+                                 }
+                                 else
+                                 {
+                                     //返回的为数组（暂定失败）
+                                     [baseService requestFail];
+                                 }
+                             }
+                                            failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                             {
+                                 NSLog(@"error===%@",error);
+                                 [baseService requestFail];
+                             }];
 }
+
 
 //- (void)postService:(LookForBaseService *)baseService
 //{
 //    
-//    [_operationManager POST:baseService.urlString
+//    baseService.operation = [_operationManager POST:baseService.urlString
 //                 parameters:baseService.bodyDictionary
 //    success:^(AFHTTPRequestOperation *operation, id responseObject)
 //    {

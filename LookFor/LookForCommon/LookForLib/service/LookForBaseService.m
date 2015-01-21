@@ -32,35 +32,44 @@
 
 - (void)requestSuccess:(NSDictionary *)responseDictionary
 {
-    [self saveDate];
+    self.operation = nil;
+    self.lastRequestDate = [NSDate date];
 }
 
 - (void)requestFail
 {
-    
+    self.operation = nil;
 }
 
 
-- (void)saveDate
+- (BOOL)isCanRequest
 {
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setValue:[NSDate date] forKey:self.dateKey];
-}
-
-+ (BOOL)isCanRequestForKey:(NSString *)key
-{
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    NSDate *lastDate = [userDefault objectForKey:key];
-    if (!lastDate)
+    if (!self.lastRequestDate)
     {
         return YES;
     }
-    float currentTime = [[NSDate date] timeIntervalSinceDate:lastDate];
+    float currentTime = [[NSDate date] timeIntervalSinceDate:self.lastRequestDate];
     if (currentTime >= REQUEST_TIME_DELAY)
     {
         return YES;
     }
     return NO;
 }
+
+- (BOOL)isRequesting
+{
+    if (self.operation)
+    {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)cancelRequest
+{
+    [self.operation cancel];
+    self.operation = nil;
+}
+
 
 @end

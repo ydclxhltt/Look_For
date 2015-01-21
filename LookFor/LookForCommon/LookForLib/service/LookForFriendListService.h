@@ -11,7 +11,6 @@
 
 #define FRIEND_LIST_SUCESS   @"FRIEND_LIST_SUCESS"
 #define FRIEND_LIST_FAILURE  @"FRIEND_LIST_FAILURE"
-#define FRIEND_LIST_TIME     @"FRIEND_LIST_TIME"
 
 @interface LookForFriendListService : LookForBaseService
 
@@ -20,7 +19,11 @@
  *
  *  @pram userID    用户ID
  */
-- (instancetype)initWithUserID:(NSString *)userID;
+- (void)requestWithUserID:(NSString *)userID;
 
+/*
+ *  获取单例
+ */
++ (LookForFriendListService *)shareInstance;
 
 @end

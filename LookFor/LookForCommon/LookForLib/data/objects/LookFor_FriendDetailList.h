@@ -14,6 +14,7 @@
 @property (nonatomic, assign) float direction;
 @property (nonatomic, assign) float battery;
 @property (nonatomic, assign) float signal;
+@property (nonatomic, assign) int lattice;
 @end
 
 

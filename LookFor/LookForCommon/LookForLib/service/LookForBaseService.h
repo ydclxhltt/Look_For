@@ -14,6 +14,7 @@
 #import "LookForObjectModel.h"
 #import "DBManager.h"
 #import "AFNetworkReachabilityManager.h"
+#import "AFHTTPRequestOperationManager.h"
 #import "LookForConfig.h"
 #import "LookForContentService.h"
 #import "RequestUrlDefs.h"
@@ -27,13 +28,15 @@
 #define QUESTIONACTION          @"questionAction"
 
 #define REQUEST_TIME_DELAY      15.0
+#define REQUEST_TIMEOUT         15.0
 
 @interface LookForBaseService : NSObject
 
+@property (nonatomic, strong) AFHTTPRequestOperation *operation;
+@property (nonatomic, strong) NSDate *lastRequestDate;
 @property (nonatomic, strong) NSString *urlString;
 @property (nonatomic, strong) NSMutableDictionary *bodyDictionary;
 @property (nonatomic, strong) NSString *bodyString;
-@property (nonatomic, strong) NSString *dateKey;
 
 - (void)setBodyDictionaryData:(NSDictionary *)bodyDictionaryData;
 //override the requestSuccess function
@@ -43,5 +46,16 @@
 /*
  *  判断是否发请求，15.0内不重复发
  */
-+ (BOOL)isCanRequestForKey:(NSString *)key;
+- (BOOL)isCanRequest;
+
+/*
+ *  判断是否正在请求
+ */
+- (BOOL)isRequesting;
+
+/*
+ *  取消请求
+ */
+- (void)cancelRequest;
+
 @end

@@ -20,18 +20,22 @@
 #pragma mark 获取好友列表
 + (void)getFriendListRequestWithUserID:(NSString *)userID
 {
-    if (![LookForFriendListService isCanRequestForKey:FRIEND_LIST_TIME])
+    LookForFriendListService *friendListService = [LookForFriendListService shareInstance];
+    if (![friendListService isCanRequest])
         return;
-    LookForFriendListService *friendListService = [[LookForFriendListService alloc] initWithUserID:userID];
+    if ([friendListService isRequesting])
+        return;
+    [friendListService requestWithUserID:userID];
     [LookForRequestTool request:friendListService];
 }
 
 #pragma mark 获取好友详情列表
-+ (void)getFriendListRequestWithUserID:(NSString *)userID allFriendID:(NSString *)friendID
++ (void)getFriendDetailListRequestWithUserID:(NSString *)userID allFriendID:(NSString *)friendID
 {
-    if (![LookFor_FriendDetailListService isCanRequestForKey:FRIENDDETAIL_LIST_TIME])
-        return;
-    LookFor_FriendDetailListService *friendDetailListService = [[LookFor_FriendDetailListService alloc]initWithUserID:userID allFriendID:friendID];
+    LookFor_FriendDetailListService *friendDetailListService = [LookFor_FriendDetailListService shareInstance];
+    if ([friendDetailListService isRequesting])
+        [friendDetailListService cancelRequest];
+    [friendDetailListService requestWithUserID:userID allFriendID:friendID];
     [LookForRequestTool request:friendDetailListService];
 }
 

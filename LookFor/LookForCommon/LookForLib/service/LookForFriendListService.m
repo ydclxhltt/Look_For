@@ -11,24 +11,40 @@
 
 @implementation LookForFriendListService
 
+static LookForFriendListService *_shareInstance;
 
-- (instancetype)initWithUserID:(NSString *)userID
+
++ (LookForFriendListService *)shareInstance
 {
-    self = [super init];
-    if (self)
+    if (_shareInstance != nil)
     {
-        NSDictionary *bodyDic  = @{@"userId":userID};
-        [self setBodyDictionaryData:bodyDic];
-        self.urlString = FRIEND_LIST_URL;
-        self.dateKey = FRIEND_LIST_TIME;
+        return _shareInstance;
     }
-    return self;
+    
+    @synchronized(self)
+    {
+        if (_shareInstance == nil)
+        {
+            _shareInstance = [[self alloc] init];
+        }
+    }
+    return _shareInstance;
 }
+
+
+- (void)requestWithUserID:(NSString *)userID
+{
+    NSDictionary *bodyDic  = @{@"userId":userID};
+    [self setBodyDictionaryData:bodyDic];
+    self.urlString = FRIEND_LIST_URL;
+
+}
+
 
 - (void)requestSuccess:(NSDictionary *)responseDictionary
 {
-    [super requestSuccess:responseDictionary];
     NSLog(@"responseDictionary===%@",responseDictionary);
+    [super requestSuccess:responseDictionary];
     LookFor_FriendList *friendListObj = [[LookFor_FriendList alloc] initWithDictionary:responseDictionary];
     if (friendListObj)
         [[NSNotificationCenter defaultCenter] postNotificationName:FRIEND_LIST_SUCESS object:friendListObj];
