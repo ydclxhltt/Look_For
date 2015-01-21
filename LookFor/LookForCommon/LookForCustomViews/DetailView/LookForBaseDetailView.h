@@ -14,8 +14,11 @@
 @interface LookForBaseDetailView : UIView
 {
     UIImageView *detailView;
+    UIButton *arrowButton;
     float scale;
 }
+@property (nonatomic, strong) id detailInfo;
+
 
 /*
  *  初始化视图

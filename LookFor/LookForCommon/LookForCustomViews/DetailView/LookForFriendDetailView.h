@@ -18,6 +18,6 @@
 
 @protocol FriendDetailViewGoThereDelegate <NSObject>
 
-- (void)friendDetailView:(LookForFriendDetailView *)detailView clickedGoThereWithIndex:(int)index;
+- (void)friendDetailViewClickedGoThereWithIndex:(int)index;
 
 @end

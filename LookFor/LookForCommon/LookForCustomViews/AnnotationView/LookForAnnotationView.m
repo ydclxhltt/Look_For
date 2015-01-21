@@ -81,8 +81,9 @@
     
     //头像
     float iconImageView_XY = ICON_IMAGEVIEW_SPACE * scale;
-    float iconImageViewWidth = self.frame.size.width - iconImageView_XY * 2;
+    float iconImageViewWidth = self.bounds.size.width - iconImageView_XY * 2;
     self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(iconImageView_XY,iconImageView_XY, iconImageViewWidth, iconImageViewWidth)];
+    self.iconImageView.contentMode = UIViewContentModeScaleAspectFill;
     [CreateViewTool clipView:self.iconImageView withCornerRadius:iconImageViewWidth/2];
     self.iconImageView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.iconImageView];
@@ -134,7 +135,7 @@
     [UIView animateWithDuration:.3 animations:^
     {
         self.image = image;
-        self.titleLabel.hidden = self.isSelect;
+        self.titleLabel.alpha = !self.isSelect;
         self.transform = CGAffineTransformMakeScale(viewScale, viewScale);
     } completion:^(BOOL finish){}];
     

@@ -8,16 +8,15 @@
 
 #import "LookForBaseDetailView.h"
 
-
+#define LINE_VIEW_SPACE_X 5.0
 
 @interface LookForBaseDetailView()
 {
-    UIButton *arrowButton;
+    UIImageView *lineView;
 }
 @end
 
 @implementation LookForBaseDetailView
-
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -84,6 +83,14 @@
     arrowButton = [CreateViewTool createButtonWithFrame:CGRectMake(space_x, space_y, arrow_Width, arrow_Height) buttonImage:@"ures_arrow" selectorName:@"arrowButtonPressed:" tagDelegate:self];
     arrowButton.selected = NO;
     [detailView addSubview:arrowButton];
+    
+    float lineView_y = arrowButton.frame.origin.y + arrowButton.frame.size.height/2;
+    
+    lineView = [CreateViewTool createImageViewWithFrame:CGRectMake(LINE_VIEW_SPACE_X * scale, lineView_y, detailView.frame.size.width - LINE_VIEW_SPACE_X * scale * 2 , 1.0) placeholderImage:nil];
+    lineView.backgroundColor = RGBA(220.0,221.0,223.0,0.8);
+    lineView.alpha = 0.0;
+    [detailView addSubview:lineView];
+    
 }
 
 
@@ -100,6 +107,7 @@
         CGRect frame = sender.frame;
         frame.origin.y = space_y;
         sender.frame = frame;
+        lineView.alpha = sender.selected;
         sender.transform = CGAffineTransformMakeRotation(angle);
     }];
 }
@@ -117,7 +125,13 @@
 {
     float height = (arrowButton.selected) ?  detailView.frame.size.height :  DETAIL_VIEW_DEFAULT_HEIGHT * scale;
     [self moveViewWithHeight:height viewAlpha:.0];
+    
     arrowButton.selected = NO;
+    CGRect frame = arrowButton.frame;
+    frame.origin.y = DETAIL_VIEW_DEFAULT_HEIGHT - frame.size.height;
+    arrowButton.frame = frame;
+    arrowButton.transform = CGAffineTransformMakeRotation(0);
+    lineView.alpha = 0.0;
 }
 
 #pragma mark 视图动画
