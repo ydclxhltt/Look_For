@@ -64,11 +64,11 @@
     [UIView setAnimationDuration:0.3];
     
     CGFloat offsetY = 0;
-    if (iPhone5)
+    if (SCREEN_4_INCH)
     {
         offsetY = -30;
     }
-    else
+    else if (SCREEN_3_5_INCH)
     {
         offsetY = -110;
     }

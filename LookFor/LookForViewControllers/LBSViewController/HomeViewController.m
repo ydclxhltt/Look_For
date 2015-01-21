@@ -25,7 +25,8 @@
 BMKMapViewDelegate,
 BMKGeoCodeSearchDelegate,
 LookForRightSlideButtonViewDelegate,
-LookForAnnotationViewDelegate>
+LookForAnnotationViewDelegate,
+FriendDetailViewGoThereDelegate>
 {
     BMKLocationService *locationService;
     BMKMapView *_mapView;
@@ -199,12 +200,14 @@ LookForAnnotationViewDelegate>
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowFriendInfoView" object:nil];
 }
 
-- (void)showFriendDetailView
+- (void)showFriendDetailViewWithIndex:(int)index
 {
     if (!friendDetailView)
     {
         friendDetailView = [[LookForFriendDetailView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) addToView:APP_DELEGATE.window];
+        friendDetailView.delegate = self;
     }
+    friendDetailView.index = index;
     [friendDetailView show];
 }
 
@@ -237,6 +240,8 @@ LookForAnnotationViewDelegate>
 {
     [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(getFriendListSucess:) name:FRIEND_LIST_SUCESS object:nil];
     [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(getFriendListFailure) name:FRIEND_LIST_FAILURE object:nil];
+    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(getFriendDetailListSucess:) name:FRIENDDETAIL_LIST_SUCESS object:nil];
+    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(getFriendDetailListFailure) name:FRIENDDETAIL_LIST_FAILURE object:nil];
 }
 
 
@@ -250,6 +255,26 @@ LookForAnnotationViewDelegate>
 
 #pragma mark 获取好友列表失败
 - (void)getFriendListFailure
+{
+    
+}
+
+#pragma mark 获取好友详情列表成功
+- (void)getFriendDetailListSucess:(NSNotification *)notification
+{
+    NSArray *array = ((LookFor_FriendDetailList *)[notification object]).lbsList;
+    if (array && [array count] > 0)
+    {
+        if (friendDetailView)
+        {
+            [friendDetailView setDetailInfo:array[0]];
+        }
+    }
+
+}
+
+#pragma mark 获取好友详情列表失败
+- (void)getFriendDetailListFailure
 {
     
 }
@@ -347,14 +372,14 @@ LookForAnnotationViewDelegate>
 {
     switch (tag) {
         case 0: {
-            CLLocationCoordinate2D star1;
-            star1.latitude = 40.056885;
-            star1.longitude = 116.308150;
-            CLLocationCoordinate2D end1;
-            end1.latitude = 39.912094;
-            end1.longitude = 116.403936;
-            LookForRouteSearchViewController *route = [[LookForRouteSearchViewController alloc] initWithStart:star1 withEnd:end1 withToAddress:@"天安门"];
-            [self.navigationController pushViewController:route animated:YES];
+//            CLLocationCoordinate2D star1;
+//            star1.latitude = 40.056885;
+//            star1.longitude = 116.308150;
+//            CLLocationCoordinate2D end1;
+//            end1.latitude = 39.912094;
+//            end1.longitude = 116.403936;
+//            LookForRouteSearchViewController *route = [[LookForRouteSearchViewController alloc] initWithStart:star1 withEnd:end1 withToAddress:@"天安门"];
+//            [self.navigationController pushViewController:route animated:YES];
 
             break;
         }
@@ -509,8 +534,24 @@ LookForAnnotationViewDelegate>
     [LookFor_Application shareInstance].selectedAnnonationIndex = annotationView.tag;
     [_mapView setCenterCoordinate:annotationView.coordinate animated:YES];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OneAnnonationSelected" object:nil];
-    [self showFriendDetailView];
+    [self showFriendDetailViewWithIndex:annotationView.tag];
+    [LookForRequestTool getFriendDetailListRequestWithUserID:@"001" allFriendID:@"111,"];
 }
+
+#pragma mark goThereDelegate
+- (void)friendDetailViewClickedGoThereWithIndex:(int)index
+{
+    //LookFor_Friend *friendInfo = self.friendListObj.friendList[index];
+    CLLocationCoordinate2D star1;
+    star1.latitude = 40.056885;
+    star1.longitude = 116.308150;
+    CLLocationCoordinate2D end1;
+    end1.latitude = 39.912094;
+    end1.longitude = 116.403936;
+    LookForRouteSearchViewController *route = [[LookForRouteSearchViewController alloc] initWithStart:star1 withEnd:end1 withToAddress:@"天安门"];
+    [self.navigationController pushViewController:route animated:YES];
+}
+
 
 
 - (void)didReceiveMemoryWarning
