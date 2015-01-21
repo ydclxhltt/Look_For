@@ -161,8 +161,7 @@
 //URL编码
 + (NSString *)encodeToPercentEscapeString: (NSString *) input
 {
-    NSString *outputStr = (NSString *)
-    CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+    NSString *outputStr = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                               (CFStringRef)input,
                                                               NULL,
                                                               (CFStringRef)@"!*'();:@&=+$,/?%#[]",

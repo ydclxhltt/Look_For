@@ -36,7 +36,7 @@
 #define BOLD_FONT(f)                [UIFont boldSystemFontOfSize:f]
 
 //设置RGB
-#define RBGA(R,G,B,AL)              [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:AL]
+#define RGBA(R,G,B,AL)              [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:AL]
 
 #define RGB(R,G,B)                  [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1.0]
 
@@ -50,10 +50,10 @@
 #define  TABBAR_BG_COLOR            RGB(12.0,97.0,152.0)
 
 //弹出层背景颜色
-#define  LAYER_BG_COLOR             RBGA(255.0,255.0,255.0,.8)
+#define  LAYER_BG_COLOR             RGBA(255.0,255.0,255.0,.8)
 
 //弹出层阴影颜色
-#define  LAYER_SHADOW_COLOR         RBGA(0.0,0.0,0.0,.5)
+#define  LAYER_SHADOW_COLOR         RGBA(0.0,0.0,0.0,.5)
 
 
 
