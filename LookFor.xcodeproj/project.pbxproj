@@ -37,6 +37,7 @@
 		6BBE090A1A52C81100FC15C6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBE09061A52C81100FC15C6 /* Default.png */; };
 		6BBE090B1A52C81100FC15C6 /* icare_iphone_lightline.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBE09071A52C81100FC15C6 /* icare_iphone_lightline.png */; };
 		6BBE090C1A52C81100FC15C6 /* icare_iphone_lightpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBE09081A52C81100FC15C6 /* icare_iphone_lightpoint.png */; };
+		6BCAE0FE1A710C15002F4923 /* LookForModifyPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAE0FD1A710C15002F4923 /* LookForModifyPhoneViewController.m */; };
 		6BCB57A31A512AEA00060B31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB57A21A512AEA00060B31 /* Foundation.framework */; };
 		6BCB57A51A512AEA00060B31 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB57A41A512AEA00060B31 /* CoreGraphics.framework */; };
 		6BCB57A71A512AEA00060B31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB57A61A512AEA00060B31 /* UIKit.framework */; };
@@ -227,6 +228,8 @@
 		6BBE09061A52C81100FC15C6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6BBE09071A52C81100FC15C6 /* icare_iphone_lightline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icare_iphone_lightline.png; sourceTree = "<group>"; };
 		6BBE09081A52C81100FC15C6 /* icare_iphone_lightpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icare_iphone_lightpoint.png; sourceTree = "<group>"; };
+		6BCAE0FC1A710C15002F4923 /* LookForModifyPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyPhoneViewController.h; sourceTree = "<group>"; };
+		6BCAE0FD1A710C15002F4923 /* LookForModifyPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForModifyPhoneViewController.m; sourceTree = "<group>"; };
 		6BCB579F1A512AEA00060B31 /* LookFor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LookFor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BCB57A21A512AEA00060B31 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6BCB57A41A512AEA00060B31 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -544,6 +547,8 @@
 		6BA76B8B1A62AE6900C3AEE6 /* UserViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6BCAE0FC1A710C15002F4923 /* LookForModifyPhoneViewController.h */,
+				6BCAE0FD1A710C15002F4923 /* LookForModifyPhoneViewController.m */,
 				6BA76B8C1A62AE6900C3AEE6 /* LookForGuideHelpViewController.h */,
 				6BA76B8D1A62AE6900C3AEE6 /* LookForGuideHelpViewController.m */,
 				6BB6629D1A63B19C003350E7 /* LookForLoginViewController.h */,
@@ -1404,6 +1409,7 @@
 				77D1E3141A70C8120056C7BA /* UIImage+WebP.m in Sources */,
 				CE33CA081A5C452B0042006D /* LookForAppDelegate.m in Sources */,
 				6BEDC74E1A5FD35F00B0C595 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				6BCAE0FE1A710C15002F4923 /* LookForModifyPhoneViewController.m in Sources */,
 				77D1E30F1A70C8120056C7BA /* SDWebImageManager.m in Sources */,
 				77D1E2901A70989B0056C7BA /* LookForFriendView.m in Sources */,
 				CE33CB071A5C57640042006D /* AFHTTPSessionManager.m in Sources */,

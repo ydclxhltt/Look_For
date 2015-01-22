@@ -20,6 +20,8 @@
 #import "LookForAnnotationView.h"
 #import "LookForAssemblyViewController.h"
 #import "LookForFriendDetailView.h"
+#import "LookForLoginViewController.h"
+#import "LookForRegisterViewController.h"
 #import "LookForFriendView.h"
 
 @interface HomeViewController ()<BMKLocationServiceDelegate,
@@ -343,6 +345,9 @@ FriendViewDelegate>
         case 3:{
             LookForAssemblyViewController *ct = [[LookForAssemblyViewController alloc] init];
             [self.navigationController pushViewController:ct animated:YES];
+//            LookForLoginViewController *ll = [[LookForLoginViewController alloc] init];
+//            
+//            [self.navigationController pushViewController:ll animated:YES];
             break;
         }
             

@@ -10,4 +10,6 @@
 
 @interface LookForRegisterViewController : BasicViewController
 
+- (id)initIsRegister:(BOOL)isRegister;
+
 @end

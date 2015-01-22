@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LookForLoginView : UIView
+@interface LookForLoginView : UIControl
 
 @property (nonatomic, strong) UIImageView *logoImageView;           //logo
 
@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UITextField *passwordTextField;       //密码
 
 @property (nonatomic, strong) UIButton    *loginButton;
+
+@property (nonatomic, strong) UIButton    *forgetButton;            //忘记密码
 
 - (BOOL)checkEmpty;
 - (void)show;
