@@ -20,20 +20,23 @@
 #import "LookForAnnotationView.h"
 #import "LookForAssemblyViewController.h"
 #import "LookForFriendDetailView.h"
+#import "LookForFriendView.h"
 
 @interface HomeViewController ()<BMKLocationServiceDelegate,
 BMKMapViewDelegate,
 BMKGeoCodeSearchDelegate,
 LookForRightSlideButtonViewDelegate,
 LookForAnnotationViewDelegate,
-FriendDetailViewGoThereDelegate>
+FriendDetailViewGoThereDelegate,
+FriendViewDelegate>
 {
     BMKLocationService *locationService;
     BMKMapView *_mapView;
     BMKGeoCodeSearch *geocodesearch;
-    UIImageView *friendsView;
     BOOL isShowFriendView;
     LookForFriendDetailView *friendDetailView;
+    LookForFriendView *friendsView;
+    CLLocationCoordinate2D location;
 }
 @property(nonatomic, strong) LookFor_FriendList *friendListObj;
 @end
@@ -55,7 +58,7 @@ FriendDetailViewGoThereDelegate>
     //获取当前位置
     [self getLocation];
     //获取好友列表
-    [LookForRequestTool getFriendListRequestWithUserID:@"001"];
+    [self getFriendList];
     //添加通知
     [self addNotifications];
     // Do any additional setup after loading the view.
@@ -119,120 +122,48 @@ FriendDetailViewGoThereDelegate>
 #pragma mark 好友item按钮事件
 - (void)friendsButtonPressed:(UIButton *)button
 {
+    if (friendDetailView)
+    {
+        [friendDetailView dismiss];
+    }
     isShowFriendView = !isShowFriendView;
     if (isShowFriendView)
     {
         [self addFriendsView];
         //获取好友列表
-        [LookForRequestTool getFriendListRequestWithUserID:@"001"];
+        [self getFriendList];
+        return;
     }
-    [self isShowFriendView:isShowFriendView];
+    [friendsView dismiss];
 }
-
 
 - (void)addFriendsView
 {
     if (!friendsView)
     {
-        friendsView = [CreateViewTool createImageViewWithFrame:CGRectMake(0, - (NAV_HEIGHT + FRIENDS_VIEW_HEIGHT) , SCREEN_WIDTH, NAV_HEIGHT + FRIENDS_VIEW_HEIGHT) placeholderImage:nil];
-        friendsView.backgroundColor = LAYER_BG_COLOR;
-        [CreateViewTool setViewShadow:friendsView withShadowColor:LAYER_SHADOW_COLOR shadowOffset:CGSizeMake(0, SHADOW_HEIGHT) shadowOpacity:SHADOW_OPACITY];
-        [self.view addSubview:friendsView];
-        [self addFriendItemView];
+        friendsView = [[LookForFriendView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) addToView:self.view];
     }
-    else
-    {
-        if (self.friendListObj.friendList && [self.friendListObj.friendList count] > 0)
-        {
-            [self addFriendItemView];
-        }
-        else if ([self.friendListObj.friendList count] == 0)
-        {
-            //无好友
-        }
-    }
+    [friendsView show];
+    friendsView.delegate = self;
+    friendsView.dataArray = self.friendListObj.friendList;
 }
 
-- (void)addFriendItemView
-{
-    int count = [self.friendListObj.friendList count];
-    for (UIView *view in friendsView.subviews)
-    {
-        if ([view isKindOfClass:[UIScrollView class]])
-        {
-            [view removeFromSuperview];
-        }
-    }
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, FRIENDS_VIEW_HEIGHT)];
-    scrollView.backgroundColor = [UIColor clearColor];
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.pagingEnabled = YES;
-    scrollView.contentSize = CGSizeMake(FRIENDS_VIEW_SPACE_XY * (count + 1) + FRIEND_VIEW_ITEM_WIDTH * count,scrollView.frame.size.height);
-    [friendsView addSubview:scrollView];
-    for (int i = 0; i < count; i ++)
-    {
-        LookFor_Friend *friendInfo = self.friendListObj.friendList[i];
-        UIImage *image = [UIImage imageNamed:@"1.jpg"];
-        UIImageView *friendItemView = [CreateViewTool createRoundImageViewWithFrame:CGRectMake(FRIENDS_VIEW_SPACE_XY + i * (FRIENDS_VIEW_SPACE_XY + FRIEND_VIEW_ITEM_WIDTH), FRIENDS_VIEW_SPACE_XY, FRIEND_VIEW_ITEM_WIDTH, FRIEND_VIEW_ITEM_WIDTH) placeholderImage:image borderColor:nil imageUrl:friendInfo.portrait];
-        [friendItemView setImageWithURL:[NSURL URLWithString:friendInfo.portrait] placeholderImage:image];
-        friendItemView.tag = i;
-        [scrollView addSubview:friendItemView];
-        
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-        [friendItemView addGestureRecognizer:tapGesture];
-        
-        NSString *userName = friendInfo.commentName;
-        userName = (!userName || [@"" isEqualToString:userName]) ? friendInfo.nickName : userName;
-        UILabel * nameLabel = [CreateViewTool createLabelWithFrame:CGRectMake(friendItemView.frame.origin.x, scrollView.frame.size.height - FRIEND_VIEW_LABEL_WIDTH - 3.0, friendItemView.frame.size.width, FRIEND_VIEW_LABEL_WIDTH) textString:userName textColor:[UIColor blackColor] textFont:FONT(12.0)];
-        nameLabel.textAlignment = NSTextAlignmentCenter;
-        [scrollView addSubview:nameLabel];
-    }
-}
 
-- (void)handleTap:(UITapGestureRecognizer *)tapGesture
-{
-    int index = tapGesture.view.tag;
-    NSLog(@"====%d",index);
-    [LookFor_Application shareInstance].selectedAnnonationIndex = index;
-    [self isShowFriendView:NO];
-    isShowFriendView = NO;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowFriendInfoView" object:nil];
-}
-
-- (void)showFriendDetailViewWithIndex:(int)index
-{
-    if (!friendDetailView)
-    {
-        friendDetailView = [[LookForFriendDetailView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) addToView:APP_DELEGATE.window];
-        friendDetailView.delegate = self;
-    }
-    friendDetailView.index = index;
-    [friendDetailView show];
-}
 
 #pragma mark 个人item按钮事件
 
 - (void)personalButtonPressed:(UIButton *)sender
 {
-    
+    if (friendDetailView)
+    {
+        [friendDetailView dismiss];
+    }
+    if (friendsView)
+    {
+        [friendsView dismiss];
+    }
 }
 
-
-- (void)isShowFriendView:(BOOL)isShow
-{
-    float move_y = 0.0;
-    move_y = (isShow) ? friendsView.frame.size.height : - friendsView.frame.size.height;
-    
-    float alpha = 1.0;
-    alpha = (isShow) ? alpha : 0.0;
-    
-    [UIView animateWithDuration:.5 animations:^
-     {
-         friendsView.transform = CGAffineTransformMakeTranslation(0, move_y);
-         friendsView.alpha = alpha;
-     }];
-}
 
 
 #pragma mark 添加通知
@@ -245,21 +176,34 @@ FriendDetailViewGoThereDelegate>
 }
 
 
-#pragma mark 获取好友列表成功
+#pragma mark 获取好友列表
+- (void)getFriendList
+{
+    [LookForRequestTool getFriendListRequestWithUserID:@"001"];
+}
+
 - (void)getFriendListSucess:(NSNotification *)notification
 {
     self.friendListObj = (LookFor_FriendList *)[notification object];
     [self addFriendAnnotations:self.friendListObj.friendList];
-    [self addFriendsView];
+    if (isShowFriendView)
+    {
+        [self addFriendsView];
+    }
 }
 
-#pragma mark 获取好友列表失败
 - (void)getFriendListFailure
 {
     
 }
 
-#pragma mark 获取好友详情列表成功
+#pragma mark 获取好友详情
+
+- (void)getFriendDetailListWithFriendsID:(NSString *)friendsID
+{
+    [LookForRequestTool getFriendDetailListRequestWithUserID:@"001" allFriendID:[friendsID stringByAppendingString:@","]];
+}
+
 - (void)getFriendDetailListSucess:(NSNotification *)notification
 {
     NSArray *array = ((LookFor_FriendDetailList *)[notification object]).lbsList;
@@ -267,19 +211,20 @@ FriendDetailViewGoThereDelegate>
     {
         if (friendDetailView)
         {
-            [friendDetailView setDetailInfo:array[0]];
+            LookFor_FriendDetail *friendDetailInfo = (LookFor_FriendDetail *)array[0];
+            CLLocationCoordinate2D friendLocation = CLLocationCoordinate2DMake(friendDetailInfo.latitude, friendDetailInfo.longitude);
+            friendDetailView.distance = [self getDistanceWithStartLocation:location endLocation:friendLocation];
+            [friendDetailView setDetailInfo:friendDetailInfo];
         }
     }
-
 }
 
-#pragma mark 获取好友详情列表失败
 - (void)getFriendDetailListFailure
 {
     
 }
 
-#pragma mark 添加好友头像
+#pragma mark 添加地图好友头像
 - (void)addFriendAnnotations:(NSArray *)array
 {
     [_mapView removeAnnotations:_mapView.annotations];
@@ -410,31 +355,6 @@ FriendDetailViewGoThereDelegate>
 
 #pragma mark locationManageDelegate
 /**
- *在将要启动定位时，会调用此函数
- */
-- (void)willStartLocatingUser
-{
-    
-}
-
-/**
- *在停止定位后，会调用此函数
- */
-- (void)didStopLocatingUser
-{
-    
-}
-
-/**
- *用户方向更新后，会调用此函数
- *@param userLocation 新的用户位置
- */
-- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
-{
-    
-}
-
-/**
  *用户位置更新后，会调用此函数
  *@param userLocation 新的用户位置
  */
@@ -442,7 +362,8 @@ FriendDetailViewGoThereDelegate>
 {
     NSLog(@"userLocation====%@",[userLocation.location description]);
     [_mapView updateLocationData:userLocation];
-    [_mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+    location = userLocation.location.coordinate;
+    [_mapView setCenterCoordinate:location animated:YES];
     //[self getReverseGeocodeWithLocation:userLocation.location.coordinate];
     [self stopLocation];
 }
@@ -488,36 +409,6 @@ FriendDetailViewGoThereDelegate>
     return nil;
 }
 
-/**
- *当mapView新添加annotation views时，调用此接口
- *@param mapView 地图View
- *@param views 新添加的annotation views
- */
-- (void)mapView:(BMKMapView *)mapView didAddAnnotationViews:(NSArray *)views
-{
-    
-}
-
-/**
- *当选中一个annotation views时，调用此接口
- *@param mapView 地图View
- *@param views 选中的annotation views
- */
-- (void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view
-{
-    
-}
-
-/**
- *当取消选中一个annotation views时，调用此接口
- *@param mapView 地图View
- *@param views 取消选中的annotation views
- */
-- (void)mapView:(BMKMapView *)mapView didDeselectAnnotationView:(BMKAnnotationView *)view
-{
-    
-}
-
 
 #pragma mark 坐标转换地址Delegate
 -(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
@@ -531,14 +422,56 @@ FriendDetailViewGoThereDelegate>
 
 - (void)selectAnnotation:(LookForAnnotationView *)annotationView
 {
+    if (friendsView)
+    {
+        [friendsView dismiss];
+    }
     [LookFor_Application shareInstance].selectedAnnonationIndex = annotationView.tag;
     [_mapView setCenterCoordinate:annotationView.coordinate animated:YES];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OneAnnonationSelected" object:nil];
     [self showFriendDetailViewWithIndex:annotationView.tag];
-    [LookForRequestTool getFriendDetailListRequestWithUserID:@"001" allFriendID:@"111,"];
 }
 
-#pragma mark goThereDelegate
+- (void)showFriendDetailViewWithIndex:(int)index
+{
+    if (!friendDetailView)
+    {
+        friendDetailView = [[LookForFriendDetailView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) addToView:self.view];
+        friendDetailView.delegate = self;
+    }
+    //设置消息和距离
+    LookFor_Friend *friendInfo = (LookFor_Friend *)(self.friendListObj.friendList[index]);
+    CLLocationCoordinate2D friendLocation = CLLocationCoordinate2DMake(friendInfo.latitude, friendInfo.longitude);
+    friendDetailView.distance = [self getDistanceWithStartLocation:location endLocation:friendLocation];
+    [friendDetailView setDetailInfo:friendInfo];
+    friendDetailView.index = index;
+    [friendDetailView show];
+    [self getFriendDetailListWithFriendsID:friendInfo.friendID];
+}
+
+- (float)getDistanceWithStartLocation:(CLLocationCoordinate2D)start endLocation:(CLLocationCoordinate2D)end
+{
+    BMKMapPoint startPoint = BMKMapPointForCoordinate(start);
+    BMKMapPoint endPoint = BMKMapPointForCoordinate(end);
+    CLLocationDistance dictance = BMKMetersBetweenMapPoints(startPoint,endPoint);
+    return dictance/1000.0;
+}
+
+#pragma mark friendViewDelegate
+- (void)friendViewClickedItemIndex:(int)index
+{
+    [LookFor_Application shareInstance].selectedAnnonationIndex = index;
+    [friendsView dismiss];
+    isShowFriendView = NO;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowFriendInfoView" object:nil];
+}
+
+- (void)friendViewDismissed
+{
+    
+}
+
+#pragma mark friendDetailDelegate
 - (void)friendDetailViewClickedGoThereWithIndex:(int)index
 {
     //LookFor_Friend *friendInfo = self.friendListObj.friendList[index];
@@ -548,11 +481,15 @@ FriendDetailViewGoThereDelegate>
     CLLocationCoordinate2D end1;
     end1.latitude = 39.912094;
     end1.longitude = 116.403936;
-    LookForRouteSearchViewController *route = [[LookForRouteSearchViewController alloc] initWithStart:star1 withEnd:end1 withToAddress:@"天安门"];
-    [self.navigationController pushViewController:route animated:YES];
+    LookForRouteSearchViewController *routeViewController = [[LookForRouteSearchViewController alloc] initWithStart:star1 withEnd:end1 withToAddress:@"天安门"];
+    [self.navigationController pushViewController:routeViewController animated:YES];
 }
 
-
+- (void)friendDetailViewClickedClose
+{
+    [friendDetailView removeFromSuperview];
+    friendDetailView = nil;
+}
 
 - (void)didReceiveMemoryWarning
 {
