@@ -15,6 +15,7 @@
 {
     UIImageView *detailView;
     UIButton *arrowButton;
+    float detailViewHeight;
     float scale;
 }
 @property (nonatomic, strong) id detailInfo;
@@ -42,4 +43,15 @@
  *  隐藏
  */
 - (void)dismiss;
+
+/*
+ * 添加详细视图
+ */
+- (void)addDetailView;
+
+/*
+ * 添加关闭按钮
+ */
+- (void)addCloseButton;
+
 @end

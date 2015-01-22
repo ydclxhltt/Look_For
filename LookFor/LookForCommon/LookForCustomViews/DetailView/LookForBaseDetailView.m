@@ -31,6 +31,7 @@
     self = [super initWithFrame:frame];
     if (self)
     {
+        detailViewHeight = DETAIL_VIEW_DEFAULT_HEIGHT;
         scale = CURRENT_SCALE;
         self.backgroundColor = [UIColor clearColor];
         self.alpha = 0.0;
@@ -47,7 +48,8 @@
 {
     [self addBgView];
     [self addDetailView];
-    [self addButtons];
+    [self addCloseButton];
+    [self addArrowButton];
 }
 
 - (void)addBgView
@@ -59,7 +61,7 @@
 
 - (void)addDetailView
 {
-    detailView = [CreateViewTool createImageViewWithFrame:CGRectMake(0, self.frame.size.height, SCREEN_WIDTH, DETAIL_VIEW_DEFAULT_HEIGHT * scale) placeholderImage:nil];
+    detailView = [CreateViewTool createImageViewWithFrame:CGRectMake(0, self.frame.size.height, SCREEN_WIDTH, detailViewHeight * scale) placeholderImage:nil];
     detailView.userInteractionEnabled = YES;
     detailView.backgroundColor = LAYER_BG_COLOR;
     detailView.backgroundColor = [UIColor whiteColor];
@@ -68,14 +70,17 @@
 }
 
 
-- (void)addButtons
+- (void)addCloseButton
 {
     UIImage *closeImage = [UIImage imageNamed:@"ures_close_up.png"];
     float close_Width = closeImage.size.width/2 * scale;
     float close_Height = closeImage.size.height/2 * scale;
     UIButton *closeButton = [CreateViewTool createButtonWithFrame:CGRectMake(detailView.frame.size.width - DETAIL_VIEW_SPACE_XY * scale - close_Width, DETAIL_VIEW_SPACE_XY  * scale, close_Width, close_Height) buttonImage:@"ures_close" selectorName:@"dismiss" tagDelegate:self];
     [detailView addSubview:closeButton];
-    
+}
+
+- (void)addArrowButton
+{
     UIImage *arrowImage = [UIImage imageNamed:@"ures_arrow_up.png"];
     float arrow_Width = arrowImage.size.width/2 * scale;
     float arrow_Height = arrowImage.size.height/2 * scale;
@@ -91,7 +96,6 @@
     lineView.backgroundColor = RGBA(220.0,221.0,223.0,0.8);
     lineView.alpha = 0.0;
     [detailView addSubview:lineView];
-    
 }
 
 
@@ -99,8 +103,8 @@
 - (void)arrowButtonPressed:(UIButton *)sender
 {
     sender.selected = !sender.selected;
-    float height = (sender.selected) ? - detailView.frame.size.height : - DETAIL_VIEW_DEFAULT_HEIGHT * scale;
-    float space_y = (sender.selected) ?  detailView.frame.size.height - sender.frame.size.height : DETAIL_VIEW_DEFAULT_HEIGHT * scale - sender.frame.size.height;
+    float height = (sender.selected) ? - detailView.frame.size.height : - detailViewHeight * scale;
+    float space_y = (sender.selected) ?  detailView.frame.size.height - sender.frame.size.height : detailViewHeight * scale - sender.frame.size.height;
     float angle = (sender.selected) ? M_PI : 0;
     [UIView animateWithDuration:.5 animations:^
     {
@@ -117,19 +121,19 @@
 #pragma mark 显示
 - (void)show
 {
-    [self moveViewWithHeight: - DETAIL_VIEW_DEFAULT_HEIGHT * scale viewAlpha:1.0];
+    [self moveViewWithHeight: - detailViewHeight * scale viewAlpha:1.0];
 }
 
 
 #pragma mark 消失
 - (void)dismiss
 {
-    float height = (arrowButton.selected) ?  detailView.frame.size.height :  DETAIL_VIEW_DEFAULT_HEIGHT * scale;
+    float height = (arrowButton.selected) ?  detailView.frame.size.height :  detailViewHeight * scale;
     [self moveViewWithHeight:height viewAlpha:.0];
     
     arrowButton.selected = NO;
     CGRect frame = arrowButton.frame;
-    frame.origin.y = DETAIL_VIEW_DEFAULT_HEIGHT - frame.size.height;
+    frame.origin.y = detailViewHeight - frame.size.height;
     arrowButton.frame = frame;
     arrowButton.transform = CGAffineTransformMakeRotation(0);
     lineView.alpha = 0.0;
