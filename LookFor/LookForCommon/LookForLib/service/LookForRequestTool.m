@@ -39,4 +39,14 @@
     [LookForRequestTool request:friendDetailListService];
 }
 
+#pragma mark 获取好友位置
++ (void)getFriendLocationRequestWithUserID:(NSString *)userID allFriendID:(NSString *)friendID
+{
+    LookFor_FriendDetailListService *friendDetailListService = [LookFor_FriendDetailListService shareInstance];
+    if ([friendDetailListService isRequesting])
+        return;
+    [friendDetailListService requestWithUserID:userID allFriendID:friendID];
+    [LookForRequestTool request:friendDetailListService];
+}
+
 @end
