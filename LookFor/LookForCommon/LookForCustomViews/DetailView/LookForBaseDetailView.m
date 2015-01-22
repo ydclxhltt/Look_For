@@ -62,6 +62,7 @@
     detailView = [CreateViewTool createImageViewWithFrame:CGRectMake(0, self.frame.size.height, SCREEN_WIDTH, DETAIL_VIEW_DEFAULT_HEIGHT * scale) placeholderImage:nil];
     detailView.userInteractionEnabled = YES;
     detailView.backgroundColor = LAYER_BG_COLOR;
+    detailView.backgroundColor = [UIColor whiteColor];
     [CreateViewTool setViewShadow:detailView withShadowColor:LAYER_SHADOW_COLOR shadowOffset:CGSizeMake(0, -SHADOW_HEIGHT) shadowOpacity:SHADOW_OPACITY];
     [self addSubview:detailView];
 }

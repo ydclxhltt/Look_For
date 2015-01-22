@@ -14,10 +14,15 @@
 
 @property (nonatomic, assign) id<FriendDetailViewGoThereDelegate> delegate;
 @property (nonatomic, assign) int index;
+@property (nonatomic, assign) float distance;
 @end
 
 @protocol FriendDetailViewGoThereDelegate <NSObject>
 
+@optional
+
 - (void)friendDetailViewClickedGoThereWithIndex:(int)index;
+
+- (void)friendDetailViewClickedClose;
 
 @end

@@ -36,7 +36,7 @@
 }
 */
 
-
+#pragma mark UI
 - (void)initView
 {
     [super initView];
@@ -76,7 +76,7 @@
     
     //距离/最后时间
     start_y += localLabel.frame.size.height + + LABEL_ADDSPACE_Y * scale;
-    detailLabel = [CreateViewTool createLabelWithFrame:CGRectMake(localLabel.frame.origin.x, start_y, localLabel.frame.size.width, localLabel.frame.size.height) textString:@"距离您888km,上次更新时间:2015-01-20 17:44" textColor:TEXT_COLOR textFont:FONT(11.0)];
+    detailLabel = [CreateViewTool createLabelWithFrame:CGRectMake(localLabel.frame.origin.x, start_y, localLabel.frame.size.width, localLabel.frame.size.height) textString:@"距离您  km,上次更新时间:  " textColor:TEXT_COLOR textFont:FONT(11.0)];
     [detailView addSubview:detailLabel];
     
 }
@@ -84,10 +84,10 @@
 - (void)addBottomView
 {
     float start_y = arrowButton.frame.size.height + arrowButton.frame.origin.y;
-    float space_x = DETAIL_VIEW_SPACE_XY * scale;
+    float space_x = 2 * DETAIL_VIEW_SPACE_XY * scale;
     float height = 0.0;
     NSArray *imageArray = @[@"ures_ico_battery.png",@"ures_ico_signal.png",@"ures_ico_speed.png",@"ures_ico_weilan.png"];
-    NSArray *textArray = @[@"79%",@"113",@"20km/h",@"启动2个 禁用0个"];
+    NSArray *textArray = @[@" %",@" ",@" km/h",@"共  个围栏"];
     int row = ceil([imageArray count]/2);
     for (int i = 0; i < row; i++)
     {
@@ -118,20 +118,21 @@
     detailView.frame = frame;
 }
 
-
+#pragma mark 设置数据
 - (void)setDetailInfo:(id)detailInfo
 {
     [super setDetailInfo:detailInfo];
     [self setDetailViewData];
 }
 
-
 - (void)setDetailViewData
 {
-    
     if ([self.detailInfo isKindOfClass:[LookFor_Friend class]])
     {
-        
+        LookFor_Friend *friendInfo = (LookFor_Friend *)self.detailInfo;
+        NSString *name = friendInfo.nickName;
+        name = (friendInfo.commentName && ![@"" isEqualToString:friendInfo.commentName]) ? friendInfo.commentName : name;
+        [self setDataForTitleLabel:name  localLabel:friendInfo.lastAddress detailLabel:friendInfo.updateTime];
     }
     
     if ([self.detailInfo isKindOfClass:[LookFor_FriendDetail class]])
@@ -147,6 +148,27 @@
             UILabel *label = (UILabel *)[detailView viewWithTag:i + 100];
             label.text = array[i];
         }
+        NSString *name = friendDetailInfo.nickName;
+        name = (friendDetailInfo.commentName && ![@"" isEqualToString:friendDetailInfo.commentName]) ? friendDetailInfo.commentName : name;
+        [self setDataForTitleLabel:name  localLabel:friendDetailInfo.location detailLabel:friendDetailInfo.updateTime];
+    }
+}
+
+- (void)setDataForTitleLabel:(NSString *)title localLabel:(NSString *)location detailLabel:(NSString *)detail
+{
+    titleLabel.text = title;
+    localLabel.text = location;
+    detailLabel.text = [NSString stringWithFormat:@"距离您%.1fkm,上次更新时间:%@",self.distance,detail];
+}
+
+
+#pragma mark 相关操作
+- (void)dismiss
+{
+    [super dismiss];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(friendDetailViewClickedClose)])
+    {
+        [self.delegate friendDetailViewClickedClose];
     }
 }
 
@@ -155,9 +177,15 @@
 {
     if (self.delegate && [self.delegate respondsToSelector:@selector(friendDetailViewClickedGoThereWithIndex:)])
     {
-        [self dismiss];
         [self.delegate friendDetailViewClickedGoThereWithIndex:self.index];
+        [self dismiss];
     }
+}
+
+
+- (void)dealloc
+{
+    self.delegate = nil;
 }
 
 

@@ -34,7 +34,8 @@
 {
     self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
     
-    scale = CURRENT_SCALE;
+    scale = 1.0;
+    //CURRENT_SCALE;
     
     if (self)
     {
