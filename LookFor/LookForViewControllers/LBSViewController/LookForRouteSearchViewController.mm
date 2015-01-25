@@ -9,7 +9,6 @@
 #import "LookForRouteSearchViewController.h"
 #import "LookForRouteDetailView.h"
 #import "UIImage+Rotate.h"
-#import "RTLabel.h"
 
 #define HeadHeight      NAV_HEIGHT
 #define LeftSpace       20
@@ -55,7 +54,6 @@ typedef enum {
 @property (nonatomic, assign) CLLocationCoordinate2D startCoordinate2D;     //起点坐标
 @property (nonatomic, assign) CLLocationCoordinate2D endCoordinate2D;       //终点坐标
 @property (nonatomic, strong) NSString *toAddress;                          //要去的位置
-@property (nonatomic, strong) RTLabel  *mileageLabel;                       //里程
 @property (nonatomic, strong) UIView   *footerView;
 
 @end
@@ -78,9 +76,10 @@ typedef enum {
     
     self.mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_SIZE.width, MAIN_SCREEN_SIZE.height)];
     [_mapView setZoomLevel:14];
-    _routesearch = [[BMKRouteSearch alloc]init];
-
+    [self.mapView setCenterCoordinate:self.startCoordinate2D animated:YES];
     [self.view addSubview:self.mapView];
+    
+    _routesearch = [[BMKRouteSearch alloc]init];
     
     [self handleWalkSearch];
     [self createHeadView];
@@ -140,49 +139,53 @@ typedef enum {
 {
     driveButton.selected = YES;
     walkButton.selected = NO;
-    BMKPlanNode* start = [[BMKPlanNode alloc]init];
-    start.pt = self.startCoordinate2D;
-    
-    BMKPlanNode* end = [[BMKPlanNode alloc]init];
-    end.pt = self.endCoordinate2D;
-    
-    BMKDrivingRoutePlanOption *drivingRouteSearchOption = [[BMKDrivingRoutePlanOption alloc]init];
-    drivingRouteSearchOption.from = start;
-    drivingRouteSearchOption.to = end;
-    BOOL flag = [_routesearch drivingSearch:drivingRouteSearchOption];
-    if(flag)
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^
     {
-        NSLog(@"car检索发送成功");
-    }
-    else
-    {
-        NSLog(@"car检索发送失败");
-    }
+        BMKPlanNode* start = [[BMKPlanNode alloc]init];
+        start.pt = self.startCoordinate2D;
+        
+        BMKPlanNode* end = [[BMKPlanNode alloc]init];
+        end.pt = self.endCoordinate2D;
+        
+        BMKDrivingRoutePlanOption *drivingRouteSearchOption = [[BMKDrivingRoutePlanOption alloc]init];
+        drivingRouteSearchOption.from = start;
+        drivingRouteSearchOption.to = end;
+        BOOL flag = [_routesearch drivingSearch:drivingRouteSearchOption];
+        if(flag)
+        {
+            NSLog(@"car检索发送成功");
+        }
+        else
+        {
+            NSLog(@"car检索发送失败");
+        }
+    });
+
 }
 
 -(void)handleWalkSearch
 {
     driveButton.selected = NO;
     walkButton.selected = YES;
-    BMKPlanNode* start = [[BMKPlanNode alloc]init];
-    start.pt = self.startCoordinate2D;
-    
-    BMKPlanNode* end = [[BMKPlanNode alloc]init];
-    end.pt = self.endCoordinate2D;
-    
-    BMKWalkingRoutePlanOption *walkingRouteSearchOption = [[BMKWalkingRoutePlanOption alloc]init];
-    walkingRouteSearchOption.from = start;
-    walkingRouteSearchOption.to = end;
-    BOOL flag = [_routesearch walkingSearch:walkingRouteSearchOption];
-    if(flag)
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),^
     {
-        NSLog(@"walk检索发送成功");
-    }
-    else
-    {
-        NSLog(@"walk检索发送失败");
-    }
-
+        BMKPlanNode* start = [[BMKPlanNode alloc]init];
+        start.pt = self.startCoordinate2D;
+        BMKPlanNode* end = [[BMKPlanNode alloc]init];
+        end.pt = self.endCoordinate2D;
+        BMKWalkingRoutePlanOption *walkingRouteSearchOption = [[BMKWalkingRoutePlanOption alloc]init];
+        walkingRouteSearchOption.from = start;
+        walkingRouteSearchOption.to = end;
+        BOOL flag = [_routesearch walkingSearch:walkingRouteSearchOption];
+        if(flag)
+        {
+            NSLog(@"walk检索发送成功");
+        }
+        else
+        {
+            NSLog(@"walk检索发送失败");
+        }
+    });
 }
 
 - (void)handleBack:(id)sender {
@@ -280,7 +283,7 @@ typedef enum {
     [routeDetailView show];
     NSString *style = @"步行";
     style = (type == Drive_type) ? @"驾车" : style;
-    [routeDetailView setDetailTextWithDistance:mile goThereTimeHour:time.hours goThereTimeMinute:time.minutes goThereType:style];
+    [routeDetailView setDetailTextWithDistance:(int)mile goThereTimeHour:time.hours goThereTimeMinute:time.minutes goThereType:style];
 }
 
 

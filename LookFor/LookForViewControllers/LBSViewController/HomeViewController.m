@@ -18,11 +18,10 @@
 #import "LookForSafeTravelViewController.h"
 #import "LookForSelectFriendViewController.h"
 #import "LookForAnnotationView.h"
-#import "LookForAssemblyViewController.h"
-#import "LookForFriendDetailView.h"
 #import "LookForLoginViewController.h"
-#import "LookForRegisterViewController.h"
+#import "LookForFriendDetailView.h"
 #import "LookForFriendView.h"
+#import "LookForLeftView.h"
 
 @interface HomeViewController ()<BMKLocationServiceDelegate,
 BMKMapViewDelegate,
@@ -38,8 +37,11 @@ FriendViewDelegate>
     BOOL isShowFriendView;
     LookForFriendDetailView *friendDetailView;
     LookForFriendView *friendsView;
-    CLLocationCoordinate2D location;
+    CLLocationCoordinate2D myLocation;
+    CLLocationCoordinate2D friendLocation;
+    LookForLeftView *leftView;
 }
+@property(nonatomic, strong) NSString *lastLocation;
 @property(nonatomic, strong) LookFor_FriendList *friendListObj;
 @end
 
@@ -164,8 +166,19 @@ FriendViewDelegate>
     {
         [friendsView dismiss];
     }
+    [self addLeftView];
 }
 
+- (void)addLeftView
+{
+    if (!leftView)
+    {
+        leftView = [[LookForLeftView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        [APP_DELEGATE.window addSubview:leftView];
+    }
+    [leftView setUserInfoWithName:@"鬇爾罷緊" userID:@"123456" userSex:1 imageUrl:@""];
+    [leftView show];
+}
 
 
 #pragma mark 添加通知
@@ -214,8 +227,9 @@ FriendViewDelegate>
         if (friendDetailView)
         {
             LookFor_FriendDetail *friendDetailInfo = (LookFor_FriendDetail *)array[0];
-            CLLocationCoordinate2D friendLocation = CLLocationCoordinate2DMake(friendDetailInfo.latitude, friendDetailInfo.longitude);
-            friendDetailView.distance = [self getDistanceWithStartLocation:location endLocation:friendLocation];
+            self.lastLocation = friendDetailInfo.location;
+            friendLocation = CLLocationCoordinate2DMake(friendDetailInfo.latitude, friendDetailInfo.longitude);
+            friendDetailView.distance = [self getDistanceWithStartLocation:myLocation  endLocation:friendLocation];
             [friendDetailView setDetailInfo:friendDetailInfo];
         }
     }
@@ -319,15 +333,6 @@ FriendViewDelegate>
 {
     switch (tag) {
         case 0: {
-//            CLLocationCoordinate2D star1;
-//            star1.latitude = 40.056885;
-//            star1.longitude = 116.308150;
-//            CLLocationCoordinate2D end1;
-//            end1.latitude = 39.912094;
-//            end1.longitude = 116.403936;
-//            LookForRouteSearchViewController *route = [[LookForRouteSearchViewController alloc] initWithStart:star1 withEnd:end1 withToAddress:@"天安门"];
-//            [self.navigationController pushViewController:route animated:YES];
-
             break;
         }
         case 1: {
@@ -342,7 +347,8 @@ FriendViewDelegate>
             [self.navigationController pushViewController:sf animated:YES];
             break;
         }
-        case 3:{
+        case 3:
+        {
 //            LookForAssemblyViewController *ll = [[LookForAssemblyViewController alloc] init];
             LookForLoginViewController *ll = [[LookForLoginViewController alloc] init];
             
@@ -366,8 +372,8 @@ FriendViewDelegate>
 {
     NSLog(@"userLocation====%@",[userLocation.location description]);
     [_mapView updateLocationData:userLocation];
-    location = userLocation.location.coordinate;
-    [_mapView setCenterCoordinate:location animated:YES];
+    myLocation = userLocation.location.coordinate;
+    [_mapView setCenterCoordinate:myLocation animated:YES];
     //[self getReverseGeocodeWithLocation:userLocation.location.coordinate];
     [self stopLocation];
 }
@@ -445,8 +451,9 @@ FriendViewDelegate>
     }
     //设置消息和距离
     LookFor_Friend *friendInfo = (LookFor_Friend *)(self.friendListObj.friendList[index]);
-    CLLocationCoordinate2D friendLocation = CLLocationCoordinate2DMake(friendInfo.latitude, friendInfo.longitude);
-    friendDetailView.distance = [self getDistanceWithStartLocation:location endLocation:friendLocation];
+    self.lastLocation = friendInfo.location;
+    friendLocation = CLLocationCoordinate2DMake(friendInfo.latitude, friendInfo.longitude);
+    friendDetailView.distance = [self getDistanceWithStartLocation:myLocation endLocation:friendLocation];
     [friendDetailView setDetailInfo:friendInfo];
     friendDetailView.index = index;
     [friendDetailView show];
@@ -478,14 +485,7 @@ FriendViewDelegate>
 #pragma mark friendDetailDelegate
 - (void)friendDetailViewClickedGoThereWithIndex:(int)index
 {
-    //LookFor_Friend *friendInfo = self.friendListObj.friendList[index];
-    CLLocationCoordinate2D star1;
-    star1.latitude = 40.056885;
-    star1.longitude = 116.308150;
-    CLLocationCoordinate2D end1;
-    end1.latitude = 39.912094;
-    end1.longitude = 116.403936;
-    LookForRouteSearchViewController *routeViewController = [[LookForRouteSearchViewController alloc] initWithStart:star1 withEnd:end1 withToAddress:@"天安门"];
+    LookForRouteSearchViewController *routeViewController = [[LookForRouteSearchViewController alloc] initWithStart:myLocation withEnd:friendLocation withToAddress:self.lastLocation];
     [self.navigationController pushViewController:routeViewController animated:YES];
 }
 
