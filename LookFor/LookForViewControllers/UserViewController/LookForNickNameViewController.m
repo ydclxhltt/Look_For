@@ -55,7 +55,7 @@
 #pragma mark - custom
 //创建top输入框和图
 - (void)createHeaderView {
-    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0,NAV_HEIGHT + 20, MAIN_SCREEN_SIZE.width, HeadViewH)];
+    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0,NAV_HEIGHT + 10, MAIN_SCREEN_SIZE.width, HeadViewH)];
     self.headView.backgroundColor = [UIColor whiteColor];
     self.messageTextView = [[UITextView alloc] initWithFrame:CGRectMake(LeftSpace,
                                                                         TopSpace,

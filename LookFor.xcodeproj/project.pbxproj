@@ -11,6 +11,7 @@
 		6B13DF111A751A2A0055B818 /* LookForModifyUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B13DF101A751A2A0055B818 /* LookForModifyUserInfoViewController.m */; };
 		6B13DF141A751A500055B818 /* LookForModifyUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B13DF131A751A500055B818 /* LookForModifyUserTableViewCell.m */; };
 		6B64CF031A5BEAB100C2B98A /* poi_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B64CF021A5BEAB100C2B98A /* poi_1.png */; };
+		6B7299111A75285D00A53BC4 /* LookForSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7299101A75285D00A53BC4 /* LookForSettingTableViewCell.m */; };
 		6BA177551A641E63005E83E4 /* LookForRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA177541A641E63005E83E4 /* LookForRegisterViewController.m */; };
 		6BA21D8A1A6BC43700091C60 /* LookForAssemblyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA21D891A6BC43700091C60 /* LookForAssemblyViewController.m */; };
 		6BA21D8D1A6BC46900091C60 /* LookForAssemblyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA21D8C1A6BC46900091C60 /* LookForAssemblyTableViewCell.m */; };
@@ -219,6 +220,8 @@
 		6B13DF121A751A500055B818 /* LookForModifyUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyUserTableViewCell.h; sourceTree = "<group>"; };
 		6B13DF131A751A500055B818 /* LookForModifyUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForModifyUserTableViewCell.m; sourceTree = "<group>"; };
 		6B64CF021A5BEAB100C2B98A /* poi_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1.png; sourceTree = "<group>"; };
+		6B72990F1A75285D00A53BC4 /* LookForSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForSettingTableViewCell.h; sourceTree = "<group>"; };
+		6B7299101A75285D00A53BC4 /* LookForSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForSettingTableViewCell.m; sourceTree = "<group>"; };
 		6BA177531A641E63005E83E4 /* LookForRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRegisterViewController.h; sourceTree = "<group>"; };
 		6BA177541A641E63005E83E4 /* LookForRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForRegisterViewController.m; sourceTree = "<group>"; };
 		6BA21D881A6BC43700091C60 /* LookForAssemblyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForAssemblyViewController.h; sourceTree = "<group>"; };
@@ -790,6 +793,8 @@
 				6BEDC73A1A5FD33100B0C595 /* LookForSaveTradeTableViewCell.m */,
 				6BA21D8B1A6BC46900091C60 /* LookForAssemblyTableViewCell.h */,
 				6BA21D8C1A6BC46900091C60 /* LookForAssemblyTableViewCell.m */,
+				6B72990F1A75285D00A53BC4 /* LookForSettingTableViewCell.h */,
+				6B7299101A75285D00A53BC4 /* LookForSettingTableViewCell.m */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1567,6 +1572,7 @@
 				CE33CA091A5C452B0042006D /* AAShareBubbles.m in Sources */,
 				CE33CB041A5C57640042006D /* LookForServiceSchedular.m in Sources */,
 				77D1E3131A70C8120056C7BA /* UIImage+MultiFormat.m in Sources */,
+				6B7299111A75285D00A53BC4 /* LookForSettingTableViewCell.m in Sources */,
 				6B13DF0E1A75175B0055B818 /* LookForSettingViewController.m in Sources */,
 				77D1E3091A70C8120056C7BA /* NSData+ImageContentType.m in Sources */,
 				6BEDC7551A5FD35F00B0C595 /* UIWebView+AFNetworking.m in Sources */,
