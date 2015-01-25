@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol LookForLeftViewDelegate;
+
 @interface LookForLeftView : UIView
+
+@property (nonatomic, assign) id<LookForLeftViewDelegate> delegate;
 
 /*
  * 显示
@@ -24,5 +28,17 @@
  * @pram imageUrl 用户头像地址
  */
 - (void)setUserInfoWithName:(NSString *)name userID:(NSString *)uerID userSex:(int)sex imageUrl:(NSString *)imageUrl;
+
+@end
+
+@protocol LookForLeftViewDelegate <NSObject>
+
+@optional
+
+//点击按钮
+- (void)leftView:(LookForLeftView *)leftView clickedButtonIndex:(int)index;
+
+//点击头像
+- (void)leftViewClickedIconImageView;
 
 @end

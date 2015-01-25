@@ -97,6 +97,9 @@
     iconImageView = [CreateViewTool createRoundImageViewWithFrame:CGRectMake(space_x, SPACE_Y * scale, USER_ICON_WH, USER_ICON_WH) placeholderImage:[UIImage imageNamed:@"1.jpg"] borderColor:nil imageUrl:nil];
     [imageView addSubview:iconImageView];
     
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hanleTap:)];
+    [iconImageView addGestureRecognizer:tapGesture];
+    
     float space_y = iconImageView.frame.origin.y + (iconImageView.frame.size.width - LABEL_HEIGHT * 2 * scale)/2;
     float label_space_x = iconImageView.frame.size.width + iconImageView.frame.origin.x + SPACE_X * scale;
     labelWidth = imageView.frame.size.width - label_space_x - SPACE_X * scale - image.size.width/2 * scale - SEX_ICON_SPACE * scale;
@@ -140,6 +143,13 @@
 
 #pragma mark 相关控制
 
+- (void)hanleTap:(UITapGestureRecognizer *)tapGesture
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(leftViewClickedIconImageView)])
+    {
+        [self.delegate leftViewClickedIconImageView];
+    }
+}
 
 - (void)handlePan:(UIPanGestureRecognizer *)panGuesture
 {
@@ -250,6 +260,11 @@
 - (void)buttonPressed:(UIButton *)sender
 {
     [self dismiss];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(leftView:clickedButtonIndex:)])
+    {
+        [self.delegate leftView:self clickedButtonIndex:(int)sender.tag - 100];
+    }
 }
 
 @end
