@@ -29,27 +29,34 @@
 - (void)loadView {
     [super loadView];
     self.loginView = [[LookForLoginView alloc] initWithFrame:self.view.bounds];
-    self.loginView.userHeadImage.image = [UIImage imageNamed:@"poi_1.png"];
-    self.loginView.logoImageView.image = [UIImage imageNamed:@"poi_1.png"];;
-    self.loginView.passwordHeadImage.image = [UIImage imageNamed:@"poi_1.png"];
-    [self.loginView.loginButton setImage:[UIImage imageNamed:@"poi_1.png"] forState:UIControlStateNormal];
+    self.loginView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.loginView];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.title = @"登录";
+    [self setNavBarItemWithTitle:@"取消"
+                     navItemType:LeftItem
+                    selectorName:@"handleCancel"];
+    
+    [self setNavBarItemWithTitle:@"注册新用户"
+                     navItemType:rightItem
+                    selectorName:@"handleRegister"];
+    [self.loginView.loginButton addTarget:self action:@selector(handleLogin) forControlEvents:UIControlEventTouchUpInside];
+    [self.loginView.forgetButton addTarget:self action:@selector(handleForget) forControlEvents:UIControlEventTouchUpInside];
+    [self.loginView addTarget:self action:@selector(handleResponder) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
-
+    // self.navigationController.navigationBarHidden = YES;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillAppear:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
 }
@@ -69,11 +76,11 @@
     CGFloat offsetY = 0;
     if (SCREEN_4_INCH)
     {
-        offsetY = -30;
+        offsetY = -0;
     }
     else if (SCREEN_3_5_INCH)
     {
-        offsetY = -110;
+        offsetY = -0;
     }
     _loginView.frame = CGRectMake(0,
                                   offsetY,
@@ -94,32 +101,32 @@
     // _handleLogin = NO;
 }
 
-
 #pragma mark -handle
 - (void)handleCancel {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)handleRegister {
-    LookForRegisterViewController *rv = [[LookForRegisterViewController alloc] initIsRegister:NO];
-
+    LookForRegisterViewController *rv = [[LookForRegisterViewController alloc] initIsRegister:YES];
+    
     [self.navigationController pushViewController:rv animated:YES];
 }
 
 - (void)handleLogin {
-    LookForNickNameViewController *n = [[LookForNickNameViewController alloc] init];
-    [self.navigationController pushViewController:n animated:YES];
+    
 }
 
 - (void)handleForget {
-    LookForModifyPhoneViewController *p = [[LookForModifyPhoneViewController alloc] init];
-    [self.navigationController pushViewController:p animated:YES];
+    LookForRegisterViewController *rv = [[LookForRegisterViewController alloc] initIsRegister:NO];
+    
+    [self.navigationController pushViewController:rv animated:YES];
+//    LookForModifyPhoneViewController *p = [[LookForModifyPhoneViewController alloc] init];
+//    [self.navigationController pushViewController:p animated:YES];
 }
 
 - (void)handleResponder {
     [self.loginView.passwordTextField resignFirstResponder];
     [self.loginView.userTextField resignFirstResponder];
 }
-
 
 @end

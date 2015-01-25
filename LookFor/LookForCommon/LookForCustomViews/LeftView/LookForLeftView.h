@@ -20,6 +20,11 @@
 - (void)show;
 
 /*
+ * 隐藏
+ */
+- (void)dismiss;
+
+/*
  * 设置数据
  *
  * @pram name     用户名

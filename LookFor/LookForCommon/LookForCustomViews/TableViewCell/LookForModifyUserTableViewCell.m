@@ -51,6 +51,11 @@
     
     self.moreImageView = [[UIImageView alloc] initWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - MoreImageWH, (self.frame.size.height - MoreImageWH) / 2, MoreImageWH, MoreImageWH)];
     [self addSubview:self.moreImageView];
+  
+    
+    UIView *buttomLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];
+    buttomLine.backgroundColor = SeparatorLineColor;
+    [self addSubview:buttomLine];
 }
 
 

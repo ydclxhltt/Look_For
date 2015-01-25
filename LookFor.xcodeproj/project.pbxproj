@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B13DF0E1A75175B0055B818 /* LookForSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B13DF0D1A75175B0055B818 /* LookForSettingViewController.m */; };
+		6B13DF111A751A2A0055B818 /* LookForModifyUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B13DF101A751A2A0055B818 /* LookForModifyUserInfoViewController.m */; };
+		6B13DF141A751A500055B818 /* LookForModifyUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B13DF131A751A500055B818 /* LookForModifyUserTableViewCell.m */; };
 		6B64CF031A5BEAB100C2B98A /* poi_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B64CF021A5BEAB100C2B98A /* poi_1.png */; };
 		6BA177551A641E63005E83E4 /* LookForRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA177541A641E63005E83E4 /* LookForRegisterViewController.m */; };
 		6BA21D8A1A6BC43700091C60 /* LookForAssemblyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA21D891A6BC43700091C60 /* LookForAssemblyViewController.m */; };
@@ -209,6 +212,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B13DF0C1A75175B0055B818 /* LookForSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForSettingViewController.h; sourceTree = "<group>"; };
+		6B13DF0D1A75175B0055B818 /* LookForSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForSettingViewController.m; sourceTree = "<group>"; };
+		6B13DF0F1A751A2A0055B818 /* LookForModifyUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyUserInfoViewController.h; sourceTree = "<group>"; };
+		6B13DF101A751A2A0055B818 /* LookForModifyUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForModifyUserInfoViewController.m; sourceTree = "<group>"; };
+		6B13DF121A751A500055B818 /* LookForModifyUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyUserTableViewCell.h; sourceTree = "<group>"; };
+		6B13DF131A751A500055B818 /* LookForModifyUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForModifyUserTableViewCell.m; sourceTree = "<group>"; };
 		6B64CF021A5BEAB100C2B98A /* poi_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1.png; sourceTree = "<group>"; };
 		6BA177531A641E63005E83E4 /* LookForRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRegisterViewController.h; sourceTree = "<group>"; };
 		6BA177541A641E63005E83E4 /* LookForRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForRegisterViewController.m; sourceTree = "<group>"; };
@@ -252,8 +261,6 @@
 		6BBE09061A52C81100FC15C6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6BBE09071A52C81100FC15C6 /* icare_iphone_lightline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icare_iphone_lightline.png; sourceTree = "<group>"; };
 		6BBE09081A52C81100FC15C6 /* icare_iphone_lightpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icare_iphone_lightpoint.png; sourceTree = "<group>"; };
-		6BCAE1021A71140A002F4923 /* LookForModifyUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyUserInfoViewController.h; sourceTree = "<group>"; };
-		6BCAE1031A71140A002F4923 /* LookForModifyUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForModifyUserInfoViewController.m; sourceTree = "<group>"; };
 		6BCB579F1A512AEA00060B31 /* LookFor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LookFor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BCB57A21A512AEA00060B31 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6BCB57A41A512AEA00060B31 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -604,6 +611,8 @@
 		6BA76B8B1A62AE6900C3AEE6 /* UserViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6B13DF0F1A751A2A0055B818 /* LookForModifyUserInfoViewController.h */,
+				6B13DF101A751A2A0055B818 /* LookForModifyUserInfoViewController.m */,
 				CE902AEA1A74A93E00994BEE /* LookForNickNameViewController.h */,
 				CE902AEB1A74A93E00994BEE /* LookForNickNameViewController.m */,
 				CE902AE71A74A90700994BEE /* LookForModifyPhoneViewController.h */,
@@ -614,8 +623,8 @@
 				6BB6629E1A63B19C003350E7 /* LookForLoginViewController.m */,
 				6BA177531A641E63005E83E4 /* LookForRegisterViewController.h */,
 				6BA177541A641E63005E83E4 /* LookForRegisterViewController.m */,
-				6BCAE1021A71140A002F4923 /* LookForModifyUserInfoViewController.h */,
-				6BCAE1031A71140A002F4923 /* LookForModifyUserInfoViewController.m */,
+				6B13DF0C1A75175B0055B818 /* LookForSettingViewController.h */,
+				6B13DF0D1A75175B0055B818 /* LookForSettingViewController.m */,
 			);
 			path = UserViewController;
 			sourceTree = "<group>";
@@ -773,6 +782,8 @@
 		6BEDC7381A5FD33100B0C595 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				6B13DF121A751A500055B818 /* LookForModifyUserTableViewCell.h */,
+				6B13DF131A751A500055B818 /* LookForModifyUserTableViewCell.m */,
 				77D1E28A1A70964F0056C7BA /* LookForSelectFriendTableViewCell.h */,
 				77D1E28B1A70964F0056C7BA /* LookForSelectFriendTableViewCell.m */,
 				6BEDC7391A5FD33100B0C595 /* LookForSaveTradeTableViewCell.h */,
@@ -1486,6 +1497,7 @@
 				77D1E30A1A70C8120056C7BA /* SDImageCache.m in Sources */,
 				CE33CB031A5C57640042006D /* LookForLoginService.m in Sources */,
 				77D1E3081A70C8120056C7BA /* MKAnnotationView+WebCache.m in Sources */,
+				6B13DF141A751A500055B818 /* LookForModifyUserTableViewCell.m in Sources */,
 				7762213B1A68A24200FD9ADE /* LookFor_FriendDetailList.m in Sources */,
 				CE33CA0A1A5C452B0042006D /* LookForAnnotationView.m in Sources */,
 				6BEDC7511A5FD35F00B0C595 /* UIButton+AFNetworking.m in Sources */,
@@ -1549,11 +1561,13 @@
 				6BEDC74E1A5FD35F00B0C595 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				77D1E30F1A70C8120056C7BA /* SDWebImageManager.m in Sources */,
 				77D1E2901A70989B0056C7BA /* LookForFriendView.m in Sources */,
+				6B13DF111A751A2A0055B818 /* LookForModifyUserInfoViewController.m in Sources */,
 				CE33CB071A5C57640042006D /* AFHTTPSessionManager.m in Sources */,
 				77D1E3041A70C8120056C7BA /* CreateViewTool.m in Sources */,
 				CE33CA091A5C452B0042006D /* AAShareBubbles.m in Sources */,
 				CE33CB041A5C57640042006D /* LookForServiceSchedular.m in Sources */,
 				77D1E3131A70C8120056C7BA /* UIImage+MultiFormat.m in Sources */,
+				6B13DF0E1A75175B0055B818 /* LookForSettingViewController.m in Sources */,
 				77D1E3091A70C8120056C7BA /* NSData+ImageContentType.m in Sources */,
 				6BEDC7551A5FD35F00B0C595 /* UIWebView+AFNetworking.m in Sources */,
 				77D1E3181A70F8200056C7BA /* LookForRouteDetailView.m in Sources */,

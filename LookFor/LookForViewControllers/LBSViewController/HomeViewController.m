@@ -22,6 +22,12 @@
 #import "LookForFriendDetailView.h"
 #import "LookForFriendView.h"
 #import "LookForLeftView.h"
+#import "LookForModifyUserInfoViewController.h"
+#import "LookForLoginViewController.h"
+#import "LookForSettingViewController.h"
+
+
+
 
 @interface HomeViewController ()<BMKLocationServiceDelegate,
 BMKMapViewDelegate,
@@ -29,7 +35,8 @@ BMKGeoCodeSearchDelegate,
 LookForRightSlideButtonViewDelegate,
 LookForAnnotationViewDelegate,
 FriendDetailViewGoThereDelegate,
-FriendViewDelegate>
+FriendViewDelegate,
+LookForLeftViewDelegate>
 {
     BMKLocationService *locationService;
     BMKMapView *_mapView;
@@ -177,6 +184,7 @@ FriendViewDelegate>
         [APP_DELEGATE.window addSubview:leftView];
     }
     [leftView setUserInfoWithName:@"鬇爾罷緊" userID:@"123456" userSex:1 imageUrl:@""];
+    leftView.delegate = self;
     [leftView show];
 }
 
@@ -520,14 +528,47 @@ FriendViewDelegate>
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark -LookForLeftViewDelegate
+//点击按钮
+- (void)leftView:(LookForLeftView *)leftView clickedButtonIndex:(int)index {
+    UIViewController *vc = nil;
+    switch (index) {
+        case 0:{
+        
+        }
+            break;
+        case 1:{
+             vc = [[LookForModifyUserInfoViewController alloc] init];
+        }
+            break;
+        case 2:{
+            vc = [[LookForSelectFriendViewController alloc] init];
+        }
+            break;
+        case 3:{
+            
+        }
+            break;
+        case 4:{
+            vc = [[LookForSettingViewController alloc] init];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    if (vc != nil) {
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    [leftView dismiss];
 }
-*/
+
+//点击头像
+- (void)leftViewClickedIconImageView {
+    LookForLoginViewController *login = [[LookForLoginViewController alloc] init];
+    [self.navigationController pushViewController:login animated:YES];
+    [leftView dismiss];
+}
+
 
 @end

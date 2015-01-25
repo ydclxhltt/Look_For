@@ -8,6 +8,9 @@
 
 #import "LookForModifyUserInfoViewController.h"
 #import "LookForModifyUserTableViewCell.h"
+#import "LookForNickNameViewController.h"
+#import "LookForModifyPhoneViewController.h"
+#import "LookForRegisterViewController.h"
 
 #define HeadImageWH         40
 #define Default             10
@@ -43,6 +46,14 @@ UINavigationControllerDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setNavBarItemWithTitle:@"保存"
+                     navItemType:rightItem
+                    selectorName:@"handleSure"];
+    
+    [self setNavBarItemWithTitle:@"取消"
+                     navItemType:LeftItem
+                    selectorName:@"handleCancel"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,6 +62,7 @@ UINavigationControllerDelegate>
 
 #pragma mark -custom
 - (void)initView {
+    
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, NAV_HEIGHT , MAIN_SCREEN_SIZE.width, HeadViewWH)];
     self.headView.backgroundColor = [UIColor clearColor];
     self.headImageView = [[UIImageView alloc] initWithFrame:CGRectMake((MAIN_SCREEN_SIZE.width - HeadImageWH) / 2 , (HeadViewWH - HeadImageWH) / 2, HeadImageWH, HeadImageWH)];
@@ -77,12 +89,19 @@ UINavigationControllerDelegate>
                                    tableType:UITableViewStylePlain
                                tableDelegate:self];
     self.table.separatorColor = [UIColor clearColor];
-
-    
+    self.table.scrollEnabled = NO;
 }
 
 
 #pragma mark - handle
+- (void)handleSure {
+
+}
+
+- (void)handleCancel {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)handleHeadView {
     self.photoSheet = [[UIActionSheet alloc]
                        initWithTitle:nil
@@ -223,7 +242,7 @@ UINavigationControllerDelegate>
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 4;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -276,7 +295,35 @@ UINavigationControllerDelegate>
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UIViewController *vc = nil;
+    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    NSUInteger row = [indexPath row];
+    switch (row) {
+        case 0: {
+            vc = [[LookForNickNameViewController alloc] init];
+        }
+            break;
+        case 1: {
+            
+        }
+            break;
+        case 2: {
+            vc = [[LookForModifyPhoneViewController alloc] init];
+        }
+            break;
+            
+        case 3: {
+            vc = [[LookForRegisterViewController alloc] initIsRegister:NO];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    if (vc != nil) {
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 
