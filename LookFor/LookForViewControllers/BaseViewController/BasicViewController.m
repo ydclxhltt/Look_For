@@ -125,7 +125,7 @@
 //添加好友按钮
 - (void)addFriendItem
 {
-    [self setNavBarItemWithImageName:@"friends" navItemType:rightItem selectorName:@"friendsButtonPressed:"];
+    [self setNavBarItemWithImageName:@"friends_item" navItemType:rightItem selectorName:@"friendsButtonPressed:"];
 }
 
 - (void)friendsButtonPressed:(UIButton *)button
