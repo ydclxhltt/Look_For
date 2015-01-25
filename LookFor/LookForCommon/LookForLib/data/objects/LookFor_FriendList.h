@@ -28,6 +28,5 @@
 @property (nonatomic, strong) NSString *updateTime;
 @property (nonatomic, strong) NSString *commentName;
 @property (nonatomic, assign) NSInteger sex;
-@property (nonatomic, strong) NSString *lastAddress;
 @property (nonatomic, strong) NSString *location;
 @end
