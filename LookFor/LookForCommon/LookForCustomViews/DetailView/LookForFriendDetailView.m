@@ -132,7 +132,7 @@
         LookFor_Friend *friendInfo = (LookFor_Friend *)self.detailInfo;
         NSString *name = friendInfo.nickName;
         name = (friendInfo.commentName && ![@"" isEqualToString:friendInfo.commentName]) ? friendInfo.commentName : name;
-        [self setDataForTitleLabel:name  localLabel:friendInfo.lastAddress detailLabel:friendInfo.updateTime];
+        [self setDataForTitleLabel:name  localLabel:friendInfo.location detailLabel:friendInfo.updateTime];
     }
     
     if ([self.detailInfo isKindOfClass:[LookFor_FriendDetail class]])
