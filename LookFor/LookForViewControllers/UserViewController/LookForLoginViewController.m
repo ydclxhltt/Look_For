@@ -10,6 +10,9 @@
 #import "LookForLoginView.h"
 #import "LookForRegisterViewController.h"
 
+#import "LookForModifyPhoneViewController.h"
+#import "LookForNickNameViewController.h"
+
 #ifdef iphone5
 #define LOGINBOX_OFFSET_Y   (-60)
 #else
@@ -111,10 +114,13 @@
 }
 
 - (void)handleLogin {
-
+    LookForNickNameViewController *n = [[LookForNickNameViewController alloc] init];
+    [self.navigationController pushViewController:n animated:YES];
 }
 
 - (void)handleForget {
+    LookForModifyPhoneViewController *p = [[LookForModifyPhoneViewController alloc] init];
+    [self.navigationController pushViewController:p animated:YES];
 }
 
 - (void)handleResponder {

@@ -343,11 +343,10 @@ FriendViewDelegate>
             break;
         }
         case 3:{
-            LookForAssemblyViewController *ct = [[LookForAssemblyViewController alloc] init];
-            [self.navigationController pushViewController:ct animated:YES];
-//            LookForLoginViewController *ll = [[LookForLoginViewController alloc] init];
-//            
-//            [self.navigationController pushViewController:ll animated:YES];
+//            LookForAssemblyViewController *ll = [[LookForAssemblyViewController alloc] init];
+            LookForLoginViewController *ll = [[LookForLoginViewController alloc] init];
+            
+            [self.navigationController pushViewController:ll animated:YES];
             break;
         }
             

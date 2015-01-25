@@ -28,16 +28,17 @@ UINavigationControllerDelegate,
 UITableViewDataSource,
 UITableViewDelegate>
 
+@property (nonatomic, strong) UIView        *headView;              //图片描述view
 @property (nonatomic, strong) UITextView    *messageTextView;       //输入框
-@property (nonatomic, strong) UIImageView   *photoImageView;        //照片
 @property (nonatomic, strong) UILabel       *placeholderLabel;      //输入框默认字体
+
+@property (nonatomic, strong) UIImageView   *photoImageView;        //照片
 @property (nonatomic, strong) UIActionSheet *photoSheet;            //照片来源选择
 @property (nonatomic, strong) NSString      *photoFilePath;         //图片路径
 
 @property (nonatomic, strong) NSString      *toAddressStr;        //要去的目的地
 @property (nonatomic, strong) NSString      *friendName;           //朋友名称
 
-@property (nonatomic, strong) UIView        *headView;              //图片描述view
 @property (nonatomic, strong) UIView        *messageView;           //地址信息和朋友信息名称
 @property (nonatomic, strong) UITableView   *messageTableView;      //
 @end
@@ -130,7 +131,7 @@ UITableViewDelegate>
     [self.headView addSubview:self.photoImageView];
    
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, HeadViewH - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];
-    line.backgroundColor = [UIColor grayColor];
+    line.backgroundColor = SeparatorLineColor;
     [self.headView addSubview:line];
     [self.view addSubview:self.headView];
 }
@@ -153,10 +154,10 @@ UITableViewDelegate>
 
     
     UIView *headLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_SIZE.width, 0.5)];
-    headLine.backgroundColor = [UIColor grayColor];
+    headLine.backgroundColor = SeparatorLineColor;
     [self.messageView addSubview:headLine];
     UIView *bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, MessageH - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];
-    bottomLine.backgroundColor = [UIColor grayColor];
+    bottomLine.backgroundColor = SeparatorLineColor;
     [self.messageView addSubview:bottomLine];
     
     [self.view addSubview:self.messageView];
@@ -264,44 +265,50 @@ UITableViewDelegate>
 
 {
     
-    NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
+ //   NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
     
     //当选择的类型是图片
-    if ([type isEqualToString:@"public.image"])
+//    if ([type isEqualToString:@"public.image"])
+//    {
+//        //先把图片转成NSData
+    UIImage* image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    if (image == nil) {
+        image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    }
+    
+    NSData *data;
+    if (UIImagePNGRepresentation(image) == nil)
     {
-        //先把图片转成NSData
-        UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-        NSData *data;
-        if (UIImagePNGRepresentation(image) == nil)
-        {
-            data = UIImageJPEGRepresentation(image, 0.5);
-        }
-        else
-        {
-            data = UIImagePNGRepresentation(image);
-        }
+        data = UIImageJPEGRepresentation(image, 0.5);
+    }
+    else
+    {
+        data = UIImagePNGRepresentation(image);
+    }
+    
+    //图片保存的路径
+    //这里将图片放在沙盒的documents文件夹中
+    NSString * DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    
+    //文件管理器
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    //把刚刚图片转换的data对象拷贝至沙盒中 并保存为image.png
+    [fileManager createDirectoryAtPath:DocumentsPath withIntermediateDirectories:YES attributes:nil error:nil];
+    [fileManager createFileAtPath:[DocumentsPath stringByAppendingString:@"/image.png"] contents:data attributes:nil];
+    
+    //得到选择后沙盒中图片的完整路径
+    self.photoFilePath = [[NSString alloc]initWithFormat:@"%@%@",DocumentsPath,  @"/image.png"];
+    self.photoImageView.image = image;
+    self.navigationController.navigationItem.rightBarButtonItem = nil;
+    //关闭相册界面
+    [picker dismissViewControllerAnimated:YES completion:^{
+        //            UIImage *editedImage = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+        //            if (editedImage == nil) {
+        //                editedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        //            }
         
-        //图片保存的路径
-        //这里将图片放在沙盒的documents文件夹中
-        NSString * DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-        
-        //文件管理器
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        
-        //把刚刚图片转换的data对象拷贝至沙盒中 并保存为image.png
-        [fileManager createDirectoryAtPath:DocumentsPath withIntermediateDirectories:YES attributes:nil error:nil];
-        [fileManager createFileAtPath:[DocumentsPath stringByAppendingString:@"/image.png"] contents:data attributes:nil];
-        
-        //得到选择后沙盒中图片的完整路径
-        self.photoFilePath = [[NSString alloc]initWithFormat:@"%@%@",DocumentsPath,  @"/image.png"];
-        self.photoImageView.image = image;
-        self.navigationController.navigationItem.rightBarButtonItem = nil;
-        //关闭相册界面
-        [picker dismissViewControllerAnimated:YES
-                                   completion:^{
-                                       
-                                   }];
-        }
+    }];
     
 }
 

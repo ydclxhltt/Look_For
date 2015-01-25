@@ -9,9 +9,6 @@
 
 #import "LookForSelectFriendTableViewCell.h"
 
-#define LeftSpace       15
-#define DefaultSpace    10
-
 #define SelectImageWH   12
 #define HeadImageWH     30
 #define NameLabelH      20

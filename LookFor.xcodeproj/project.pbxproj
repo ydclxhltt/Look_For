@@ -38,6 +38,8 @@
 		6BBE090B1A52C81100FC15C6 /* icare_iphone_lightline.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBE09071A52C81100FC15C6 /* icare_iphone_lightline.png */; };
 		6BBE090C1A52C81100FC15C6 /* icare_iphone_lightpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BBE09081A52C81100FC15C6 /* icare_iphone_lightpoint.png */; };
 		6BCAE0FE1A710C15002F4923 /* LookForModifyPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAE0FD1A710C15002F4923 /* LookForModifyPhoneViewController.m */; };
+		6BCAE1011A710F72002F4923 /* LookForNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAE1001A710F72002F4923 /* LookForNickNameViewController.m */; };
+		6BCAE1041A71140A002F4923 /* LookForModifyUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAE1031A71140A002F4923 /* LookForModifyUserInfoViewController.m */; };
 		6BCB57A31A512AEA00060B31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB57A21A512AEA00060B31 /* Foundation.framework */; };
 		6BCB57A51A512AEA00060B31 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB57A41A512AEA00060B31 /* CoreGraphics.framework */; };
 		6BCB57A71A512AEA00060B31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB57A61A512AEA00060B31 /* UIKit.framework */; };
@@ -52,6 +54,8 @@
 		6BD11FEB1A64C85800C860F1 /* LookForSelectFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD11FEA1A64C85800C860F1 /* LookForSelectFriendViewController.m */; };
 		6BD11FEF1A64ED1D00C860F1 /* LookForCallTogetherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD11FEE1A64ED1D00C860F1 /* LookForCallTogetherViewController.m */; };
 		6BD11FF21A64ED3800C860F1 /* LookForCallTogetherNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD11FF11A64ED3800C860F1 /* LookForCallTogetherNameViewController.m */; };
+		6BD1305D1A7229760060E976 /* LookForModifyUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD1305C1A7229760060E976 /* LookForModifyUserTableViewCell.m */; };
+		6BD130631A7231210060E976 /* DeviceTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD130621A7231210060E976 /* DeviceTool.m */; };
 		6BD25CC91A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6BD25CC81A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm */; };
 		6BD25CCC1A5D1CA600EFB508 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD25CCB1A5D1CA600EFB508 /* UIImage+Rotate.m */; };
 		6BD25CD71A5D865100EFB508 /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD25CD61A5D865100EFB508 /* RTLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -108,7 +112,6 @@
 		77D1E3021A70C8120056C7BA /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77D1E2D21A70C8120056C7BA /* mapapi.bundle */; };
 		77D1E3031A70C8120056C7BA /* CommonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D1E2D81A70C8120056C7BA /* CommonTool.m */; };
 		77D1E3041A70C8120056C7BA /* CreateViewTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D1E2DA1A70C8120056C7BA /* CreateViewTool.m */; };
-		77D1E3051A70C8120056C7BA /* DeviceTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D1E2DC1A70C8120056C7BA /* DeviceTool.m */; };
 		77D1E3061A70C8120056C7BA /* IOKit in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D1E2DE1A70C8120056C7BA /* IOKit */; };
 		77D1E3071A70C8120056C7BA /* LookFor_Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D1E2E21A70C8120056C7BA /* LookFor_Application.m */; };
 		77D1E3081A70C8120056C7BA /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D1E2E51A70C8120056C7BA /* MKAnnotationView+WebCache.m */; };
@@ -213,8 +216,8 @@
 		6BA76B9A1A62AFD100C3AEE6 /* start320_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start320_03.jpg; sourceTree = "<group>"; };
 		6BA76B9B1A62AFD100C3AEE6 /* start320_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start320_04.jpg; sourceTree = "<group>"; };
 		6BA76B9C1A62AFD100C3AEE6 /* start320_05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start320_05.jpg; sourceTree = "<group>"; };
-		6BB0EF891A5EDC2400DE78D2 /* LookForSafeTravelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForSafeTravelViewController.h; sourceTree = "<group>"; };
-		6BB0EF8A1A5EDC2400DE78D2 /* LookForSafeTravelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForSafeTravelViewController.m; sourceTree = "<group>"; };
+		6BB0EF891A5EDC2400DE78D2 /* LookForSafeTravelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LookForSafeTravelViewController.h; path = ../LookForSafeTravelViewController.h; sourceTree = "<group>"; };
+		6BB0EF8A1A5EDC2400DE78D2 /* LookForSafeTravelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LookForSafeTravelViewController.m; path = ../LookForSafeTravelViewController.m; sourceTree = "<group>"; };
 		6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1_up.png; sourceTree = "<group>"; };
 		6BB662971A639C99003350E7 /* LookForPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForPageControl.h; sourceTree = "<group>"; };
 		6BB662981A639C99003350E7 /* LookForPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForPageControl.m; sourceTree = "<group>"; };
@@ -237,6 +240,10 @@
 		6BBE09081A52C81100FC15C6 /* icare_iphone_lightpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icare_iphone_lightpoint.png; sourceTree = "<group>"; };
 		6BCAE0FC1A710C15002F4923 /* LookForModifyPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyPhoneViewController.h; sourceTree = "<group>"; };
 		6BCAE0FD1A710C15002F4923 /* LookForModifyPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForModifyPhoneViewController.m; sourceTree = "<group>"; };
+		6BCAE0FF1A710F72002F4923 /* LookForNickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForNickNameViewController.h; sourceTree = "<group>"; };
+		6BCAE1001A710F72002F4923 /* LookForNickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForNickNameViewController.m; sourceTree = "<group>"; };
+		6BCAE1021A71140A002F4923 /* LookForModifyUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyUserInfoViewController.h; sourceTree = "<group>"; };
+		6BCAE1031A71140A002F4923 /* LookForModifyUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForModifyUserInfoViewController.m; sourceTree = "<group>"; };
 		6BCB579F1A512AEA00060B31 /* LookFor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LookFor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BCB57A21A512AEA00060B31 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6BCB57A41A512AEA00060B31 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -257,6 +264,10 @@
 		6BD11FEE1A64ED1D00C860F1 /* LookForCallTogetherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForCallTogetherViewController.m; sourceTree = "<group>"; };
 		6BD11FF01A64ED3800C860F1 /* LookForCallTogetherNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForCallTogetherNameViewController.h; sourceTree = "<group>"; };
 		6BD11FF11A64ED3800C860F1 /* LookForCallTogetherNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForCallTogetherNameViewController.m; sourceTree = "<group>"; };
+		6BD1305B1A7229760060E976 /* LookForModifyUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyUserTableViewCell.h; sourceTree = "<group>"; };
+		6BD1305C1A7229760060E976 /* LookForModifyUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForModifyUserTableViewCell.m; sourceTree = "<group>"; };
+		6BD130611A7231210060E976 /* DeviceTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceTool.h; sourceTree = "<group>"; };
+		6BD130621A7231210060E976 /* DeviceTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceTool.m; sourceTree = "<group>"; };
 		6BD25CC71A5D0E1D00EFB508 /* LookForRouteSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRouteSearchViewController.h; sourceTree = "<group>"; };
 		6BD25CC81A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LookForRouteSearchViewController.mm; sourceTree = "<group>"; };
 		6BD25CCA1A5D1CA600EFB508 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
@@ -399,8 +410,6 @@
 		77D1E2D81A70C8120056C7BA /* CommonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTool.m; sourceTree = "<group>"; };
 		77D1E2D91A70C8120056C7BA /* CreateViewTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewTool.h; sourceTree = "<group>"; };
 		77D1E2DA1A70C8120056C7BA /* CreateViewTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewTool.m; sourceTree = "<group>"; };
-		77D1E2DB1A70C8120056C7BA /* DeviceTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceTool.h; sourceTree = "<group>"; };
-		77D1E2DC1A70C8120056C7BA /* DeviceTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceTool.m; sourceTree = "<group>"; };
 		77D1E2DE1A70C8120056C7BA /* IOKit */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = IOKit; sourceTree = "<group>"; };
 		77D1E2DF1A70C8120056C7BA /* IOPowerSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOPowerSources.h; sourceTree = "<group>"; };
 		77D1E2E01A70C8120056C7BA /* IOPSKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOPSKeys.h; sourceTree = "<group>"; };
@@ -562,6 +571,8 @@
 		6BA76B8B1A62AE6900C3AEE6 /* UserViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6BB0EF891A5EDC2400DE78D2 /* LookForSafeTravelViewController.h */,
+				6BB0EF8A1A5EDC2400DE78D2 /* LookForSafeTravelViewController.m */,
 				6BCAE0FC1A710C15002F4923 /* LookForModifyPhoneViewController.h */,
 				6BCAE0FD1A710C15002F4923 /* LookForModifyPhoneViewController.m */,
 				6BA76B8C1A62AE6900C3AEE6 /* LookForGuideHelpViewController.h */,
@@ -570,6 +581,10 @@
 				6BB6629E1A63B19C003350E7 /* LookForLoginViewController.m */,
 				6BA177531A641E63005E83E4 /* LookForRegisterViewController.h */,
 				6BA177541A641E63005E83E4 /* LookForRegisterViewController.m */,
+				6BCAE0FF1A710F72002F4923 /* LookForNickNameViewController.h */,
+				6BCAE1001A710F72002F4923 /* LookForNickNameViewController.m */,
+				6BCAE1021A71140A002F4923 /* LookForModifyUserInfoViewController.h */,
+				6BCAE1031A71140A002F4923 /* LookForModifyUserInfoViewController.m */,
 			);
 			path = UserViewController;
 			sourceTree = "<group>";
@@ -732,6 +747,8 @@
 				6BEDC73A1A5FD33100B0C595 /* LookForSaveTradeTableViewCell.m */,
 				6BA21D8B1A6BC46900091C60 /* LookForAssemblyTableViewCell.h */,
 				6BA21D8C1A6BC46900091C60 /* LookForAssemblyTableViewCell.m */,
+				6BD1305B1A7229760060E976 /* LookForModifyUserTableViewCell.h */,
+				6BD1305C1A7229760060E976 /* LookForModifyUserTableViewCell.m */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -831,14 +848,14 @@
 		77D1E2911A70C8120056C7BA /* LookForTools */ = {
 			isa = PBXGroup;
 			children = (
+				6BD130611A7231210060E976 /* DeviceTool.h */,
+				6BD130621A7231210060E976 /* DeviceTool.m */,
 				77D1E2921A70C8120056C7BA /* BaiduMap */,
 				77D1E2D31A70C8120056C7BA /* CommonHeader */,
 				77D1E2D71A70C8120056C7BA /* CommonTool.h */,
 				77D1E2D81A70C8120056C7BA /* CommonTool.m */,
 				77D1E2D91A70C8120056C7BA /* CreateViewTool.h */,
 				77D1E2DA1A70C8120056C7BA /* CreateViewTool.m */,
-				77D1E2DB1A70C8120056C7BA /* DeviceTool.h */,
-				77D1E2DC1A70C8120056C7BA /* DeviceTool.m */,
 				77D1E2DD1A70C8120056C7BA /* IO */,
 				77D1E2E11A70C8120056C7BA /* LookFor_Application.h */,
 				77D1E2E21A70C8120056C7BA /* LookFor_Application.m */,
@@ -1074,8 +1091,6 @@
 				6BA76B8B1A62AE6900C3AEE6 /* UserViewController */,
 				CE33CA001A5C452B0042006D /* BaseViewController */,
 				CE33CA031A5C452B0042006D /* LBSViewController */,
-				6BB0EF891A5EDC2400DE78D2 /* LookForSafeTravelViewController.h */,
-				6BB0EF8A1A5EDC2400DE78D2 /* LookForSafeTravelViewController.m */,
 			);
 			path = LookForViewControllers;
 			sourceTree = "<group>";
@@ -1387,6 +1402,7 @@
 			files = (
 				77D1E30A1A70C8120056C7BA /* SDImageCache.m in Sources */,
 				CE33CB031A5C57640042006D /* LookForLoginService.m in Sources */,
+				6BCAE1041A71140A002F4923 /* LookForModifyUserInfoViewController.m in Sources */,
 				77D1E3081A70C8120056C7BA /* MKAnnotationView+WebCache.m in Sources */,
 				7762213B1A68A24200FD9ADE /* LookFor_FriendDetailList.m in Sources */,
 				CE33CA0A1A5C452B0042006D /* LookForAnnotationView.m in Sources */,
@@ -1400,7 +1416,6 @@
 				6BB0EF8B1A5EDC2400DE78D2 /* LookForSafeTravelViewController.m in Sources */,
 				779D255D1A6672C100852F5C /* LookFor_FriendList.m in Sources */,
 				7762213E1A68A7AF00FD9ADE /* LookFor_FriendDetailListService.m in Sources */,
-				77D1E3051A70C8120056C7BA /* DeviceTool.m in Sources */,
 				6BD25CC91A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm in Sources */,
 				CE33CB0D1A5C57640042006D /* AFURLSessionManager.m in Sources */,
 				6BD11FEF1A64ED1D00C860F1 /* LookForCallTogetherViewController.m in Sources */,
@@ -1408,6 +1423,7 @@
 				6BEDC7501A5FD35F00B0C595 /* UIAlertView+AFNetworking.m in Sources */,
 				6BD25CD71A5D865100EFB508 /* RTLabel.m in Sources */,
 				CE33CB061A5C57640042006D /* AFHTTPRequestOperationManager.m in Sources */,
+				6BCAE1011A710F72002F4923 /* LookForNickNameViewController.m in Sources */,
 				CE33CAFC1A5C57640042006D /* LooKForDataConvert.m in Sources */,
 				779D25561A66573900852F5C /* LookForFriendListService.m in Sources */,
 				6BB662991A639C99003350E7 /* LookForPageControl.m in Sources */,
@@ -1463,8 +1479,10 @@
 				CE33CB121A5C57640042006D /* FMDatabasePool.m in Sources */,
 				77D1E3151A70C8120056C7BA /* UIImageView+WebCache.m in Sources */,
 				CE33CAF71A5C57640042006D /* DBManager.m in Sources */,
+				6BD1305D1A7229760060E976 /* LookForModifyUserTableViewCell.m in Sources */,
 				CE33CB0C1A5C57640042006D /* AFURLResponseSerialization.m in Sources */,
 				CE33CB001A5C57640042006D /* LookForObjectModel.m in Sources */,
+				6BD130631A7231210060E976 /* DeviceTool.m in Sources */,
 				6BEDC7541A5FD35F00B0C595 /* UIRefreshControl+AFNetworking.m in Sources */,
 				6BEDC73B1A5FD33100B0C595 /* LookForSaveTradeTableViewCell.m in Sources */,
 				6BD11FF21A64ED3800C860F1 /* LookForCallTogetherNameViewController.m in Sources */,
