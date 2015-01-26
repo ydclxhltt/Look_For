@@ -19,6 +19,10 @@
 //平台//
 #define APPLICATION_PLATFORM    @"IOS"
 
-
+typedef enum{
+    ModifyPassWordType = 0,   //修改密码
+    ModifyForgetPassType ,    //忘记密码
+    ModifyPhoneType
+}ModifyType;
 
 #endif

@@ -31,6 +31,7 @@
 		6BA76BA91A62AFD100C3AEE6 /* start320_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BA76B9B1A62AFD100C3AEE6 /* start320_04.jpg */; };
 		6BA76BAA1A62AFD100C3AEE6 /* start320_05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BA76B9C1A62AFD100C3AEE6 /* start320_05.jpg */; };
 		6BB0EF8D1A5EE0DB00DE78D2 /* poi_1_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */; };
+		6BB5A59C1A75F4AA000CED9D /* LookForModifyPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB5A59B1A75F4AA000CED9D /* LookForModifyPassViewController.m */; };
 		6BB662991A639C99003350E7 /* LookForPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB662981A639C99003350E7 /* LookForPageControl.m */; };
 		6BB6629C1A639CB5003350E7 /* LookForLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB6629B1A639CB5003350E7 /* LookForLoginView.m */; };
 		6BB6629F1A63B19C003350E7 /* LookForLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB6629E1A63B19C003350E7 /* LookForLoginViewController.m */; };
@@ -213,7 +214,7 @@
 		CE33CB131A5C57640042006D /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAF31A5C57640042006D /* FMDatabaseQueue.m */; };
 		CE33CB141A5C57640042006D /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAF61A5C57640042006D /* FMResultSet.m */; };
 		CE902AE61A74A84800994BEE /* LookForSafeTravelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE902AE51A74A84800994BEE /* LookForSafeTravelViewController.m */; };
-		CE902AE91A74A90700994BEE /* LookForModifyPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE902AE81A74A90700994BEE /* LookForModifyPhoneViewController.m */; };
+		CE902AE91A74A90700994BEE /* LookForVerifiedCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE902AE81A74A90700994BEE /* LookForVerifiedCodeViewController.m */; };
 		CE902AEC1A74A93E00994BEE /* LookForNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE902AEB1A74A93E00994BEE /* LookForNickNameViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -260,6 +261,8 @@
 		6BA76B9B1A62AFD100C3AEE6 /* start320_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start320_04.jpg; sourceTree = "<group>"; };
 		6BA76B9C1A62AFD100C3AEE6 /* start320_05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start320_05.jpg; sourceTree = "<group>"; };
 		6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1_up.png; sourceTree = "<group>"; };
+		6BB5A59A1A75F4AA000CED9D /* LookForModifyPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyPassViewController.h; sourceTree = "<group>"; };
+		6BB5A59B1A75F4AA000CED9D /* LookForModifyPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForModifyPassViewController.m; sourceTree = "<group>"; };
 		6BB662971A639C99003350E7 /* LookForPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForPageControl.h; sourceTree = "<group>"; };
 		6BB662981A639C99003350E7 /* LookForPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForPageControl.m; sourceTree = "<group>"; };
 		6BB6629A1A639CB5003350E7 /* LookForLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForLoginView.h; sourceTree = "<group>"; };
@@ -604,8 +607,8 @@
 		CE33CAF61A5C57640042006D /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		CE902AE41A74A84800994BEE /* LookForSafeTravelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForSafeTravelViewController.h; sourceTree = "<group>"; };
 		CE902AE51A74A84800994BEE /* LookForSafeTravelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForSafeTravelViewController.m; sourceTree = "<group>"; };
-		CE902AE71A74A90700994BEE /* LookForModifyPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyPhoneViewController.h; sourceTree = "<group>"; };
-		CE902AE81A74A90700994BEE /* LookForModifyPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForModifyPhoneViewController.m; sourceTree = "<group>"; };
+		CE902AE71A74A90700994BEE /* LookForVerifiedCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForVerifiedCodeViewController.h; sourceTree = "<group>"; };
+		CE902AE81A74A90700994BEE /* LookForVerifiedCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForVerifiedCodeViewController.m; sourceTree = "<group>"; };
 		CE902AEA1A74A93E00994BEE /* LookForNickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForNickNameViewController.h; sourceTree = "<group>"; };
 		CE902AEB1A74A93E00994BEE /* LookForNickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForNickNameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -648,8 +651,8 @@
 				6B13DF101A751A2A0055B818 /* LookForModifyUserInfoViewController.m */,
 				CE902AEA1A74A93E00994BEE /* LookForNickNameViewController.h */,
 				CE902AEB1A74A93E00994BEE /* LookForNickNameViewController.m */,
-				CE902AE71A74A90700994BEE /* LookForModifyPhoneViewController.h */,
-				CE902AE81A74A90700994BEE /* LookForModifyPhoneViewController.m */,
+				CE902AE71A74A90700994BEE /* LookForVerifiedCodeViewController.h */,
+				CE902AE81A74A90700994BEE /* LookForVerifiedCodeViewController.m */,
 				6BA76B8C1A62AE6900C3AEE6 /* LookForGuideHelpViewController.h */,
 				6BA76B8D1A62AE6900C3AEE6 /* LookForGuideHelpViewController.m */,
 				6BB6629D1A63B19C003350E7 /* LookForLoginViewController.h */,
@@ -658,6 +661,8 @@
 				6BA177541A641E63005E83E4 /* LookForRegisterViewController.m */,
 				6B13DF0C1A75175B0055B818 /* LookForSettingViewController.h */,
 				6B13DF0D1A75175B0055B818 /* LookForSettingViewController.m */,
+				6BB5A59A1A75F4AA000CED9D /* LookForModifyPassViewController.h */,
+				6BB5A59B1A75F4AA000CED9D /* LookForModifyPassViewController.m */,
 			);
 			path = UserViewController;
 			sourceTree = "<group>";
@@ -1613,8 +1618,9 @@
 				CE33CAFA1A5C57640042006D /* LookForConfig.m in Sources */,
 				CE33CB101A5C57640042006D /* FMDatabase.m in Sources */,
 				77D1E3111A70C8120056C7BA /* UIButton+WebCache.m in Sources */,
+				6BB5A59C1A75F4AA000CED9D /* LookForModifyPassViewController.m in Sources */,
 				77D1E3101A70C8120056C7BA /* SDWebImagePrefetcher.m in Sources */,
-				CE902AE91A74A90700994BEE /* LookForModifyPhoneViewController.m in Sources */,
+				CE902AE91A74A90700994BEE /* LookForVerifiedCodeViewController.m in Sources */,
 				CE33CB091A5C57640042006D /* AFSecurityPolicy.m in Sources */,
 				77D1E30C1A70C8120056C7BA /* SDWebImageDecoder.m in Sources */,
 				CE33CA3C1A5C452B0042006D /* BasicViewController.m in Sources */,

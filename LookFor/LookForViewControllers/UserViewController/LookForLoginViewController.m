@@ -9,9 +9,8 @@
 #import "LookForLoginViewController.h"
 #import "LookForLoginView.h"
 #import "LookForRegisterViewController.h"
-#import "LookForModifyPhoneViewController.h"
 #import "LookForNickNameViewController.h"
-
+#import "LookForVerifiedCodeViewController.h"
 #ifdef iphone5
 #define LOGINBOX_OFFSET_Y   (-60)
 #else
@@ -107,7 +106,7 @@
 }
 
 - (void)handleRegister {
-    LookForRegisterViewController *rv = [[LookForRegisterViewController alloc] initIsRegister:YES];
+    LookForRegisterViewController *rv = [[LookForRegisterViewController alloc] init];
     
     [self.navigationController pushViewController:rv animated:YES];
 }
@@ -117,7 +116,7 @@
 }
 
 - (void)handleForget {
-    LookForRegisterViewController *rv = [[LookForRegisterViewController alloc] initIsRegister:NO];
+    LookForVerifiedCodeViewController *rv = [[LookForVerifiedCodeViewController alloc] initWithType:ModifyPhoneType withIsNewPhone:NO];
     
     [self.navigationController pushViewController:rv animated:YES];
 //    LookForModifyPhoneViewController *p = [[LookForModifyPhoneViewController alloc] init];

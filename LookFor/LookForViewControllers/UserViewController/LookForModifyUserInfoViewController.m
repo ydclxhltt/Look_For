@@ -9,7 +9,7 @@
 #import "LookForModifyUserInfoViewController.h"
 #import "LookForModifyUserTableViewCell.h"
 #import "LookForNickNameViewController.h"
-#import "LookForModifyPhoneViewController.h"
+#import "LookForVerifiedCodeViewController.h"
 #import "LookForRegisterViewController.h"
 
 #define HeadImageWH         40
@@ -309,12 +309,12 @@ UINavigationControllerDelegate>
         }
             break;
         case 2: {
-            vc = [[LookForModifyPhoneViewController alloc] init];
+            vc = [[LookForVerifiedCodeViewController alloc] initWithType:ModifyPassWordType withIsNewPhone:NO];
         }
             break;
             
         case 3: {
-            vc = [[LookForRegisterViewController alloc] initIsRegister:NO];
+            vc = [[LookForVerifiedCodeViewController alloc] initWithType:ModifyPhoneType withIsNewPhone:NO];
         }
             break;
             

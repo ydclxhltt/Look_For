@@ -25,19 +25,12 @@
 @property (nonatomic, strong) UITextField *phoneNumberTextField;    //
 @property (nonatomic, strong) UITextField *verifiedTextField;       //验证码
 @property (nonatomic, strong) UIButton    *loginButton;
-@property (nonatomic, assign) BOOL isRegister;
 
 @end
 
 @implementation LookForRegisterViewController
 
-- (id)initIsRegister:(BOOL)isRegister {
-    self = [super init];
-    if (self) {
-        self.isRegister = isRegister;
-    }
-    return self;
-}
+
 
 - (void)loadView {
     [super loadView];
@@ -67,12 +60,8 @@
     
     self.phoneNumberTextField = [[UITextField alloc] initWithFrame:CGRectMake(LeftSpace, TextSapce / 2, MAIN_SCREEN_SIZE.width - 2*LeftSpace, TextFieldH)];
     self.phoneNumberTextField.textAlignment = NSTextAlignmentLeft;
-    if (self.isRegister) {
-        self.phoneNumberTextField.placeholder = @"请输入手机号码";
-    } else {
-        self.phoneNumberTextField.placeholder = @"请输入密码";
-        
-    }
+    self.phoneNumberTextField.placeholder = @"请输入手机号码";
+    
     self.phoneNumberTextField.textColor = [UIColor blackColor];
     self.phoneNumberTextField.backgroundColor = [UIColor clearColor];
     self.phoneNumberTextField.delegate = self;
@@ -87,12 +76,8 @@
     
     self.passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(LeftSpace, self.phoneNumberTextField.frame.origin.y + TextFieldH + TextSapce, MAIN_SCREEN_SIZE.width - 2 * LeftSpace, TextFieldH)];
     self.passwordTextField.textAlignment = NSTextAlignmentLeft;
-    if (self.isRegister) {
-        self.passwordTextField.placeholder = @"请输入密码";
-    } else {
-        self.passwordTextField.placeholder = @"请再次输入密码";
-        
-    }
+    self.passwordTextField.placeholder = @"请输入密码";
+    
     self.passwordTextField.textColor = [UIColor blackColor];
     self.passwordTextField.backgroundColor = [UIColor clearColor];
     self.passwordTextField.delegate = self;
@@ -126,35 +111,26 @@
     [self.textBgView addSubview:resetButton];
     
     
-    if (self.isRegister) {
-        self.loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.loginButton.backgroundColor = [UIColor yellowColor];
-        self.loginButton.frame = CGRectMake(LeftSpace, self.textBgView.frame.size.height + self.textBgView.frame.origin.y + Default*2, MAIN_SCREEN_SIZE.width - 2*LeftSpace, 40);
-        [self.loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self.loginButton setTitle:@"注册" forState:UIControlStateNormal];
-        self.loginButton.layer.cornerRadius = self.loginButton.frame.size.height / 2;
-        self.loginButton.layer.masksToBounds = YES;
-        [self.loginButton addTarget:self
-                             action:@selector(handleRegister)
-                   forControlEvents:UIControlEventTouchUpInside];
-        
-        [self.view addSubview:self.loginButton];
-        
-    }
+    
+    self.loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.loginButton.backgroundColor = [UIColor yellowColor];
+    self.loginButton.frame = CGRectMake(LeftSpace, self.textBgView.frame.size.height + self.textBgView.frame.origin.y + Default*2, MAIN_SCREEN_SIZE.width - 2*LeftSpace, 40);
+    [self.loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.loginButton setTitle:@"注册" forState:UIControlStateNormal];
+    self.loginButton.layer.cornerRadius = self.loginButton.frame.size.height / 2;
+    self.loginButton.layer.masksToBounds = YES;
+    [self.loginButton addTarget:self
+                         action:@selector(handleRegister)
+               forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:self.loginButton];
     
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (self.isRegister) {
-        self.title = @"注册新用户";
-    } else {
-        self.title = @"修改密码";
-        [self setNavBarItemWithTitle:@"完成"
-                         navItemType:rightItem
-                        selectorName:@"handleSure"];
-    }
+    self.title = @"注册";
     
     
     [self setNavBarItemWithTitle:@"取消"
