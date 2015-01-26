@@ -33,7 +33,7 @@
     {
         self.responseMessage = [[LookFor_ResponseMessage alloc] initWithDictionary:dicionary];
         
-        NSArray *lsbListArray = dicionary[@"response"][@"body"][@"lbsList"];
+        NSArray *lsbListArray = dicionary[@"response"][@"body"][@"items"];
         NSMutableArray *array = [NSMutableArray array];
         for (NSDictionary *friendDetailDic in lsbListArray)
         {
