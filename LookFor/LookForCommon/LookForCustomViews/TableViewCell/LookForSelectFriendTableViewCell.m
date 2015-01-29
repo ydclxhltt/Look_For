@@ -34,6 +34,7 @@
     self.backgroundColor = [UIColor clearColor];
     self.selectImageView = [[UIImageView alloc] initWithFrame:CGRectMake(LeftSpace, (self.frame.size.height - SelectImageWH) / 2, SelectImageWH, SelectImageWH)];
     self.selectImageView.backgroundColor = [UIColor clearColor];
+    self.selectImageView.image = [UIImage imageNamed:@"select_default.png"];
     [self addSubview:self.selectImageView];
     
     self.headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(LeftSpace + SelectImageWH + DefaultSpace, (self.frame.size.height - HeadImageWH) / 2, HeadImageWH, HeadImageWH)];

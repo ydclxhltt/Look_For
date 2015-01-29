@@ -50,6 +50,7 @@
     [self addSubview:self.detailLabel];
     
     self.moreImageView = [[UIImageView alloc] initWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - MoreImageWH, (self.frame.size.height - MoreImageWH) / 2, MoreImageWH, MoreImageWH)];
+    self.moreImageView.image = [UIImage imageNamed:@"arrow_down.png"];
     [self addSubview:self.moreImageView];
   
     

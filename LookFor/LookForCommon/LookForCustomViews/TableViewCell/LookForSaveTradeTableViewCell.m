@@ -58,7 +58,8 @@
         [self addSubview:self.rightImageView];
         
         self.moreImage = [[UIImageView alloc] initWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - MoreImageWH,  (self.frame.size.height - MoreImageWH) / 2, MoreImageWH, MoreImageWH)];
-        self.moreImage.image = [UIImage imageNamed:@"poi_1.png"];
+        self.moreImage.image = [UIImage imageNamed:@"arrow_down.png"];
+;
         [self addSubview:self.moreImage];
         
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];

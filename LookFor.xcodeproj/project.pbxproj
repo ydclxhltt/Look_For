@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B01C5221A7A543000775DFD /* LookForLBSTpyeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B01C5211A7A543000775DFD /* LookForLBSTpyeViewController.m */; };
 		6B0AB6A51A77787D0045AEF4 /* LookForMyMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0AB6A41A77787D0045AEF4 /* LookForMyMessageTableViewCell.m */; };
 		6B0AB6A81A7778910045AEF4 /* LookForMyMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0AB6A71A7778910045AEF4 /* LookForMyMessageViewController.m */; };
 		6B0AB6AB1A7778DC0045AEF4 /* LookForRightSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0AB6AA1A7778DC0045AEF4 /* LookForRightSelectTableViewCell.m */; };
@@ -232,6 +233,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B01C5201A7A543000775DFD /* LookForLBSTpyeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForLBSTpyeViewController.h; sourceTree = "<group>"; };
+		6B01C5211A7A543000775DFD /* LookForLBSTpyeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForLBSTpyeViewController.m; sourceTree = "<group>"; };
 		6B0AB6A31A77787D0045AEF4 /* LookForMyMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForMyMessageTableViewCell.h; sourceTree = "<group>"; };
 		6B0AB6A41A77787D0045AEF4 /* LookForMyMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForMyMessageTableViewCell.m; sourceTree = "<group>"; };
 		6B0AB6A61A7778910045AEF4 /* LookForMyMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForMyMessageViewController.h; sourceTree = "<group>"; };
@@ -674,6 +677,8 @@
 				6BB5A59B1A75F4AA000CED9D /* LookForModifyPassViewController.m */,
 				6B0AB6A61A7778910045AEF4 /* LookForMyMessageViewController.h */,
 				6B0AB6A71A7778910045AEF4 /* LookForMyMessageViewController.m */,
+				6B01C5201A7A543000775DFD /* LookForLBSTpyeViewController.h */,
+				6B01C5211A7A543000775DFD /* LookForLBSTpyeViewController.m */,
 			);
 			path = UserViewController;
 			sourceTree = "<group>";
@@ -1616,6 +1621,7 @@
 				CE33CB0D1A5C57640042006D /* AFURLSessionManager.m in Sources */,
 				6BD11FEF1A64ED1D00C860F1 /* LookForCallTogetherViewController.m in Sources */,
 				6BEDC74F1A5FD35F00B0C595 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				6B01C5221A7A543000775DFD /* LookForLBSTpyeViewController.m in Sources */,
 				6BEDC7501A5FD35F00B0C595 /* UIAlertView+AFNetworking.m in Sources */,
 				CE33CB061A5C57640042006D /* AFHTTPRequestOperationManager.m in Sources */,
 				CE33CAFC1A5C57640042006D /* LooKForDataConvert.m in Sources */,

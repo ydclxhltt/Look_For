@@ -40,6 +40,7 @@
     [self addSubview:self.titleLabel];
     
     self.selectImageView = [CreateViewTool createImageViewWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - SelectImageWH, (self.frame.size.height - SelectImageWH) / 2, SelectImageWH, SelectImageWH) placeholderImage:nil];
+    self.selectImageView.image = [UIImage imageNamed:@"select_default.png"];
     [self addSubview:self.selectImageView];
     
     UIView *buttomLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];

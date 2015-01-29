@@ -41,6 +41,7 @@
     [self addSubview:self.titleLabel];
     
     self.moreImageView = [CreateViewTool createImageViewWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - MoreImageWH - DefaultSpace, (self.frame.size.height - MoreImageWH), MoreImageWH, MoreImageWH) placeholderImage:nil];
+    self.moreImageView.image = [UIImage imageNamed:@"arrow_down.png"];
     [self addSubview:self.moreImageView];
     
     self.detailLabel = [CreateViewTool createLabelWithFrame:CGRectMake(LeftSpace + TitleLableW, (self.frame.size.height - DetailLabelH) / 2, MAIN_SCREEN_SIZE.width - LeftSpace - TitleLableW -DefaultSpace - self.moreImageView.frame.origin.x, DetailLabelH)

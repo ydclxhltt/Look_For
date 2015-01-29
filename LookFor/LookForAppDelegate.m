@@ -62,6 +62,10 @@
         [self addMainView];
     }
     
+    if ([UserDefaults integerForKey:LBSMapTypeKey] == 0) {
+        [UserDefaults setInteger:LBSMapTypeStandard forKey:LBSMapTypeKey];
+    }
+    
     //添加启动页
    // [self addSplashView];
     

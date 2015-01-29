@@ -19,10 +19,24 @@
 //平台//
 #define APPLICATION_PLATFORM    @"IOS"
 
+
+#define  UserDefaults   [NSUserDefaults standardUserDefaults]
+
+
 typedef enum{
     ModifyPassWordType = 0,   //修改密码
     ModifyForgetPassType ,    //忘记密码
     ModifyPhoneType
 }ModifyType;
+
+
+#define LBSMapTypeKey           @"LBSMapTypeKey"  //
+typedef enum {
+    LBSMapTypeStandard   = 1,               ///< 标准地图
+    LBSMapTypeSatellite  = 2,               ///< 卫星地图
+}LBSMapType;
+
+
+
 
 #endif
