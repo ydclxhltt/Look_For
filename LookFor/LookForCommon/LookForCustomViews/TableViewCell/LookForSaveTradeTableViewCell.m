@@ -64,6 +64,8 @@
         
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];
         line.backgroundColor = SeparatorLineColor;
+        line.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
+
         [self addSubview:line];
     }
     return self;

@@ -51,6 +51,8 @@
     [self addSubview:self.detailLabel];
     
     UIView *buttomLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];
+    buttomLine.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
+
     buttomLine.backgroundColor = SeparatorLineColor;
     [self addSubview:buttomLine];
 

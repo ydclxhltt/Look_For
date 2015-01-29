@@ -8,7 +8,7 @@
 
 #import "LookForRightSelectTableViewCell.h"
 #define TitleLabelH       13
-#define SelectImageWH     20
+#define SelectImageWH     25
 
 @interface LookForRightSelectTableViewCell ()
 
@@ -18,6 +18,8 @@
 @end
 
 @implementation LookForRightSelectTableViewCell
+
+@synthesize delegate;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -45,6 +47,7 @@
     
     UIView *buttomLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];
     buttomLine.backgroundColor = SeparatorLineColor;
+    buttomLine.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
     [self addSubview:buttomLine];
 
 }
@@ -63,6 +66,22 @@
     }
     
     self.titleLabel.text = titleText;
+}
+
+- (void)setDeleteImageName:(NSString *)deleteImageName {
+    self.selectImageView.hidden = YES;
+    
+    UIButton *button = [CreateViewTool createButtonWithFrame:self.selectImageView.frame
+                                                 buttonImage:deleteImageName
+                                                selectorName:@"handleDelete"
+                                                 tagDelegate:self];
+    [self addSubview:button];
+}
+
+- (void)handleDelete {
+    if ([self.delegate respondsToSelector:@selector(deleteItem:)]) {
+        [self.delegate deleteItem:self];
+    }
 }
 
 @end

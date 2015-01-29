@@ -51,7 +51,9 @@
     self.nameLabel.backgroundColor = [UIColor clearColor];
     [self addSubview:self.nameLabel];
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 0.5, self.bounds.size.width, 0.5)];
-    line.backgroundColor = [UIColor lightGrayColor];
+    line.backgroundColor = SeparatorLineColor;
+    line.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
+
     [self addSubview:line];
 }
 

@@ -35,6 +35,8 @@
 		6BA76BA91A62AFD100C3AEE6 /* start320_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BA76B9B1A62AFD100C3AEE6 /* start320_04.jpg */; };
 		6BA76BAA1A62AFD100C3AEE6 /* start320_05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BA76B9C1A62AFD100C3AEE6 /* start320_05.jpg */; };
 		6BA7BAA01A7A73980076F863 /* LookForCommonlyAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7BA9F1A7A73980076F863 /* LookForCommonlyAddressViewController.m */; };
+		6BA7BAA31A7A8E0A0076F863 /* LookForApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7BAA21A7A8E0A0076F863 /* LookForApplyViewController.m */; };
+		6BA7BABC1A7A8F410076F863 /* LookForApplyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7BABB1A7A8F410076F863 /* LookForApplyTableViewCell.m */; };
 		6BB0EF8D1A5EE0DB00DE78D2 /* poi_1_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */; };
 		6BB5A59C1A75F4AA000CED9D /* LookForModifyPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB5A59B1A75F4AA000CED9D /* LookForModifyPassViewController.m */; };
 		6BB662991A639C99003350E7 /* LookForPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB662981A639C99003350E7 /* LookForPageControl.m */; };
@@ -275,6 +277,10 @@
 		6BA76B9C1A62AFD100C3AEE6 /* start320_05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start320_05.jpg; sourceTree = "<group>"; };
 		6BA7BA9E1A7A73980076F863 /* LookForCommonlyAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForCommonlyAddressViewController.h; sourceTree = "<group>"; };
 		6BA7BA9F1A7A73980076F863 /* LookForCommonlyAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForCommonlyAddressViewController.m; sourceTree = "<group>"; };
+		6BA7BAA11A7A8E0A0076F863 /* LookForApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForApplyViewController.h; sourceTree = "<group>"; };
+		6BA7BAA21A7A8E0A0076F863 /* LookForApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForApplyViewController.m; sourceTree = "<group>"; };
+		6BA7BABA1A7A8F410076F863 /* LookForApplyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForApplyTableViewCell.h; sourceTree = "<group>"; };
+		6BA7BABB1A7A8F410076F863 /* LookForApplyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForApplyTableViewCell.m; sourceTree = "<group>"; };
 		6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1_up.png; sourceTree = "<group>"; };
 		6BB5A59A1A75F4AA000CED9D /* LookForModifyPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyPassViewController.h; sourceTree = "<group>"; };
 		6BB5A59B1A75F4AA000CED9D /* LookForModifyPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForModifyPassViewController.m; sourceTree = "<group>"; };
@@ -684,6 +690,8 @@
 				6B01C5211A7A543000775DFD /* LookForLBSTpyeViewController.m */,
 				6BA7BA9E1A7A73980076F863 /* LookForCommonlyAddressViewController.h */,
 				6BA7BA9F1A7A73980076F863 /* LookForCommonlyAddressViewController.m */,
+				6BA7BAA11A7A8E0A0076F863 /* LookForApplyViewController.h */,
+				6BA7BAA21A7A8E0A0076F863 /* LookForApplyViewController.m */,
 			);
 			path = UserViewController;
 			sourceTree = "<group>";
@@ -857,6 +865,8 @@
 				6B0AB6A41A77787D0045AEF4 /* LookForMyMessageTableViewCell.m */,
 				6B0AB6A91A7778DC0045AEF4 /* LookForRightSelectTableViewCell.h */,
 				6B0AB6AA1A7778DC0045AEF4 /* LookForRightSelectTableViewCell.m */,
+				6BA7BABA1A7A8F410076F863 /* LookForApplyTableViewCell.h */,
+				6BA7BABB1A7A8F410076F863 /* LookForApplyTableViewCell.m */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1616,6 +1626,7 @@
 				CE33CAFB1A5C57640042006D /* LookForContentService.m in Sources */,
 				CE33CB0A1A5C57640042006D /* AFURLConnectionOperation.m in Sources */,
 				CE33CA3D1A5C452B0042006D /* HomeViewController.m in Sources */,
+				6BA7BAA31A7A8E0A0076F863 /* LookForApplyViewController.m in Sources */,
 				77D1E28C1A70964F0056C7BA /* LookForSelectFriendTableViewCell.m in Sources */,
 				CE902AEC1A74A93E00994BEE /* LookForNickNameViewController.m in Sources */,
 				77D1E30E1A70C8120056C7BA /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1687,6 +1698,7 @@
 				6B13DF0E1A75175B0055B818 /* LookForSettingViewController.m in Sources */,
 				77D1E3091A70C8120056C7BA /* NSData+ImageContentType.m in Sources */,
 				6B0AB6A81A7778910045AEF4 /* LookForMyMessageViewController.m in Sources */,
+				6BA7BABC1A7A8F410076F863 /* LookForApplyTableViewCell.m in Sources */,
 				6BEDC7551A5FD35F00B0C595 /* UIWebView+AFNetworking.m in Sources */,
 				77D1E3181A70F8200056C7BA /* LookForRouteDetailView.m in Sources */,
 				CE33CB111A5C57640042006D /* FMDatabaseAdditions.m in Sources */,

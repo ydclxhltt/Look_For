@@ -26,7 +26,7 @@
 #import "LookForLoginViewController.h"
 #import "LookForSettingViewController.h"
 #import "LookForMyMessageViewController.h"
-
+#import "LookForApplyViewController.h"
 
 
 
@@ -548,7 +548,7 @@ LookForLeftViewDelegate>
         }
             break;
         case 3:{
-            
+            vc = [[LookForApplyViewController alloc] init];
         }
             break;
         case 4:{
