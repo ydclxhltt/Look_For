@@ -10,4 +10,5 @@
 
 @interface LookForSelectFriendViewController : BasicViewController
 
+- (id)initWithTitle:(NSString *)title;
 @end

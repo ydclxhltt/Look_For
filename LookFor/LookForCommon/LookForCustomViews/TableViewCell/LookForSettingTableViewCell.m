@@ -10,7 +10,7 @@
 #define TitleLabelH     13
 #define DetailLabelH    10
 #define TitleLableW     100
-#define MoreImageWH     14
+#define MoreImageWH     20
 
 @interface LookForSettingTableViewCell ()
 
@@ -40,7 +40,7 @@
     self.titleLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:self.titleLabel];
     
-    self.moreImageView = [CreateViewTool createImageViewWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - MoreImageWH - DefaultSpace, (self.frame.size.height - MoreImageWH), MoreImageWH, MoreImageWH) placeholderImage:nil];
+    self.moreImageView = [CreateViewTool createImageViewWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - MoreImageWH - DefaultSpace, (self.frame.size.height - MoreImageWH) / 2, MoreImageWH, MoreImageWH) placeholderImage:nil];
     self.moreImageView.image = [UIImage imageNamed:@"arrow_down.png"];
     [self addSubview:self.moreImageView];
     

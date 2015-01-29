@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"地图展示方式";
     
     [self setNavBarItemWithImageName:@"btn_back" navItemType:LeftItem
                         selectorName:@"handleCancel"];
@@ -46,12 +47,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 44;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,7 +93,7 @@
     }else {
         [UserDefaults setInteger:LBSMapTypeSatellite forKey:LBSMapTypeKey];
     }
-    
+    [self.table reloadData];
 }
 
 @end

@@ -34,6 +34,7 @@
 		6BA76BA81A62AFD100C3AEE6 /* start320_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BA76B9A1A62AFD100C3AEE6 /* start320_03.jpg */; };
 		6BA76BA91A62AFD100C3AEE6 /* start320_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BA76B9B1A62AFD100C3AEE6 /* start320_04.jpg */; };
 		6BA76BAA1A62AFD100C3AEE6 /* start320_05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BA76B9C1A62AFD100C3AEE6 /* start320_05.jpg */; };
+		6BA7BAA01A7A73980076F863 /* LookForCommonlyAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7BA9F1A7A73980076F863 /* LookForCommonlyAddressViewController.m */; };
 		6BB0EF8D1A5EE0DB00DE78D2 /* poi_1_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */; };
 		6BB5A59C1A75F4AA000CED9D /* LookForModifyPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB5A59B1A75F4AA000CED9D /* LookForModifyPassViewController.m */; };
 		6BB662991A639C99003350E7 /* LookForPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB662981A639C99003350E7 /* LookForPageControl.m */; };
@@ -272,6 +273,8 @@
 		6BA76B9A1A62AFD100C3AEE6 /* start320_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start320_03.jpg; sourceTree = "<group>"; };
 		6BA76B9B1A62AFD100C3AEE6 /* start320_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start320_04.jpg; sourceTree = "<group>"; };
 		6BA76B9C1A62AFD100C3AEE6 /* start320_05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start320_05.jpg; sourceTree = "<group>"; };
+		6BA7BA9E1A7A73980076F863 /* LookForCommonlyAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForCommonlyAddressViewController.h; sourceTree = "<group>"; };
+		6BA7BA9F1A7A73980076F863 /* LookForCommonlyAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForCommonlyAddressViewController.m; sourceTree = "<group>"; };
 		6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1_up.png; sourceTree = "<group>"; };
 		6BB5A59A1A75F4AA000CED9D /* LookForModifyPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyPassViewController.h; sourceTree = "<group>"; };
 		6BB5A59B1A75F4AA000CED9D /* LookForModifyPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForModifyPassViewController.m; sourceTree = "<group>"; };
@@ -679,6 +682,8 @@
 				6B0AB6A71A7778910045AEF4 /* LookForMyMessageViewController.m */,
 				6B01C5201A7A543000775DFD /* LookForLBSTpyeViewController.h */,
 				6B01C5211A7A543000775DFD /* LookForLBSTpyeViewController.m */,
+				6BA7BA9E1A7A73980076F863 /* LookForCommonlyAddressViewController.h */,
+				6BA7BA9F1A7A73980076F863 /* LookForCommonlyAddressViewController.m */,
 			);
 			path = UserViewController;
 			sourceTree = "<group>";
@@ -1618,6 +1623,7 @@
 				7762213E1A68A7AF00FD9ADE /* LookFor_FriendDetailListService.m in Sources */,
 				77D1E3051A70C8120056C7BA /* DeviceTool.m in Sources */,
 				6BD25CC91A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm in Sources */,
+				6BA7BAA01A7A73980076F863 /* LookForCommonlyAddressViewController.m in Sources */,
 				CE33CB0D1A5C57640042006D /* AFURLSessionManager.m in Sources */,
 				6BD11FEF1A64ED1D00C860F1 /* LookForCallTogetherViewController.m in Sources */,
 				6BEDC74F1A5FD35F00B0C595 /* UIActivityIndicatorView+AFNetworking.m in Sources */,

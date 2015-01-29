@@ -8,7 +8,7 @@
 
 #import "LookForRightSelectTableViewCell.h"
 #define TitleLabelH       13
-#define SelectImageWH     14
+#define SelectImageWH     20
 
 @interface LookForRightSelectTableViewCell ()
 

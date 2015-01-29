@@ -8,6 +8,9 @@
 
 #import "LookForSettingViewController.h"
 #import "LookForSettingTableViewCell.h"
+#import "LookForLBSTpyeViewController.h"
+#import "LookForSelectFriendViewController.h"
+
 
 @interface LookForSettingViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -22,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title = @"设置";
     [self setNavBarItemWithTitle:@"取消"
                      navItemType:LeftItem
                     selectorName:@"handleCancel"];
@@ -152,8 +155,27 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger row = [indexPath row];
+    NSUInteger section = [indexPath section];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
+    UIViewController *vc = nil;
+    if (section == 0) {
+        if (row == 0) {
+            vc = [[LookForLBSTpyeViewController alloc] init];
+        } else if (row == 1) {
+            vc = [[LookForSelectFriendViewController alloc] initWithTitle:@"闭眼权限设置"];
+        } else if (row == 2) {
+        
+        } else {
+            vc = [[LookForSelectFriendViewController alloc] initWithTitle:@"默认联系人"];
+        }
+    } else {
+        if (row == 0) {
+            
+        } else {
+            
+        }
+    }
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

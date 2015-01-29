@@ -13,21 +13,28 @@
 
 @property (nonatomic, strong) UITableView *selectTableView;
 @property (nonatomic, strong) NSMutableArray *selectIndex;
-
+@property (nonatomic, strong) NSString *title;
 @end
 
 @implementation LookForSelectFriendViewController
 
+- (id)initWithTitle:(NSString *)title {
+    self = [super init];
+    if (self) {
+        self.title = title;
+    }
+    return self;
+}
+
 - (void)loadView {
     [super loadView];
     [self initView];
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.selectIndex = [[NSMutableArray alloc] init];
-    self.title = @"选择好友";
+    self.title = self.title;
     [self setNavBarItemWithTitle:@"取消"
                      navItemType:LeftItem
                     selectorName:@"handleCancel"];

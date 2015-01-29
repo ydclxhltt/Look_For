@@ -11,29 +11,29 @@
 
 @interface DeviceTool : NSObject
 
-/*
- * 获取wifi
- */
-+ (id)getSSIDInfo;
-
-/*
- * 获取运营商
- */
-+ (CTCarrier *)getCarrierInfo;
-
-/*
- * 获取信号强度
- */
-+ (int) getSignalStrength;
-
-/*
- * 获取精度<1%的电量方法
- */
-+ (float)getAccurateBatteryLevel;
-
-/*
- * 系统获取电量方法
- */
-+ (float)getBatteryLevel;
+///*
+// * 获取wifi
+// */
+//+ (id)getSSIDInfo;
+//
+///*
+// * 获取运营商
+// */
+//+ (CTCarrier *)getCarrierInfo;
+//
+///*
+// * 获取信号强度
+// */
+//+ (int) getSignalStrength;
+//
+///*
+// * 获取精度<1%的电量方法
+// */
+//+ (float)getAccurateBatteryLevel;
+//
+///*
+// * 系统获取电量方法
+// */
+//+ (float)getBatteryLevel;
 
 @end
