@@ -25,6 +25,7 @@
 #import "LookForModifyUserInfoViewController.h"
 #import "LookForLoginViewController.h"
 #import "LookForSettingViewController.h"
+#import "LookForMyMessageViewController.h"
 
 
 
@@ -538,7 +539,8 @@ LookForLeftViewDelegate>
         }
             break;
         case 1:{
-             vc = [[LookForModifyUserInfoViewController alloc] init];
+            // vc = [[LookForModifyUserInfoViewController alloc] init];
+            vc = [[LookForMyMessageViewController alloc] init];
         }
             break;
         case 2:{
@@ -565,8 +567,9 @@ LookForLeftViewDelegate>
 
 //点击头像
 - (void)leftViewClickedIconImageView {
-    LookForLoginViewController *login = [[LookForLoginViewController alloc] init];
-    [self.navigationController pushViewController:login animated:YES];
+//    LookForLoginViewController *login = [[LookForLoginViewController alloc] init];
+    LookForModifyUserInfoViewController *vc = [[LookForModifyUserInfoViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
     [leftView dismiss];
 }
 

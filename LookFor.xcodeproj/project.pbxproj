@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B0AB6A51A77787D0045AEF4 /* LookForMyMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0AB6A41A77787D0045AEF4 /* LookForMyMessageTableViewCell.m */; };
+		6B0AB6A81A7778910045AEF4 /* LookForMyMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0AB6A71A7778910045AEF4 /* LookForMyMessageViewController.m */; };
+		6B0AB6AB1A7778DC0045AEF4 /* LookForRightSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0AB6AA1A7778DC0045AEF4 /* LookForRightSelectTableViewCell.m */; };
 		6B13DF0E1A75175B0055B818 /* LookForSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B13DF0D1A75175B0055B818 /* LookForSettingViewController.m */; };
 		6B13DF111A751A2A0055B818 /* LookForModifyUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B13DF101A751A2A0055B818 /* LookForModifyUserInfoViewController.m */; };
 		6B13DF141A751A500055B818 /* LookForModifyUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B13DF131A751A500055B818 /* LookForModifyUserTableViewCell.m */; };
@@ -229,6 +232,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B0AB6A31A77787D0045AEF4 /* LookForMyMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForMyMessageTableViewCell.h; sourceTree = "<group>"; };
+		6B0AB6A41A77787D0045AEF4 /* LookForMyMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForMyMessageTableViewCell.m; sourceTree = "<group>"; };
+		6B0AB6A61A7778910045AEF4 /* LookForMyMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForMyMessageViewController.h; sourceTree = "<group>"; };
+		6B0AB6A71A7778910045AEF4 /* LookForMyMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForMyMessageViewController.m; sourceTree = "<group>"; };
+		6B0AB6A91A7778DC0045AEF4 /* LookForRightSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRightSelectTableViewCell.h; sourceTree = "<group>"; };
+		6B0AB6AA1A7778DC0045AEF4 /* LookForRightSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForRightSelectTableViewCell.m; sourceTree = "<group>"; };
 		6B13DF0C1A75175B0055B818 /* LookForSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForSettingViewController.h; sourceTree = "<group>"; };
 		6B13DF0D1A75175B0055B818 /* LookForSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForSettingViewController.m; sourceTree = "<group>"; };
 		6B13DF0F1A751A2A0055B818 /* LookForModifyUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyUserInfoViewController.h; sourceTree = "<group>"; };
@@ -663,6 +672,8 @@
 				6B13DF0D1A75175B0055B818 /* LookForSettingViewController.m */,
 				6BB5A59A1A75F4AA000CED9D /* LookForModifyPassViewController.h */,
 				6BB5A59B1A75F4AA000CED9D /* LookForModifyPassViewController.m */,
+				6B0AB6A61A7778910045AEF4 /* LookForMyMessageViewController.h */,
+				6B0AB6A71A7778910045AEF4 /* LookForMyMessageViewController.m */,
 			);
 			path = UserViewController;
 			sourceTree = "<group>";
@@ -832,6 +843,10 @@
 				6BA21D8C1A6BC46900091C60 /* LookForAssemblyTableViewCell.m */,
 				6B72990F1A75285D00A53BC4 /* LookForSettingTableViewCell.h */,
 				6B7299101A75285D00A53BC4 /* LookForSettingTableViewCell.m */,
+				6B0AB6A31A77787D0045AEF4 /* LookForMyMessageTableViewCell.h */,
+				6B0AB6A41A77787D0045AEF4 /* LookForMyMessageTableViewCell.m */,
+				6B0AB6A91A7778DC0045AEF4 /* LookForRightSelectTableViewCell.h */,
+				6B0AB6AA1A7778DC0045AEF4 /* LookForRightSelectTableViewCell.m */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1632,6 +1647,7 @@
 				CE33CAFE1A5C57640042006D /* LookForResponseCenter.m in Sources */,
 				6BA76B8E1A62AE6900C3AEE6 /* LookForGuideHelpViewController.m in Sources */,
 				6BCB57AF1A512AEA00060B31 /* main.m in Sources */,
+				6B0AB6A51A77787D0045AEF4 /* LookForMyMessageTableViewCell.m in Sources */,
 				CE33CAFD1A5C57640042006D /* LookForResponse.m in Sources */,
 				77B62E401A721A56007B4C80 /* LookForLeftItemView.m in Sources */,
 				6BB6629F1A63B19C003350E7 /* LookForLoginViewController.m in Sources */,
@@ -1654,9 +1670,11 @@
 				CE33CA091A5C452B0042006D /* AAShareBubbles.m in Sources */,
 				CE33CB041A5C57640042006D /* LookForServiceSchedular.m in Sources */,
 				77D1E3131A70C8120056C7BA /* UIImage+MultiFormat.m in Sources */,
+				6B0AB6AB1A7778DC0045AEF4 /* LookForRightSelectTableViewCell.m in Sources */,
 				6B7299111A75285D00A53BC4 /* LookForSettingTableViewCell.m in Sources */,
 				6B13DF0E1A75175B0055B818 /* LookForSettingViewController.m in Sources */,
 				77D1E3091A70C8120056C7BA /* NSData+ImageContentType.m in Sources */,
+				6B0AB6A81A7778910045AEF4 /* LookForMyMessageViewController.m in Sources */,
 				6BEDC7551A5FD35F00B0C595 /* UIWebView+AFNetworking.m in Sources */,
 				77D1E3181A70F8200056C7BA /* LookForRouteDetailView.m in Sources */,
 				CE33CB111A5C57640042006D /* FMDatabaseAdditions.m in Sources */,
