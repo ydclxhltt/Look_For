@@ -7,18 +7,18 @@
 //
 
 #import "DeviceTool.h"
-//#import <CoreTelephony/CTTelephonyNetworkInfo.h>
-//#import <CoreTelephony/CTSubscriberInfo.h>
-//#import <SystemConfiguration/CaptiveNetwork.h>
-//#include <ifaddrs.h>
-//#include <arpa/inet.h>
-// #import <dlfcn.h>
-//#import "IOPSKeys.h"
-//#import "IOPowerSources.h"
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
+#import <CoreTelephony/CTSubscriberInfo.h>
+#import <SystemConfiguration/CaptiveNetwork.h>
+#include <ifaddrs.h>
+#include <arpa/inet.h>
+ #import <dlfcn.h>
+#import "IOPSKeys.h"
+#import "IOPowerSources.h"
 
 @implementation DeviceTool
 
-/*#pragma mark 获取信号强度
+#pragma mark 获取信号强度
 + (int) getSignalStrength
 {
     int result = CTGetSignalStrength();
@@ -161,5 +161,5 @@
     return -1.0f;
 
 }
-*/
+
 @end
