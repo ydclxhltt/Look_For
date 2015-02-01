@@ -126,6 +126,38 @@
     return theHeigth;
 }
 
++ (CGSize)stringWidthWithStr:(NSString *)text textFont:(UIFont*)font labelSize:(CGSize)labelSize{
+    //iOS7.0后使用
+    CGSize size;
+
+    NSAttributedString* atrString = [[NSAttributedString alloc] initWithString:text];
+    
+    
+    
+    NSRange range = NSMakeRange(0, atrString.length);
+    
+    
+    
+    NSDictionary* dic = [atrString attributesAtIndex:0 effectiveRange:&range];
+    
+    
+    
+    size = [text boundingRectWithSize:labelSize
+                              options: NSStringDrawingUsesLineFragmentOrigin
+                           attributes:dic
+                              context:nil].size;
+
+    return  size;
+    
+
+    
+    
+    //    NSDictionary *attributeDic = [NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName,nil];
+//    CGSize titleBrandSizeForHeight = [text sizeWithAttributes:attributeDic];
+//    CGSize titleBrandSizeForLines = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributeDic context:nil].size;
+//    
+//    return titleBrandSizeForHeight
+}
 
 //md5加密
 + (NSString *)md5:(NSString *)str

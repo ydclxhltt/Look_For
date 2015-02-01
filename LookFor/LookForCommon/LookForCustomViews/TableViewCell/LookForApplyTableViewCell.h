@@ -10,4 +10,9 @@
 
 @interface LookForApplyTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) NSString *typeText;       //右边状态
+@property (nonatomic, strong) NSString *timeText;       //时间
+@property (nonatomic, strong) NSString *nameText;       //姓名
+@property (nonatomic, strong) NSString *messageText;    //申请原因
+
 @end

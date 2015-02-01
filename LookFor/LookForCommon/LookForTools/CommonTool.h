@@ -60,6 +60,18 @@
 + (float)labelHeightWithText:(NSString *)text textFont:(UIFont*)font labelWidth:(float)width;
 
 /*
+ * 根据字符串计算size
+ *
+ * @pram text       字符串
+ * @pram font       字体
+ * @pram size      字符串显示区域高度
+ *
+ * @return 返回字符串高度
+ */
++ (CGSize)stringWidthWithStr:(NSString *)text textFont:(UIFont*)font labelSize:(CGSize)size;
+
+
+/*
  *  MD5
  *
  *  @pram   str    需要加密的字符串

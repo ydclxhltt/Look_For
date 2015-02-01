@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavBarItemWithTitle:@"清楚"
+    [self setNavBarItemWithTitle:@"清除"
                      navItemType:rightItem
                     selectorName:@"handleClear"];
     
