@@ -4,7 +4,7 @@
 //
 //  Created by chenmingguo on 15-1-18.
 //  Copyright (c) 2015年 LookFor. All rights reserved.
-//
+// 集结号，和圈圈公用
 
 #import <UIKit/UIKit.h>
 
@@ -15,4 +15,7 @@
 @property (nonatomic, strong) NSString *timeText;
 @property (nonatomic, strong) UIImage  *headImage;
 
+@property (nonatomic, strong) UISwitch *switchView;
+
+- (void)showSwitch;
 @end

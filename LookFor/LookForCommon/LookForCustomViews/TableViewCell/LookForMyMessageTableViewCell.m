@@ -74,6 +74,7 @@
                                                   buttonImage:nil
                                                  selectorName:@"handleRefuse"
                                                   tagDelegate:self];
+    [self.refuseButton setTitle:@"拒绝" forState:UIControlStateNormal];
     self.refuseButton.hidden = YES;
     self.refuseButton.tag = Tag + 1;
     [self addSubview:self.refuseButton];
@@ -84,6 +85,7 @@
                                                    tagDelegate:self];
     self.confirmButton.hidden = YES;
     self.confirmButton.tag = Tag;
+    [self.confirmButton setTitle:@"同意" forState:UIControlStateNormal];
 
     [self addSubview:self.confirmButton];
     UIView *buttomLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];

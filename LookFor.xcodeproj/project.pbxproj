@@ -37,6 +37,7 @@
 		6BA7BAA01A7A73980076F863 /* LookForCommonlyAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7BA9F1A7A73980076F863 /* LookForCommonlyAddressViewController.m */; };
 		6BA7BAA31A7A8E0A0076F863 /* LookForApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7BAA21A7A8E0A0076F863 /* LookForApplyViewController.m */; };
 		6BA7BABC1A7A8F410076F863 /* LookForApplyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7BABB1A7A8F410076F863 /* LookForApplyTableViewCell.m */; };
+		6BB018771A7E3162004BBBF8 /* LookForMyCirleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB018761A7E3162004BBBF8 /* LookForMyCirleViewController.m */; };
 		6BB0EF8D1A5EE0DB00DE78D2 /* poi_1_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */; };
 		6BB5A59C1A75F4AA000CED9D /* LookForModifyPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB5A59B1A75F4AA000CED9D /* LookForModifyPassViewController.m */; };
 		6BB662991A639C99003350E7 /* LookForPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB662981A639C99003350E7 /* LookForPageControl.m */; };
@@ -281,6 +282,8 @@
 		6BA7BAA21A7A8E0A0076F863 /* LookForApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForApplyViewController.m; sourceTree = "<group>"; };
 		6BA7BABA1A7A8F410076F863 /* LookForApplyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForApplyTableViewCell.h; sourceTree = "<group>"; };
 		6BA7BABB1A7A8F410076F863 /* LookForApplyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForApplyTableViewCell.m; sourceTree = "<group>"; };
+		6BB018751A7E3162004BBBF8 /* LookForMyCirleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForMyCirleViewController.h; sourceTree = "<group>"; };
+		6BB018761A7E3162004BBBF8 /* LookForMyCirleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForMyCirleViewController.m; sourceTree = "<group>"; };
 		6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1_up.png; sourceTree = "<group>"; };
 		6BB5A59A1A75F4AA000CED9D /* LookForModifyPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyPassViewController.h; sourceTree = "<group>"; };
 		6BB5A59B1A75F4AA000CED9D /* LookForModifyPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForModifyPassViewController.m; sourceTree = "<group>"; };
@@ -692,6 +695,8 @@
 				6BA7BA9F1A7A73980076F863 /* LookForCommonlyAddressViewController.m */,
 				6BA7BAA11A7A8E0A0076F863 /* LookForApplyViewController.h */,
 				6BA7BAA21A7A8E0A0076F863 /* LookForApplyViewController.m */,
+				6BB018751A7E3162004BBBF8 /* LookForMyCirleViewController.h */,
+				6BB018761A7E3162004BBBF8 /* LookForMyCirleViewController.m */,
 			);
 			path = UserViewController;
 			sourceTree = "<group>";
@@ -1705,6 +1710,7 @@
 				CE33CB0B1A5C57640042006D /* AFURLRequestSerialization.m in Sources */,
 				77D1E30B1A70C8120056C7BA /* SDWebImageCompat.m in Sources */,
 				CE33CB121A5C57640042006D /* FMDatabasePool.m in Sources */,
+				6BB018771A7E3162004BBBF8 /* LookForMyCirleViewController.m in Sources */,
 				77D1E3151A70C8120056C7BA /* UIImageView+WebCache.m in Sources */,
 				CE33CAF71A5C57640042006D /* DBManager.m in Sources */,
 				CE33CB0C1A5C57640042006D /* AFURLResponseSerialization.m in Sources */,

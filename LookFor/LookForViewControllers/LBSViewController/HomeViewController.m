@@ -27,7 +27,7 @@
 #import "LookForSettingViewController.h"
 #import "LookForMyMessageViewController.h"
 #import "LookForApplyViewController.h"
-
+#import "LookForMyCirleViewController.h"
 
 
 @interface HomeViewController ()<BMKLocationServiceDelegate,
@@ -535,7 +535,7 @@ LookForLeftViewDelegate>
     UIViewController *vc = nil;
     switch (index) {
         case 0:{
-        
+            vc = [[LookForMyCirleViewController alloc] init];
         }
             break;
         case 1:{

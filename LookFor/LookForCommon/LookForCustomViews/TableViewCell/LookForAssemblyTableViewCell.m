@@ -65,7 +65,7 @@
     
     UIView *buttomLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];
     buttomLine.backgroundColor = SeparatorLineColor;
-    buttomLine.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
+    buttomLine.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
 
     [self addSubview:buttomLine];
 }
@@ -74,6 +74,16 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)showSwitch {
+    if (self.switchView == nil) {
+        self.switchView = [[UISwitch alloc] initWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - 51, (self.frame.size.height - 31) / 2, 51, 31)];
+        [self addSubview:self.switchView];
+    }
+    
+    self.timeLabel.hidden = YES;
+    self.switchView.hidden = NO;
 }
 
 - (void)setTitleText:(NSString *)titleText {
@@ -94,7 +104,8 @@
     if (timeText.length <= 0) {
         return;
     }
-    
+    self.switchView.hidden = YES;
+    self.timeLabel.hidden = NO;
     self.timeLabel.text = timeText;
 }
 
