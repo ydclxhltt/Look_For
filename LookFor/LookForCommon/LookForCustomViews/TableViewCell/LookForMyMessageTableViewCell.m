@@ -20,10 +20,10 @@
 #define Tag             100
 
 @interface LookForMyMessageTableViewCell ()
-@property (nonatomic, strong) UIImageView   *headImageView;
-@property (nonatomic, strong) UILabel       *titleLabel;
-@property (nonatomic, strong) UILabel       *detailLabel;
-@property (nonatomic, strong) UILabel       *timeLabel;
+@property (nonatomic, strong) UIImageView   *headImageView;     //头像
+@property (nonatomic, strong) UILabel       *titleLabel;        //标题
+@property (nonatomic, strong) UILabel       *detailLabel;       //描述
+@property (nonatomic, strong) UILabel       *timeLabel;         //时间
 
 @property (nonatomic, strong) UILabel       *sureLabel;         //确定label
 
@@ -60,6 +60,7 @@
                                                textString:nil
                                                 textColor:[UIColor blackColor]
                                                  textFont:[UIFont systemFontOfSize:12]];
+    self.sureLabel.textAlignment = NSTextAlignmentRight;
     [self addSubview:self.sureLabel];
 
     self.timeLabel = [CreateViewTool createLabelWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - TimeLabelW, LeftSpace, TimeLabelW, DetailLabelH)

@@ -27,6 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"我的消息";
+    
     [self setNavBarItemWithTitle:@"清除"
                      navItemType:rightItem
                     selectorName:@"handleClear"];

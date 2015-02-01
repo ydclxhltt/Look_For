@@ -40,7 +40,7 @@
     self.titleLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:self.titleLabel];
     
-    self.moreImageView = [CreateViewTool createImageViewWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - MoreImageWH - DefaultSpace, (self.frame.size.height - MoreImageWH) / 2, MoreImageWH, MoreImageWH) placeholderImage:nil];
+    self.moreImageView = [CreateViewTool createImageViewWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - MoreImageWH, (self.frame.size.height - MoreImageWH) / 2, MoreImageWH, MoreImageWH) placeholderImage:nil];
     self.moreImageView.image = [UIImage imageNamed:@"arrow_down.png"];
     [self addSubview:self.moreImageView];
     

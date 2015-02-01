@@ -55,6 +55,7 @@
                                                textString:nil
                                                 textColor:[UIColor lightGrayColor]
                                                  textFont:[UIFont systemFontOfSize:11]];
+    self.typeLabel.textAlignment = NSTextAlignmentRight;
     [self addSubview:self.typeLabel];
     
     self.timeLabel = [CreateViewTool createLabelWithFrame:CGRectMake(LeftSpace, self.nameLabel.frame.size.height + self.nameLabel.frame.origin.y + DefaultSpace / 2, 100, LabelH)
