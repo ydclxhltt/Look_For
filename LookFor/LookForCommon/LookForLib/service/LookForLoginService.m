@@ -18,7 +18,7 @@
     }
     return self;
 }
-
+//http://182.92.241.249/lookfor/inter/user/userLogin?token=4C4F76FCAB464FF5A94BCF4EE5CA7384&mobile=18620322512&password=123456
 - (BOOL)login:(NSString *)passWord
      withName:(NSString *)name {
     
@@ -27,7 +27,6 @@
     [body setValue:name forKey:LOGINNAMEKEY];
     [body setValue:passWord forKey:PASSWORDKEY];
     [body setValue:LoginAction forKey:ACTIONKEY];
-    
     [self setBodyDictionaryData:body];
     //self.urlString = [NSString stringWithFormat:@"%@",API_HOST];
     return YES;

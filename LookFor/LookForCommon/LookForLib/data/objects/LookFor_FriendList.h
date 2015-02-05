@@ -17,7 +17,7 @@
 
 @interface LookFor_Friend : LookForObjectModel
 
-@property (nonatomic, strong) NSString *friendID;
+@property (nonatomic, strong) NSString *friendId;
 @property (nonatomic, strong) NSString *mobilNumber;
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, assign) NSInteger permission;
