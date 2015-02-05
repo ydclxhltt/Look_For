@@ -466,7 +466,7 @@ LookForLeftViewDelegate>
     [friendDetailView setDetailInfo:friendInfo];
     friendDetailView.index = index;
     [friendDetailView show];
-    [self getFriendDetailListWithFriendsID:friendInfo.friendID];
+    [self getFriendDetailListWithFriendsID:friendInfo.friendId];
 }
 
 - (float)getDistanceWithStartLocation:(CLLocationCoordinate2D)start endLocation:(CLLocationCoordinate2D)end
