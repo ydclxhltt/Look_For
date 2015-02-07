@@ -10,9 +10,10 @@
 #import "HomeViewController.h"
 #import "LookForGuideHelpViewController.h"
 #import "LookForLoginViewController.h"
+#import "LookForNickNameViewController.h"
 
 
-@interface LookForAppDelegate()<BMKGeneralDelegate>
+@interface LookForAppDelegate()<BMKGeneralDelegate,UIAlertViewDelegate>
 {
     BMKMapManager *mapManager;
     UIImageView *splashView;
@@ -31,6 +32,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    //登录服务器通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSystemSucess:) name:LOGIN_SYSTEM_SUCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSystemFail:) name:LOGIN_SYSTEM_FAIL object:nil];
     
     //注册远程通知
     if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)])
@@ -48,60 +52,95 @@
     //初始化数据
     self.tokenString = @"";
     
-    //添加主视图
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if (![[defaults objectForKey:@"FirstLogion"] boolValue]) {
-        [defaults setObject:[NSNumber numberWithBool:YES] forKey:@"FirstLogion"];
-        LookForGuideHelpViewController *help = [[LookForGuideHelpViewController alloc] init];
-        self.window.rootViewController =  help;
-    } else {
-//        LookForLoginViewController *vc = [[LookForLoginViewController alloc] init];
-//        rootNavVC = [[UINavigationController alloc] initWithRootViewController:vc];
-//        self.window.rootViewController = rootNavVC;
-
-        [self addMainView];
-    }
-    
-    if ([UserDefaults integerForKey:LBSMapTypeKey] == 0) {
-        [UserDefaults setInteger:LBSMapTypeStandard forKey:LBSMapTypeKey];
-    }
-    
     //添加启动页
-   // [self addSplashView];
+    [self addSplashView];
+    
+    //登录服务器
+    [LookForRequestTool loginSystemRequest];
+    
+ 
     
     [DeviceTool getSSIDInfo];
     [DeviceTool getCarrierInfo];
     [DeviceTool getSignalStrength];
     [DeviceTool getBatteryLevel];
     [DeviceTool getAccurateBatteryLevel];
-    
     return YES;
+}
+
+#pragma mark 登录服务器成功/失败
+- (void)loginSystemSucess:(NSNotification *)notification
+{
+    //添加主视图
+    NSUserDefaults *defaults = UserDefaults;
+    if (![[defaults objectForKey:@"FirstLogion"] boolValue])
+    {
+        [defaults setObject:[NSNumber numberWithBool:YES] forKey:@"FirstLogion"];
+        LookForGuideHelpViewController *help = [[LookForGuideHelpViewController alloc] init];
+        self.window.rootViewController =  help;
+    }
+    else
+    {
+        [self addMainView];
+    }
+    
+    if ([UserDefaults integerForKey:LBSMapTypeKey] == 0)
+    {
+        [UserDefaults setInteger:LBSMapTypeStandard forKey:LBSMapTypeKey];
+    }
+}
+
+
+- (void)loginSystemFail:(NSNotification *)notification
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"服务器连接失败..." delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"重试", nil];
+    [alert show];
 }
 
 
 #pragma mark 添加主视图
 - (void)addMainView
 {
-    HomeViewController *rootViewController = [[HomeViewController alloc] init];
-    rootNavVC = [[UINavigationController alloc] initWithRootViewController:rootViewController];
-    self.window.rootViewController = rootNavVC;
+    [self removeSplashView];
+    
+    UINavigationController *nav;
+    NSString *nickName = [UserDefaults objectForKey:@"nickName"];
+    if (!nickName || [@"" isEqualToString:nickName])
+    {
+        LookForNickNameViewController *vc = [[LookForNickNameViewController alloc] init];
+        vc.showType = ShowTypeLoginSystem;
+        nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    }
+    else
+    {
+        HomeViewController *rootViewController = [[HomeViewController alloc] init];
+        nav = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    }
+    self.window.rootViewController = nav;
+    
 }
 
-#pragma mark 添加启动页
+#pragma mark 启动页相关
 - (void)addSplashView
 {
     NSString *imageName = (SCREEN_4_INCH) ? @"Default-568h" : @"Default";
     UIImage *image = [UIImage imageNamed:imageName];
     splashView = [CreateViewTool createImageViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) placeholderImage:image];
     [self.window addSubview:splashView];
-    
-    [UIView animateWithDuration:1.0 animations:^
-    {
-        splashView.alpha = 0.0;
-        [splashView removeFromSuperview];
-    }];
 }
 
+- (void)removeSplashView
+{
+    [UIView animateWithDuration:.5 animations:^
+     {
+         if (splashView)
+         {
+             splashView.alpha = 0.0;
+             [splashView removeFromSuperview];
+             splashView = nil;
+         }
+     }];
+}
 
 #pragma mark sendToken
 - (void)sendToken
@@ -138,6 +177,22 @@
 }
 
 
+#pragma mark alertDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    if ([@"取消" isEqualToString:title])
+    {
+        exit(0);
+    }
+    else if ([@"重试" isEqualToString:title])
+    {
+        [LookForRequestTool loginSystemRequest];
+    }
+}
+
+
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     
@@ -167,19 +222,20 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-     [BMKMapView willBackGround];
+    //[BMKMapView willBackGround];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    [BMKMapView didForeGround];
+    //[BMKMapView didForeGround];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
