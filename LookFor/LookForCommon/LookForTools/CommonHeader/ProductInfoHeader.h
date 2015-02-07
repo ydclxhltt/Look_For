@@ -13,7 +13,7 @@
 #define PRODUCT_NAME            @""
 
 //产品版本号
-#define PRODUCT_VERSION         @"V1.0"
+#define PRODUCT_VERSION         @"1.0.0"
 #define INT_VERSION             100
 
 //平台//
