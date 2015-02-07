@@ -16,6 +16,8 @@
 
 //记录选中的地图视图
 @property (nonatomic, assign) int selectedAnnonationIndex;
+//token
+@property (nonatomic, copy) NSString *token;
 
 /*
  *  构建单例
