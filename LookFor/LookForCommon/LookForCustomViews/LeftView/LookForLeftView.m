@@ -49,10 +49,14 @@
         scale = CURRENT_SCALE;
         self.imageArray = @[@"my_quanta",@"message_open",@"friends",@"application",@"set"];
         self.titleArray = @[@"我的圈圈",@"我的信息",@"我的好友",@"我的申请",@"设置"];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setUserInfo) name:@"SET_NICKNAME_SUCESS" object:nil];
+        
         //滑动
         UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self                                               action:@selector(handlePan:)];
         [self addGestureRecognizer:panGestureRecognizer];
         [self initView];
+        [self setUserInfo];
     }
     return self;
 }
@@ -116,21 +120,29 @@
 }
 
 #pragma mark 设置数据
-- (void)setUserInfoWithName:(NSString *)name userID:(NSString *)uerID userSex:(int)sex imageUrl:(NSString *)imageUrl
+- (void)setUserInfo
 {
-    name = (!name) ? @"" : name;
-    nameLabel.text = name;
-    userIDLabel.text = uerID;
+    NSString *nickName = [UserDefaults objectForKey:@"nickName"];
+    nickName = (nickName) ? nickName : @"";
+    nickName = (!nickName) ? @"" : nickName;
+    nameLabel.text = nickName;
+    
+    NSString *userID = [UserDefaults objectForKey:@"userID"];
+    userIDLabel.text = userID;
+    
+    NSString *imageUrl = [UserDefaults objectForKey:@"userImage"];
     [iconImageView setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"1.jpg"]];
     
     CGRect frame = nameLabel.frame;
     CGRect sexFrame = sexImageView.frame;
-    float width = [name sizeWithAttributes:@{NSFontAttributeName : nameLabel.font}].width;
+    float width = [nickName sizeWithAttributes:@{NSFontAttributeName : nameLabel.font}].width;
     frame.size.width = (width >= labelWidth) ? labelWidth : width;
     sexFrame.origin.x = frame.size.width + frame.origin.x + SEX_ICON_SPACE * scale;
     nameLabel.frame = frame;
     sexImageView.frame = sexFrame;
     
+    int sex = [[UserDefaults objectForKey:@"sex"] intValue];
+    sex = (sex == 0) ? 1 : sex;
     if (sex == 1)
     {
         sexImageView.image = [UIImage imageNamed:@"left_ico_female.png"];
@@ -266,5 +278,6 @@
         [self.delegate leftView:self clickedButtonIndex:(int)sender.tag - 100];
     }
 }
+
 
 @end

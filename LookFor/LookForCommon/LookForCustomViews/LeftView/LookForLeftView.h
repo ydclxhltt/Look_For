@@ -24,15 +24,6 @@
  */
 - (void)dismiss;
 
-/*
- * 设置数据
- *
- * @pram name     用户名
- * @pram uerID    用户ID
- * @pram userSex  用户性别
- * @pram imageUrl 用户头像地址
- */
-- (void)setUserInfoWithName:(NSString *)name userID:(NSString *)uerID userSex:(int)sex imageUrl:(NSString *)imageUrl;
 
 @end
 
