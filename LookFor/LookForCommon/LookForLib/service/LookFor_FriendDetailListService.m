@@ -35,6 +35,8 @@ static LookFor_FriendDetailListService *_shareInstance;
 
 - (void)requestWithUserID:(NSString *)userID  allFriendID:(NSString *)friendID
 {
+    userID = (userID) ? userID : @"";
+    friendID = (friendID) ? friendID : @"";
     NSDictionary *bodyDic  = @{@"userId":userID,@"friendId":friendID};
     [self setBodyDictionaryData:bodyDic];
     self.urlString = FRIEND_DETAIL_URL;

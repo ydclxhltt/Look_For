@@ -35,7 +35,7 @@
 @property (nonatomic, strong) AFHTTPRequestOperation *operation;
 @property (nonatomic, strong) NSDate *lastRequestDate;
 @property (nonatomic, strong) NSString *urlString;
-@property (nonatomic, strong) NSMutableDictionary *bodyDictionary;
+@property (nonatomic, strong) NSDictionary *bodyDictionary;
 @property (nonatomic, strong) NSString *bodyString;
 
 - (void)setBodyDictionaryData:(NSDictionary *)bodyDictionaryData;
@@ -57,5 +57,13 @@
  *  取消请求
  */
 - (void)cancelRequest;
+
+/*
+ *  发送通知方法
+ *
+ *  @pram name    通知名子
+ *  @pram object  携带的对象
+ */
+- (void)sendNoticationWithName:(NSString *)name  object:(id)object;
 
 @end

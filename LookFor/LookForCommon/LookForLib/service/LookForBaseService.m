@@ -24,7 +24,7 @@
     return self;
 }
 
-- (void)setBodyDictionaryData:(NSMutableDictionary *)bodyDictionaryData
+- (void)setBodyDictionaryData:(NSDictionary *)bodyDictionaryData
 {
     self.bodyDictionary = bodyDictionaryData;
 }
@@ -71,5 +71,11 @@
     self.operation = nil;
 }
 
+
+
+- (void)sendNoticationWithName:(NSString *)name  object:(id)object
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:name object:object];
+}
 
 @end

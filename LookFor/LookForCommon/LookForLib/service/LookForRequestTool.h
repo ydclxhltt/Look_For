@@ -10,8 +10,38 @@
 #import "LookForServiceSchedular.h"
 #import "LookForFriendListService.h"
 #import "LookFor_FriendDetailListService.h"
+#import "LookForLoginSystemService.h"
+#import "LookForRegisterService.h"
+#import "LookForNickNameService.h"
+
+typedef enum : NSUInteger
+{
+    RequestTypePost,
+    RequestTypeGet,
+} RequestType;
 
 @interface LookForRequestTool : NSObject
+
+/*
+ * 系统登录服务器
+ *
+ */
++ (void)loginSystemRequest;
+
+/*
+ * 注册
+ *
+ * @pram mobile   手机号
+ * @pram password 密码
+ */
++ (void)registerWithMobile:(NSString *)mobile userPassword:(NSString *)password;
+
+/*
+ * 设置昵称
+ *
+ * @pram name 用户昵称
+ */
++ (void)setNickName:(NSString *)name;
 
 /*
  * 获取好友列表请求
