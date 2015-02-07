@@ -10,13 +10,25 @@
 #define LookFor_RequestUrlDefs_h
 
 //服务器WEB地址
-#define API_HOST                @"http://118.26.72.210:8481/"
+#define API_HOST                @"http://182.92.241.249"
 
 //拼接字符串
 #define MAKE_URL_STRING(inf)    [NSString stringWithFormat:@"%@%@",API_HOST,inf]
 
+//登录服务器
+#define LOGIN_SYSTEM_URL        MAKE_URL_STRING(@"/lookfor/rest/user/systemLogin")
+
+//注册
+#define REGISTER_URL            MAKE_URL_STRING(@"/lookfor/inter/user/regist")
+
 //登录接口地址
 #define LOGIN_URL               MAKE_URL_STRING(@"login.do")
+
+//http://182.92.241.249/lookfor/inter/user/regist?mobile=15820790320&password=123456&token=46D1BE39C7B14DA6997AE3DBBE61DE94
+
+//修改昵称
+#define SET_NICKNAME_URL        MAKE_URL_STRING(@"/lookfor/inter/user/modifyNickName")
+
 
 //获取好友列表
 #define FRIEND_LIST_URL         @"http://www.xshcar.com/chen/friendList.html"
