@@ -221,6 +221,9 @@
 		CE33CB121A5C57640042006D /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAF11A5C57640042006D /* FMDatabasePool.m */; };
 		CE33CB131A5C57640042006D /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAF31A5C57640042006D /* FMDatabaseQueue.m */; };
 		CE33CB141A5C57640042006D /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33CAF61A5C57640042006D /* FMResultSet.m */; };
+		CE43481F1A83BEBD00D69DDB /* LookForNickNameService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE43481E1A83BEBD00D69DDB /* LookForNickNameService.m */; };
+		CE6908B81A74D645006E60BA /* LookForLoginSystemService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6908B71A74D645006E60BA /* LookForLoginSystemService.m */; };
+		CE6908BB1A74E8FC006E60BA /* LookForRegisterService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6908BA1A74E8FC006E60BA /* LookForRegisterService.m */; };
 		CE902AE61A74A84800994BEE /* LookForSafeTravelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE902AE51A74A84800994BEE /* LookForSafeTravelViewController.m */; };
 		CE902AE91A74A90700994BEE /* LookForVerifiedCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE902AE81A74A90700994BEE /* LookForVerifiedCodeViewController.m */; };
 		CE902AEC1A74A93E00994BEE /* LookForNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE902AEB1A74A93E00994BEE /* LookForNickNameViewController.m */; };
@@ -629,6 +632,12 @@
 		CE33CAF41A5C57640042006D /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		CE33CAF51A5C57640042006D /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		CE33CAF61A5C57640042006D /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		CE43481D1A83BEBD00D69DDB /* LookForNickNameService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForNickNameService.h; sourceTree = "<group>"; };
+		CE43481E1A83BEBD00D69DDB /* LookForNickNameService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForNickNameService.m; sourceTree = "<group>"; };
+		CE6908B61A74D645006E60BA /* LookForLoginSystemService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForLoginSystemService.h; sourceTree = "<group>"; };
+		CE6908B71A74D645006E60BA /* LookForLoginSystemService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForLoginSystemService.m; sourceTree = "<group>"; };
+		CE6908B91A74E8FC006E60BA /* LookForRegisterService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRegisterService.h; sourceTree = "<group>"; };
+		CE6908BA1A74E8FC006E60BA /* LookForRegisterService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForRegisterService.m; sourceTree = "<group>"; };
 		CE902AE41A74A84800994BEE /* LookForSafeTravelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForSafeTravelViewController.h; sourceTree = "<group>"; };
 		CE902AE51A74A84800994BEE /* LookForSafeTravelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForSafeTravelViewController.m; sourceTree = "<group>"; };
 		CE902AE71A74A90700994BEE /* LookForVerifiedCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForVerifiedCodeViewController.h; sourceTree = "<group>"; };
@@ -1362,6 +1371,12 @@
 				7762213D1A68A7AF00FD9ADE /* LookFor_FriendDetailListService.m */,
 				779D25571A665B7C00852F5C /* LookForRequestTool.h */,
 				779D25581A665B7C00852F5C /* LookForRequestTool.m */,
+				CE6908B61A74D645006E60BA /* LookForLoginSystemService.h */,
+				CE6908B71A74D645006E60BA /* LookForLoginSystemService.m */,
+				CE6908B91A74E8FC006E60BA /* LookForRegisterService.h */,
+				CE6908BA1A74E8FC006E60BA /* LookForRegisterService.m */,
+				CE43481D1A83BEBD00D69DDB /* LookForNickNameService.h */,
+				CE43481E1A83BEBD00D69DDB /* LookForNickNameService.m */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -1651,6 +1666,7 @@
 				6BB662991A639C99003350E7 /* LookForPageControl.m in Sources */,
 				77D1E3031A70C8120056C7BA /* CommonTool.m in Sources */,
 				CE33CB0E1A5C57640042006D /* NSString+MD5.m in Sources */,
+				CE6908B81A74D645006E60BA /* LookForLoginSystemService.m in Sources */,
 				77D1E3071A70C8120056C7BA /* LookFor_Application.m in Sources */,
 				CE33CB081A5C57640042006D /* AFNetworkReachabilityManager.m in Sources */,
 				CE33CB051A5C57640042006D /* AFHTTPRequestOperation.m in Sources */,
@@ -1673,6 +1689,7 @@
 				6BEDC75E1A5FE0E000B0C595 /* AFDownloadRequestOperation.m in Sources */,
 				CE902AE61A74A84800994BEE /* LookForSafeTravelViewController.m in Sources */,
 				CE33CAFE1A5C57640042006D /* LookForResponseCenter.m in Sources */,
+				CE43481F1A83BEBD00D69DDB /* LookForNickNameService.m in Sources */,
 				6BA76B8E1A62AE6900C3AEE6 /* LookForGuideHelpViewController.m in Sources */,
 				6BCB57AF1A512AEA00060B31 /* main.m in Sources */,
 				6B0AB6A51A77787D0045AEF4 /* LookForMyMessageTableViewCell.m in Sources */,
@@ -1688,6 +1705,7 @@
 				77D1E30D1A70C8120056C7BA /* SDWebImageDownloader.m in Sources */,
 				CE33CB021A5C57640042006D /* LookForBaseService.m in Sources */,
 				77D1E3141A70C8120056C7BA /* UIImage+WebP.m in Sources */,
+				CE6908BB1A74E8FC006E60BA /* LookForRegisterService.m in Sources */,
 				CE33CA081A5C452B0042006D /* LookForAppDelegate.m in Sources */,
 				6BEDC74E1A5FD35F00B0C595 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				77D1E30F1A70C8120056C7BA /* SDWebImageManager.m in Sources */,
