@@ -73,7 +73,14 @@ LookForLeftViewDelegate>
     [self getFriendList];
     //添加通知
     [self addNotifications];
+ 
+    [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(test) userInfo:nil repeats:NO];
     // Do any additional setup after loading the view.
+}
+
+- (void)test
+{
+    [LookForRequestTool registerWithMobile:@"18625353675" userPassword:@"123456"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -86,6 +93,11 @@ LookForLeftViewDelegate>
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    NSString *nickName = [UserDefaults objectForKey:@"nickName"];
+    if (!nickName || [@"" isEqualToString:nickName])
+    {
+        return;
+    }
     [self setAboutLocationDelegate:nil];
     
 }
@@ -184,7 +196,6 @@ LookForLeftViewDelegate>
         leftView = [[LookForLeftView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
         [APP_DELEGATE.window addSubview:leftView];
     }
-    [leftView setUserInfoWithName:@"鬇爾罷緊" userID:@"123456" userSex:1 imageUrl:@""];
     leftView.delegate = self;
     [leftView show];
 }

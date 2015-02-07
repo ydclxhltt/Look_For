@@ -8,6 +8,13 @@
 
 #import "BasicViewController.h"
 
+typedef enum : NSUInteger {
+    ShowTypePush,
+    ShowTypeLoginSystem,
+} ShowType;
+
 @interface LookForNickNameViewController : BasicViewController
+
+@property(nonatomic, assign) ShowType showType;
 
 @end
