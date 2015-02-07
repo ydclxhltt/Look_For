@@ -11,7 +11,7 @@ static LookForServiceSchedular *_shareInstance = nil;
 
 @interface LookForServiceSchedular ()
 {
-
+    
 }
 @property (nonatomic,strong) AFHTTPRequestOperationManager *operationManager;
 @end
@@ -22,17 +22,19 @@ static LookForServiceSchedular *_shareInstance = nil;
     self = [super init];
     if (self) {
         _operationManager = [AFHTTPRequestOperationManager manager];
-        _operationManager.requestSerializer = [AFJSONRequestSerializer serializer];
+        _operationManager.requestSerializer = [AFHTTPRequestSerializer serializer];
         [_operationManager.requestSerializer setTimeoutInterval:REQUEST_TIMEOUT];
         _operationManager.responseSerializer = [AFJSONResponseSerializer serializer];
-        _operationManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+        _operationManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/json",@"application/json",@"text/plain",nil];
     }
     return self;
 }
 
 
 + (LookForServiceSchedular *)shareInstance {
-    if (_shareInstance != nil) {
+    
+    if (_shareInstance != nil)
+    {
         return _shareInstance;
     }
     
@@ -41,16 +43,17 @@ static LookForServiceSchedular *_shareInstance = nil;
             _shareInstance = [[self alloc] init];
         }
     }
+    
     return _shareInstance;
 }
 
 
-- (void)postService:(LookForBaseService *)baseService
+- (void)getService:(LookForBaseService *)baseService
 {
     
     baseService.operation = [_operationManager GET:baseService.urlString
-                                         parameters:baseService.bodyDictionary
-                                            success:^(AFHTTPRequestOperation *operation, id responseObject)
+                                        parameters:baseService.bodyDictionary
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject)
                              {
                                  if ([responseObject isKindOfClass:[NSDictionary class]])
                                  {
@@ -63,7 +66,7 @@ static LookForServiceSchedular *_shareInstance = nil;
                                      [baseService requestFail];
                                  }
                              }
-                                            failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                                           failure:^(AFHTTPRequestOperation *operation, NSError *error)
                              {
                                  NSLog(@"error===%@",error);
                                  [baseService requestFail];
@@ -71,30 +74,42 @@ static LookForServiceSchedular *_shareInstance = nil;
 }
 
 
-//- (void)postService:(LookForBaseService *)baseService
-//{
-//    
-//    baseService.operation = [_operationManager POST:baseService.urlString
-//                 parameters:baseService.bodyDictionary
-//    success:^(AFHTTPRequestOperation *operation, id responseObject)
-//    {
-//        if ([responseObject isKindOfClass:[NSDictionary class]])
-//        {
-//            NSDictionary *dic = (NSDictionary *)responseObject;
-//            [baseService requestSuccess:dic];
-//        }
-//        else
-//        {
-//            //返回的为数组（暂定失败）
-//            [baseService requestFail];
-//        }
-//    }
-//    failure:^(AFHTTPRequestOperation *operation, NSError *error)
-//    {
-//        NSLog(@"error===%@",error);
-//        [baseService requestFail];
-//    }];
-//}
+- (void)postService:(LookForBaseService *)baseService
+{
+    NSLog(@"[LookFor_Application shareInstance].token==%@",[[LookFor_Application shareInstance] token]);
+    [_operationManager.requestSerializer setValue:[LookFor_Application shareInstance].token forHTTPHeaderField:@"token"];
+    baseService.operation = [_operationManager POST:baseService.urlString
+                                         parameters:baseService.bodyDictionary
+                                            success:^(AFHTTPRequestOperation *operation, id responseObject)
+                             {
+                                 if ([responseObject isKindOfClass:[NSDictionary class]])
+                                 {
+                                     NSLog(@"operation.request.HTTPBody===%@",[[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+                                     NSLog(@"operation.request.HTTPHeader===%@",operation.request.allHTTPHeaderFields);
+                                     NSDictionary *dic = (NSDictionary *)responseObject;
+                                     int rc = [dic[@"response"][@"header"][@"rc"] intValue];
+                                     if (rc == 0)
+                                     {
+                                         [baseService requestSuccess:dic];
+                                     }
+                                     else
+                                     {
+                                         [baseService requestFail];
+                                     }
+                                 }
+                                 else
+                                 {
+                                     //返回的为数组（暂定失败）
+                                     [baseService requestFail];
+                                 }
+                             }
+                                            failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                             {
+                                 NSLog(@"operation.request.HTTPBody===%@",[[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+                                 NSLog(@"error===%@",error);
+                                 [baseService requestFail];
+                             }];
+}
 
 - (void)test {
     //上传图片
