@@ -12,19 +12,20 @@
 #define TitleW      80
 
 #define MoreImageWH 15
-#define SexLWH      12
-#define ButtonW     20
+#define SexLWH      15
+#define ButtonW     10
 
 @interface LookForModifyUserTableViewCell ()
 
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *detailLabel;
 @property (nonatomic, strong) UIImageView *moreImageView;
-
+@property (nonatomic, strong) UILabel *sexLabel;
+@property (nonatomic, strong) UIImageView *sexImageView;
 @end
 
 @implementation LookForModifyUserTableViewCell
-@synthesize delegate;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -42,10 +43,10 @@
     self.titleLabel = [CreateViewTool createLabelWithFrame:CGRectMake(LeftSpace, (self.frame.size.height - LabelH) / 2, TitleW, LabelH)
                                                 textString:nil
                                                  textColor:TitleColor
-                                                  textFont:[UIFont systemFontOfSize:12]];
+                                                  textFont:[UIFont systemFontOfSize:14]];
     [self addSubview:self.titleLabel];
     
-    self.detailLabel = [CreateViewTool createLabelWithFrame:CGRectMake(self.titleLabel.frame.origin.x + TitleW, (self.frame.size.height - LabelH) / 2, MAIN_SCREEN_SIZE.width - TitleW- LeftSpace * 2 - DefaultSpace, LabelH) textString:nil textColor:DetailColor textFont:[UIFont systemFontOfSize:12]];
+    self.detailLabel = [CreateViewTool createLabelWithFrame:CGRectMake(self.titleLabel.frame.origin.x + TitleW - DefaultSpace / 2, (self.frame.size.height - LabelH) / 2, MAIN_SCREEN_SIZE.width - TitleW- LeftSpace * 2 - DefaultSpace, LabelH) textString:nil textColor:DetailColor textFont:[UIFont systemFontOfSize:13]];
     self.detailLabel.textAlignment = NSTextAlignmentRight;
     [self addSubview:self.detailLabel];
     
@@ -62,52 +63,25 @@
 }
 
 
-- (void)isSexSelect:(BOOL)isSex {
+- (void)setSexText:(NSString *)sexText withImageView:(NSString *)imageName {
 
-    if (isSex) {
+    if (sexText) {
         self.detailLabel.hidden = YES;
-        self.moreImageView.hidden = YES;
-        UILabel *womanLabel = [CreateViewTool createLabelWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - SexLWH, (self.frame.size.height - SexLWH) / 2, SexLWH, SexLWH)
-                                                        textString:@"女"
-                                                         textColor:[UIColor blackColor]
-                                                          textFont:[UIFont systemFontOfSize:12]];
-        [self addSubview:womanLabel];
-        UIButton *womanButton = [CreateViewTool createButtonWithFrame:CGRectMake(womanLabel.frame.origin.x - ButtonW, (self.frame.size.height - 40) / 2, ButtonW, 40)
-                                                          buttonImage:nil
-                                                         selectorName:@"handleWoman"
-                                                          tagDelegate:self];
-        [self addSubview:womanButton];
+        self.sexLabel = [CreateViewTool createLabelWithFrame:CGRectMake(self.moreImageView.frame.origin.x - LeftSpace - SexLWH, (self.frame.size.height - SexLWH) / 2, SexLWH, SexLWH)
+                                                        textString:@""
+                                                         textColor:DetailColor
+                                                          textFont:[UIFont systemFontOfSize:14]];
+        self.sexLabel.text = sexText;
+        [self addSubview: self.sexLabel];
+        self.sexImageView = [CreateViewTool createImageViewWithFrame:CGRectMake(self.sexLabel.frame.origin.x + SexLWH, (self.frame.size.height - ButtonW) / 2, ButtonW, ButtonW) placeholderImage:[UIImage imageNamed:imageName]];
         
-        UILabel *manLabel = [CreateViewTool createLabelWithFrame:CGRectMake(womanButton.frame.origin.x - 5 - SexLWH, (self.frame.size.height - SexLWH) / 2, SexLWH, SexLWH)
-                                                      textString:@"男"
-                                                       textColor:[UIColor blackColor]
-                                                        textFont:[UIFont systemFontOfSize:12]];
-        [self addSubview:manLabel];
+        [self addSubview:self.sexImageView];
         
-        UIButton *manButton = [CreateViewTool createButtonWithFrame:CGRectMake(manLabel.frame.origin.x - ButtonW, (self.frame.size.height - 40) / 2, ButtonW, 40)
-                                                          buttonImage:nil
-                                                         selectorName:@"handleMan"
-                                                          tagDelegate:self];
-        [self addSubview:manButton];
-    } else {
-    
+     } else {
         self.detailLabel.hidden = NO;
-        self.moreImageView.hidden = NO;
     }
 }
 
-
-- (void)handleWoman {
-    if ([self.delegate respondsToSelector:@selector(selectIndex:)]) {
-        [self.delegate selectIndex:1];
-    }
-}
-
-- (void)handleMan {
-    if ([self.delegate respondsToSelector:@selector(selectIndex:)]) {
-        [self.delegate selectIndex:0];
-    }
-}
 
 - (void)setTitleText:(NSString *)titleText {
     self.titleLabel.text = titleText;

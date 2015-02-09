@@ -15,7 +15,7 @@
 #define TitleLabelH     13
 #define DetailLabelH    10
 #define TimeLabelW      80
-#define ButtonW         40
+#define ButtonW         20
 
 #define Tag             100
 
@@ -46,7 +46,8 @@
 
 - (void)initView {
 
-    self.headImageView = [CreateViewTool createImageViewWithFrame:CGRectMake(LeftSpace, DefaultSpace  , self.frame.size.height - DefaultSpace * 2, self.frame.size.height - DefaultSpace * 2) placeholderImage:nil];
+    self.headImageView = [CreateViewTool createImageViewWithFrame:CGRectMake(LeftSpace, DefaultSpace  , self.frame.size.height - DefaultSpace * 2 + 5, self.frame.size.height - DefaultSpace * 2) placeholderImage:nil];
+//    self.headImageView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     [self addSubview:self.headImageView];
     
     self.titleLabel = [CreateViewTool createLabelWithFrame:CGRectMake(LeftSpace + DefaultSpace / 2+ self.headImageView.frame.size.width, LeftSpace, MAIN_SCREEN_SIZE.width - ButtonW * 2 - LeftSpace - DefaultSpace, TitleLabelH) textString:nil textColor:[UIColor blackColor] textFont:[UIFont systemFontOfSize:12]];
@@ -70,23 +71,28 @@
     self.timeLabel.textAlignment = NSTextAlignmentRight;
     [self addSubview:self.timeLabel];
     
-    self.refuseButton = [CreateViewTool createButtonWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - ButtonW, self.frame.size.height - LeftSpace - self.timeLabel.frame.size.height, ButtonW, self.frame.size.height - LeftSpace - DetailLabelH - DefaultSpace / 2)
+    self.refuseButton = [CreateViewTool createButtonWithFrame:CGRectMake(MAIN_SCREEN_SIZE.width - LeftSpace - ButtonW * 2, self.frame.size.height - ButtonW + 6, ButtonW * 2, self.frame.size.height - LeftSpace - DetailLabelH - DefaultSpace / 2)
                                                   buttonImage:nil
                                                  selectorName:@"handleRefuse"
                                                   tagDelegate:self];
     [self.refuseButton setTitle:@"拒绝" forState:UIControlStateNormal];
+    [self.refuseButton setTitleColor:TitleColor forState:UIControlStateNormal];
+    self.refuseButton.titleLabel.font = [UIFont systemFontOfSize:12];
+
     self.refuseButton.hidden = YES;
     self.refuseButton.tag = Tag + 1;
+    self.refuseButton.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
     [self addSubview:self.refuseButton];
     
-    self.confirmButton = [CreateViewTool createButtonWithFrame:CGRectMake(self.refuseButton.frame.origin.x - DefaultSpace / 2 - ButtonW, self.refuseButton.frame.origin.y, ButtonW, self.refuseButton.frame.size.height)
+    self.confirmButton = [CreateViewTool createButtonWithFrame:CGRectMake(self.refuseButton.frame.origin.x - DefaultSpace / 2 - ButtonW * 2, self.refuseButton.frame.origin.y, ButtonW * 2, self.refuseButton.frame.size.height)
                                                    buttonImage:nil
                                                   selectorName:@"handleConfirm"
                                                    tagDelegate:self];
     self.confirmButton.hidden = YES;
     self.confirmButton.tag = Tag;
     [self.confirmButton setTitle:@"同意" forState:UIControlStateNormal];
-
+    self.confirmButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    [self.confirmButton setTitleColor:TitleColor forState:UIControlStateNormal];
     [self addSubview:self.confirmButton];
     UIView *buttomLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];
     buttomLine.backgroundColor = SeparatorLineColor;

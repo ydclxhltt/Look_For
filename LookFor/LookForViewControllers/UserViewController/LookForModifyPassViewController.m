@@ -71,7 +71,7 @@
 
         self.phoneNumberTextField.placeholder = @"请输入密码";
 
-    self.phoneNumberTextField.textColor = [UIColor blackColor];
+    self.phoneNumberTextField.textColor = TitleColor;
     self.phoneNumberTextField.backgroundColor = [UIColor clearColor];
     self.phoneNumberTextField.font = [UIFont systemFontOfSize:12];
     [self.textBgView addSubview:self.phoneNumberTextField];
@@ -87,7 +87,7 @@
     
         self.passwordTextField.placeholder = @"请再次输入密码";
 
-    self.passwordTextField.textColor = [UIColor blackColor];
+    self.passwordTextField.textColor = TitleColor;
     self.passwordTextField.backgroundColor = [UIColor clearColor];
     self.passwordTextField.font = [UIFont systemFontOfSize:12];
     [self.textBgView addSubview:self.passwordTextField];

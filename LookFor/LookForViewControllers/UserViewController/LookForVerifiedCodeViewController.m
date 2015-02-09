@@ -97,7 +97,7 @@
     } else {
         self.phoneNumberTextField.placeholder = @"请输入手机号码";
     }
-    self.phoneNumberTextField.textColor = [UIColor blackColor];
+    self.phoneNumberTextField.textColor = TitleColor;
     self.phoneNumberTextField.backgroundColor = [UIColor clearColor];
     self.phoneNumberTextField.font = [UIFont systemFontOfSize:12];
     [self.textBgView addSubview:self.phoneNumberTextField];
@@ -111,7 +111,7 @@
     
     self.verifiedTextField.textAlignment = NSTextAlignmentLeft;
     self.verifiedTextField.placeholder = @"请输入验证码";
-    self.verifiedTextField.textColor = [UIColor blackColor];
+    self.verifiedTextField.textColor = TitleColor;
     self.verifiedTextField.backgroundColor = [UIColor clearColor];
     self.verifiedTextField.font = [UIFont systemFontOfSize:12];
     [self.textBgView addSubview:self.verifiedTextField];
@@ -123,8 +123,8 @@
     UIButton *resetButton = [UIButton buttonWithType:UIButtonTypeCustom];
     resetButton.frame = CGRectMake(MAIN_SCREEN_SIZE.width - Default- ResetButtonW, self.verifiedTextField.frame.origin.y, ResetButtonW, TextFieldH);
     [resetButton setTitle:@"重新获取" forState:UIControlStateNormal];
-    [resetButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-    resetButton.titleLabel.font = [UIFont systemFontOfSize:11];
+    [resetButton setTitleColor:DetailColor forState:UIControlStateNormal];
+    resetButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [resetButton addTarget:self action:@selector(handleVerified) forControlEvents:UIControlEventTouchUpInside];
     [self.textBgView addSubview:resetButton];
 }

@@ -9,7 +9,7 @@
 
 #import "LookForSelectFriendTableViewCell.h"
 
-#define SelectImageWH   12
+#define SelectImageWH   20
 #define HeadImageWH     30
 #define NameLabelH      20
 
@@ -64,9 +64,9 @@
 
 - (void)setFriendSelected:(BOOL)friendSelected {
     if (friendSelected) {
-        self.selectImageView.image = [UIImage imageNamed:@"dot_normal.png"];
+        self.selectImageView.image = [UIImage imageNamed:@"select_default.png"];
     } else {
-        self.selectImageView.image = [UIImage imageNamed:@"poi_1.png"];
+        self.selectImageView.image = [UIImage imageNamed:@"selected.png"];
     }
 }
 

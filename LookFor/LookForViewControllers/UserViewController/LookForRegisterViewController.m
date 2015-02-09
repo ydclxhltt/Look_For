@@ -62,7 +62,7 @@
     self.phoneNumberTextField.textAlignment = NSTextAlignmentLeft;
     self.phoneNumberTextField.placeholder = @"请输入手机号码";
     
-    self.phoneNumberTextField.textColor = [UIColor blackColor];
+    self.phoneNumberTextField.textColor = TitleColor;
     self.phoneNumberTextField.backgroundColor = [UIColor clearColor];
     self.phoneNumberTextField.delegate = self;
     self.phoneNumberTextField.font = [UIFont systemFontOfSize:12];
@@ -78,7 +78,7 @@
     self.passwordTextField.textAlignment = NSTextAlignmentLeft;
     self.passwordTextField.placeholder = @"请输入密码";
     
-    self.passwordTextField.textColor = [UIColor blackColor];
+    self.passwordTextField.textColor = TitleColor;
     self.passwordTextField.backgroundColor = [UIColor clearColor];
     self.passwordTextField.delegate = self;
     self.passwordTextField.font = [UIFont systemFontOfSize:12];
@@ -92,7 +92,7 @@
     
     self.verifiedTextField.textAlignment = NSTextAlignmentLeft;
     self.verifiedTextField.placeholder = @"请输入验证码";
-    self.verifiedTextField.textColor = [UIColor blackColor];
+    self.verifiedTextField.textColor = TitleColor;
     self.verifiedTextField.backgroundColor = [UIColor clearColor];
     self.verifiedTextField.delegate = self;
     self.verifiedTextField.font = [UIFont systemFontOfSize:12];
@@ -119,6 +119,8 @@
     [self.loginButton setTitle:@"注册" forState:UIControlStateNormal];
     self.loginButton.layer.cornerRadius = self.loginButton.frame.size.height / 2;
     self.loginButton.layer.masksToBounds = YES;
+    self.loginButton.backgroundColor = RGB(240, 196, 48);
+
     [self.loginButton addTarget:self
                          action:@selector(handleRegister)
                forControlEvents:UIControlEventTouchUpInside];

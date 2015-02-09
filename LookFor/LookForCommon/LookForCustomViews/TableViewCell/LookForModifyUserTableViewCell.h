@@ -8,20 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol  LookForModifyUserTableViewCellDelegate<NSObject>
-
-@optional
-- (NSInteger)selectIndex:(NSInteger)index;
-
-@end
 
 @interface LookForModifyUserTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) NSString *titleText;
 @property (nonatomic, strong) NSString *detailText;
+@property (nonatomic, strong) NSString *sexText;
 
-@property (nonatomic, weak) id <LookForModifyUserTableViewCellDelegate> delegate;
 
-- (void)isSexSelect:(BOOL)isSex;
-
+- (void)setSexText:(NSString *)sexText withImageView:(NSString *)imageName;
 @end

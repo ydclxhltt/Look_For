@@ -116,7 +116,7 @@
     }
     
     cell.nameText = @"1111";
-    [cell setHeadImage:@"poi_1.png"];
+    [cell setHeadImage:@"1.jpg"];
     
     return cell;
 }

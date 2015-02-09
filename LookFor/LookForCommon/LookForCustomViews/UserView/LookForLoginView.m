@@ -98,7 +98,7 @@
         self.loginButton.frame = CGRectMake(LeftSpace, self.textBgView.frame.size.height + self.textBgView.frame.origin.y + Default*2, MAIN_SCREEN_SIZE.width - 2*LeftSpace, 44);
         [self.loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.loginButton setTitle:@"登录" forState:UIControlStateNormal];
-        self.loginButton.backgroundColor = [UIColor yellowColor];
+        self.loginButton.backgroundColor = RGB(240, 196, 48);    
         self.loginButton.layer.cornerRadius = self.loginButton.frame.size.height / 2;
         self.loginButton.layer.masksToBounds = YES;
         

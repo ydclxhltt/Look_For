@@ -25,6 +25,8 @@
 
 @implementation LookForNickNameViewController
 
+@synthesize delegate;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"输入昵称";
@@ -140,10 +142,13 @@
     if (self.showType == ShowTypeLoginSystem)
     {
         [APP_DELEGATE addMainView];
+    } else {
+        if ([self.delegate respondsToSelector:@selector(nickNameVC:withNickName:)]) {
+            [self.delegate nickNameVC:self withNickName:self.messageTextView.text];
+        }
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }
-    else
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    
 }
 
 - (void)requestFail:(NSNotification *)notification

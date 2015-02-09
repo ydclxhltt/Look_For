@@ -13,8 +13,18 @@ typedef enum : NSUInteger {
     ShowTypeLoginSystem,
 } ShowType;
 
+@class LookForNickNameViewController;
+
+@protocol LookForNickNameViewControllerDelegate <NSObject>
+
+@optional
+- (void)nickNameVC:(LookForNickNameViewController*)nickNameVc withNickName:(NSString *)nickName;
+
+@end
+
+
 @interface LookForNickNameViewController : BasicViewController
 
 @property(nonatomic, assign) ShowType showType;
-
+@property (nonatomic, weak) id<LookForNickNameViewControllerDelegate> delegate;
 @end

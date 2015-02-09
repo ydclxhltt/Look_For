@@ -12,21 +12,24 @@
 #import "LookForVerifiedCodeViewController.h"
 #import "LookForRegisterViewController.h"
 
-#define HeadImageWH         40
+#define HeadImageWH         60
 #define Default             10
 #define LeftSpace           15
-#define HeadViewWH          80
+#define HeadViewWH          120
 
-#define IconImageWH         10
+#define IconImageWH         30
 
 @interface LookForModifyUserInfoViewController ()<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,
 UIImagePickerControllerDelegate,
-UINavigationControllerDelegate>
+UINavigationControllerDelegate,
+LookForNickNameViewControllerDelegate>
 
 @property (nonatomic, strong) UIView *headView;
 @property (nonatomic, strong) UIImageView *headImageView;
 @property (nonatomic, strong) UIActionSheet *photoSheet;            //照片来源选择
 @property (nonatomic, strong) NSString *photoFilePath;
+
+@property (nonatomic, strong) NSString *nickName;
 @end
 
 @implementation LookForModifyUserInfoViewController
@@ -46,6 +49,7 @@ UINavigationControllerDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"修改资料";
     
     [self setNavBarItemWithTitle:@"保存"
                      navItemType:rightItem
@@ -69,22 +73,31 @@ UINavigationControllerDelegate>
     self.headImageView.backgroundColor = [UIColor clearColor];
     self.headImageView.layer.cornerRadius = HeadImageWH / 2;
     self.headImageView.layer.masksToBounds = YES;
+    self.headImageView.image = [UIImage imageNamed:@"1.jpg"];
     [self.headView addSubview:self.headImageView];
-    
-    UIImageView *iconImage = [[UIImageView alloc] initWithFrame:CGRectMake(self.headImageView.bounds.size.width - IconImageWH, self.headImageView.bounds.size.height - IconImageWH, IconImageWH, IconImageWH)];
-    [self.headImageView addSubview:iconImage];
     
     UIButton *headButton = [UIButton buttonWithType:UIButtonTypeCustom];
     headButton.backgroundColor = [UIColor clearColor];
-    headButton.frame = CGRectMake(0, 0, self.headImageView.bounds.size.width, self.headImageView.bounds.size.height);
+    headButton.frame = self.headImageView.frame;//CGRectMake(0, 0, self.headImageView.bounds.size.width, self.headImageView.bounds.size.height);
     [headButton addTarget:self
                    action:@selector(handleHeadView)
          forControlEvents:UIControlEventTouchUpInside];
-    [self.headImageView addSubview:headButton];
+    [self.headView addSubview:headButton];
+    
+    UIImageView *iconImage = [[UIImageView alloc] initWithFrame:CGRectMake(self.headImageView.frame.origin.x + self.headImageView.bounds.size.width - IconImageWH + 10 ,self.headImageView.frame.origin.y + self.headImageView.bounds.size.height - IconImageWH , IconImageWH, IconImageWH)];
+    iconImage.backgroundColor = [UIColor clearColor];
+    UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    photoButton.frame = iconImage.frame;
+    [photoButton setImage:[UIImage imageNamed:@"photo_up.png"] forState:UIControlStateNormal];
+    [photoButton setImage:[UIImage imageNamed:@"photo_down.png"] forState:UIControlStateSelected | UIControlStateHighlighted];
+    [photoButton addTarget:self
+                   action:@selector(handleHeadView)
+         forControlEvents:UIControlEventTouchUpInside];
+    [self.headView addSubview:photoButton];
+    [self.headView addSubview:iconImage];
     
     [self.view addSubview:self.headView];
-    
-    
+ 
     [self addTableViewWithFrame:CGRectMake(0, self.headView.frame.origin.y + HeadViewWH, MAIN_SCREEN_SIZE.width, MAIN_SCREEN_SIZE.height)
                                    tableType:UITableViewStylePlain
                                tableDelegate:self];
@@ -264,24 +277,24 @@ UINavigationControllerDelegate>
     switch (row) {
         case 0:{
             cell.titleText = @"姓名";
-            [cell isSexSelect:NO];
-
+            [cell setSexText:nil withImageView:nil];
+            cell.detailText = self.nickName;
         }
             break;
         case 1:{
             cell.titleText = @"性别";
-            [cell isSexSelect:YES];
+            [cell setSexText:@"女" withImageView:@"left_ico_female.png"];
         }
             break;
         case 2:{
             cell.titleText = @"手机号";
-            [cell isSexSelect:NO];
+            [cell setSexText:nil withImageView:nil];
 
         }
             break;
         case 3:{
             cell.titleText = @"修改密码";
-            [cell isSexSelect:NO];
+            [cell setSexText:nil withImageView:nil];
 
         }
             break;
@@ -302,6 +315,7 @@ UINavigationControllerDelegate>
     switch (row) {
         case 0: {
             vc = [[LookForNickNameViewController alloc] init];
+            ((LookForNickNameViewController*)vc).delegate = self;
         }
             break;
         case 1: {
@@ -310,6 +324,7 @@ UINavigationControllerDelegate>
             break;
         case 2: {
             vc = [[LookForVerifiedCodeViewController alloc] initWithType:ModifyPassWordType withIsNewPhone:NO];
+            
         }
             break;
             
@@ -326,5 +341,10 @@ UINavigationControllerDelegate>
     }
 }
 
+#pragma mark -LookForNickNameViewControllerDelegate
+- (void)nickNameVC:(LookForNickNameViewController *)nickNameVc withNickName:(NSString *)nickName{
+    self.nickName = nickName;
+    [self.table reloadData];
+}
 
 @end
