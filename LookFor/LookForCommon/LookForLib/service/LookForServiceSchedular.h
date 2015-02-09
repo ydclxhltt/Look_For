@@ -13,4 +13,6 @@
 + (LookForServiceSchedular *)shareInstance;
 
 - (void)postService:(LookForBaseService *)baseService;
+
+- (void)getService:(LookForBaseService *)baseService;
 @end

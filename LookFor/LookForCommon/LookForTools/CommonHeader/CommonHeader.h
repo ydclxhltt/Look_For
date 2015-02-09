@@ -57,8 +57,13 @@
 
 
 
-#define SeparatorLineColor [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1.0]
-#define kTableViewGrayColor      [UIColor colorWithWhite:239.0/255.0 alpha:1.0f]
+#define SeparatorLineColor          [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1.0]
+#define kTableViewGrayColor         [UIColor colorWithWhite:239.0/255.0 alpha:1.0f]
 
+//获取十六进制的颜色
+#define UIColorFromRGB(rgbValue)    [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define TitleColor                  UIColorFromRGB(0x404041)
+#define DetailColor                 UIColorFromRGB(0x595757)
 
 #endif

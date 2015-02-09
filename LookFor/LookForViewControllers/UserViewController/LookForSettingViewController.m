@@ -139,8 +139,13 @@
         view.backgroundColor = kTableViewGrayColor;
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(0, 20, MAIN_SCREEN_SIZE.width, 40);
-        button.backgroundColor = [UIColor redColor];
+        
+        button.frame = CGRectMake(LeftSpace, 20, MAIN_SCREEN_SIZE.width - 2*LeftSpace, 40);
+        button.backgroundColor = UIColorFromRGB(0xFD593E);
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button setTitle:@"退出" forState:UIControlStateNormal];
+        button.layer.cornerRadius = button.frame.size.height / 2;
+        button.layer.masksToBounds = YES;
         [button addTarget:self
                    action:@selector(handleLogOut)
          forControlEvents:UIControlEventTouchUpInside];

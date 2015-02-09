@@ -41,11 +41,11 @@
 - (void)initView {
     self.titleLabel = [CreateViewTool createLabelWithFrame:CGRectMake(LeftSpace, (self.frame.size.height - LabelH) / 2, TitleW, LabelH)
                                                 textString:nil
-                                                 textColor:[UIColor blackColor]
+                                                 textColor:TitleColor
                                                   textFont:[UIFont systemFontOfSize:12]];
     [self addSubview:self.titleLabel];
     
-    self.detailLabel = [CreateViewTool createLabelWithFrame:CGRectMake(self.titleLabel.frame.origin.x + TitleW, (self.frame.size.height - LabelH) / 2, MAIN_SCREEN_SIZE.width - TitleW- LeftSpace * 2 - DefaultSpace, LabelH) textString:nil textColor:[UIColor grayColor] textFont:[UIFont systemFontOfSize:12]];
+    self.detailLabel = [CreateViewTool createLabelWithFrame:CGRectMake(self.titleLabel.frame.origin.x + TitleW, (self.frame.size.height - LabelH) / 2, MAIN_SCREEN_SIZE.width - TitleW- LeftSpace * 2 - DefaultSpace, LabelH) textString:nil textColor:DetailColor textFont:[UIFont systemFontOfSize:12]];
     self.detailLabel.textAlignment = NSTextAlignmentRight;
     [self addSubview:self.detailLabel];
     

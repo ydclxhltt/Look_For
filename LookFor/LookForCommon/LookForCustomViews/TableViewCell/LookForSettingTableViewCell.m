@@ -36,7 +36,7 @@
 }
 
 - (void)initView {
-    self.titleLabel = [CreateViewTool createLabelWithFrame:CGRectMake(LeftSpace, (self.frame.size.height - TitleLabelH) / 2, TitleLableW, TitleLabelH) textString:nil textColor:[UIColor blackColor] textFont:[UIFont systemFontOfSize:12]];
+    self.titleLabel = [CreateViewTool createLabelWithFrame:CGRectMake(LeftSpace, (self.frame.size.height - TitleLabelH) / 2, TitleLableW, TitleLabelH) textString:nil textColor:TitleColor textFont:[UIFont systemFontOfSize:14]];
     self.titleLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:self.titleLabel];
     
@@ -46,8 +46,8 @@
     
     self.detailLabel = [CreateViewTool createLabelWithFrame:CGRectMake(LeftSpace + TitleLableW, (self.frame.size.height - DetailLabelH) / 2, MAIN_SCREEN_SIZE.width - LeftSpace - TitleLableW -DefaultSpace - self.moreImageView.frame.origin.x, DetailLabelH)
                                                 textString:nil
-                                                 textColor:[UIColor blackColor]
-                                                  textFont:[UIFont systemFontOfSize:12]];
+                                                 textColor:DetailColor
+                                                  textFont:[UIFont systemFontOfSize:13]];
     [self addSubview:self.detailLabel];
     
     UIView *buttomLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];

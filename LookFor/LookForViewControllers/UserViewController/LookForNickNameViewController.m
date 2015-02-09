@@ -41,7 +41,7 @@
     [self createHeaderView];
     
     UIButton *button  = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.backgroundColor = [UIColor yellowColor];
+    button.backgroundColor = RGB(240, 196, 48);
     button.frame = CGRectMake(LeftSpace, self.headView.frame.origin.y + self.headView.frame.size.height + LeftSpace , MAIN_SCREEN_SIZE.width - 2*LeftSpace, 40);
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitle:@"完成" forState:UIControlStateNormal];
