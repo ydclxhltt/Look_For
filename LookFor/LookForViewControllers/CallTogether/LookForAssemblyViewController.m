@@ -35,9 +35,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"集结号";
-    [self setNavBarItemWithTitle:@"取消"
-                     navItemType:LeftItem
-                    selectorName:@"handleCancel"];
+    [self setNavBarItemWithImageName:@"btn_back"
+                         navItemType:LeftItem
+                        selectorName:@"handleCancel"];
     
     [self setNavBarItemWithImageName:@"add"
                          navItemType:rightItem
