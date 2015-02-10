@@ -11,6 +11,7 @@
 #import "LookForGuideHelpViewController.h"
 #import "LookForLoginViewController.h"
 #import "LookForNickNameViewController.h"
+#import <SMS_SDK/SMS_SDK.h>
 
 
 @interface LookForAppDelegate()<BMKGeneralDelegate,UIAlertViewDelegate>
@@ -48,6 +49,9 @@
     //注册百度地图
     mapManager = [[BMKMapManager alloc] init];
     [mapManager start:BAIDU_MAP_KEY generalDelegate:self];
+    
+    //注册SMS
+    [SMS_SDK registerApp:SMS_APP_KEY withSecret:SMS_APP_SECRET];
     
     //初始化数据
     self.tokenString = @"";
