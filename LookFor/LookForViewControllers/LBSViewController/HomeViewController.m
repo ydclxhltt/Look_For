@@ -28,6 +28,7 @@
 #import "LookForMyMessageViewController.h"
 #import "LookForApplyViewController.h"
 #import "LookForMyCirleViewController.h"
+#import "LookForLoginViewController.h"
 
 
 @interface HomeViewController ()<BMKLocationServiceDelegate,
@@ -579,8 +580,19 @@ LookForLeftViewDelegate>
 //点击头像
 - (void)leftViewClickedIconImageView {
 //    LookForLoginViewController *login = [[LookForLoginViewController alloc] init];
-    LookForModifyUserInfoViewController *vc = [[LookForModifyUserInfoViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    NSString *phoneNumber = [UserDefaults objectForKey:@"mobile"];
+    phoneNumber = (phoneNumber) ? phoneNumber : @"";
+    if ([@"" isEqualToString:phoneNumber])
+    {
+        LookForLoginViewController *loginViewController = [[LookForLoginViewController alloc] init];
+        UINavigationController *loginNav = [[UINavigationController  alloc] initWithRootViewController:loginViewController];
+        [self.navigationController presentViewController:loginNav animated:YES completion:nil];
+    }
+    else
+    {
+        LookForModifyUserInfoViewController *vc = [[LookForModifyUserInfoViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     [leftView dismiss];
 }
 

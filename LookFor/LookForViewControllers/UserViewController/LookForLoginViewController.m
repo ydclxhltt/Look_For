@@ -39,7 +39,7 @@
                      navItemType:LeftItem
                     selectorName:@"handleCancel"];
     
-    [self setNavBarItemWithTitle:@"注册新用户"
+    [self setNavBarItemWithTitle:@"注册"
                      navItemType:rightItem
                     selectorName:@"handleRegister"];
     [self.loginView.loginButton addTarget:self action:@selector(handleLogin) forControlEvents:UIControlEventTouchUpInside];

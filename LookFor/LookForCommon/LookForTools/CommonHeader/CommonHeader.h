@@ -16,6 +16,9 @@
 #define BAIDU_MAP_KEY               @"yVYTBThsX0n1xDWjtMqnQz9e"
 #define DISTABCEFILTER              15.0
 
+//SMS
+#define SMS_APP_KEY                 @"518ec8a6aa30"
+#define SMS_APP_SECRET              @"23f82461e51ac52d992af8117fe5d331"
 
 //导航条高度
 #define NAV_HEIGHT                  64.0
@@ -65,5 +68,14 @@
 
 #define TitleColor                  UIColorFromRGB(0x404041)
 #define DetailColor                 UIColorFromRGB(0x595757)
+
+
+//用户注册登录等相关tip
+#define MOBILE_NULL                 @"手机号不能为空"
+#define MOBILE_ERROR                @"请输入正确的手机号"
+#define PASSWORD_NULL               @"密码不能为空"
+#define CODE_NULL                   @"请输入验证码"
+#define CODE_ERROR                  @"验证码错误"
+
 
 #endif

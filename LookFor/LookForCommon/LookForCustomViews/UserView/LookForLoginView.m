@@ -12,8 +12,8 @@
 #define LeftSpace           15
 #define Default             10
 #define HeadImageWH         13
-#define TextBgViewH         80
-#define TextFieldH          30
+#define TextBgViewH         88
+#define TextFieldH          44
 #define ForgetButtonW       70
 
 @interface LookForLoginView ()<UITextFieldDelegate>
@@ -65,7 +65,7 @@
         self.userTextField.textColor = [UIColor blackColor];
         self.userTextField.backgroundColor = [UIColor clearColor];
         self.userTextField.delegate = self;
-        self.userTextField.font = [UIFont systemFontOfSize:12];
+        self.userTextField.font = [UIFont systemFontOfSize:15];
         [self.textBgView addSubview:self.userTextField];
         
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, TextBgViewH / 2, MAIN_SCREEN_SIZE.width, 0.5)];
@@ -91,7 +91,7 @@
         self.passwordTextField.textColor = [UIColor blackColor];
         self.passwordTextField.backgroundColor = [UIColor clearColor];
         self.passwordTextField.delegate = self;
-        self.passwordTextField.font = [UIFont systemFontOfSize:12];
+        self.passwordTextField.font = [UIFont systemFontOfSize:15];
         [self.textBgView addSubview:self.passwordTextField];
         
         self.loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -105,10 +105,10 @@
         [self addSubview:self.loginButton];
         
         self.forgetButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.forgetButton.frame = CGRectMake(MAIN_SCREEN_SIZE.width - ForgetButtonW - LeftSpace, self.loginButton.frame.origin.y + self.loginButton.frame.size.height + Default, ForgetButtonW, 44);
+        self.forgetButton.frame = CGRectMake(MAIN_SCREEN_SIZE.width - ForgetButtonW - LeftSpace, self.loginButton.frame.origin.y + self.loginButton.frame.size.height , ForgetButtonW, 44);
         [self.forgetButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self.forgetButton setTitle:@"忘记密码" forState:UIControlStateNormal];
-        self.forgetButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        self.forgetButton.titleLabel.font = [UIFont systemFontOfSize:13];
         [self addSubview:self.forgetButton];
         
     }
