@@ -125,13 +125,13 @@ LookForCallTogetherNameViewControllerDelegate>
         [cell setRightImage:[UIImage imageNamed:@"poi_1.png"]];
         //[cell setRightImage:self.photoImage];
         cell.detailText = @"召集名称";
-        [cell setHeadImageHighlighted:NO];
+       // [cell setHeadImageHighlighted:NO];
     } if (row == 1) {
         cell.detailText = @"召集好友";
-        [cell setHeadImageHighlighted:NO];
+        //[cell setHeadImageHighlighted:NO];
     } else {
         cell.detailText = @"召集地址";
-        [cell setHeadImageHighlighted:NO];
+        //[cell setHeadImageHighlighted:NO];
     }    
     return cell;
 }

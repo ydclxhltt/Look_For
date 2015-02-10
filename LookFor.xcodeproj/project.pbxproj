@@ -69,6 +69,7 @@
 		6BA7E55E1A8908280050F400 /* back_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA7E55A1A8908280050F400 /* back_up.png */; };
 		6BA7E55F1A8908280050F400 /* btn_back_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA7E55B1A8908280050F400 /* btn_back_down.png */; };
 		6BA7E5601A8908280050F400 /* btn_back_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA7E55C1A8908280050F400 /* btn_back_up.png */; };
+		6BADB2121A8A640700382F6B /* LookForRingHimViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB2111A8A640700382F6B /* LookForRingHimViewController.m */; };
 		6BB018771A7E3162004BBBF8 /* LookForMyCirleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB018761A7E3162004BBBF8 /* LookForMyCirleViewController.m */; };
 		6BB0EF8D1A5EE0DB00DE78D2 /* poi_1_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */; };
 		6BB5A59C1A75F4AA000CED9D /* LookForModifyPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB5A59B1A75F4AA000CED9D /* LookForModifyPassViewController.m */; };
@@ -354,6 +355,8 @@
 		6BA7E55A1A8908280050F400 /* back_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_up.png; sourceTree = "<group>"; };
 		6BA7E55B1A8908280050F400 /* btn_back_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back_down.png; sourceTree = "<group>"; };
 		6BA7E55C1A8908280050F400 /* btn_back_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back_up.png; sourceTree = "<group>"; };
+		6BADB2101A8A640700382F6B /* LookForRingHimViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRingHimViewController.h; sourceTree = "<group>"; };
+		6BADB2111A8A640700382F6B /* LookForRingHimViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForRingHimViewController.m; sourceTree = "<group>"; };
 		6BB018751A7E3162004BBBF8 /* LookForMyCirleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForMyCirleViewController.h; sourceTree = "<group>"; };
 		6BB018761A7E3162004BBBF8 /* LookForMyCirleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForMyCirleViewController.m; sourceTree = "<group>"; };
 		6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1_up.png; sourceTree = "<group>"; };
@@ -786,6 +789,15 @@
 				6BB018761A7E3162004BBBF8 /* LookForMyCirleViewController.m */,
 			);
 			path = UserViewController;
+			sourceTree = "<group>";
+		};
+		6BADB20F1A8A63F200382F6B /* RingHim */ = {
+			isa = PBXGroup;
+			children = (
+				6BADB2101A8A640700382F6B /* LookForRingHimViewController.h */,
+				6BADB2111A8A640700382F6B /* LookForRingHimViewController.m */,
+			);
+			path = RingHim;
 			sourceTree = "<group>";
 		};
 		6BB662961A639C99003350E7 /* UserView */ = {
@@ -1403,6 +1415,7 @@
 		CE33C9FF1A5C452B0042006D /* LookForViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6BADB20F1A8A63F200382F6B /* RingHim */,
 				6BD11FEC1A64ECEA00C860F1 /* CallTogether */,
 				6BD11FE41A64BD2800C860F1 /* FriendViewController */,
 				6BA76B8B1A62AE6900C3AEE6 /* UserViewController */,
@@ -1831,6 +1844,7 @@
 				6BA177551A641E63005E83E4 /* LookForRegisterViewController.m in Sources */,
 				CE33CB141A5C57640042006D /* FMResultSet.m in Sources */,
 				CE33CAFA1A5C57640042006D /* LookForConfig.m in Sources */,
+				6BADB2121A8A640700382F6B /* LookForRingHimViewController.m in Sources */,
 				CE33CB101A5C57640042006D /* FMDatabase.m in Sources */,
 				77D1E3111A70C8120056C7BA /* UIButton+WebCache.m in Sources */,
 				6BB5A59C1A75F4AA000CED9D /* LookForModifyPassViewController.m in Sources */,

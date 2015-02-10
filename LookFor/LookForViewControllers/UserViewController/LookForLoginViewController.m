@@ -102,7 +102,11 @@
 
 #pragma mark -handle
 - (void)handleCancel {
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+   // [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)handleRegister {

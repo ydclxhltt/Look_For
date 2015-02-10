@@ -1,12 +1,14 @@
 //
-//  LookForSafeTravelViewController.m
+//  LookForRingHimViewController.m
 //  LookFor
 //
-//  Created by chenmingguo on 15-1-8.
-//  Copyright (c) 2015年 chenmingguo. All rights reserved.
+//  Created by chenmingguo on 15-2-11.
+//  Copyright (c) 2015年 LookFor. All rights reserved.
 //
 
-#import "LookForSafeTravelViewController.h"
+
+#import "LookForRingHimViewController.h"
+
 #import "LookForSaveTradeTableViewCell.h"
 #import "LookForSelectFriendViewController.h"
 
@@ -19,10 +21,9 @@
 #define Space           20
 #define MessageH        88
 
-
 #define PlaceholderText @"我想说点什么......"
 
-@interface LookForSafeTravelViewController () <UITextViewDelegate,
+@interface LookForRingHimViewController ()<UITextViewDelegate,
 UIActionSheetDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
@@ -42,9 +43,10 @@ UITableViewDelegate>
 
 @property (nonatomic, strong) UIView        *messageView;           //地址信息和朋友信息名称
 @property (nonatomic, strong) UITableView   *messageTableView;      //
+
 @end
 
-@implementation LookForSafeTravelViewController
+@implementation LookForRingHimViewController
 
 - (id)init {
     self = [super init];
@@ -62,7 +64,7 @@ UITableViewDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.title = @"安心出行";
     [self setNavBarItemWithImageName:@"btn_back"
                          navItemType:LeftItem
@@ -98,7 +100,7 @@ UITableViewDelegate>
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     button.layer.cornerRadius =  24 ;
     button.layer.masksToBounds = YES;
-
+    
     [button addTarget:self
                action:@selector(handleSend)
      forControlEvents:UIControlEventTouchUpInside];
@@ -110,14 +112,14 @@ UITableViewDelegate>
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0,60, MAIN_SCREEN_SIZE.width, HeadViewH)];
     self.headView.backgroundColor = [UIColor whiteColor];
     self.messageTextView = [[UITextView alloc] initWithFrame:CGRectMake(LeftSpace,
-                                                                 TopSpace,
-                                                                 MAIN_SCREEN_SIZE.width - 2*LeftSpace, TextViweH)];
-
+                                                                        TopSpace,
+                                                                        MAIN_SCREEN_SIZE.width - 2*LeftSpace, TextViweH)];
+    
     self.messageTextView.textColor = [UIColor blackColor];
     self.messageTextView.font = [UIFont systemFontOfSize:13];
     self.messageTextView.delegate = self;
     self.messageTextView.backgroundColor = [UIColor clearColor];
-   // self.messageTextView.autoresizingMask = UIViewAutoresizingFlexibleHeight;//自适应高度
+    // self.messageTextView.autoresizingMask = UIViewAutoresizingFlexibleHeight;//自适应高度
     self.messageTextView.keyboardType = UIKeyboardTypeDefault;
     self.messageTextView.contentInset = UIEdgeInsetsMake(-60, 0, 0, 0);
     [self.headView addSubview:self.messageTextView];
@@ -135,7 +137,7 @@ UITableViewDelegate>
     self.photoImageView.backgroundColor = [UIColor clearColor];
     self.photoImageView.image = [UIImage imageNamed:@"1.jpg"];
     [self.headView addSubview:self.photoImageView];
-   
+    
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, HeadViewH - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];
     line.backgroundColor = SeparatorLineColor;
     [self.headView addSubview:line];
@@ -147,7 +149,7 @@ UITableViewDelegate>
                                                                 self.headView.frame.origin.y + HeadViewH + Space, MAIN_SCREEN_SIZE.width,
                                                                 MessageH)];
     self.messageTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,MAIN_SCREEN_SIZE.width,MessageH)
-                                                        style:UITableViewStylePlain];
+                                                         style:UITableViewStylePlain];
     
     self.messageTableView.dataSource = self;
     self.messageTableView.delegate = self;
@@ -157,7 +159,7 @@ UITableViewDelegate>
     self.messageTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.messageTableView.showsVerticalScrollIndicator = YES;
     [self.messageView addSubview:self.messageTableView];
-
+    
     
     UIView *headLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_SIZE.width, 0.5)];
     headLine.backgroundColor = SeparatorLineColor;
@@ -177,17 +179,17 @@ UITableViewDelegate>
 
 - (void)handleCamera {
     self.photoSheet = [[UIActionSheet alloc]
-                     initWithTitle:nil
-                     delegate:self
-                     cancelButtonTitle:@"取消"
-                     destructiveButtonTitle:nil
-                     otherButtonTitles: @"打开照相机", @"从手机相册获取",nil];
+                       initWithTitle:nil
+                       delegate:self
+                       cancelButtonTitle:@"取消"
+                       destructiveButtonTitle:nil
+                       otherButtonTitles: @"打开照相机", @"从手机相册获取",nil];
     
     [self.photoSheet showInView:self.view];
 }
 
 - (void)handleSend {
-  
+    
 }
 
 #pragma mark -UITextViewDelegate
@@ -196,7 +198,7 @@ UITableViewDelegate>
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
-
+    
     if (self.messageTextView.text.length==0) {
         self.placeholderLabel.hidden =NO;
     }else{
@@ -271,12 +273,12 @@ UITableViewDelegate>
 
 {
     
- //   NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
+    //   NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
     
     //当选择的类型是图片
-//    if ([type isEqualToString:@"public.image"])
-//    {
-//        //先把图片转成NSData
+    //    if ([type isEqualToString:@"public.image"])
+    //    {
+    //        //先把图片转成NSData
     UIImage* image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
     if (image == nil) {
         image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
@@ -335,7 +337,7 @@ UITableViewDelegate>
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -359,15 +361,23 @@ UITableViewDelegate>
             cell.detailText = self.toAddressStr;
             [cell setHeadImage:@"ico_travel_down.png"];
         } else {
-            cell.detailText = @"到达的目的地";
+            cell.detailText = @"圈目的地";
             [cell setHeadImage:@"ico_travel_up.png"];
+        }
+    } else if (row == 1){
+        if (self.friendName.length >0 ) {
+            cell.detailText = self.friendName;
+            [cell setHeadImage:@"ico_friend_down.png"];
+        } else {
+            cell.detailText = @"警告对象";
+            [cell setHeadImage:@"ico_friend_up.png"];
         }
     } else {
         if (self.friendName.length >0 ) {
             cell.detailText = self.friendName;
             [cell setHeadImage:@"ico_friend_down.png"];
         } else {
-            cell.detailText = @"选择好友";
+            cell.detailText = @"重复周期设置";
             [cell setHeadImage:@"ico_friend_up.png"];
         }
     }
@@ -386,7 +396,5 @@ UITableViewDelegate>
         [self.navigationController pushViewController:sf animated:YES];
     }
 }
-
-
 
 @end

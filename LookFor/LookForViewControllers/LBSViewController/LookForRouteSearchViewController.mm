@@ -11,10 +11,7 @@
 #import "UIImage+Rotate.h"
 
 #define HeadHeight      NAV_HEIGHT
-#define LeftSpace       20
 #define topSpace        20
-
-#define DefaultSpace    3
 
 #define LabelW          20
 #define LabelH          15

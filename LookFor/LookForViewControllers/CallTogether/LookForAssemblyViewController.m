@@ -39,7 +39,7 @@
                      navItemType:LeftItem
                     selectorName:@"handleCancel"];
     
-    [self setNavBarItemWithImageName:@"poi_1"
+    [self setNavBarItemWithImageName:@"add"
                          navItemType:rightItem
                         selectorName:@"handleAddle"];
 
@@ -108,6 +108,7 @@
     cell.titleText = @"111111";
     cell.detailText = @"22222";
     cell.timeText = @"333";
+    cell.headImage = [UIImage imageNamed:@"1.jpg"];
     return cell;
 }
 

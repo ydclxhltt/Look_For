@@ -68,7 +68,7 @@
     self.phoneNumberTextField.delegate = self;
     self.phoneNumberTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldTextChanged:) name:UITextFieldTextDidChangeNotification object:self.phoneNumberTextField];
-    self.phoneNumberTextField.font = [UIFont systemFontOfSize:16];
+    self.phoneNumberTextField.font = [UIFont systemFontOfSize:14];
     [self.textBgView addSubview:self.phoneNumberTextField];
     
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.phoneNumberTextField.frame.origin.y + TextFieldH + TextSapce / 2, MAIN_SCREEN_SIZE.width, 0.5)];
@@ -85,7 +85,7 @@
     self.passwordTextField.textColor = TitleColor;
     self.passwordTextField.backgroundColor = [UIColor clearColor];
     self.passwordTextField.delegate = self;
-    self.passwordTextField.font = [UIFont systemFontOfSize:15];
+    self.passwordTextField.font = [UIFont systemFontOfSize:14];
     [self.textBgView addSubview:self.passwordTextField];
     
     UIView *line1 = [[UIView alloc] initWithFrame:CGRectMake(0, self.passwordTextField.frame.origin.y + TextFieldH + TextSapce / 2, MAIN_SCREEN_SIZE.width, 0.5)];
@@ -101,7 +101,7 @@
     self.verifiedTextField.backgroundColor = [UIColor clearColor];
     self.verifiedTextField.delegate = self;
     self.verifiedTextField.keyboardType = UIKeyboardTypeNumberPad;
-    self.verifiedTextField.font = [UIFont systemFontOfSize:15];
+    self.verifiedTextField.font = [UIFont systemFontOfSize:14];
     [self.textBgView addSubview:self.verifiedTextField];
     
     UIView *line2  = [[UIView alloc] initWithFrame:CGRectMake(self.verifiedTextField.frame.size.width + LeftSpace, self.verifiedTextField.frame.origin.y - 3, 0.5, 44)];
@@ -112,7 +112,7 @@
     resetButton.frame = CGRectMake(MAIN_SCREEN_SIZE.width - Default- ResetButtonW, self.verifiedTextField.frame.origin.y, ResetButtonW, TextFieldH);
     [resetButton setTitle:@"重新获取" forState:UIControlStateNormal];
     [resetButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-    resetButton.titleLabel.font = [UIFont systemFontOfSize:11];
+    resetButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [resetButton addTarget:self action:@selector(handleVerified) forControlEvents:UIControlEventTouchUpInside];
     [self.textBgView addSubview:resetButton];
     

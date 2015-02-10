@@ -39,15 +39,15 @@
                                                                         (self.frame.size.height - LabelH) / 2,
                                                                         (MAIN_SCREEN_SIZE.width - (self.headImageView.frame.origin.x + HeadImageWH + LeftSpace / 2) - LeftSpace - MoreImageWH),
                                                                         LabelH)];
-        self.detailLabel.font = [UIFont systemFontOfSize:12];
-        self.detailLabel.textColor = [UIColor blackColor];
+        self.detailLabel.font = [UIFont systemFontOfSize:14];
+        self.detailLabel.textColor = UIColorFromRGB(0x3E3A39);
         self.detailLabel.textAlignment = NSTextAlignmentLeft;
         self.detailLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:self.detailLabel];
         
         self.rightLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         self.rightLabel.font = [UIFont systemFontOfSize:12];
-        self.rightLabel.textColor = [UIColor blackColor];
+        self.rightLabel.textColor = DetailColor;
         self.rightLabel.textAlignment = NSTextAlignmentRight;
         self.rightLabel.backgroundColor = [UIColor clearColor];
         self.rightLabel.hidden = YES;
@@ -77,12 +77,8 @@
     }
 }
 
-- (void)setHeadImageHighlighted:(BOOL)isHighlight {
-    if (isHighlight) {
-        self.headImageView.image = [UIImage imageNamed:@"poi_1.png"];
-    } else {
-        self.headImageView.image = [UIImage imageNamed:@"poi_1.png"];
-    }
+- (void)setHeadImage:(NSString *)imageName {
+    self.headImageView.image = [UIImage imageNamed:imageName];
 }
 
 - (void)setRightText:(NSString *)text withColor:(UIColor *)color{

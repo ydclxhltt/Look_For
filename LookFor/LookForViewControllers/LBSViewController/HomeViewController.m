@@ -29,6 +29,7 @@
 #import "LookForApplyViewController.h"
 #import "LookForMyCirleViewController.h"
 #import "LookForLoginViewController.h"
+#import "LookForAssemblyViewController.h"
 
 
 @interface HomeViewController ()<BMKLocationServiceDelegate,
@@ -354,18 +355,22 @@ LookForLeftViewDelegate>
 {
     switch (tag) {
         case 0: {
-            break;
-        }
-        case 1: {
             LookForSafeTravelViewController *st = [[LookForSafeTravelViewController alloc] init];
             
             [self.navigationController pushViewController:st animated:YES];
+            break;
+        }
+        case 1: {
+            LookForSelectFriendViewController *sf = [[LookForSelectFriendViewController alloc] initWithTitle:@"好友"];
+
+            [self.navigationController pushViewController:sf animated:YES];
             
             break;
         }
         case 2:{
-            LookForSelectFriendViewController *sf = [[LookForSelectFriendViewController alloc] init];
-            [self.navigationController pushViewController:sf animated:YES];
+            LookForAssemblyViewController *ll = [[LookForAssemblyViewController alloc] init];
+            
+            [self.navigationController pushViewController:ll animated:YES];
             break;
         }
         case 3:

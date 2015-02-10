@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSString *detailText;
 
 //设置头标题
-- (void)setHeadImageHighlighted:(BOOL)isHighlight;
+- (void)setHeadImage:(NSString *)imageName;
 
 - (void)setRightText:(NSString *)text withColor:(UIColor *)color;
 - (void)setRightImage:(UIImage *)image;

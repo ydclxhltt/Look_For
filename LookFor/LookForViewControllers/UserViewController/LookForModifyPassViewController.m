@@ -69,7 +69,7 @@
     self.phoneNumberTextField = [[UITextField alloc] initWithFrame:CGRectMake(LeftSpace, TextSapce / 2, MAIN_SCREEN_SIZE.width - 2*LeftSpace, TextFieldH)];
     self.phoneNumberTextField.textAlignment = NSTextAlignmentLeft;
 
-        self.phoneNumberTextField.placeholder = @"请输入密码";
+    self.phoneNumberTextField.placeholder = @"请输入密码";
 
     self.phoneNumberTextField.textColor = TitleColor;
     self.phoneNumberTextField.backgroundColor = [UIColor clearColor];
