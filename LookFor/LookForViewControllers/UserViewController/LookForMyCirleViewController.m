@@ -69,7 +69,7 @@
     
     cell.titleText = @"1111";
     cell.detailText = @"33333";
-    cell.headImage = [UIImage imageNamed:@"poi_1.png"];
+    cell.headImage = [UIImage imageNamed:@"1.jpg"];
     [cell showSwitch];
     return cell;
 }

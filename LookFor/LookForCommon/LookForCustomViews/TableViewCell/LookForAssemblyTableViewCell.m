@@ -8,7 +8,7 @@
 
 #import "LookForAssemblyTableViewCell.h"
 
-#define HeadImageWH     20
+#define HeadImageWH     30
 #define LeftSpace       15
 #define DefaultSpace    10
 #define TitleLabelH     13
@@ -37,6 +37,8 @@
 - (void)initView {
     
     self.headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(LeftSpace, (self.frame.size.height - HeadImageWH) / 2, HeadImageWH, HeadImageWH)];
+    self.headImageView.layer.cornerRadius = HeadImageWH / 2 ;
+    self.headImageView.layer.masksToBounds = YES;
     [self addSubview:self.headImageView];
 
     self.titleLabel = [CreateViewTool createLabelWithFrame:CGRectMake(self.headImageView.frame.origin.x + HeadImageWH + DefaultSpace / 2, DefaultSpace / 2,(MAIN_SCREEN_SIZE.width - self.headImageView.frame.origin.x - HeadImageWH - DefaultSpace / 2 - LeftSpace), TitleLabelH)

@@ -85,7 +85,7 @@
     }
     cell.titleText = @"1111";
     cell.detailText = @"222";
-    cell.imageName = @"poi_1.png";
+    cell.imageName = @"1.jpg";
     if (row %2 == 0) {
         cell.timeText = @"3433";
     } else {

@@ -10,6 +10,7 @@
 
 #import "LookForMyMessageTableViewCell.h"
 
+#define HeadImageWH     30
 #define LeftSpace       15
 #define DefaultSpace    10
 #define TitleLabelH     13
@@ -46,8 +47,12 @@
 
 - (void)initView {
 
-    self.headImageView = [CreateViewTool createImageViewWithFrame:CGRectMake(LeftSpace, DefaultSpace  , self.frame.size.height - DefaultSpace * 2 + 5, self.frame.size.height - DefaultSpace * 2) placeholderImage:nil];
-//    self.headImageView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+    self.headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(LeftSpace, (self.frame.size.height - HeadImageWH) / 2, HeadImageWH, HeadImageWH)];
+    self.headImageView.layer.cornerRadius = HeadImageWH / 2 ;
+    self.headImageView.layer.masksToBounds = YES;
+    [self addSubview:self.headImageView];
+   self.headImageView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin ;
+
     [self addSubview:self.headImageView];
     
     self.titleLabel = [CreateViewTool createLabelWithFrame:CGRectMake(LeftSpace + DefaultSpace / 2+ self.headImageView.frame.size.width, LeftSpace, MAIN_SCREEN_SIZE.width - ButtonW * 2 - LeftSpace - DefaultSpace, TitleLabelH) textString:nil textColor:[UIColor blackColor] textFont:[UIFont systemFontOfSize:12]];
