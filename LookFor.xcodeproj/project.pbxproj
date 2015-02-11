@@ -72,6 +72,7 @@
 		6BADB2121A8A640700382F6B /* LookForRingHimViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB2111A8A640700382F6B /* LookForRingHimViewController.m */; };
 		6BB018771A7E3162004BBBF8 /* LookForMyCirleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB018761A7E3162004BBBF8 /* LookForMyCirleViewController.m */; };
 		6BB0EF8D1A5EE0DB00DE78D2 /* poi_1_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */; };
+		6BB22CC01A8BB70B001A3AF3 /* LookForSelectAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB22CBF1A8BB70B001A3AF3 /* LookForSelectAddressViewController.m */; };
 		6BB5A59C1A75F4AA000CED9D /* LookForModifyPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB5A59B1A75F4AA000CED9D /* LookForModifyPassViewController.m */; };
 		6BB662991A639C99003350E7 /* LookForPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB662981A639C99003350E7 /* LookForPageControl.m */; };
 		6BB6629C1A639CB5003350E7 /* LookForLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB6629B1A639CB5003350E7 /* LookForLoginView.m */; };
@@ -361,6 +362,8 @@
 		6BB018751A7E3162004BBBF8 /* LookForMyCirleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForMyCirleViewController.h; sourceTree = "<group>"; };
 		6BB018761A7E3162004BBBF8 /* LookForMyCirleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForMyCirleViewController.m; sourceTree = "<group>"; };
 		6BB0EF8C1A5EE0DB00DE78D2 /* poi_1_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1_up.png; sourceTree = "<group>"; };
+		6BB22CBE1A8BB70B001A3AF3 /* LookForSelectAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForSelectAddressViewController.h; sourceTree = "<group>"; };
+		6BB22CBF1A8BB70B001A3AF3 /* LookForSelectAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForSelectAddressViewController.m; sourceTree = "<group>"; };
 		6BB5A59A1A75F4AA000CED9D /* LookForModifyPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForModifyPassViewController.h; sourceTree = "<group>"; };
 		6BB5A59B1A75F4AA000CED9D /* LookForModifyPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForModifyPassViewController.m; sourceTree = "<group>"; };
 		6BB662971A639C99003350E7 /* LookForPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForPageControl.h; sourceTree = "<group>"; };
@@ -1448,6 +1451,8 @@
 				6BD25CC81A5D0E1D00EFB508 /* LookForRouteSearchViewController.mm */,
 				CE33CA041A5C452B0042006D /* HomeViewController.h */,
 				CE33CA051A5C452B0042006D /* HomeViewController.m */,
+				6BB22CBE1A8BB70B001A3AF3 /* LookForSelectAddressViewController.h */,
+				6BB22CBF1A8BB70B001A3AF3 /* LookForSelectAddressViewController.m */,
 			);
 			path = LBSViewController;
 			sourceTree = "<group>";
@@ -1851,6 +1856,7 @@
 				CE33CB141A5C57640042006D /* FMResultSet.m in Sources */,
 				CE33CAFA1A5C57640042006D /* LookForConfig.m in Sources */,
 				6BADB2121A8A640700382F6B /* LookForRingHimViewController.m in Sources */,
+				6BB22CC01A8BB70B001A3AF3 /* LookForSelectAddressViewController.m in Sources */,
 				CE33CB101A5C57640042006D /* FMDatabase.m in Sources */,
 				77D1E3111A70C8120056C7BA /* UIButton+WebCache.m in Sources */,
 				6BB5A59C1A75F4AA000CED9D /* LookForModifyPassViewController.m in Sources */,

@@ -30,7 +30,7 @@
 #import "LookForMyCirleViewController.h"
 #import "LookForLoginViewController.h"
 #import "LookForAssemblyViewController.h"
-
+#import "LookForRingHimViewController.h"
 
 @interface HomeViewController ()<BMKLocationServiceDelegate,
 BMKMapViewDelegate,
@@ -369,8 +369,8 @@ LookForLeftViewDelegate>
         }
         case 3:
         {
-//            LookForAssemblyViewController *ll = [[LookForAssemblyViewController alloc] init];
-            LookForLoginViewController *ll = [[LookForLoginViewController alloc] init];
+            LookForRingHimViewController *ll = [[LookForRingHimViewController alloc] init];
+           // LookForLoginViewController *ll = [[LookForLoginViewController alloc] init];
             
             [self.navigationController pushViewController:ll animated:YES];
             break;

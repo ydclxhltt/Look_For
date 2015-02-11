@@ -11,6 +11,7 @@
 
 #import "LookForSaveTradeTableViewCell.h"
 #import "LookForSelectFriendViewController.h"
+#import "LookForSelectAddressViewController.h"
 
 #define HeadViewH       180
 #define LeftSpace       15
@@ -28,7 +29,8 @@ UIActionSheetDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
 UITableViewDataSource,
-UITableViewDelegate>
+UITableViewDelegate,
+LookForSelectFriendViewControllerDelegate>
 
 @property (nonatomic, strong) UIView        *headView;              //图片描述view
 @property (nonatomic, strong) UITextView    *messageTextView;       //输入框
@@ -65,7 +67,7 @@ UITableViewDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"安心出行";
+    self.title = @"圈TA";
     [self setNavBarItemWithImageName:@"btn_back"
                          navItemType:LeftItem
                         selectorName:@"handleCancel"];
@@ -390,11 +392,20 @@ UITableViewDelegate>
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSUInteger row = [indexPath row];
     if (row == 0) {
-        
+        LookForSelectAddressViewController *sa = [[LookForSelectAddressViewController alloc] init];
+        [self.navigationController pushViewController:sa animated:YES];
+
     } else {
         LookForSelectFriendViewController *sf = [[LookForSelectFriendViewController alloc] init];
+        sf.delegate = self;
         [self.navigationController pushViewController:sf animated:YES];
     }
+}
+
+#pragma mark -LookForSelectFriendViewControllerDelegate
+- (void)selectFriendNames:(NSString *)names {
+    self.friendName = names;
+    [self.messageTableView reloadData];
 }
 
 @end

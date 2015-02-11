@@ -9,6 +9,8 @@
 #import "LookForSafeTravelViewController.h"
 #import "LookForSaveTradeTableViewCell.h"
 #import "LookForSelectFriendViewController.h"
+#import "LookForSelectAddressViewController.h"
+
 
 #define HeadViewH       180
 #define LeftSpace       15
@@ -383,9 +385,11 @@ LookForSelectFriendViewControllerDelegate>
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSUInteger row = [indexPath row];
     if (row == 0) {
-        
+        LookForSelectAddressViewController *sa = [[LookForSelectAddressViewController alloc] init];
+        [self.navigationController pushViewController:sa animated:YES];
     } else {
         LookForSelectFriendViewController *sf = [[LookForSelectFriendViewController alloc] initWithTitle:@"选择好友"];
+        sf.delegate = self;
         [self.navigationController pushViewController:sf animated:YES];
     }
 }

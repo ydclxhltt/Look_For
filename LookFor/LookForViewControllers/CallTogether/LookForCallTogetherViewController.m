@@ -10,6 +10,7 @@
 #import "LookForCallTogetherNameViewController.h"
 #import "LookForSelectFriendViewController.h"
 #import "LookForSaveTradeTableViewCell.h"
+#import "LookForSelectAddressViewController.h"
 
 #define TableViewH      132 + NAV_HEIGHT
 #define LeftSpace       15
@@ -181,7 +182,9 @@ LookForSelectFriendViewControllerDelegate>
         sf.delegate = self;
         [self.navigationController pushViewController:sf animated:YES];
     } else {
-    
+        LookForSelectAddressViewController *sa = [[LookForSelectAddressViewController alloc] init];
+        [self.navigationController pushViewController:sa animated:YES];
+
     }
 }
 
