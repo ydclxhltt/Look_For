@@ -18,13 +18,17 @@
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
 UIActionSheetDelegate,
-LookForCallTogetherNameViewControllerDelegate>
+LookForCallTogetherNameViewControllerDelegate,
+LookForSelectFriendViewControllerDelegate>
 
 @property (nonatomic, strong) UITableView *callTogeterTableView;
 @property (nonatomic, strong) UIActionSheet *photoSheet;            //照片来源选择
 
 @property (nonatomic, strong) NSString *photoFilePath;
 @property (nonatomic, strong) UIImage *photoImage;
+@property (nonatomic, strong) NSString *friendNames;
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *togeterName;
 @end
 
 @implementation LookForCallTogetherViewController
@@ -41,7 +45,7 @@ LookForCallTogetherNameViewControllerDelegate>
                      navItemType:LeftItem
                     selectorName:@"handleCancel"];
     
-    [self setNavBarItemWithImageName:@"poi_1"
+    [self setNavBarItemWithImageName:@"camera"
                          navItemType:rightItem
                         selectorName:@"handleCamera"];
     [self initView];
@@ -62,18 +66,21 @@ LookForCallTogetherNameViewControllerDelegate>
     self.callTogeterTableView.backgroundColor = [UIColor clearColor];
     self.callTogeterTableView.separatorColor = [UIColor clearColor];
     self.callTogeterTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    //self.callTogeterTableView.contentOffset = CGPointMake(0, 80);
     self.callTogeterTableView.showsHorizontalScrollIndicator = NO;
     self.callTogeterTableView.showsVerticalScrollIndicator = NO;
     self.callTogeterTableView.scrollEnabled = NO;
     self.callTogeterTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.callTogeterTableView];
     
-    UIButton *button = [CreateViewTool createButtonWithFrame:CGRectMake(LeftSpace, self.callTogeterTableView.frame.size.height + self.callTogeterTableView.frame.origin.y, MAIN_SCREEN_SIZE.width - 2*LeftSpace, 44)
+    UIButton *button = [CreateViewTool createButtonWithFrame:CGRectMake(LeftSpace, self.callTogeterTableView.frame.size.height + self.callTogeterTableView.frame.origin.y + LeftSpace, MAIN_SCREEN_SIZE.width - 2*LeftSpace, 36)
                                                  buttonTitle:@"召集"
-                                                  titleColor:[UIColor blackColor] normalBackgroundColor:nil highlightedBackgroundColor:nil
+                                                  titleColor:[UIColor whiteColor] normalBackgroundColor:nil highlightedBackgroundColor:nil
                                                 selectorName:@"handleCall"
                                                  tagDelegate:self];
+    button.backgroundColor = RGB(118, 203, 203);
+    button.layer.cornerRadius = button.frame.size.height / 2;
+    button.layer.masksToBounds = YES;
+
     [self.view addSubview:button];
     
 }
@@ -121,18 +128,42 @@ LookForCallTogetherNameViewControllerDelegate>
     }
     
     if (row == 0) {
-        [cell setRightText:@"未命名" withColor:[UIColor lightGrayColor]];
-        [cell setRightImage:[UIImage imageNamed:@"poi_1.png"]];
-        //[cell setRightImage:self.photoImage];
         cell.detailText = @"召集名称";
-       // [cell setHeadImageHighlighted:NO];
-    } if (row == 1) {
-        cell.detailText = @"召集好友";
-        //[cell setHeadImageHighlighted:NO];
+        if (self.photoImage != nil || self.togeterName.length) {
+            [cell setRightImage:self.photoImage];
+            [cell setHeadImage:@"ico_friend_down.png"];
+        } else {
+            [cell setHeadImage:@"ico_friend_up.png"];
+        }
+        
+        if (self.togeterName.length) {
+            [cell setRightText:self.togeterName withColor:DetailColor];
+            [cell setHeadImage:@"ico_friend_down.png"];
+
+        } else {
+            [cell setRightText:@"未命名" withColor:DetailColor];
+            [cell setHeadImage:@"ico_friend_up.png"];
+        }
+        
+    } else if (row == 1) {
+        cell.detailText = @"选择好友";
+        if (self.friendNames.length) {
+            [cell setHeadImage:@"ico_friend_down.png"];
+            [cell setRightText:self.friendNames withColor:DetailColor];
+        } else {
+            [cell setHeadImage:@"ico_friend_up.png"];
+            [cell setRightText:nil withColor:DetailColor];
+        }
     } else {
-        cell.detailText = @"召集地址";
-        //[cell setHeadImageHighlighted:NO];
-    }    
+        cell.detailText = @"召集目的地";
+        if (self.address.length) {
+            [cell setRightText:self.address withColor:DetailColor];
+            [cell setHeadImage:@"ico_travel_down.png"];
+        } else {
+            [cell setRightText:nil withColor:DetailColor];
+            [cell setHeadImage:@"ico_travel_up.png"];
+        }
+    }
     return cell;
 }
 
@@ -143,9 +174,11 @@ LookForCallTogetherNameViewControllerDelegate>
     
     if (row == 0) {
         LookForCallTogetherNameViewController *name = [[LookForCallTogetherNameViewController alloc] init];
+        name.delegate = self;
         [self.navigationController pushViewController:name animated:YES];
     } else if (row == 1) {
-        LookForSelectFriendViewController *sf = [[LookForSelectFriendViewController alloc] init];
+        LookForSelectFriendViewController *sf = [[LookForSelectFriendViewController alloc] initWithTitle:@"选择好友"];
+        sf.delegate = self;
         [self.navigationController pushViewController:sf animated:YES];
     } else {
     
@@ -273,5 +306,16 @@ LookForCallTogetherNameViewControllerDelegate>
                                }];
 }
 
+#pragma mark -LookForCallTogetherNameViewControllerDelegate
+- (void)callTogetherName:(NSString *)name {
+    self.togeterName = name;
+    [self.callTogeterTableView reloadData];
+}
+
+#pragma mark -LookForSelectFriendViewControllerDelegate
+- (void)selectFriendNames:(NSString *)names {
+    self.friendNames = names;
+    [self.callTogeterTableView reloadData];
+}
 
 @end

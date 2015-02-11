@@ -8,7 +8,19 @@
 
 #import "BasicViewController.h"
 
-@interface LookForSelectFriendViewController : BasicViewController
+@protocol LookForSelectFriendViewControllerDelegate <NSObject>
+
+@optional
+//临时使用
+- (void)selectFriendNames:(NSString *)names;
+
+@end
+
+@interface LookForSelectFriendViewController : BasicViewController {
+
+}
+
+@property (nonatomic, weak) id<LookForSelectFriendViewControllerDelegate> delegate;
 
 - (id)initWithTitle:(NSString *)title;
 @end

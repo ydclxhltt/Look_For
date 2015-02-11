@@ -18,6 +18,8 @@
 
 @implementation LookForSelectFriendViewController
 
+@synthesize delegate;
+
 - (id)initWithTitle:(NSString *)title {
     self = [super init];
     if (self) {
@@ -79,7 +81,10 @@
 }
 
 - (void)handleSure {
-    
+    if ([self.delegate respondsToSelector:@selector(selectFriendNames:)]) {
+        [self.delegate selectFriendNames:@"jjjdslms,sdfsdfs"];
+    }
+    [self handleCancel];
 }
 
 #pragma -message

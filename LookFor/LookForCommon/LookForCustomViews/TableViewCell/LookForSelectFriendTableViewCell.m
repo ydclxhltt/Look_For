@@ -64,9 +64,11 @@
 
 - (void)setFriendSelected:(BOOL)friendSelected {
     if (friendSelected) {
-        self.selectImageView.image = [UIImage imageNamed:@"select_default.png"];
-    } else {
         self.selectImageView.image = [UIImage imageNamed:@"selected.png"];
+
+    } else {
+        self.selectImageView.image = [UIImage imageNamed:@"select_default.png"];
+
     }
 }
 

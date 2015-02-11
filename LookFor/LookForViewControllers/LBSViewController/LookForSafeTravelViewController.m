@@ -27,7 +27,8 @@ UIActionSheetDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
 UITableViewDataSource,
-UITableViewDelegate>
+UITableViewDelegate,
+LookForSelectFriendViewControllerDelegate>
 
 @property (nonatomic, strong) UIView        *headView;              //图片描述view
 @property (nonatomic, strong) UITextView    *messageTextView;       //输入框
@@ -63,6 +64,7 @@ UITableViewDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.friendName = @"sdflsdf";
     self.title = @"安心出行";
     [self setNavBarItemWithImageName:@"btn_back"
                          navItemType:LeftItem
@@ -363,11 +365,12 @@ UITableViewDelegate>
             [cell setHeadImage:@"ico_travel_up.png"];
         }
     } else {
+         cell.detailText = @"选择好友";
+
         if (self.friendName.length >0 ) {
-            cell.detailText = self.friendName;
+            [cell setRightText:self.friendName withColor:DetailColor];
             [cell setHeadImage:@"ico_friend_down.png"];
         } else {
-            cell.detailText = @"选择好友";
             [cell setHeadImage:@"ico_friend_up.png"];
         }
     }
@@ -382,11 +385,15 @@ UITableViewDelegate>
     if (row == 0) {
         
     } else {
-        LookForSelectFriendViewController *sf = [[LookForSelectFriendViewController alloc] init];
+        LookForSelectFriendViewController *sf = [[LookForSelectFriendViewController alloc] initWithTitle:@"选择好友"];
         [self.navigationController pushViewController:sf animated:YES];
     }
 }
 
-
+#pragma mark -LookForSelectFriendViewControllerDelegate
+- (void)selectFriendNames:(NSString *)names {
+    self.friendName = names;
+    [self.messageTableView  reloadData];
+}
 
 @end

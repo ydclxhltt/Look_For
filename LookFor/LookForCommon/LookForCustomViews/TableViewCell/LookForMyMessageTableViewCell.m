@@ -81,9 +81,9 @@
                                                  selectorName:@"handleRefuse"
                                                   tagDelegate:self];
     [self.refuseButton setTitle:@"拒绝" forState:UIControlStateNormal];
-    [self.refuseButton setTitleColor:TitleColor forState:UIControlStateNormal];
+    [self.refuseButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.refuseButton.titleLabel.font = [UIFont systemFontOfSize:12];
-
+    self.refuseButton.backgroundColor = RGB(179, 179, 180);
     self.refuseButton.hidden = YES;
     self.refuseButton.tag = Tag + 1;
     self.refuseButton.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
@@ -97,7 +97,8 @@
     self.confirmButton.tag = Tag;
     [self.confirmButton setTitle:@"同意" forState:UIControlStateNormal];
     self.confirmButton.titleLabel.font = [UIFont systemFontOfSize:12];
-    [self.confirmButton setTitleColor:TitleColor forState:UIControlStateNormal];
+    self.confirmButton.backgroundColor = RGB(118, 203, 203);
+    [self.confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self addSubview:self.confirmButton];
     UIView *buttomLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 0.5, MAIN_SCREEN_SIZE.width, 0.5)];
     buttomLine.backgroundColor = SeparatorLineColor;
