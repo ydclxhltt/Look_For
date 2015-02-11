@@ -45,6 +45,9 @@
     [self.loginView.loginButton addTarget:self action:@selector(handleLogin) forControlEvents:UIControlEventTouchUpInside];
     [self.loginView.forgetButton addTarget:self action:@selector(handleForget) forControlEvents:UIControlEventTouchUpInside];
     [self.loginView addTarget:self action:@selector(handleResponder) forControlEvents:UIControlEventTouchUpInside];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSucess) name:LOGIN_SUECESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginFail) name:LOGIN_FAIL object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,33 +104,82 @@
 }
 
 #pragma mark -handle
-- (void)handleCancel {
-    
+
+- (void)handleCancel
+{
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
-   // [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)handleRegister {
+- (void)handleRegister
+{
     LookForRegisterViewController *rv = [[LookForRegisterViewController alloc] init];
-    
     [self.navigationController pushViewController:rv animated:YES];
 }
 
-- (void)handleLogin {
-    
+#pragma mark 登录
+- (void)handleLogin
+{
+    if ([self isCanCommit])
+    {
+        [LookForRequestTool loginWithMobile:self.loginView.userTextField.text userPassword:self.loginView.passwordTextField.text];
+    }
 }
 
-- (void)handleForget {
+- (BOOL)isCanCommit
+{
+    NSString *password = self.loginView.passwordTextField.text;
+    password = (password) ? password : @"";
+    
+    NSString *mobile = self.loginView.userTextField.text;
+    mobile = (mobile) ? mobile : @"";
+    
+    NSString *message = @"";
+    if (mobile.length == 0)
+    {
+        message = MOBILE_NULL;
+    }
+    else if (![CommonTool isEmailOrPhoneNumber:mobile])
+    {
+        message = MOBILE_ERROR;
+    }
+    else if (password.length == 0)
+    {
+        message = PASSWORD_NULL;
+    }
+    
+    if ([@"" isEqualToString:message])
+    {
+        return YES;
+    }
+    else
+    {
+        [CommonTool addAlertTipWithMessage:message];
+        return NO;
+    }
+}
+
+- (void)loginSucess
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)loginFail
+{
+    [CommonTool addAlertTipWithMessage:@"登录成功"];
+}
+
+
+#pragma mark 忘记密码
+- (void)handleForget
+{
     LookForVerifiedCodeViewController *rv = [[LookForVerifiedCodeViewController alloc] initWithType:ModifyPhoneType withIsNewPhone:NO];
-    
     [self.navigationController pushViewController:rv animated:YES];
-//    LookForModifyPhoneViewController *p = [[LookForModifyPhoneViewController alloc] init];
-//    [self.navigationController pushViewController:p animated:YES];
 }
 
-- (void)handleResponder {
+- (void)handleResponder
+{
     [self.loginView.passwordTextField resignFirstResponder];
     [self.loginView.userTextField resignFirstResponder];
 }

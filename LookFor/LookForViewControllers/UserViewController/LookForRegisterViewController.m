@@ -18,7 +18,11 @@
 #define ResetButtonW        60
 
 @interface LookForRegisterViewController ()<UITextFieldDelegate>
-
+{
+    NSTimer *timer;
+    int count;
+    UIButton *resetButton;
+}
 @property (nonatomic, strong) UIView *textBgView;   //
 @property (nonatomic, strong) UIImageView *phoneNumberHeadImage;    //用户名头的图片
 @property (nonatomic, strong) UIImageView *verifiedHeadImage;       //用户秘密头的图片
@@ -104,15 +108,15 @@
     self.verifiedTextField.font = [UIFont systemFontOfSize:14];
     [self.textBgView addSubview:self.verifiedTextField];
     
-    UIView *line2  = [[UIView alloc] initWithFrame:CGRectMake(self.verifiedTextField.frame.size.width + LeftSpace, self.verifiedTextField.frame.origin.y - 3, 0.5, 44)];
+    UIView *line2  = [[UIView alloc] initWithFrame:CGRectMake(self.verifiedTextField.frame.size.width + LeftSpace, self.verifiedTextField.frame.origin.y, 0.5, 44)];
     line2.backgroundColor = SeparatorLineColor;
     [self.textBgView addSubview:line2];
     
-    UIButton *resetButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    resetButton = [UIButton buttonWithType:UIButtonTypeCustom];
     resetButton.frame = CGRectMake(MAIN_SCREEN_SIZE.width - Default- ResetButtonW, self.verifiedTextField.frame.origin.y, ResetButtonW, TextFieldH);
-    [resetButton setTitle:@"重新获取" forState:UIControlStateNormal];
+    [resetButton setTitle:@"获取验证码" forState:UIControlStateNormal];
     [resetButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-    resetButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    resetButton.titleLabel.font = [UIFont systemFontOfSize:12];
     [resetButton addTarget:self action:@selector(handleVerified) forControlEvents:UIControlEventTouchUpInside];
     [self.textBgView addSubview:resetButton];
     
@@ -144,6 +148,11 @@
     [self setNavBarItemWithTitle:@"取消"
                      navItemType:LeftItem
                     selectorName:@"handleCancel"];
+    
+    count = 60.0;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registerSucess) name:REGISTER_SUCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registerFail) name:REGISTER_FAIL object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -151,18 +160,25 @@
 }
 
 #pragma mark -handle
+
 - (void)handleCancel
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 - (void)handleSure
 {
     
 }
 
+#pragma mark 验证码
 - (void)handleVerified
 {
+    if (count != 60)
+    {
+        return;
+    }
     NSString *message = @"";
     NSString *phoneNumber = self.phoneNumberTextField.text;
     phoneNumber = (phoneNumber) ? phoneNumber : @"";
@@ -179,12 +195,69 @@
         [CommonTool addAlertTipWithMessage:message];
         return;
     }
-    [SMS_SDK getVerificationCodeByVoiceCallWithPhone:phoneNumber zone:@"86" result:^(SMS_SDKError *error)
+    [self createTimer];
+//    [SMS_SDK getVerificationCodeByVoiceCallWithPhone:phoneNumber zone:@"86" result:^(SMS_SDKError *error)
+//    {
+//        NSLog(@"error===%@",error);
+//        if (error)
+//        {
+//            [CommonTool addAlertTipWithMessage:error.errorDescription];
+//        }
+//    }];
+    [SMS_SDK getVerifyCodeByPhoneNumber:phoneNumber AndZone:@"86" result:^(enum SMS_GetVerifyCodeResponseState state)
     {
-        NSLog(@"error===%@",error);
+        NSLog(@"state===%d",state);
+        if (SMS_ResponseStateGetVerifyCodeSuccess != state)
+        {
+            [self cancelTimer];
+            [CommonTool addAlertTipWithMessage:CODE_ERROR];
+        }
     }];
 }
 
+- (void)createTimer
+{
+    if (timer)
+    {
+        [self cancelTimer];
+        return;
+    }
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(changeTitle) userInfo:nil repeats:YES];
+    //resetButton.enabled = NO;
+    
+    
+}
+
+- (void)cancelTimer
+{
+    if (timer)
+    {
+        [timer invalidate];
+        timer = nil;
+    }
+    count = 60;
+    [resetButton setTitle:@"获取验证码" forState:UIControlStateNormal];
+}
+
+
+- (void)changeTitle
+{
+    NSString *string = @"";
+    if (count < 0)
+    {
+        [self cancelTimer];
+        return;
+    }
+    else
+    {
+        string = [NSString stringWithFormat:@"%d秒",count];
+    }
+    [resetButton setTitle:string forState:UIControlStateNormal];
+    count--;
+}
+
+
+#pragma mark 注册
 - (void)handleRegister
 {
     if (![self isCanCommit])
@@ -192,7 +265,7 @@
         return;
     }
     
-    [SMS_SDK commitVerifyCode:@"" result:^(enum SMS_ResponseState state)
+    [SMS_SDK commitVerifyCode:self.verifiedTextField.text result:^(enum SMS_ResponseState state)
     {
         if (state == SMS_ResponseStateSuccess)
         {
@@ -250,9 +323,19 @@
 #pragma mark registerRequest
 - (void)registerRequest
 {
-    
+    [LookForRequestTool registerWithMobile:self.phoneNumberTextField.text userPassword:self.passwordTextField.text];
 }
 
+- (void)registerSucess
+{
+    //
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)registerFail
+{
+    [CommonTool addAlertTipWithMessage:@"注册失败"];
+}
 
 #pragma mark UITextFieldNotification
 - (void)textFieldTextChanged:(NSNotification *)notification
@@ -269,7 +352,7 @@
     {
         if (self.verifiedTextField.text.length > 4)
         {
-            self.phoneNumberTextField.text = [self.phoneNumberTextField.text stringByReplacingCharactersInRange:NSMakeRange(4, self.phoneNumberTextField.text.length - 4) withString:@""];
+            self.verifiedTextField.text = [self.verifiedTextField.text stringByReplacingCharactersInRange:NSMakeRange(4, self.verifiedTextField.text.length - 4) withString:@""];
         }
     }
 }

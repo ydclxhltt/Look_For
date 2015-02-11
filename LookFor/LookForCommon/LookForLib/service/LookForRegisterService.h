@@ -8,6 +8,9 @@
 
 #import "LookForBaseService.h"
 
+#define REGISTER_SUCESS     @"REGISTER_SUCESS"
+#define REGISTER_FAIL       @"REGISTER_FAIL"
+
 @interface LookForRegisterService : LookForBaseService
 
 - (void)requestWithMobile:(NSString *)mobile userPassword:(NSString *)password;

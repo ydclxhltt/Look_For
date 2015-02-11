@@ -76,13 +76,7 @@ LookForLeftViewDelegate>
     //添加通知
     [self addNotifications];
  
-    [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(test) userInfo:nil repeats:NO];
     // Do any additional setup after loading the view.
-}
-
-- (void)test
-{
-    [LookForRequestTool registerWithMobile:@"18625353675" userPassword:@"123456"];
 }
 
 - (void)viewWillAppear:(BOOL)animated

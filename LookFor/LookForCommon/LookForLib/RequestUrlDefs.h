@@ -22,7 +22,7 @@
 #define REGISTER_URL            MAKE_URL_STRING(@"/lookfor/inter/user/regist")
 
 //登录接口地址
-#define LOGIN_URL               MAKE_URL_STRING(@"login.do")
+#define LOGIN_URL               MAKE_URL_STRING(@"/lookfor/inter/user/userLogin")
 
 //http://182.92.241.249/lookfor/inter/user/regist?mobile=15820790320&password=123456&token=46D1BE39C7B14DA6997AE3DBBE61DE94
 

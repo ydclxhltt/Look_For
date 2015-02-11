@@ -13,6 +13,7 @@
 #import "LookForLoginSystemService.h"
 #import "LookForRegisterService.h"
 #import "LookForNickNameService.h"
+#import "LookForLoginService.h"
 
 typedef enum : NSUInteger
 {
@@ -35,6 +36,14 @@ typedef enum : NSUInteger
  * @pram password 密码
  */
 + (void)registerWithMobile:(NSString *)mobile userPassword:(NSString *)password;
+
+/*
+ * 登录
+ *
+ * @pram mobile   手机号
+ * @pram password 密码
+ */
++ (void)loginWithMobile:(NSString *)mobile userPassword:(NSString *)password;
 
 /*
  * 设置昵称

@@ -8,8 +8,11 @@
 
 #import "LookForBaseService.h"
 
+#define LOGIN_SUECESS   @"LOGIN_SUECESS"
+#define LOGIN_FAIL      @"LOGIN_FAIL"
+
+
 @interface LookForLoginService : LookForBaseService
 
-- (BOOL)login:(NSString *)passWord
-     withName:(NSString *)name;
+- (void)login:(NSString *)password withMobile:(NSString *)mobile;
 @end

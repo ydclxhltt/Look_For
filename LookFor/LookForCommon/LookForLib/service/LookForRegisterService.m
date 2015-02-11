@@ -22,13 +22,17 @@
 
 - (void)requestFail
 {
-    
+    [self sendNoticationWithName:REGISTER_FAIL object:nil];
 }
 
 
 - (void)requestSuccess:(NSDictionary *)responseDictionary
 {
     NSLog(@"responseDictionary===%@",responseDictionary);
+    NSArray *array = responseDictionary[@"response"][@"body"][@"items"];
+    NSDictionary *dic = array[0];
+    [LookFor_Application shareInstance].token = dic[@"token"];
+    [self sendNoticationWithName:REGISTER_SUCESS object:nil];
 }
 
 

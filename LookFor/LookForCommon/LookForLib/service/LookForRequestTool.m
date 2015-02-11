@@ -41,6 +41,14 @@
     [LookForRequestTool request:registerService withRequestType:RequestTypePost];
 }
 
+#pragma mark 登录
++ (void)loginWithMobile:(NSString *)mobile userPassword:(NSString *)password
+{
+    LookForLoginService *loginService = [[LookForLoginService alloc] init];
+    [loginService login:password withMobile:mobile];
+    [LookForRequestTool request:loginService withRequestType:RequestTypePost];
+}
+
 #pragma mark 修改昵称
 + (void)setNickName:(NSString *)name
 {

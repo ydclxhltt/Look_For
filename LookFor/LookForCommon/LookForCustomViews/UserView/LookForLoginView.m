@@ -64,6 +64,8 @@
         self.userTextField.placeholder = @"请输入用户名";
         self.userTextField.textColor = [UIColor blackColor];
         self.userTextField.backgroundColor = [UIColor clearColor];
+        self.userTextField.keyboardType = UIKeyboardTypeNumberPad;
+        self.userTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
         self.userTextField.delegate = self;
         self.userTextField.font = [UIFont systemFontOfSize:15];
         [self.textBgView addSubview:self.userTextField];
@@ -90,6 +92,9 @@
         self.passwordTextField.placeholder = @"请输入密码";
         self.passwordTextField.textColor = [UIColor blackColor];
         self.passwordTextField.backgroundColor = [UIColor clearColor];
+        self.passwordTextField.keyboardType = UIKeyboardTypeNumberPad;
+        self.passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        self.passwordTextField.secureTextEntry = YES;
         self.passwordTextField.delegate = self;
         self.passwordTextField.font = [UIFont systemFontOfSize:15];
         [self.textBgView addSubview:self.passwordTextField];
