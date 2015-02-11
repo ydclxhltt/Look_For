@@ -145,6 +145,7 @@
 		771CB13E1A67DE020087FCD4 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 771CB13D1A67DE020087FCD4 /* logo.png */; };
 		7762213B1A68A24200FD9ADE /* LookFor_FriendDetailList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7762213A1A68A24200FD9ADE /* LookFor_FriendDetailList.m */; };
 		7762213E1A68A7AF00FD9ADE /* LookFor_FriendDetailListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7762213D1A68A7AF00FD9ADE /* LookFor_FriendDetailListService.m */; };
+		7770B0141A8B3FBB00968A99 /* LookForFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7770B0131A8B3FBB00968A99 /* LookForFriendListViewController.m */; };
 		779D25561A66573900852F5C /* LookForFriendListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 779D25551A66573900852F5C /* LookForFriendListService.m */; };
 		779D25591A665B7C00852F5C /* LookForRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 779D25581A665B7C00852F5C /* LookForRequestTool.m */; };
 		779D255D1A6672C100852F5C /* LookFor_FriendList.m in Sources */ = {isa = PBXBuildFile; fileRef = 779D255C1A6672C100852F5C /* LookFor_FriendList.m */; };
@@ -464,6 +465,8 @@
 		7762213A1A68A24200FD9ADE /* LookFor_FriendDetailList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookFor_FriendDetailList.m; sourceTree = "<group>"; };
 		7762213C1A68A7AF00FD9ADE /* LookFor_FriendDetailListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookFor_FriendDetailListService.h; sourceTree = "<group>"; };
 		7762213D1A68A7AF00FD9ADE /* LookFor_FriendDetailListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookFor_FriendDetailListService.m; sourceTree = "<group>"; };
+		7770B0121A8B3FBB00968A99 /* LookForFriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForFriendListViewController.h; sourceTree = "<group>"; };
+		7770B0131A8B3FBB00968A99 /* LookForFriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForFriendListViewController.m; sourceTree = "<group>"; };
 		779D25541A66573900852F5C /* LookForFriendListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForFriendListService.h; sourceTree = "<group>"; };
 		779D25551A66573900852F5C /* LookForFriendListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookForFriendListService.m; sourceTree = "<group>"; };
 		779D25571A665B7C00852F5C /* LookForRequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookForRequestTool.h; sourceTree = "<group>"; };
@@ -937,6 +940,8 @@
 			children = (
 				6BD11FE91A64C85800C860F1 /* LookForSelectFriendViewController.h */,
 				6BD11FEA1A64C85800C860F1 /* LookForSelectFriendViewController.m */,
+				7770B0121A8B3FBB00968A99 /* LookForFriendListViewController.h */,
+				7770B0131A8B3FBB00968A99 /* LookForFriendListViewController.m */,
 			);
 			path = FriendViewController;
 			sourceTree = "<group>";
@@ -1826,6 +1831,7 @@
 				6BA7BAA01A7A73980076F863 /* LookForCommonlyAddressViewController.m in Sources */,
 				CE33CB0D1A5C57640042006D /* AFURLSessionManager.m in Sources */,
 				6BD11FEF1A64ED1D00C860F1 /* LookForCallTogetherViewController.m in Sources */,
+				7770B0141A8B3FBB00968A99 /* LookForFriendListViewController.m in Sources */,
 				6BEDC74F1A5FD35F00B0C595 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				6B01C5221A7A543000775DFD /* LookForLBSTpyeViewController.m in Sources */,
 				6BEDC7501A5FD35F00B0C595 /* UIAlertView+AFNetworking.m in Sources */,
